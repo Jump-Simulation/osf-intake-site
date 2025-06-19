@@ -80,7 +80,7 @@ export const en_fh_OpenScheduling_book: BookObject = {
                 buttonStyle: "primary",
                 iconVisible: false,
                 textValue: "Next Question!",
-                destination: "page-fhIntro001",
+                destination: "page-double2",
               },
             ],
           },
@@ -88,7 +88,7 @@ export const en_fh_OpenScheduling_book: BookObject = {
 
         // Introduction Screen 1
         {
-          id: "page-fhIntro001",
+          id: "page-double2",
           navTitle: "Introduction",
           keywords: "introduction",
           authors: "Kyle Formella, Maddox Binder",
@@ -149,7 +149,7 @@ export const en_fh_OpenScheduling_book: BookObject = {
 
         // Introduction Screen 4
         {
-          id: "page-fhIntro004",
+          id: "page-fhDoubleExample3",
           navTitle: "null",
           keywords: "",
           authors: "Kyle Formella, Maddox Binder",
@@ -405,7 +405,7 @@ export const en_fh_OpenScheduling_book: BookObject = {
 
         // Introduction Screen 1
         {
-          id: "page-fhIntro001",
+          id: "page-fhDouble1",
           navTitle: "Introduction",
           keywords: "introduction",
           authors: "Kyle Formella, Maddox Binder",
