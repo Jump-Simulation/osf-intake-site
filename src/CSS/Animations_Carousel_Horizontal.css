@@ -1,0 +1,144 @@
+@keyframes FadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    10% {
+
+        opacity: 1;
+    }
+
+    100% {
+
+        opacity: 1;
+    }
+}
+
+
+
+/*arriving animations, horizontal */
+
+@keyframes AnimationRightToCenter {
+    0% {
+        transform: translateX(110vw);
+
+        opacity: 0;
+        /*        position: relative; */
+    }
+
+    5% {
+        opacity: 1;
+    }
+
+    10% {
+        transform: translate(0%, 0%);
+
+        opacity: 1;
+    }
+
+    20% {
+        transform: translate(0%, 0%);
+        /* Move to the center of the viewport */
+        /* End at the original position */
+        opacity: 1;
+    }
+
+    50% {
+        transform: translate(0%, 0%);
+        /* Move to the center of the viewport */
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(0%, 0%);
+        /* Move to the center of the viewport */
+        opacity: 1;
+        /*    position: relative; */
+    }
+}
+
+@keyframes AnimationLeftToCenter {
+    0% {
+        transform: translateX(-110vw);
+        opacity: 0;
+        /*    position: relative; */
+    }
+
+    5% {
+        opacity: 1;
+    }
+
+    10% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    20% {
+        transform: translateX(0);
+        opacity: 1;
+
+
+    }
+
+    50% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(0);
+
+        opacity: 1;
+
+        /*     position: relative; */
+    }
+}
+
+
+/*leaving animations, horizontal */
+
+@keyframes AnimationCenterToLeft {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+        /*     position: relative; */
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    95% {
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(-110vw);
+
+        opacity: 0;
+        /*      position: relative; */
+    }
+}
+
+@keyframes AnimationCenterToRight {
+    0% {
+
+        transform: translateX(0);
+        opacity: 1;
+        /*     position: relative; */
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    95% {
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(110vw);
+        opacity: 0;
+        /*        position: relative; */
+    }
+}

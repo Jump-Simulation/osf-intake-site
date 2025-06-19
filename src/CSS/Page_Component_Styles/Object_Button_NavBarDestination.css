@@ -1,0 +1,162 @@
+.nav-bar-destination-button-desktop {
+    width: 100%;
+
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    text-align: start;
+
+    margin-top: var(--spacing-md-desktop);
+    margin-bottom: var(--spacing-md-desktop);
+    margin-right: auto;
+    margin-left: auto;
+    padding-top: var(--spacing-md-desktop);
+    padding-bottom: var(--spacing-md-desktop);
+    padding-left: var(--spacing-2xl-desktop);
+    padding-right: var(--spacing-2xl-desktop);
+    /*   padding: var(--spacing-lg-desktop, 20px) var(--spacing-2xl-desktop, 28px); */
+    color: var(--color-primary-interact-bolder-default);
+
+    cursor: pointer;
+
+
+}
+
+.nav-bar-destination-button-disabled-desktop {
+    width: 100%;
+
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    text-align: start;
+
+    margin-top: var(--spacing-md-desktop);
+    margin-bottom: var(--spacing-md-desktop);
+    margin-right: auto;
+    margin-left: auto;
+    padding-top: var(--spacing-md-desktop);
+    padding-bottom: var(--spacing-md-desktop);
+    padding-left: var(--spacing-2xl-desktop);
+    padding-right: var(--spacing-2xl-desktop);
+    color: var(--color-disabled-bold);
+    cursor: default;
+}
+
+.nav-bar-destination-button-highlighted-desktop {
+    width: 100%;
+    border-radius: var(--spacing-md-desktop, 16px);
+
+    /* OLD LIGHT COLORING
+    background: var(--color-primary-container-default, #DAE2FF);
+    color: var(--color-on-primary-light, #0B247D);
+    */
+
+    background: var(--color-primary-interact-bolder-default, #0D30AD);
+    color: var(--color-on-primary-bold, #FFFFFF);
+
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    text-align: start;
+
+    margin-top: var(--spacing-md-desktop);
+    margin-bottom: var(--spacing-md-desktop);
+    margin-right: auto;
+    margin-left: auto;
+    padding-top: var(--spacing-md-desktop);
+    padding-bottom: var(--spacing-md-desktop);
+    padding-left: var(--spacing-2xl-desktop);
+    padding-right: var(--spacing-2xl-desktop);
+    cursor: pointer;
+    /* MADDOX CHANGE -- I think this part is entirely useless... commenting out to check.
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+    */
+}
+
+
+/* //////////////////////////////////////MOBILE//////////////////////////////////// */
+
+.nav-bar-destination-button-mobile {
+    width: 100%;
+
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    text-align: start !important;
+
+    /*   margin-top: var(--spacing-md-mobile);
+    margin-bottom: var(--spacing-md-mobile); */
+
+    margin-right: auto;
+    margin-left: auto;
+
+    padding-top: var(--spacing-md-mobile);
+    padding-bottom: var(--spacing-md-mobile);
+    padding-left: var(--spacing-2xl-mobile);
+    padding-right: var(--spacing-2xl-mobile);
+
+
+}
+
+
+
+.nav-bar-destination-button-highlighted-mobile {
+    width: 100%;
+    border-radius: var(--spacing-md-mobile, 12px);
+
+    /* OLD LIGHT COLORING
+    background: var(--color-primary-container-default, #DAE2FF);
+    color: var(--color-on-primary-light, #0B247D);
+    */
+
+    background: var(--color-primary-interact-bolder-default, #0D30AD);
+    color: var(--color-on-primary-bold, #FFFFFF);
+
+
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    text-align: start;
+
+    /* 
+    margin-top: var(--spacing-md-mobile);
+    margin-bottom: var(--spacing-md-mobile); */
+    margin-right: auto;
+    margin-left: auto;
+    padding-top: var(--spacing-md-mobile);
+    padding-bottom: var(--spacing-md-mobile);
+    padding-left: var(--spacing-2xl-mobile);
+    padding-right: var(--spacing-2xl-mobile);
+
+
+    /* MADDOX CHANGE -- I think this part is entirely useless... commenting out to check.
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+    */
+
+}
+
+.nav-bar-destination-button-disabled-mobile {
+    width: 100%;
+
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    text-align: start;
+
+    margin-top: var(--spacing-md-mobile);
+    margin-bottom: var(--spacing-md-mobile);
+    margin-right: auto;
+    margin-left: auto;
+    padding-top: var(--spacing-md-mobile);
+    padding-bottom: var(--spacing-md-mobile);
+    padding-left: var(--spacing-2xl-mobile);
+    padding-right: var(--spacing-2xl-mobile);
+    color: var(--color-disabled-bold);
+
+}

@@ -1,0 +1,147 @@
+@import "./Object_Item_Text.css";
+/* @import "./Brand-Text.css";
+@import "./Brand-Colors.css";
+@import "./Brand-Scale-and-Spacing.css"; */
+
+
+.object-button-swipe-parent {
+
+
+    width: 50%;
+
+    /*    position: sticky;
+    bottom: 0; */
+    margin-top: auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+    padding: 5%;
+
+    /* Stick to the bottom of the viewport */
+}
+
+.object-button-swipe-down {
+
+    background-color: var(--color-primary-container-default);
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    /*     position: sticky; */
+    /*  bottom: 10%;
+    left: 0; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+
+    /* Stick to the bottom of the viewport */
+}
+
+.object-button-swipe-up {
+
+    background-color: #ffffff;
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    position: sticky;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+
+    /*     drop-shadow(0px 1px 3px rgba(0, 0, 0, 0.30)) drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.15)); */
+
+
+    /* Stick to the bottom of the viewport */
+}
+
+.object-icon-size {
+    font-size: 100%;
+
+}
+
+
+
+
+
+
+
+.normal-button-primary,
+.normal-button-secondary,
+.normal-button-tertiary,
+.normal-button-primary-disabled,
+.normal-button-secondary-disabled,
+.normal-button-tertiary-disabled {
+    font-size: var(--font-size-h4);
+
+    border-radius: 10px;
+    padding: 10px;
+
+    border-style: solid;
+    border-width: 2px;
+}
+
+
+.normal-button-primary {
+    background-color: var(--color-primary-interact-bold-default);
+    border-color: transparent;
+}
+
+.normal-button-primary:hover {
+    background-color: var(--color-primary-interact-bold-hovered);
+}
+
+.normal-button-primary:hover.normal-button-primary:active {
+    background-color: var(--color-primary-interact-bold-pressed);
+}
+
+.normal-button-primary-disabled {
+    background-color: var(--color-disabled-bold);
+    border-color: transparent;
+}
+
+
+/* Text */
+.normal-button-primary-text {
+    color: var(--color-on-primary-bold);
+}
+
+.normal-button-primary-text-disabled {
+    color: var(--color-on-primary-bold);
+}
+
+.normal-button-primary:active.normal-button-primary-text {
+    color: var(--color-on-primary-bold);
+}
+
+.normal-button-primary:hover.normal-button-primary-text {
+    color: var(--color-on-primary-bold);
+}
+
+/* Icon */
+.normal-button-primary-icon {
+    height: 100%;
+    color: var(--color-primary-interact-bold-default);
+}
+
+.normal-button-primary-icon-disabled {
+    height: 100%;
+    color: var(--color-primary-interact-bold-default);
+}
+
+.normal-button-primary:active.normal-button-primary-icon {
+    height: 100%;
+    color: var(--color-primary-interact-bold-default);
+}
+
+.normal-button-primary:hover.normal-button-primary-icon {
+    height: 100%;
+    color: var(--color-primary-interact-bold-default);
+}

@@ -1,0 +1,600 @@
+@import "./Object_Item_Text.css";
+/* @import "./Brand-Text.css";
+@import "./Brand-Colors.css";
+@import "./Brand-Scale-and-Spacing.css"; */
+
+.selection-confirmation-button-primary-desktop,
+.selection-confirmation-button-primary-disabled-desktop,
+.selection-confirmation-button-secondary-desktop,
+.selection-confirmation-button-secondary-disabled-desktop,
+.selection-confirmation-button-tertiary-desktop,
+.selection-confirmation-button-tertiary-disabled-desktop {
+    /* You can define common styles here, or leave it empty to inherit .selection-confirmation-button styles */
+    margin-top: var(--spacing-md-desktop);
+    margin-bottom: var(--spacing-md-desktop);
+    margin-right: auto;
+    margin-left: auto;
+    border: 1px solid var(--color-success-interact-bold-default, #0A6B4E);
+
+
+    display: inline-flex;
+    padding: var(--spacing-sm-desktop, 8px) var(--spacing-lg-desktop, 16px);
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-sm-desktop, 8px);
+
+    border-radius: var(--spacing-sm-desktop, 8px);
+    display: flex;
+    place-items: center;
+    justify-content: space-evenly;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    user-select: none;
+    /*     height: 100%;
+; */
+    width: 100%;
+    text-align: start;
+}
+
+.selection-confirmation-button-primary-desktop {
+    background: var(--color-success-interact-bold-default, #0A6B4E);
+}
+
+.selection-confirmation-button-primary-desktop:hover {
+
+    background: var(--color-success-interact-bold-hovered, #004B35);
+    border: 1px solid var(--color-success-interact-bold-hovered, #004B35);
+}
+
+.selection-confirmation-button-primary-desktop:active {
+    background: var(--color-success-interact-bold-pressed, #003727);
+    border: 1px solid var(--color-success-interact-bold-pressed, #003727);
+}
+
+
+
+.selection-confirmation-button-primary-disabled-desktop {
+    background: var(--color-disabled-bold, #7D808A);
+    border: 1px solid var(--color-disabled-bold, #7D808A);
+}
+
+/* Text */
+.selection-confirmation-button-primary-text-desktop {
+    color: white;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.selection-confirmation-button-primary-text-disabled-desktop {
+
+    color: white;
+}
+
+.selection-confirmation-button-primary-desktop:hover .selection-confirmation-button-primary-text-desktop {
+
+    color: white;
+}
+
+.selection-confirmation-button-primary-desktop:active .selection-confirmation-button-primary-text-desktop {
+
+    color: white;
+}
+
+.selection-confirmation-button-primary-desktop:hover:active .selection-confirmation-button-primary-text-desktop {
+
+    color: white;
+}
+
+
+
+/* Icon */
+.selection-confirmation-button-primary-icon-desktop {
+
+    color: white;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.selection-confirmation-button-primary-icon-disabled-desktop {
+
+    color: white;
+}
+
+.selection-confirmation-button-primary-desktop:hover .selection-confirmation-button-primary-icon-desktop {
+
+    color: white;
+}
+
+.selection-confirmation-button-primary-desktop:active .selection-confirmation-button-primary-icon-desktop {
+
+    color: white;
+}
+
+.selection-confirmation-button-primary-desktop:hover:active .selection-confirmation-button-primary-icon-desktop {
+
+    color: white;
+}
+
+/* ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* Secondary Styles*/
+/* Button */
+.selection-confirmation-button-secondary-desktop {
+    background-color: var(--color-surface-default);
+    border-radius: var(--spacing-sm-desktop, 8px);
+    border: 1px solid var(--color-success-interact-bold-default, #0A6B4E);
+
+    display: flex;
+    place-items: center;
+    justify-content: space-evenly;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    user-select: none;
+
+    color: var(--color-success-interact-bold-hovered, #004B35);
+    ;
+
+}
+
+.selection-confirmation-button-secondary-desktop:hover {
+    border: 1px solid var(--color-success-interact-bold-hovered, #004B35);
+
+}
+
+.selection-confirmation-button-secondary-desktop:active {
+    border: 1px solid var(--color-success-interact-bold-pressed, #003727);
+}
+
+
+
+
+.selection-confirmation-button-secondary-disabled-desktop {
+    background-color: transparent;
+    border: 2px solid #4d4d4d;
+}
+
+/* Text */
+.selection-confirmation-button-secondary-text-desktop {
+    /* this is no longer really useful */
+    color: var(--color-success-interact-bold-default, #0A6B4E);
+}
+
+.selection-confirmation-button-secondary-text-disabled-desktop {
+
+    color: var(--color-disabled-bold, #7D808A);
+
+}
+
+.selection-confirmation-button-secondary-desktop:hover .selection-confirmation-button-secondary-text-desktop {
+
+    color: var(--color-success-interact-bold-hovered, #004B35);
+}
+
+.selection-confirmation-button-secondary-desktop:active .selection-confirmation-button-secondary-text-desktop {
+
+    color: var(--color-success-interact-bold-pressed, #003727);
+}
+
+.selection-confirmation-button-secondary-desktop:hover:active .selection-confirmation-button-secondary-text-desktop {
+
+    color: var(--color-success-interact-bold-pressed, #003727);
+}
+
+
+
+/* Icon */
+.selection-confirmation-button-secondary-icon-desktop {
+
+
+    color: var(--color-success-interact-bold-default, #0A6B4E);
+}
+
+.selection-confirmation-button-secondary-icon-disabled-desktop {
+
+    color: var(--color-disabled-bold, #7D808A);
+
+}
+
+.selection-confirmation-button-secondary-desktop:hover .selection-confirmation-button-secondary-icon-desktop {
+
+    color: var(--color-success-interact-bold-hovered, #004B35);
+}
+
+.selection-confirmation-button-secondary-desktop:active .selection-confirmation-button-secondary-icon-desktop {
+
+    color: var(--color-success-interact-bold-pressed, #003727);
+}
+
+.selection-confirmation-button-secondary-desktop:hover:active .selection-confirmation-button-secondary-icon-desktop {
+
+    color: var(--color-success-interact-bold-pressed, #003727);
+}
+
+/* ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* Tertiary Styles*/
+/* Button */
+.selection-confirmation-button-tertiary-desktop {
+    background-color: transparent;
+    display: flex;
+    place-items: center;
+    justify-content: space-evenly;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    user-select: none;
+    border-color: transparent;
+
+}
+
+.selection-confirmation-button-tertiary-desktop:hover {
+
+    background-color: transparent
+}
+
+.selection-confirmation-button-tertiary-desktop:active {
+    background-color: transparent
+}
+
+.selection-confirmation-button-tertiary-desktop:hover:active {
+    background-color: transparent
+}
+
+.selection-confirmation-button-tertiary-disabled-desktop {
+    background-color: transparent
+}
+
+/* Text */
+.selection-confirmation-button-tertiary-text-desktop {
+    color: var(--color-success-interact-bold-default, #0A6B4E);
+
+}
+
+.selection-confirmation-button-tertiary-text-disabled-desktop {
+
+    color: var(--color-disabled-bold, #7D808A);
+
+}
+
+.selection-confirmation-button-tertiary-desktop:hover .selection-confirmation-button-tertiary-text-desktop {
+
+    color: var(--color-success-interact-bold-hovered, #004B35);
+}
+
+.selection-confirmation-button-tertiary-desktop:active .selection-confirmation-button-tertiary-text-desktop {
+
+    color: var(--color-success-interact-bold-pressed, #003727);
+}
+
+.selection-confirmation-button-tertiary-desktop:hover:active .selection-confirmation-button-tertiary-text-desktop {
+
+    color: var(--color-success-interact-bold-pressed, #003727);
+}
+
+
+
+/* Icon */
+.selection-confirmation-button-tertiary-icon-desktop {
+
+    color: var(--color-success-interact-bold-default, #0A6B4E);
+}
+
+.selection-confirmation-button-tertiary-icon-disabled-desktop {
+
+    color: var(--color-disabled-bold, #7D808A);
+
+}
+
+.selection-confirmation-button-tertiary-desktop:hover .selection-confirmation-button-tertiary-icon-desktop {
+
+    color: var(--color-success-interact-bold-hovered, #004B35);
+}
+
+.selection-confirmation-button-tertiary-desktop:active .selection-confirmation-button-tertiary-icon-desktop {
+
+    color: var(--color-success-interact-bold-pressed, #003727);
+}
+
+.selection-confirmation-button-tertiary-desktop:hover:active .selection-confirmation-button-tertiary-icon-desktop {
+
+    color: var(--color-success-interact-bold-pressed, #003727);
+}
+
+
+
+/* MOBILE /////////////////////////////////*/
+
+.selection-confirmation-button-primary-mobile,
+.selection-confirmation-button-primary-disabled-mobile,
+.selection-confirmation-button-secondary-mobile,
+.selection-confirmation-button-secondary-disabled-mobile,
+.selection-confirmation-button-tertiary-mobile,
+.selection-confirmation-button-tertiary-disabled-mobile {
+    /* You can define common styles here, or leave it empty to inherit .selection-confirmation-button styles */
+    margin-top: var(--spacing-md-mobile);
+    margin-bottom: var(--spacing-md-mobile);
+    margin-right: auto;
+    margin-left: auto;
+    border: 1px solid var(--color-success-interact-bold-default, #0A6B4E);
+
+
+    display: inline-flex;
+    padding: var(--spacing-sm-mobile, 8px) var(--spacing-lg-mobile, 16px);
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-sm-mobile, 8px);
+
+    border-radius: var(--spacing-sm-mobile, 8px);
+    display: flex;
+    place-items: center;
+    justify-content: space-evenly;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    user-select: none;
+
+    width: 100%;
+    text-align: start;
+
+    /*     height: 100%;
+; */
+
+
+}
+
+.selection-confirmation-button-primary-mobile {
+    background: var(--color-success-interact-bold-default, #0A6B4E);
+}
+
+.selection-confirmation-button-primary-mobile:hover {
+
+    background: var(--color-success-interact-bold-hovered, #004B35);
+    border: 1px solid var(--color-success-interact-bold-hovered, #004B35);
+}
+
+.selection-confirmation-button-primary-mobile:active {
+    background: var(--color-success-interact-bold-pressed, #003727);
+    border: 1px solid var(--color-success-interact-bold-pressed, #003727);
+}
+
+
+
+.selection-confirmation-button-primary-disabled-mobile {
+    background: var(--color-disabled-bold, #7D808A);
+    border: 1px solid var(--color-disabled-bold, #7D808A);
+}
+
+/* Text */
+.selection-confirmation-button-primary-text-mobile {
+    color: white;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.selection-confirmation-button-primary-text-disabled-mobile {
+
+    color: white;
+}
+
+.selection-confirmation-button-primary-mobile:hover .selection-confirmation-button-primary-text-mobile {
+
+    color: white;
+}
+
+.selection-confirmation-button-primary-mobile:active .selection-confirmation-button-primary-text-mobile {
+
+    color: white;
+}
+
+.selection-confirmation-button-primary-mobile:hover:active .selection-confirmation-button-primary-text-mobile {
+
+    color: white;
+}
+
+
+
+/* Icon */
+.selection-confirmation-button-primary-icon-mobile {
+
+    color: white;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.selection-confirmation-button-primary-icon-disabled-mobile {
+
+    color: white;
+}
+
+.selection-confirmation-button-primary-mobile:hover .selection-confirmation-button-primary-icon-mobile {
+
+    color: white;
+}
+
+.selection-confirmation-button-primary-mobile:active .selection-confirmation-button-primary-icon-mobile {
+
+    color: white;
+}
+
+.selection-confirmation-button-primary-mobile:hover:active .selection-confirmation-button-primary-icon-mobile {
+
+    color: white;
+}
+
+/* ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* Secondary Styles*/
+/* Button */
+.selection-confirmation-button-secondary-mobile {
+    background-color: var(--color-surface-default);
+    border-radius: var(--spacing-sm-mobile, 8px);
+    border: 1px solid var(--color-success-interact-bold-default, #0A6B4E);
+
+    display: flex;
+    place-items: center;
+    justify-content: space-evenly;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    user-select: none;
+
+    color: var(--color-success-interact-bold-hovered, #004B35);
+    ;
+
+}
+
+.selection-confirmation-button-secondary-mobile:hover {
+    border: 1px solid var(--color-success-interact-bold-hovered, #004B35);
+
+}
+
+.selection-confirmation-button-secondary-mobile:active {
+    border: 1px solid var(--color-success-interact-bold-pressed, #003727);
+}
+
+
+
+
+.selection-confirmation-button-secondary-disabled-mobile {
+    background-color: transparent;
+    border: 2px solid #4d4d4d;
+}
+
+/* Text */
+.selection-confirmation-button-secondary-text-mobile {
+    /* this is no longer really useful */
+    color: var(--color-success-interact-bold-default, #0A6B4E);
+}
+
+.selection-confirmation-button-secondary-text-disabled-mobile {
+
+    color: var(--color-disabled-bold, #7D808A);
+
+}
+
+.selection-confirmation-button-secondary-mobile:hover .selection-confirmation-button-secondary-text-mobile {
+
+    color: var(--color-success-interact-bold-hovered, #004B35);
+}
+
+.selection-confirmation-button-secondary-mobile:active .selection-confirmation-button-secondary-text-mobile {
+
+    color: var(--color-success-interact-bold-pressed, #003727);
+}
+
+.selection-confirmation-button-secondary-mobile:hover:active .selection-confirmation-button-secondary-text-mobile {
+
+    color: var(--color-success-interact-bold-pressed, #003727);
+}
+
+
+
+/* Icon */
+.selection-confirmation-button-secondary-icon-mobile {
+
+
+    color: var(--color-success-interact-bold-default, #0A6B4E);
+}
+
+.selection-confirmation-button-secondary-icon-disabled-mobile {
+
+    color: var(--color-disabled-bold, #7D808A);
+
+}
+
+.selection-confirmation-button-secondary-mobile:hover .selection-confirmation-button-secondary-icon-mobile {
+
+    color: var(--color-success-interact-bold-hovered, #004B35);
+}
+
+.selection-confirmation-button-secondary-mobile:active .selection-confirmation-button-secondary-icon-mobile {
+
+    color: var(--color-success-interact-bold-pressed, #003727);
+}
+
+.selection-confirmation-button-secondary-mobile:hover:active .selection-confirmation-button-secondary-icon-mobile {
+
+    color: var(--color-success-interact-bold-pressed, #003727);
+}
+
+/* ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* Tertiary Styles*/
+/* Button */
+.selection-confirmation-button-tertiary-mobile {
+    background-color: transparent;
+    display: flex;
+    place-items: center;
+    justify-content: space-evenly;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    user-select: none;
+    border-color: transparent;
+
+}
+
+.selection-confirmation-button-tertiary-mobile:hover {
+
+    background-color: transparent
+}
+
+.selection-confirmation-button-tertiary-mobile:active {
+    background-color: transparent
+}
+
+.selection-confirmation-button-tertiary-mobile:hover:active {
+    background-color: transparent
+}
+
+.selection-confirmation-button-tertiary-disabled-mobile {
+    background-color: transparent
+}
+
+/* Text */
+.selection-confirmation-button-tertiary-text-mobile {
+    color: var(--color-success-interact-bold-default, #0A6B4E);
+
+}
+
+.selection-confirmation-button-tertiary-text-disabled-mobile {
+
+    color: var(--color-disabled-bold, #7D808A);
+
+}
+
+.selection-confirmation-button-tertiary-mobile:hover .selection-confirmation-button-tertiary-text-mobile {
+
+    color: var(--color-success-interact-bold-hovered, #004B35);
+}
+
+.selection-confirmation-button-tertiary-mobile:active .selection-confirmation-button-tertiary-text-mobile {
+
+    color: var(--color-success-interact-bold-pressed, #003727);
+}
+
+.selection-confirmation-button-tertiary-mobile:hover:active .selection-confirmation-button-tertiary-text-mobile {
+
+    color: var(--color-success-interact-bold-pressed, #003727);
+}
+
+
+
+/* Icon */
+.selection-confirmation-button-tertiary-icon-mobile {
+
+    color: var(--color-success-interact-bold-default, #0A6B4E);
+}
+
+.selection-confirmation-button-tertiary-icon-disabled-mobile {
+
+    color: var(--color-disabled-bold, #7D808A);
+
+}
+
+.selection-confirmation-button-tertiary-mobile:hover .selection-confirmation-button-tertiary-icon-mobile {
+
+    color: var(--color-success-interact-bold-hovered, #004B35);
+}
+
+.selection-confirmation-button-tertiary-mobile:active .selection-confirmation-button-tertiary-icon-mobile {
+
+    color: var(--color-success-interact-bold-pressed, #003727);
+}
+
+.selection-confirmation-button-tertiary-mobile:hover:active .selection-confirmation-button-tertiary-icon-mobile {
+
+    color: var(--color-success-interact-bold-pressed, #003727);
+}

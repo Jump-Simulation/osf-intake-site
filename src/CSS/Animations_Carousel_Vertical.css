@@ -1,0 +1,120 @@
+@keyframes FadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    10% {
+
+        opacity: 1;
+    }
+
+    100% {
+
+        opacity: 1;
+    }
+}
+
+
+/*arriving animations, vertical */
+
+@keyframes AnimationTopToCenter {
+    0% {
+        transform: translateY(-110vh);
+        opacity: 0;
+        position: absolute;
+        /*width: 95%*/
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+
+    99% {
+        position: absolute;
+        /*width: 95%*/
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+        position: relative;
+    }
+}
+
+@keyframes AnimationBottomToCenter {
+    0% {
+        transform: translateY(110vh);
+        opacity: 0;
+        position: absolute;
+        /*width: 95%*/
+
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+
+    99% {
+        position: absolute;
+        /*width: 95%*/
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+        position: relative;
+    }
+}
+
+
+/*leaving animations, vertical */
+@keyframes AnimationCenterToTop {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+        position: relative;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    99% {
+        position: relative;
+    }
+
+    100% {
+        transform: translateY(-110vh);
+        opacity: 0;
+        position: absolute;
+        /*width: 95%*/
+    }
+}
+
+@keyframes AnimationCenterToBottom {
+    0% {
+
+        transform: translateY(0);
+        opacity: 1;
+        position: relative;
+
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    99% {
+        position: relative;
+
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(110vh);
+        position: absolute;
+        /*width: 95%*/
+    }
+}

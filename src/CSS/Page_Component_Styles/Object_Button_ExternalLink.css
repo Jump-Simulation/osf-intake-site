@@ -1,0 +1,593 @@
+@import "./Object_Item_Text.css";
+/* @import "./Brand-Text.css";
+@import "./Brand-Colors.css";
+@import "./Brand-Scale-and-Spacing.css"; */
+
+.external-link-button-primary-desktop,
+.external-link-button-primary-disabled-desktop,
+.external-link-button-secondary-desktop,
+.external-link-button-secondary-disabled-desktop,
+.external-link-button-tertiary-desktop,
+.external-link-button-tertiary-disabled-desktop {
+    /* You can define common styles here, or leave it empty to inherit .external-link-button styles */
+    margin-top: var(--spacing-md-desktop);
+    margin-bottom: var(--spacing-md-desktop);
+    margin-right: auto;
+    margin-left: auto;
+    border: 1px solid var(--color-primary-interact-bold-default, #1F4BE8);
+
+
+    display: inline-flex;
+    padding: var(--spacing-sm-desktop, 8px) var(--spacing-lg-desktop, 16px);
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-sm-desktop, 8px);
+
+    border-radius: var(--spacing-sm-desktop, 8px);
+    display: flex;
+    place-items: center;
+    justify-content: space-evenly;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    user-select: none;
+    /*     height: 100%;
+; */
+    width: 100%
+}
+
+.external-link-button-primary-desktop {
+    background: var(--color-primary-interact-bold-default, #1F4BE8);
+}
+
+.external-link-button-primary-desktop:hover {
+
+    background: var(--color-primary-interact-bold-hovered, #0D30AD);
+    border: 1px solid var(--color-primary-interact-bold-hovered, #0D30AD);
+}
+
+.external-link-button-primary-desktop:active {
+    background: var(--color-primary-interact-bold-pressed, #0B247D);
+    border: 1px solid var(--color-primary-interact-bold-pressed, #0B247D);
+}
+
+
+
+.external-link-button-primary-disabled-desktop {
+    background: var(--color-disabled-bold, #7D808A);
+    border: 1px solid var(--color-disabled-bold, #7D808A);
+}
+
+/* Text */
+.external-link-button-primary-text-desktop {
+    color: white;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.external-link-button-primary-text-disabled-desktop {
+
+    color: white;
+}
+
+.external-link-button-primary-desktop:hover .external-link-button-primary-text-desktop {
+
+    color: white;
+}
+
+.external-link-button-primary-desktop:active .external-link-button-primary-text-desktop {
+
+    color: white;
+}
+
+.external-link-button-primary-desktop:hover:active .external-link-button-primary-text-desktop {
+
+    color: white;
+}
+
+
+
+/* Icon */
+.external-link-button-primary-icon-desktop {
+
+    color: white;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.external-link-button-primary-icon-disabled-desktop {
+
+    color: white;
+}
+
+.external-link-button-primary-desktop:hover .external-link-button-primary-icon-desktop {
+
+    color: white;
+}
+
+.external-link-button-primary-desktop:active .external-link-button-primary-icon-desktop {
+
+    color: white;
+}
+
+.external-link-button-primary-desktop:hover:active .external-link-button-primary-icon-desktop {
+
+    color: white;
+}
+
+/* ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* Secondary Styles*/
+/* Button */
+.external-link-button-secondary-desktop {
+    background-color: var(--color-surface-default);
+    border-radius: var(--spacing-sm-desktop, 8px);
+    border: 1px solid var(--color-primary-interact-bold-default, #1F4BE8);
+
+    display: flex;
+    place-items: center;
+    justify-content: space-evenly;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    user-select: none;
+
+    color: var(--color-primary-interact-bold-hovered, #0D30AD);
+    ;
+
+}
+
+.external-link-button-secondary-desktop:hover {
+    border: 1px solid var(--color-primary-interact-bold-hovered, #0D30AD);
+
+}
+
+.external-link-button-secondary-desktop:active {
+    border: 1px solid var(--color-primary-interact-bold-pressed, #0B247D);
+}
+
+
+
+
+.external-link-button-secondary-disabled-desktop {
+    background-color: transparent;
+    border: 2px solid #4d4d4d;
+}
+
+/* Text */
+.external-link-button-secondary-text-desktop {
+    /* this is no longer really useful */
+    color: var(--color-primary-interact-bold-default, #1F4BE8);
+}
+
+.external-link-button-secondary-text-disabled-desktop {
+
+    color: var(--color-disabled-bold, #7D808A);
+
+}
+
+.external-link-button-secondary-desktop:hover .external-link-button-secondary-text-desktop {
+
+    color: var(--color-primary-interact-bold-hovered, #0D30AD);
+}
+
+.external-link-button-secondary-desktop:active .external-link-button-secondary-text-desktop {
+
+    color: var(--color-primary-interact-bold-pressed, #0B247D);
+}
+
+.external-link-button-secondary-desktop:hover:active .external-link-button-secondary-text-desktop {
+
+    color: var(--color-primary-interact-bold-pressed, #0B247D);
+}
+
+
+
+/* Icon */
+.external-link-button-secondary-icon-desktop {
+
+
+    color: var(--color-primary-interact-bold-default, #1F4BE8);
+}
+
+.external-link-button-secondary-icon-disabled-desktop {
+
+    color: var(--color-disabled-bold, #7D808A);
+
+}
+
+.external-link-button-secondary-desktop:hover .external-link-button-secondary-icon-desktop {
+
+    color: var(--color-primary-interact-bold-hovered, #0D30AD);
+}
+
+.external-link-button-secondary-desktop:active .external-link-button-secondary-icon-desktop {
+
+    color: var(--color-primary-interact-bold-pressed, #0B247D);
+}
+
+.external-link-button-secondary-desktop:hover:active .external-link-button-secondary-icon-desktop {
+
+    color: var(--color-primary-interact-bold-pressed, #0B247D);
+}
+
+/* ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* Tertiary Styles*/
+/* Button */
+.external-link-button-tertiary-desktop {
+    background-color: transparent;
+    display: flex;
+    place-items: center;
+    justify-content: space-evenly;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    user-select: none;
+    border-color: transparent;
+
+}
+
+.external-link-button-tertiary-desktop:hover {
+
+    background-color: transparent
+}
+
+.external-link-button-tertiary-desktop:active {
+    background-color: transparent
+}
+
+.external-link-button-tertiary-desktop:hover:active {
+    background-color: transparent
+}
+
+.external-link-button-tertiary-disabled-desktop {
+    background-color: transparent
+}
+
+/* Text */
+.external-link-button-tertiary-text-desktop {
+    color: var(--color-primary-interact-bold-default, #1F4BE8);
+
+}
+
+.external-link-button-tertiary-text-disabled-desktop {
+
+    color: var(--color-disabled-bold, #7D808A);
+
+}
+
+.external-link-button-tertiary-desktop:hover .external-link-button-tertiary-text-desktop {
+
+    color: var(--color-primary-interact-bold-hovered, #0D30AD);
+}
+
+.external-link-button-tertiary-desktop:active .external-link-button-tertiary-text-desktop {
+
+    color: var(--color-primary-interact-bold-pressed, #0B247D);
+}
+
+.external-link-button-tertiary-desktop:hover:active .external-link-button-tertiary-text-desktop {
+
+    color: var(--color-primary-interact-bold-pressed, #0B247D);
+}
+
+
+
+/* Icon */
+.external-link-button-tertiary-icon-desktop {
+
+    color: var(--color-primary-interact-bold-default, #1F4BE8);
+}
+
+.external-link-button-tertiary-icon-disabled-desktop {
+
+    color: var(--color-disabled-bold, #7D808A);
+
+}
+
+.external-link-button-tertiary-desktop:hover .external-link-button-tertiary-icon-desktop {
+
+    color: var(--color-primary-interact-bold-hovered, #0D30AD);
+}
+
+.external-link-button-tertiary-desktop:active .external-link-button-tertiary-icon-desktop {
+
+    color: var(--color-primary-interact-bold-pressed, #0B247D);
+}
+
+.external-link-button-tertiary-desktop:hover:active .external-link-button-tertiary-icon-desktop {
+
+    color: var(--color-primary-interact-bold-pressed, #0B247D);
+}
+
+
+
+/* MOBILE /////////////////////////////////*/
+
+.external-link-button-primary-mobile,
+.external-link-button-primary-disabled-mobile,
+.external-link-button-secondary-mobile,
+.external-link-button-secondary-disabled-mobile,
+.external-link-button-tertiary-mobile,
+.external-link-button-tertiary-disabled-mobile {
+    /* You can define common styles here, or leave it empty to inherit .external-link-button styles */
+    margin-top: var(--spacing-md-mobile);
+    margin-bottom: var(--spacing-md-mobile);
+    margin-right: auto;
+    margin-left: auto;
+    border: 1px solid var(--color-primary-interact-bold-default, #1F4BE8);
+
+
+    display: inline-flex;
+    padding: var(--spacing-sm-mobile, 8px) var(--spacing-lg-mobile, 16px);
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-sm-mobile, 8px);
+
+    border-radius: var(--spacing-sm-mobile, 8px);
+    display: flex;
+    place-items: center;
+    justify-content: space-evenly;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    user-select: none;
+    /*     height: 100%;
+; */
+    width: 100%
+}
+
+.external-link-button-primary-mobile {
+    background: var(--color-primary-interact-bold-default, #1F4BE8);
+}
+
+.external-link-button-primary-mobile:hover {
+
+    background: var(--color-primary-interact-bold-hovered, #0D30AD);
+    border: 1px solid var(--color-primary-interact-bold-hovered, #0D30AD);
+}
+
+.external-link-button-primary-mobile:active {
+    background: var(--color-primary-interact-bold-pressed, #0B247D);
+    border: 1px solid var(--color-primary-interact-bold-pressed, #0B247D);
+}
+
+
+
+.external-link-button-primary-disabled-mobile {
+    background: var(--color-disabled-bold, #7D808A);
+    border: 1px solid var(--color-disabled-bold, #7D808A);
+}
+
+/* Text */
+.external-link-button-primary-text-mobile {
+    color: white;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.external-link-button-primary-text-disabled-mobile {
+
+    color: white;
+}
+
+.external-link-button-primary-mobile:hover .external-link-button-primary-text-mobile {
+
+    color: white;
+}
+
+.external-link-button-primary-mobile:active .external-link-button-primary-text-mobile {
+
+    color: white;
+}
+
+.external-link-button-primary-mobile:hover:active .external-link-button-primary-text-mobile {
+
+    color: white;
+}
+
+
+
+/* Icon */
+.external-link-button-primary-icon-mobile {
+
+    color: white;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.external-link-button-primary-icon-disabled-mobile {
+
+    color: white;
+}
+
+.external-link-button-primary-mobile:hover .external-link-button-primary-icon-mobile {
+
+    color: white;
+}
+
+.external-link-button-primary-mobile:active .external-link-button-primary-icon-mobile {
+
+    color: white;
+}
+
+.external-link-button-primary-mobile:hover:active .external-link-button-primary-icon-mobile {
+
+    color: white;
+}
+
+/* ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* Secondary Styles*/
+/* Button */
+.external-link-button-secondary-mobile {
+    background-color: var(--color-surface-default);
+    border-radius: var(--spacing-sm-mobile, 8px);
+    border: 1px solid var(--color-primary-interact-bold-default, #1F4BE8);
+
+    display: flex;
+    place-items: center;
+    justify-content: space-evenly;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    user-select: none;
+
+    color: var(--color-primary-interact-bold-hovered, #0D30AD);
+    ;
+
+}
+
+.external-link-button-secondary-mobile:hover {
+    border: 1px solid var(--color-primary-interact-bold-hovered, #0D30AD);
+
+}
+
+.external-link-button-secondary-mobile:active {
+    border: 1px solid var(--color-primary-interact-bold-pressed, #0B247D);
+}
+
+
+
+
+.external-link-button-secondary-disabled-mobile {
+    background-color: transparent;
+    border: 2px solid #4d4d4d;
+}
+
+/* Text */
+.external-link-button-secondary-text-mobile {
+    /* this is no longer really useful */
+    color: var(--color-primary-interact-bold-default, #1F4BE8);
+}
+
+.external-link-button-secondary-text-disabled-mobile {
+
+    color: var(--color-disabled-bold, #7D808A);
+
+}
+
+.external-link-button-secondary-mobile:hover .external-link-button-secondary-text-mobile {
+
+    color: var(--color-primary-interact-bold-hovered, #0D30AD);
+}
+
+.external-link-button-secondary-mobile:active .external-link-button-secondary-text-mobile {
+
+    color: var(--color-primary-interact-bold-pressed, #0B247D);
+}
+
+.external-link-button-secondary-mobile:hover:active .external-link-button-secondary-text-mobile {
+
+    color: var(--color-primary-interact-bold-pressed, #0B247D);
+}
+
+
+
+/* Icon */
+.external-link-button-secondary-icon-mobile {
+
+
+    color: var(--color-primary-interact-bold-default, #1F4BE8);
+}
+
+.external-link-button-secondary-icon-disabled-mobile {
+
+    color: var(--color-disabled-bold, #7D808A);
+
+}
+
+.external-link-button-secondary-mobile:hover .external-link-button-secondary-icon-mobile {
+
+    color: var(--color-primary-interact-bold-hovered, #0D30AD);
+}
+
+.external-link-button-secondary-mobile:active .external-link-button-secondary-icon-mobile {
+
+    color: var(--color-primary-interact-bold-pressed, #0B247D);
+}
+
+.external-link-button-secondary-mobile:hover:active .external-link-button-secondary-icon-mobile {
+
+    color: var(--color-primary-interact-bold-pressed, #0B247D);
+}
+
+/* ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* Tertiary Styles*/
+/* Button */
+.external-link-button-tertiary-mobile {
+    background-color: transparent;
+    display: flex;
+    place-items: center;
+    justify-content: space-evenly;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    user-select: none;
+    border-color: transparent;
+}
+
+.external-link-button-tertiary-mobile:hover {
+
+    background-color: transparent
+}
+
+.external-link-button-tertiary-mobile:active {
+    background-color: transparent
+}
+
+.external-link-button-tertiary-mobile:hover:active {
+    background-color: transparent
+}
+
+.external-link-button-tertiary-disabled-mobile {
+    background-color: transparent
+}
+
+/* Text */
+.external-link-button-tertiary-text-mobile {
+    color: var(--color-primary-interact-bold-default, #1F4BE8);
+
+}
+
+.external-link-button-tertiary-text-disabled-mobile {
+
+    color: var(--color-disabled-bold, #7D808A);
+
+}
+
+.external-link-button-tertiary-mobile:hover .external-link-button-tertiary-text-mobile {
+
+    color: var(--color-primary-interact-bold-hovered, #0D30AD);
+}
+
+.external-link-button-tertiary-mobile:active .external-link-button-tertiary-text-mobile {
+
+    color: var(--color-primary-interact-bold-pressed, #0B247D);
+}
+
+.external-link-button-tertiary-mobile:hover:active .external-link-button-tertiary-text-mobile {
+
+    color: var(--color-primary-interact-bold-pressed, #0B247D);
+}
+
+
+
+/* Icon */
+.external-link-button-tertiary-icon-mobile {
+
+    color: var(--color-primary-interact-bold-default, #1F4BE8);
+}
+
+.external-link-button-tertiary-icon-disabled-mobile {
+
+    color: var(--color-disabled-bold, #7D808A);
+
+}
+
+.external-link-button-tertiary-mobile:hover .external-link-button-tertiary-icon-mobile {
+
+    color: var(--color-primary-interact-bold-hovered, #0D30AD);
+}
+
+.external-link-button-tertiary-mobile:active .external-link-button-tertiary-icon-mobile {
+
+    color: var(--color-primary-interact-bold-pressed, #0B247D);
+}
+
+.external-link-button-tertiary-mobile:hover:active .external-link-button-tertiary-icon-mobile {
+
+    color: var(--color-primary-interact-bold-pressed, #0B247D);
+}

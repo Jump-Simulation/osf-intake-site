@@ -1,0 +1,375 @@
+@import "./Object_Item_Text.css";
+/* @import "./Brand-Text.css";
+@import "./Brand-Colors.css";
+@import "./Brand-Scale-and-Spacing.css"; */
+
+
+.nav-options-menu-container-desktop {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 0;
+
+    /* 
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-direction: column; */
+    width: 100%;
+    z-index: 9999;
+
+}
+
+.nav-options-menu-parent-desktop {
+    background-color: var(--color-surface-default);
+
+    position: absolute;
+
+    height: 100%;
+    top: 0;
+    left: 0;
+
+
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-direction: column;
+    width: 75%;
+    z-index: 9999;
+    box-shadow: 75px 0px 25px 25px rgba(0, 0, 0, 0.15);
+    /*   clip-path: inset(0 0 0 -2000px); */
+
+    border-top-right-radius: var(--spacing-xl-desktop);
+    /* Top left rounded corner */
+    border-bottom-right-radius: var(--spacing-xl-desktop);
+    /* Bottom left rounded corner */
+    padding: var(--spacing-2xl-desktop, 28px) var(--spacing-md-desktop, 16px);
+
+
+}
+
+
+.nav-options-menu-top-row-desktop {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    flex-direction: row;
+    width: 100%;
+    padding-left: var(--spacing-sm-desktop);
+    padding-right: var(
+            /* --spacing-2xl-desktop */
+            --spacing-xl-desktop);
+
+}
+
+.nav-options-menu-button-holder-desktop {
+
+    width: 100%;
+    z-index: 100;
+    text-align: start;
+    padding-left: 15px;
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.nav-options-menu-button-holder-desktop::-webkit-scrollbar {
+    display: none;
+    /* WebKit (Chrome, Safari, Edge) */
+}
+
+.nav-options-menu-close-button-desktop {
+
+
+    /*     background-color: lightgreen; */
+    /*    height: 40%;
+    width: 25% */
+
+    height: 100%;
+    color: var(--color-on-surface-variant);
+    /*     font-size: var(--font-size-header-h2-desktop, 28px); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-options-menu-close-button-icon-desktop {
+    /*     color: darkred; */
+
+
+    color: var(--color-on-surface-variant);
+    font-size: var(--font-size-header-h1-desktop, 28px);
+    /*     display: flex;
+    justify-content: center;
+    align-items: end; */
+
+}
+
+.nav-options-menu-bottom-bar-desktop {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: start;
+    margin-top: auto;
+    width: 100%;
+    /*  padding: 1%; */
+    gap: 5%;
+    padding: var(--spacing-2xl-desktop, 28px) var(--spacing-md-desktop, 16px);
+}
+
+.nav-options-menu-osf-logo-desktop {
+    /*   background-color: yellowgreen; */
+    max-width: 75%;
+    /* Prevents the image from exceeding the width of the parent */
+    max-height: 100%;
+    /* Prevents the image from exceeding the height of the parent */
+    object-fit: contain;
+    /* Ensures the image fits within the dimensions without distortion */
+    overflow: hidden;
+    /* Prevents the image from spilling out */
+    display: inline-block;
+    /* Ensures the div fits its content */
+    /* width: 100%; */
+    /* Optional: Ensures the image fully adapts */
+    height: auto;
+    /* Maintains aspect ratio */
+    padding-left: 12px;
+}
+
+.object-icon-navbar-options-desktop {
+
+    margin-top: 0;
+    font-size: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: var(--color-on-surface-variant);
+    height: 35px;
+}
+
+
+
+
+
+.nav-options-menu-optionButton-parent-desktop {
+    width: 100%;
+
+    display: flex;
+    justify-content: start;
+    align-items: center;
+
+    margin-top: var(--spacing-md-desktop);
+    margin-bottom: var(--spacing-md-desktop);
+    margin-right: auto;
+    margin-left: auto;
+    /*  padding-top: var(--spacing-md-desktop, 20px);
+    padding-bottom: var(--spacing-md-desktop, 20px); */
+    padding-right: var(--spacing-2xl-desktop, 28px);
+    /* padding: var(--spacing-lg-desktop, 20px) var(--spacing-2xl-desktop, 28px); */
+    color: var(--color-on-surface-variant);
+    font-size: var(--font-size-body-default-desktop, 20px);
+
+
+}
+
+.nav-options-menu-optionButton-child-desktop {
+    width: 100%;
+
+    display: flex;
+    justify-content: start;
+    align-items: center;
+
+    margin-top: var(--spacing-md-desktop);
+    margin-bottom: var(--spacing-md-desktop);
+    margin-right: auto;
+    margin-left: auto;
+
+    padding-left: var(--spacing-lg-desktop, 28px);
+    padding-right: var(--spacing-lg-desktop, 28px);
+    color: var(--color-on-surface-variant);
+    gap: 15px;
+    font-size: var(--font-size-body-default-desktop, 20px);
+}
+
+.nav-options-menu-optionButton-icon-desktop {
+    height: var(--font-size-body-default-desktop, 20px);
+    width: var(--font-size-body-default-desktop, 20px);
+}
+
+/* 
+MOBILE ////////////////////////////////////////////////////////////////////////////////////////////// */
+
+
+.nav-options-menu-container-mobile {
+
+    position: absolute;
+
+    height: 100%;
+    top: 0;
+    left: 0;
+
+    /*     display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-direction: column; */
+    width: 100%;
+    z-index: 9999;
+
+}
+
+.nav-options-menu-parent-mobile {
+    background-color: var(--color-surface-default);
+    position: absolute;
+
+    height: 100%;
+    top: 0;
+    left: 0;
+
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-direction: column;
+    width: 85%;
+    z-index: 9999;
+    box-shadow: 75px 0px 25px 25px rgba(0, 0, 0, 0.15);
+    /*     clip-path: inset(0 0 0 -2000px); */
+
+    border-top-right-radius: var(--spacing-xl-mobile);
+    /* Top left rounded corner */
+    border-bottom-right-radius: var(--spacing-xl-mobile);
+    /* Bottom left rounded corner */
+    padding: var(--spacing-2xl-mobile, 24px) var(--spacing-md-mobile, 16px);
+}
+
+
+.nav-options-menu-top-row-mobile {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    flex-direction: row;
+    width: 100%;
+    padding-left: var(--spacing-sm-mobile);
+    padding-right: var(--spacing-2xl-mobile);
+    /*     margin-bottom: var(--spacing-md-mobile, 24px); */
+
+}
+
+.nav-options-menu-button-holder-mobile {
+    width: 100%;
+    z-index: 100;
+    text-align: start;
+    padding-left: 15px;
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.nav-options-menu-button-holder-mobile::-webkit-scrollbar {
+    display: none;
+    /* WebKit */
+}
+
+
+.nav-options-menu-bottom-bar-mobile {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: start;
+    margin-top: auto;
+    width: 100%;
+    /*  padding: 1%; */
+    gap: 5%;
+    padding: var(--spacing-2xl-mobile, 24px) var(--spacing-md-mobile, 16px);
+}
+
+
+
+
+.nav-options-menu-close-button-mobile {
+
+    height: 100%;
+
+    color: var(--color-on-surface-variant);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-options-menu-close-button-icon-mobile {
+    /*     color: darkred; */
+    font-size: var(--font-size-header-h1-mobile, 28px);
+
+    color: var(--color-on-surface-variant);
+    /*  display: flex;
+    justify-content: center;
+    align-items: end; */
+
+}
+
+
+.nav-options-menu-osf-logo-mobile {
+    /*   background-color: yellowgreen; */
+    max-width: 75%;
+    /* Prevents the image from exceeding the width of the parent */
+    max-height: 100%;
+    /* Prevents the image from exceeding the height of the parent */
+    object-fit: contain;
+    /* Ensures the image fits within the dimensions without distortion */
+    overflow: hidden;
+    /* Prevents the image from spilling out */
+    display: inline-block;
+    /* Ensures the div fits its content */
+    /* width: 100%; */
+    /* Optional: Ensures the image fully adapts */
+    height: auto;
+    /* Maintains aspect ratio */
+    padding-left: 16px;
+}
+
+.object-icon-navbar-options-mobile {
+
+    margin-top: 0;
+    font-size: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: var(--color-on-surface-variant);
+    height: 35px;
+}
+
+
+.nav-options-menu-optionButton-parent-mobile {
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin-top: var(--spacing-md-mobile);
+    margin-bottom: var(--spacing-md-mobile);
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: var(--spacing-2xl-mobile, 28px);
+    color: var(--color-on-surface-variant);
+    font-size: var(--font-size-body-default-mobile, 16px);
+}
+
+.nav-options-menu-optionButton-child-mobile {
+    width: 100%;
+
+    display: flex;
+    justify-content: start;
+    align-items: center;
+
+    margin-top: var(--spacing-md-mobile);
+    margin-bottom: var(--spacing-md-mobile);
+    margin-right: auto;
+    margin-left: auto;
+
+    padding-left: var(--spacing-lg-mobile, 28px);
+    padding-right: var(--spacing-lg-mobile, 28px);
+    color: var(--color-on-surface-variant);
+    gap: 15px;
+    font-size: var(--font-size-body-default-mobile, 16px);
+}
+
+.nav-options-menu-optionButton-icon-mobile {
+    height: var(--font-size-body-default-mobile, 16px);
+    width: var(--font-size-body-default-mobile, 16px);
+}

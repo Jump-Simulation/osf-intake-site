@@ -1,0 +1,98 @@
+@import "./Object_Item_Text.css";
+/* @import "./Brand-Text.css";
+@import "./Brand-Colors.css";
+@import "./Brand-Scale-and-Spacing.css"; */
+
+.object-button-navbar-menu-parent-desktop {
+
+
+    width: 20%;
+    margin-top: auto;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    flex-direction: row;
+
+
+
+}
+
+
+.object-button-navbar-menu-desktop {
+
+    /*  background-color: var(--color-surface-default); */
+    background-color: transparent;
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    /*    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15); */
+
+    /* Stick to the bottom of the viewport */
+}
+
+.object-icon-navbar-menu-desktop {
+    margin-top: 0;
+    font-size: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: var(--color-primary-interact-boldest-default);
+    height: 24px;
+}
+
+
+
+/* MOBILE /////////////////////////////////////////// */
+
+
+.object-button-navbar-menu-parent-mobile {
+
+
+    width: 20%;
+
+    /*    position: sticky;
+    bottom: 0; */
+    margin-top: auto;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    flex-direction: row;
+    /* padding: 1%; */
+
+    /* Stick to the bottom of the viewport */
+}
+
+
+.object-button-navbar-menu-mobile {
+
+    /*    background-color: var(--color-surface-default); */
+    background-color: transparent;
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    /*    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15); */
+
+    /* Stick to the bottom of the viewport */
+}
+
+.object-icon-navbar-menu-mobile {
+    margin-top: 0;
+    font-size: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: var(--color-primary-interact-boldest-default);
+    /*   height: 75%; */
+
+    height: 24px;
+}

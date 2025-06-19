@@ -1,0 +1,594 @@
+@import "./Object_Item_Text.css";
+/* @import "./Brand-Text.css";
+@import "./Brand-Colors.css";
+@import "./Brand-Scale-and-Spacing.css"; */
+
+.normal-locked-button-primary-desktop,
+.normal-locked-button-primary-disabled-desktop,
+.normal-locked-button-secondary-desktop,
+.normal-locked-button-secondary-disabled-desktop,
+.normal-locked-button-tertiary-desktop,
+.normal-locked-button-tertiary-disabled-desktop {
+    /* You can define common styles here, or leave it empty to inherit .normal-locked-button styles */
+    margin-top: var(--spacing-md-desktop);
+    margin-bottom: var(--spacing-md-desktop);
+    margin-right: auto;
+    margin-left: auto;
+    border: 1px solid var(--color-primary-interact-bold-default, #1F4BE8);
+
+
+    display: inline-flex;
+    padding: var(--spacing-sm-desktop, 8px) var(--spacing-lg-desktop, 16px);
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-sm-desktop, 8px);
+
+    border-radius: var(--spacing-sm-desktop, 8px);
+    display: flex;
+    place-items: center;
+    justify-content: space-evenly;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    user-select: none;
+    /*     height: 100%;
+; */
+    width: 100%
+}
+
+.normal-locked-button-primary-desktop {
+    background: var(--color-primary-interact-bold-default, #1F4BE8);
+}
+
+.normal-locked-button-primary-desktop:hover {
+
+    background: var(--color-primary-interact-bold-hovered, #0D30AD);
+    border: 1px solid var(--color-primary-interact-bold-hovered, #0D30AD);
+}
+
+.normal-locked-button-primary-desktop:active {
+    background: var(--color-primary-interact-bold-pressed, #0B247D);
+    border: 1px solid var(--color-primary-interact-bold-pressed, #0B247D);
+}
+
+
+
+.normal-locked-button-primary-disabled-desktop {
+    background: var(--color-disabled-bold, #7D808A);
+    border: 1px solid var(--color-disabled-bold, #7D808A);
+}
+
+/* Text */
+.normal-locked-button-primary-text-desktop {
+    color: white;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.normal-locked-button-primary-text-disabled-desktop {
+
+    color: white;
+}
+
+.normal-locked-button-primary-desktop:hover .normal-locked-button-primary-text-desktop {
+
+    color: white;
+}
+
+.normal-locked-button-primary-desktop:active .normal-locked-button-primary-text-desktop {
+
+    color: white;
+}
+
+.normal-locked-button-primary-desktop:hover:active .normal-locked-button-primary-text-desktop {
+
+    color: white;
+}
+
+
+
+/* Icon */
+.normal-locked-button-primary-icon-desktop {
+
+    color: white;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.normal-locked-button-primary-icon-disabled-desktop {
+
+    color: white;
+}
+
+.normal-locked-button-primary-desktop:hover .normal-locked-button-primary-icon-desktop {
+
+    color: white;
+}
+
+.normal-locked-button-primary-desktop:active .normal-locked-button-primary-icon-desktop {
+
+    color: white;
+}
+
+.normal-locked-button-primary-desktop:hover:active .normal-locked-button-primary-icon-desktop {
+
+    color: white;
+}
+
+/* ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* Secondary Styles*/
+/* Button */
+.normal-locked-button-secondary-desktop {
+    background-color: var(--color-surface-default);
+    border-radius: var(--spacing-sm-desktop, 8px);
+    border: 1px solid var(--color-primary-interact-bold-default, #1F4BE8);
+
+    display: flex;
+    place-items: center;
+    justify-content: space-evenly;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    user-select: none;
+
+    color: var(--color-primary-interact-bold-hovered, #0D30AD);
+    ;
+
+}
+
+.normal-locked-button-secondary-desktop:hover {
+    border: 1px solid var(--color-primary-interact-bold-hovered, #0D30AD);
+
+}
+
+.normal-locked-button-secondary-desktop:active {
+    border: 1px solid var(--color-primary-interact-bold-pressed, #0B247D);
+}
+
+
+
+
+.normal-locked-button-secondary-disabled-desktop {
+    background-color: transparent;
+    border: 2px solid #4d4d4d;
+}
+
+/* Text */
+.normal-locked-button-secondary-text-desktop {
+    /* this is no longer really useful */
+    color: var(--color-primary-interact-bold-default, #1F4BE8);
+}
+
+.normal-locked-button-secondary-text-disabled-desktop {
+
+    color: var(--color-disabled-bold, #7D808A);
+
+}
+
+.normal-locked-button-secondary-desktop:hover .normal-locked-button-secondary-text-desktop {
+
+    color: var(--color-primary-interact-bold-hovered, #0D30AD);
+}
+
+.normal-locked-button-secondary-desktop:active .normal-locked-button-secondary-text-desktop {
+
+    color: var(--color-primary-interact-bold-pressed, #0B247D);
+}
+
+.normal-locked-button-secondary-desktop:hover:active .normal-locked-button-secondary-text-desktop {
+
+    color: var(--color-primary-interact-bold-pressed, #0B247D);
+}
+
+
+
+/* Icon */
+.normal-locked-button-secondary-icon-desktop {
+
+
+    color: var(--color-primary-interact-bold-default, #1F4BE8);
+}
+
+.normal-locked-button-secondary-icon-disabled-desktop {
+
+    color: var(--color-disabled-bold, #7D808A);
+
+}
+
+.normal-locked-button-secondary-desktop:hover .normal-locked-button-secondary-icon-desktop {
+
+    color: var(--color-primary-interact-bold-hovered, #0D30AD);
+}
+
+.normal-locked-button-secondary-desktop:active .normal-locked-button-secondary-icon-desktop {
+
+    color: var(--color-primary-interact-bold-pressed, #0B247D);
+}
+
+.normal-locked-button-secondary-desktop:hover:active .normal-locked-button-secondary-icon-desktop {
+
+    color: var(--color-primary-interact-bold-pressed, #0B247D);
+}
+
+/* ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* Tertiary Styles*/
+/* Button */
+.normal-locked-button-tertiary-desktop {
+    background-color: transparent;
+    display: flex;
+    place-items: center;
+    justify-content: space-evenly;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    user-select: none;
+    border-color: transparent;
+
+}
+
+.normal-locked-button-tertiary-desktop:hover {
+
+    background-color: transparent
+}
+
+.normal-locked-button-tertiary-desktop:active {
+    background-color: transparent
+}
+
+.normal-locked-button-tertiary-desktop:hover:active {
+    background-color: transparent
+}
+
+.normal-locked-button-tertiary-disabled-desktop {
+    background-color: transparent
+}
+
+/* Text */
+.normal-locked-button-tertiary-text-desktop {
+    color: var(--color-primary-interact-bold-default, #1F4BE8);
+
+}
+
+.normal-locked-button-tertiary-text-disabled-desktop {
+
+    color: var(--color-disabled-bold, #7D808A);
+
+}
+
+.normal-locked-button-tertiary-desktop:hover .normal-locked-button-tertiary-text-desktop {
+
+    color: var(--color-primary-interact-bold-hovered, #0D30AD);
+}
+
+.normal-locked-button-tertiary-desktop:active .normal-locked-button-tertiary-text-desktop {
+
+    color: var(--color-primary-interact-bold-pressed, #0B247D);
+}
+
+.normal-locked-button-tertiary-desktop:hover:active .normal-locked-button-tertiary-text-desktop {
+
+    color: var(--color-primary-interact-bold-pressed, #0B247D);
+}
+
+
+
+/* Icon */
+.normal-locked-button-tertiary-icon-desktop {
+
+    color: var(--color-primary-interact-bold-default, #1F4BE8);
+}
+
+.normal-locked-button-tertiary-icon-disabled-desktop {
+
+    color: var(--color-disabled-bold, #7D808A);
+
+}
+
+.normal-locked-button-tertiary-desktop:hover .normal-locked-button-tertiary-icon-desktop {
+
+    color: var(--color-primary-interact-bold-hovered, #0D30AD);
+}
+
+.normal-locked-button-tertiary-desktop:active .normal-locked-button-tertiary-icon-desktop {
+
+    color: var(--color-primary-interact-bold-pressed, #0B247D);
+}
+
+.normal-locked-button-tertiary-desktop:hover:active .normal-locked-button-tertiary-icon-desktop {
+
+    color: var(--color-primary-interact-bold-pressed, #0B247D);
+}
+
+
+
+/* MOBILE /////////////////////////////////*/
+
+.normal-locked-button-primary-mobile,
+.normal-locked-button-primary-disabled-mobile,
+.normal-locked-button-secondary-mobile,
+.normal-locked-button-secondary-disabled-mobile,
+.normal-locked-button-tertiary-mobile,
+.normal-locked-button-tertiary-disabled-mobile {
+    /* You can define common styles here, or leave it empty to inherit .normal-locked-button styles */
+    margin-top: var(--spacing-md-mobile);
+    margin-bottom: var(--spacing-md-mobile);
+    margin-right: auto;
+    margin-left: auto;
+    border: 1px solid var(--color-primary-interact-bold-default, #1F4BE8);
+
+
+    display: inline-flex;
+    padding: var(--spacing-sm-mobile, 8px) var(--spacing-lg-mobile, 16px);
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-sm-mobile, 8px);
+
+    border-radius: var(--spacing-sm-mobile, 8px);
+    display: flex;
+    place-items: center;
+    justify-content: space-evenly;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    user-select: none;
+    /*     height: 100%;
+; */
+    width: 100%
+}
+
+.normal-locked-button-primary-mobile {
+    background: var(--color-primary-interact-bold-default, #1F4BE8);
+}
+
+.normal-locked-button-primary-mobile:hover {
+
+    background: var(--color-primary-interact-bold-hovered, #0D30AD);
+    border: 1px solid var(--color-primary-interact-bold-hovered, #0D30AD);
+}
+
+.normal-locked-button-primary-mobile:active {
+    background: var(--color-primary-interact-bold-pressed, #0B247D);
+    border: 1px solid var(--color-primary-interact-bold-pressed, #0B247D);
+}
+
+
+
+.normal-locked-button-primary-disabled-mobile {
+    background: var(--color-disabled-bold, #7D808A);
+    border: 1px solid var(--color-disabled-bold, #7D808A);
+}
+
+/* Text */
+.normal-locked-button-primary-text-mobile {
+    color: white;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.normal-locked-button-primary-text-disabled-mobile {
+
+    color: white;
+}
+
+.normal-locked-button-primary-mobile:hover .normal-locked-button-primary-text-mobile {
+
+    color: white;
+}
+
+.normal-locked-button-primary-mobile:active .normal-locked-button-primary-text-mobile {
+
+    color: white;
+}
+
+.normal-locked-button-primary-mobile:hover:active .normal-locked-button-primary-text-mobile {
+
+    color: white;
+}
+
+
+
+/* Icon */
+.normal-locked-button-primary-icon-mobile {
+
+    color: white;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.normal-locked-button-primary-icon-disabled-mobile {
+
+    color: white;
+}
+
+.normal-locked-button-primary-mobile:hover .normal-locked-button-primary-icon-mobile {
+
+    color: white;
+}
+
+.normal-locked-button-primary-mobile:active .normal-locked-button-primary-icon-mobile {
+
+    color: white;
+}
+
+.normal-locked-button-primary-mobile:hover:active .normal-locked-button-primary-icon-mobile {
+
+    color: white;
+}
+
+/* ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* Secondary Styles*/
+/* Button */
+.normal-locked-button-secondary-mobile {
+    background-color: var(--color-surface-default);
+    border-radius: var(--spacing-sm-mobile, 8px);
+    border: 1px solid var(--color-primary-interact-bold-default, #1F4BE8);
+
+    display: flex;
+    place-items: center;
+    justify-content: space-evenly;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    user-select: none;
+
+    color: var(--color-primary-interact-bold-hovered, #0D30AD);
+    ;
+
+}
+
+.normal-locked-button-secondary-mobile:hover {
+    border: 1px solid var(--color-primary-interact-bold-hovered, #0D30AD);
+
+}
+
+.normal-locked-button-secondary-mobile:active {
+    border: 1px solid var(--color-primary-interact-bold-pressed, #0B247D);
+}
+
+
+
+
+.normal-locked-button-secondary-disabled-mobile {
+    background-color: transparent;
+    border: 2px solid #4d4d4d;
+}
+
+/* Text */
+.normal-locked-button-secondary-text-mobile {
+    /* this is no longer really useful */
+    color: var(--color-primary-interact-bold-default, #1F4BE8);
+}
+
+.normal-locked-button-secondary-text-disabled-mobile {
+
+    color: var(--color-disabled-bold, #7D808A);
+
+}
+
+.normal-locked-button-secondary-mobile:hover .normal-locked-button-secondary-text-mobile {
+
+    color: var(--color-primary-interact-bold-hovered, #0D30AD);
+}
+
+.normal-locked-button-secondary-mobile:active .normal-locked-button-secondary-text-mobile {
+
+    color: var(--color-primary-interact-bold-pressed, #0B247D);
+}
+
+.normal-locked-button-secondary-mobile:hover:active .normal-locked-button-secondary-text-mobile {
+
+    color: var(--color-primary-interact-bold-pressed, #0B247D);
+}
+
+
+
+/* Icon */
+.normal-locked-button-secondary-icon-mobile {
+
+
+    color: var(--color-primary-interact-bold-default, #1F4BE8);
+}
+
+.normal-locked-button-secondary-icon-disabled-mobile {
+
+    color: var(--color-disabled-bold, #7D808A);
+
+}
+
+.normal-locked-button-secondary-mobile:hover .normal-locked-button-secondary-icon-mobile {
+
+    color: var(--color-primary-interact-bold-hovered, #0D30AD);
+}
+
+.normal-locked-button-secondary-mobile:active .normal-locked-button-secondary-icon-mobile {
+
+    color: var(--color-primary-interact-bold-pressed, #0B247D);
+}
+
+.normal-locked-button-secondary-mobile:hover:active .normal-locked-button-secondary-icon-mobile {
+
+    color: var(--color-primary-interact-bold-pressed, #0B247D);
+}
+
+/* ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* Tertiary Styles*/
+/* Button */
+.normal-locked-button-tertiary-mobile {
+    background-color: transparent;
+    display: flex;
+    place-items: center;
+    justify-content: space-evenly;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    user-select: none;
+    border-color: transparent;
+
+}
+
+.normal-locked-button-tertiary-mobile:hover {
+
+    background-color: transparent
+}
+
+.normal-locked-button-tertiary-mobile:active {
+    background-color: transparent
+}
+
+.normal-locked-button-tertiary-mobile:hover:active {
+    background-color: transparent
+}
+
+.normal-locked-button-tertiary-disabled-mobile {
+    background-color: transparent
+}
+
+/* Text */
+.normal-locked-button-tertiary-text-mobile {
+    color: var(--color-primary-interact-bold-default, #1F4BE8);
+
+}
+
+.normal-locked-button-tertiary-text-disabled-mobile {
+
+    color: var(--color-disabled-bold, #7D808A);
+
+}
+
+.normal-locked-button-tertiary-mobile:hover .normal-locked-button-tertiary-text-mobile {
+
+    color: var(--color-primary-interact-bold-hovered, #0D30AD);
+}
+
+.normal-locked-button-tertiary-mobile:active .normal-locked-button-tertiary-text-mobile {
+
+    color: var(--color-primary-interact-bold-pressed, #0B247D);
+}
+
+.normal-locked-button-tertiary-mobile:hover:active .normal-locked-button-tertiary-text-mobile {
+
+    color: var(--color-primary-interact-bold-pressed, #0B247D);
+}
+
+
+
+/* Icon */
+.normal-locked-button-tertiary-icon-mobile {
+
+    color: var(--color-primary-interact-bold-default, #1F4BE8);
+}
+
+.normal-locked-button-tertiary-icon-disabled-mobile {
+
+    color: var(--color-disabled-bold, #7D808A);
+
+}
+
+.normal-locked-button-tertiary-mobile:hover .normal-locked-button-tertiary-icon-mobile {
+
+    color: var(--color-primary-interact-bold-hovered, #0D30AD);
+}
+
+.normal-locked-button-tertiary-mobile:active .normal-locked-button-tertiary-icon-mobile {
+
+    color: var(--color-primary-interact-bold-pressed, #0B247D);
+}
+
+.normal-locked-button-tertiary-mobile:hover:active .normal-locked-button-tertiary-icon-mobile {
+
+    color: var(--color-primary-interact-bold-pressed, #0B247D);
+}

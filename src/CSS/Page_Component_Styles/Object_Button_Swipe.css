@@ -1,0 +1,44 @@
+@import "./Object_Item_Text.css";
+/* @import "./Brand-Text.css";
+@import "./Brand-Colors.css";
+@import "./Brand-Scale-and-Spacing.css"; */
+
+
+.object-button-swipe-parent {
+
+
+    width: 80vw;
+
+    position: absolute;
+    bottom: -725px;
+    margin-top: auto;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    flex-direction: row;
+
+    /* Stick to the bottom of the viewport */
+}
+
+.object-button-swipe {
+
+    background-color: var(--color-primary-container);
+    border-radius: 50% 50% 0% 0%;
+    height: 800px;
+    width: 800px;
+
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+
+.object-icon {
+    margin-top: 20px;
+    height: 40px;
+    width: 40px;
+    color: var(--color-on-primary-light);
+    background-color: transparent;
+}

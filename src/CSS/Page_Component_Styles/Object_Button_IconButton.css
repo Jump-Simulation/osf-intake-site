@@ -1,0 +1,126 @@
+@import "./Object_Item_Text.css";
+/* @import "./Brand-Text.css";
+@import "./Brand-Colors.css";
+@import "./Brand-Scale-and-Spacing.css"; */
+
+.icon-button-primary-desktop,
+.icon-button-primary-disabled-desktop,
+.icon-button-secondary-desktop,
+.icon-button-secondary-disabled-desktop,
+.icon-button-tertiary-desktop,
+.icon-button-tertiary-disabled-desktop {
+    /* You can define common styles here, or leave it empty to inherit .icon-button styles */
+    margin-top: var(--spacing-md-desktop);
+    margin-bottom: var(--spacing-md-desktop);
+
+    /* border: 1px solid var(--color-primary-interact-bold-default, #1F4BE8); */
+    padding-left: 2px;
+
+    display: flex;
+
+    justify-content: start;
+    align-items: center;
+    /*     padding: var(--spacing-sm-desktop, 8px) var(--spacing-lg-desktop, 16px); */
+
+    transition: background-color 0.3s ease;
+    user-select: none;
+    overflow: visible;
+
+    /*     height: 100%;
+; */
+    /* max-width: 48px; */
+    /* box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.30), 0px 1px 3px 1px rgba(0, 0, 0, 0.15); */
+
+
+}
+
+
+
+
+
+
+/* ICON STYLES DESKTOP */
+
+.icon-button-holder-holder-desktop {}
+
+.icon-button-icon-holder-desktop {
+    /*  padding: 12px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    height: 56px;
+    min-width: 56px;
+    max-width: 56px;
+
+
+    margin-left: 2px;
+    margin-right: auto;
+
+    border-radius: var(--spacing-lg-desktop, 16px);
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.30), 0px 1px 3px 0px rgba(0, 0, 0, 0.15);
+
+}
+
+.icon-button-icon-actual-desktop {
+
+    height: var(--spacing-2xl-desktop, 24px);
+
+
+}
+
+/*//////////////////////////////////////////////////////////// MOBILE /////////////////////////////////*/
+
+.icon-button-primary-mobile,
+.icon-button-primary-disabled-mobile,
+.icon-button-secondary-mobile,
+.icon-button-secondary-disabled-mobile,
+.icon-button-tertiary-mobile,
+.icon-button-tertiary-disabled-mobile {
+    /* You can define common styles here, or leave it empty to inherit .icon-button styles */
+    /* You can define common styles here, or leave it empty to inherit .icon-button styles */
+    margin-top: var(--spacing-md-mobile);
+    margin-bottom: var(--spacing-md-mobile);
+
+    /* border: 1px solid var(--color-primary-interact-bold-default, #1F4BE8); */
+
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.30), 0px 1px 3px 0px rgba(0, 0, 0, 0.15);
+    display: flex;
+
+    justify-content: start;
+    align-items: center;
+    /*     padding: var(--spacing-sm-desktop, 8px) var(--spacing-lg-desktop, 16px); */
+
+    transition: background-color 0.3s ease;
+    user-select: none;
+    /*     height: 100%;
+ ; */
+    width: 100%
+}
+
+/* ICON STYLES */
+
+.icon-button-icon-holder-mobile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    height: 48px;
+    width: 48px;
+
+    min-width: 48px;
+    max-width: 48px;
+
+
+
+    margin-left: 2px;
+    margin-right: auto;
+
+    border-radius: var(--spacing-lg-mobile, 16px);
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.30), 0px 1px 3px 0px rgba(0, 0, 0, 0.15);
+}
+
+.icon-button-icon-actual-mobile {
+    height: var(--spacing-2xl-mobile, 24px);
+}

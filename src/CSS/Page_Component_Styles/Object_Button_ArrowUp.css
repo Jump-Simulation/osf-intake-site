@@ -1,0 +1,114 @@
+@import "./Object_Item_Text.css";
+/* @import "./Brand-Text.css";
+@import "./Brand-Colors.css";
+@import "./Brand-Scale-and-Spacing.css"; */
+
+
+
+.object-button-arrow-up-parent-desktop {
+
+    background-color: transparent;
+    width: 50%;
+
+    /*    position: sticky;
+    bottom: 0; */
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+    /* padding: 1%; */
+
+    /* Stick to the bottom of the viewport */
+}
+
+.object-button-arrow-up-desktop {
+
+    /* background-color: var(--color-surface-default); */
+    background-color: transparent;
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    pointer-events: none;
+
+    /*    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15); */
+
+    /* Stick to the bottom of the viewport */
+}
+
+.object-icon-arrow-up-desktop {
+    margin-top: 0;
+    font-size: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    height: var(--spacing-2xl-desktop);
+    pointer-events: none;
+    color: var(--color-on-surface-variant);
+
+
+}
+
+
+
+
+
+
+.object-button-arrow-up-parent-mobile {
+
+    background-color: transparent;
+    width: 50%;
+
+    /*    position: sticky;
+    bottom: 0; */
+    margin-top: auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+    /* padding: 1%; */
+
+    /* Stick to the bottom of the viewport */
+    /*     margin-top: var(--spacing-md-mobile);
+    margin-bottom: var(--spacing-md-mobile); */
+}
+
+.object-button-arrow-up-mobile {
+
+    /*    background-color: var(--color-surface-default); */
+    background-color: transparent;
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    pointer-events: none;
+
+
+
+    /*    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15); */
+
+    /* Stick to the bottom of the viewport */
+
+}
+
+
+
+.object-icon-arrow-up-mobile {
+    margin-top: 0;
+    font-size: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    height: var(--spacing-2xl-mobile);
+    pointer-events: none;
+    color: var(--color-on-surface-variant);
+}

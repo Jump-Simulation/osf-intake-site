@@ -1,0 +1,16 @@
+{
+  "projects": {
+    "default": "osf-innovation-intake"
+  },
+  "targets": {
+    "osf-innovation-intake": {
+      "hosting": {
+        "test": [
+          "osf-innovation-intake"
+        ]
+      }
+    }
+  },
+  "etags": {},
+  "dataconnectEmulatorConfig": {}
+}

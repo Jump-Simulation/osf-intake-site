@@ -1,0 +1,176 @@
+@import "./Object_Item_Text.css";
+/* @import "./Brand-Text.css";
+@import "./Brand-Colors.css";
+@import "./Brand-Scale-and-Spacing.css"; */
+
+.modal-button-primary {
+    height: 100%;
+}
+
+
+
+.modal-button-primary-disabled {
+    height: 100%;
+}
+
+.modal-button-primary:active {
+    height: 100%;
+}
+
+.modal-button-primary:hover {
+    height: 100%;
+}
+
+/* Text */
+.modal-button-primary-text {
+    height: 100%;
+}
+
+.modal-button-primary-text-disabled {
+    height: 100%;
+}
+
+.modal-button-primary:active .modal-button-primary-text {
+    height: 100%;
+}
+
+.modal-button-primary:hover .modal-button-primary-text {
+    height: 100%;
+}
+
+/* Icon */
+.modal-button-primary-icon {
+    height: 100%;
+    color: white;
+}
+
+.modal-button-primary-icon-disabled {
+    height: 100%;
+    color: white;
+}
+
+.modal-button-primary:active .modal-button-primary-icon {
+    height: 100%;
+    color: white;
+}
+
+.modal-button-primary:hover .modal-button-primary-icon {
+    height: 100%;
+    color: white;
+}
+
+/* ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* Secondary Styles*/
+/* Button */
+.modal-button-secondary {
+    height: 100%;
+}
+
+.modal-button-secondary-disabled {
+    height: 100%;
+}
+
+.modal-button-secondary:active {
+    height: 100%;
+}
+
+.modal-button-secondary:hover {
+    height: 100%;
+}
+
+/* Text */
+.modal-button-secondary-text {
+    height: 100%;
+}
+
+.modal-button-secondary-text-disabled {
+    height: 100%;
+}
+
+.modal-button-secondary:active .modal-button-secondary-text {
+    height: 100%;
+}
+
+.modal-button-secondary:hover .modal-button-secondary-text {
+    height: 100%;
+}
+
+/* Icon */
+
+.modal-button-secondary-icon {
+    height: 100%;
+    color: white;
+}
+
+.modal-button-secondary-icon-disabled {
+    height: 100%;
+    color: white;
+}
+
+.modal-button-secondary:active .modal-button-secondary-icon {
+    height: 100%;
+    color: white;
+}
+
+.modal-button-secondary:hover .modal-button-secondary-icon {
+    height: 100%;
+    color: white;
+}
+
+/* ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* Tertiary Styles*/
+/* Button */
+.modal-button-tertiary {
+    height: 100%;
+}
+
+.modal-button-tertiary-disabled {
+    height: 100%;
+}
+
+.modal-button-tertiary:active {
+    height: 100%;
+}
+
+.modal-button-tertiary:hover {
+    height: 100%;
+}
+
+/* Text */
+.modal-button-tertiary-text {
+    height: 100%;
+}
+
+.modal-button-tertiary-text-disabled {
+    height: 100%;
+}
+
+.modal-button-tertiary:active .modal-button-tertiary-text {
+    height: 100%;
+}
+
+.modal-button-tertiary:hover .modal-button-tertiary-text {
+    height: 100%;
+}
+
+/* Icon */
+
+.modal-button-tertiary-icon {
+    height: 100%;
+    color: white;
+}
+
+.modal-button-tertiary-icon-disabled {
+    height: 100%;
+    color: white;
+}
+
+.modal-button-tertiary:active .modal-button-tertiary-icon {
+    height: 100%;
+    color: white;
+}
+
+.modal-button-tertiary:hover .modal-button-tertiary-icon {
+    height: 100%;
+    color: white;
+}

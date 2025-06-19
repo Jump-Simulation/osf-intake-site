@@ -1,0 +1,423 @@
+.modal-opt-out-parent-desktop {
+
+    position: absolute;
+    top: 0;
+    display: flex;
+    width: 100%;
+    height: 100dvh;
+    background-color: rgba(0, 0, 0, 0.0);
+    z-index: 9999999999;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+.modal-opt-out-buttons-parent-desktop {
+
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: var(--spacing-md-desktop);
+
+
+
+
+}
+
+.modal-opt-out-child-desktop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    background-color: var(--color-surface-default);
+    border-radius: var(--spacing-xl-desktop) var(--spacing-xl-desktop) var(--spacing-xl-desktop) var(--spacing-xl-desktop);
+    box-shadow: 0px 0px 35px 5px rgba(0, 0, 0, 1);
+    width: 90%;
+    height: auto;
+    padding-left: var(--spacing-3xl-desktop);
+    padding-right: var(--spacing-3xl-desktop);
+    padding-top: var(--spacing-3xl-desktop);
+    padding-bottom: var(--spacing-3xl-desktop);
+    position: absolute;
+}
+
+.modal-opt-out-globe-icon-desktop {
+
+    font-size: var(--font-size-header-h2-desktop, 28px);
+
+    color: var(--color-on-surface-default)
+}
+
+.modal-opt-out-text-title-desktop {
+
+    color: var(--color-on-surface-default);
+    font-family: var(--font-family-h2-desktop, "Nunito Sans");
+    font-size: var(--font-size-header-h2-desktop, 28px);
+    font-style: normal;
+    font-weight: var(--font-weight-header-h2-desktop, 700);
+    line-height: var(--font-line-height-header-h2-desktop, 36px);
+    /* 128.571% */
+    letter-spacing: var(--font-letter-spacing-default-desktop, 0.1px);
+
+    /*   margin-top: var(--spacing-2xl-desktop);
+    margin-bottom: var(--spacing-md-desktop); */
+    text-align: center;
+}
+
+.modal-opt-out-text-body-desktop {
+    color: var(--color-on-surface-default, #1A1C22);
+    font-family: var(--font-family-body-desktop, "Nunito Sans");
+    font-size: var(--font-size-body-default-desktop, 20px);
+    font-style: normal;
+    font-weight: var(--font-weight-body-default-desktop, 400);
+    line-height: var(--font-line-height-body-default-desktop, 24px);
+
+    letter-spacing: var(--font-letter-spacing-default-desktop, 0.1px);
+    margin-top: var(--spacing-md-desktop, 12px);
+    margin-bottom: var(--spacing-md-desktop, 12px);
+    text-align: start;
+}
+
+
+.modal-opt-out-button-primary-desktop {
+    /* You can define common styles here, or leave it empty to inherit .normal-button styles */
+    /*     margin-top: var(--spacing-md-desktop);
+    margin-bottom: var(--spacing-md-desktop); */
+    margin-right: auto;
+    margin-left: auto;
+    border: 1px solid var(--color-primary-interact-bold-default, #1F4BE8);
+
+
+    display: inline-flex;
+    padding: var(--spacing-sm-desktop, 8px) var(--spacing-lg-desktop, 16px);
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-sm-desktop, 8px);
+
+    border-radius: var(--spacing-sm-desktop, 8px);
+    display: flex;
+    place-items: center;
+    justify-content: space-evenly;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    user-select: none;
+
+    width: 100%;
+    background: var(--color-primary-interact-bold-default, #1F4BE8);
+    color: var(--color-on-primary-bold);
+
+    font-family: var(--font-family-body-desktop, "Nunito Sans");
+    font-size: var(--font-size-header-h4-desktop, 20px);
+    font-style: normal;
+    font-weight: var(--font-weight-header-h4-desktop, 700);
+    line-height: var(--font-line-height-header-h4-desktop, 28px);
+
+    /* 140% */
+    letter-spacing: var(--font-letter-spacing-default-desktop, 0.1px);
+    text-align: center;
+}
+
+.modal-opt-out-button-primary-desktop:hover {
+
+    background: var(--color-primary-interact-bold-hovered, #0D30AD);
+    border: 1px solid var(--color-primary-interact-bold-hovered, #0D30AD);
+}
+
+.modal-opt-out-button-primary-desktop:active {
+    background: var(--color-primary-interact-bold-pressed, #0B247D);
+    border: 1px solid var(--color-primary-interact-bold-pressed, #0B247D);
+}
+
+
+
+
+
+.modal-opt-out-button-secondary-desktop {
+    background-color: var(--color-surface-default);
+    border-radius: var(--spacing-sm-desktop, 8px);
+    border: 1px solid var(--color-primary-interact-bold-default, #1F4BE8);
+
+    display: flex;
+    place-items: center;
+    justify-content: space-evenly;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    user-select: none;
+    padding: var(--spacing-sm-desktop, 8px) var(--spacing-lg-desktop, 16px);
+    color: var(--color-primary-interact-bold-hovered, #0D30AD);
+
+    font-family: var(--font-family-body-desktop, "Nunito Sans");
+    font-size: var(--font-size-header-h4-desktop, 20px);
+    font-style: normal;
+    font-weight: var(--font-weight-header-h4-desktop, 700);
+    line-height: var(--font-line-height-header-h4-desktop, 28px);
+
+    /* 140% */
+    letter-spacing: var(--font-letter-spacing-default-desktop, 0.1px);
+    text-align: center;
+    width: 100%;
+
+}
+
+.modal-opt-out-button-secondary-desktop:hover {
+    border: 1px solid var(--color-primary-interact-bold-hovered, #0D30AD);
+
+}
+
+.modal-opt-out-button-secondary-desktop:active {
+    border: 1px solid var(--color-primary-interact-bold-pressed, #0B247D);
+}
+
+.modal-opt-out-text-input-parent-desktop {
+    display: flex;
+    padding: var(--spacing-lg-desktop, 16px);
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    text-align: start;
+    gap: var(--spacing-sm-desktop, 8px);
+    align-self: stretch;
+    width: 100%;
+    background-color: var(--color-accent-primary-lighter-200-default);
+    color: #3A62F0;
+    border-radius: 6px;
+    border-color: transparent;
+    margin-bottom: 24px;
+    min-height: 25vh;
+    scrollbar-width: none;
+    /* Firefox */
+
+}
+
+.modal-opt-out-text-input-parent-desktop::placeholder {
+    color: #3A62F0;
+    /* Change this to your desired color */
+    opacity: 1;
+    /* Ensures full visibility of the placeholder text */
+}
+
+.modal-opt-out-text-input-parent-desktop:focus {
+    outline: none;
+    border: 2px solid transparent;
+}
+
+.modal-opt-out-text-input-parent-desktop::-webkit-scrollbar {
+    display: none;
+}
+
+
+
+/* //////////////////////////////////////////////////////////////
+MOBILE //////////////////////////////////////////////////////////////////////////////////////*/
+
+.modal-opt-out-parent-mobile {
+
+    position: absolute;
+    top: 0;
+    display: flex;
+    width: 100%;
+    height: 100dvh;
+    background-color: rgba(0, 0, 0, 0.0);
+    z-index: 9999999999;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+.modal-opt-out-buttons-parent-mobile {
+
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: var(--spacing-md-mobile)
+}
+
+.modal-opt-out-child-mobile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    background-color: var(--color-surface-default);
+    border-radius:
+        var(--spacing-xl-mobile) var(--spacing-xl-mobile) var(--spacing-xl-mobile) var(--spacing-xl-mobile);
+    box-shadow: 0px 0px 35px 5px rgba(0, 0, 0, 1);
+    width: 90%;
+    height: auto;
+    padding-left: var(--spacing-3xl-mobile);
+    padding-right: var(--spacing-3xl-mobile);
+    padding-top: var(--spacing-3xl-mobile);
+    padding-bottom: var(--spacing-3xl-mobile);
+    position: absolute;
+
+}
+
+.modal-opt-out-globe-icon-mobile {
+
+    font-size: var(--font-size-header-h2-mobile, 28px);
+    color: var(--color-on-surface-default)
+}
+
+.modal-opt-out-text-title-mobile {
+
+    color: var(--color-on-surface-default);
+    font-family: var(--font-family-h2-mobile, "Nunito Sans");
+    font-size: var(--font-size-header-h2-mobile, 28px);
+    font-style: normal;
+    font-weight: var(--font-weight-header-h2-mobile, 700);
+    line-height: var(--font-line-height-header-h2-mobile, 36px);
+    /* 128.571% */
+    letter-spacing: var(--font-letter-spacing-default-mobile, 0.1px);
+
+    margin-top: var(--spacing-md-mobile);
+    margin-bottom: var(--spacing-md-mobile);
+    text-align: center;
+    width: 100%;
+}
+
+.modal-opt-out-text-body-mobile {
+    color: var(--color-on-surface-default, #1A1C22);
+    font-family: var(--font-family-body-mobile, "Nunito Sans");
+    font-size: var(--font-size-body-default-mobile, 20px);
+    font-style: normal;
+    font-weight: var(--font-weight-body-default-mobile, 400);
+    line-height: var(--font-line-height-body-default-mobile, 24px);
+
+    letter-spacing: var(--font-letter-spacing-default-mobile, 0.1px);
+    margin-top: var(--spacing-sm-mobile, 12px);
+    margin-bottom: var(--spacing-sm-mobile, 12px);
+    text-align: start;
+}
+
+
+.modal-opt-out-button-primary-mobile {
+    /* You can define common styles here, or leave it empty to inherit .normal-button styles */
+    /*     margin-top: var(--spacing-md-mobile);
+    margin-bottom: var(--spacing-md-mobile); */
+    margin-right: auto;
+    margin-left: auto;
+    border: 1px solid var(--color-primary-interact-bold-default, #1F4BE8);
+
+
+    display: inline-flex;
+    padding: var(--spacing-sm-mobile, 8px) var(--spacing-lg-mobile, 16px);
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-sm-mobile, 8px);
+
+    border-radius: var(--spacing-sm-mobile, 8px);
+    display: flex;
+    place-items: center;
+    justify-content: space-evenly;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    user-select: none;
+    /*     height: 100%;
+; */
+    width: 100%;
+    background: var(--color-primary-interact-bold-default, #1F4BE8);
+    color: var(--color-on-primary-bold);
+
+    font-family: var(--font-family-body-mobile, "Nunito Sans");
+    font-size: var(--font-size-header-h4-mobile, 20px);
+    font-style: normal;
+    font-weight: var(--font-weight-header-h4-mobile, 700);
+    line-height: var(--font-line-height-header-h4-mobile, 28px);
+
+    /* 140% */
+    letter-spacing: var(--font-letter-spacing-default-mobile, 0.1px);
+    text-align: center;
+}
+
+.modal-opt-out-button-primary-mobile:hover {
+
+    background: var(--color-primary-interact-bold-hovered, #0D30AD);
+    border: 1px solid var(--color-primary-interact-bold-hovered, #0D30AD);
+}
+
+.modal-opt-out-button-primary-mobile:active {
+    background: var(--color-primary-interact-bold-pressed, #0B247D);
+    border: 1px solid var(--color-primary-interact-bold-pressed, #0B247D);
+}
+
+
+
+
+
+.modal-opt-out-button-secondary-mobile {
+    background-color: var(--color-surface-default);
+    border-radius: var(--spacing-sm-mobile, 8px);
+    border: 1px solid var(--color-primary-interact-bold-default, #1F4BE8);
+
+    display: flex;
+    place-items: center;
+    justify-content: space-evenly;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    user-select: none;
+    padding: var(--spacing-sm-mobile, 8px) var(--spacing-lg-mobile, 16px);
+    color: var(--color-primary-interact-bold-hovered, #0D30AD);
+
+    font-family: var(--font-family-body-mobile, "Nunito Sans");
+    font-size: var(--font-size-header-h4-mobile, 20px);
+    font-style: normal;
+    font-weight: var(--font-weight-header-h4-mobile, 700);
+    line-height: var(--font-line-height-header-h4-mobile, 28px);
+    width: 100%;
+    letter-spacing: var(--font-letter-spacing-default-mobile, 0.1px);
+    text-align: center;
+
+}
+
+.modal-opt-out-button-secondary-mobile:hover {
+    border: 1px solid var(--color-primary-interact-bold-hovered, #0D30AD);
+
+}
+
+.modal-opt-out-button-secondary-mobile:active {
+    border: 1px solid var(--color-primary-interact-bold-pressed, #0B247D);
+}
+
+.modal-opt-out-text-input-parent-mobile {
+    display: flex;
+    padding: var(--spacing-lg-mobile, 16px);
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    text-align: start;
+    gap: var(--spacing-sm-mobile, 8px);
+    align-self: stretch;
+    width: 100%;
+    background-color: var(--color-accent-primary-lighter-200-default);
+    color: #3A62F0;
+    border-radius: 6px;
+    border-color: transparent;
+    margin-bottom: 24px;
+    min-height: 25vh;
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+
+.modal-opt-out-text-input-parent-mobile::placeholder {
+    color: #3A62F0;
+    /* Change this to your desired color */
+    opacity: 1;
+    /* Ensures full visibility of the placeholder text */
+}
+
+.modal-opt-out-text-input-parent-mobile:focus {
+    outline: none;
+    border: 2px solid transparent;
+}
+
+.modal-opt-out-text-input-parent-mobile::-webkit-scrollbar {
+    display: none;
+}

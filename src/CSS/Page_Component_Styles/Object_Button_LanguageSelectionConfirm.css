@@ -1,0 +1,82 @@
+.language-selection-confirmation-button-desktop {
+    /* You can define common styles here, or leave it empty to inherit .normal-button styles */
+    margin-top: var(--spacing-md-desktop);
+    margin-bottom: var(--spacing-md-desktop);
+    margin-right: auto;
+    margin-left: auto;
+    border: 1px solid var(--color-primary-interact-bold-default, #1F4BE8);
+
+    background: var(--color-primary-interact-bold-default, #1F4BE8);
+    display: inline-flex;
+    padding: var(--spacing-sm-desktop, 8px) var(--spacing-sm-desktop, 16px);
+    justify-content: center;
+    align-items: center;
+    /*  gap: var(--spacing-sm, 8px); */
+
+    border-radius: var(--spacing-sm-desktop, 8px);
+    display: flex;
+    place-items: center;
+    /*   justify-content: space-evenly; */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    user-select: none;
+
+
+    width: 50%
+}
+
+.language-selection-confirmation-button-text-desktop {
+    color: var(--color-surface-default);
+
+    font-family: var(--font-family-body-desktop, "Nunito Sans");
+    font-size: var(--font-size-header-h4-desktop, 20px);
+    font-style: normal;
+    font-weight: var(--font-weight-header-h4-desktop, 700);
+    line-height: var(--font-line-height-header-h4-desktop, 28px);
+
+    /* 140% */
+    letter-spacing: var(--font-letter-spacing-default-desktop, 0.1px);
+    text-align: center;
+}
+
+.language-selection-confirmation-button-mobile {
+    /* You can define common styles here, or leave it empty to inherit .normal-button styles */
+    margin-top: var(--spacing-md-mobile);
+    margin-bottom: var(--spacing-md-mobile);
+    margin-right: auto;
+    margin-left: auto;
+    border: 1px solid var(--color-primary-interact-bold-default, #1F4BE8);
+
+    background: var(--color-primary-interact-bold-default, #1F4BE8);
+    display: inline-flex;
+    padding: var(--spacing-sm-mobile, 8px) var(--spacing-lg-mobile, 16px);
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-sm-mobile, 8px);
+
+    border-radius: var(--spacing-sm-mobile, 8px);
+    display: flex;
+    place-items: center;
+    justify-content: space-evenly;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    user-select: none;
+    /*     height: 100%;
+; */
+    width: 100%
+}
+
+
+.language-selection-confirmation-button-text-mobile {
+    color: var(--color-surface-default);
+
+    font-family: var(--font-family-body-mobile, "Nunito Sans");
+    font-size: var(--font-size-header-h4-mobile, 20px);
+    font-style: normal;
+    font-weight: var(--font-weight-header-h4-mobile, 700);
+    line-height: var(--font-line-height-header-h4-mobile, 28px);
+
+
+    letter-spacing: var(--font-letter-spacing-default-mobile, 0.1px);
+    text-align: center;
+}

@@ -1,0 +1,500 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap');
+
+/* @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;700&display=swap'); */
+
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@300..900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200..900;1,200..900&display=swap');
+
+
+@import "./Object_Item_Text.css";
+@import "./Brand-Colors.css";
+@import "./Brand-Scale-and-Spacing.css";
+
+:root {
+
+    /* BRAND /////////////////////////////////////////////////////////////////////////////////*/
+    /*FONT FAMILY*/
+    --font-family-crimson-text: "Crimson Text";
+    --font-family-nunito-sans: "Nunito Sans";
+    --font-family-red-hat-text: "Red Hat Text";
+    --font-family-red-hat-display: "Red Hat Display";
+
+    /*BRAND - Font Weight*/
+    --font-weight-300: 300;
+    --font-weight-390: 390;
+    --font-weight-400: 400;
+    --font-weight-420: 420;
+    --font-weight-450: 450;
+    --font-weight-500: 500;
+    --font-weight-600: 600;
+    --font-weight-700: 700;
+
+    /* ALIAS /////////////////////////////////////////////////////////////////////////////////*/
+    /*ALIAS - Font Family*/
+    --font-family-header: var(--font-family-red-hat-display);
+    --font-family-subheader: var(--font-family-red-hat-display);
+    --font-family-body: var(--font-family-red-hat-text);
+
+    /*ALIAS - Font Weight*/
+
+    --font-weight-crimson-text-regular: 400;
+    --font-weight-crimson-text-semibold: 600;
+    --font-weight-crimson-text-bold: 700;
+
+    --font-weight-nunito-sans-regular: 400;
+    --font-weight-nunito-sans-medium: 500;
+    --font-weight-nunito-sans-semibold: 600;
+    --font-weight-nunito-sans-bold: 700;
+
+    --font-weight-red-hat-text-regular: 400;
+    --font-weight-red-hat-text-medium: 500;
+    --font-weight-red-hat-text-semibold: 600;
+    --font-weight-red-hat-text-bold: 700;
+
+    --font-weight-red-hat-display-regular: 400;
+    --font-weight-red-hat-display-medium: 500;
+    --font-weight-red-hat-display-semibold: 600;
+    --font-weight-red-hat-display-bold: 700;
+
+    /*ALIAS - Line Height*/
+    --font-line-height-5xs: var(--scale-300-12);
+    --font-line-height-4xs: var(--scale-400-16);
+    --font-line-height-3xs: var(--scale-500-20);
+    --font-line-height-2xs: var(--scale-600-24);
+    --font-line-height-xs: var(--scale-700-28);
+    --font-line-height-sm: var(--scale-800-32);
+    --font-line-height-md: var(--scale-900-36);
+    --font-line-height-lg: var(--scale-1000-40);
+    --font-line-height-xl: var(--scale-1100-44);
+    --font-line-height-2xl: var(--scale-1200-48);
+    --font-line-height-3xl: var(--scale-1400-56);
+    --font-line-height-4xl: var(--scale-1600-64);
+    --font-line-height-5xl: var(--scale-1800-72);
+
+    /*ALIAS - Size*/
+    --font-size-5xs: var(--scale-250-10);
+    --font-size-4xs: var(--scale-300-12);
+    --font-size-3xs: var(--scale-350-14);
+    --font-size-2xs: var(--scale-400-16);
+    --font-size-xxs: var(--scale-450-18);
+    --font-size-xs: var(--scale-500-20);
+    --font-size-sm: var(--scale-600-24);
+    --font-size-md: var(--scale-700-28);
+    --font-size-lg: var(--scale-800-32);
+    --font-size-xl: var(--scale-900-36);
+    --font-size-2xl: var(--scale-1000-40);
+    --font-size-3xl: var(--scale-1200-48);
+    --font-size-4xl: var(--scale-1400-56);
+    --font-size-5xl: var(--scale-1600-64);
+
+    /*ALIAS - Paragraph Spacing*/
+    --font-paragraph-spacing-5xs: var(--scale-250-10);
+    --font-paragraph-spacing-4xs: var(--scale-300-12);
+    --font-paragraph-spacing-3xs: var(--scale-350-14);
+    --font-paragraph-spacing-2xs: var(--scale-400-16);
+    --font-paragraph-spacing-xxs: var(--scale-450-18);
+    --font-paragraph-spacing-xs: var(--scale-500-20);
+    --font-paragraph-spacing-sm: var(--scale-600-24);
+    --font-paragraph-spacing-md: var(--scale-700-28);
+    --font-paragraph-spacing-lg: var(--scale-800-32);
+    --font-paragraph-spacing-xl: var(--scale-900-36);
+    --font-paragraph-spacing-2xl: var(--scale-1000-40);
+    --font-paragraph-spacing-3xl: var(--scale-1200-48);
+    --font-paragraph-spacing-4xl: var(--scale-1400-56);
+    --font-paragraph-spacing-5xl: var(--scale-1600-64);
+
+    /* MAPPED WEIGHTS /////////////////////////////////////////////////////////////////////////////////*/
+    /* MAPPED - Font Family */
+        /* Mobile */
+        --font-family-h1-mobile: var(--font-family-header);
+        --font-family-h2-mobile: var(--font-family-subheader);
+        --font-family-h3-mobile: var(--font-family-subheader);
+        --font-family-h4-mobile: var(--font-family-subheader);
+        --font-family-body-mobile: var(--font-family-body);
+        --font-family-caption-mobile: var(--font-family-body);
+
+        /* Desktop */
+        --font-family-h1-desktop: var(--font-family-header);
+        --font-family-h2-desktop: var(--font-family-body);
+        --font-family-h3-desktop: var(--font-family-subheader);
+        --font-family-h4-desktop: var(--font-family-subheader);
+        --font-family-body-desktop: var(--font-family-body);
+        --font-family-caption-desktop: var(--font-family-body);
+
+        /* MAPPED - Font Weight*/
+        /* Header */
+        /* Mobile */
+        --font-weight-header-h1-mobile: var(--font-weight-red-hat-display-bold);
+        --font-weight-header-h2-mobile: var(--font-weight-red-hat-display-bold);
+        --font-weight-header-h3-mobile: var(--font-weight-red-hat-display-bold);
+        --font-weight-header-h4-mobile: var(--font-weight-red-hat-display-semibold);
+
+        /* Desktop */
+        --font-weight-header-h1-desktop: var(--font-weight-red-hat-display-bold);
+        --font-weight-header-h2-desktop: var(--font-weight-red-hat-display-semibold);
+        --font-weight-header-h3-desktop: var(--font-weight-red-hat-display-bold);
+        --font-weight-header-h4-desktop: var(--font-weight-red-hat-display-semibold);
+
+        /* MAPPED - Font Weight */
+        /* Body */
+        /* Mobile */
+        --font-weight-body-default-mobile: var(--font-weight-red-hat-text-regular);
+        --font-weight-body-bold-mobile: var(--font-weight-red-hat-text-bold);
+        --font-weight-body-caption-mobile: var(--font-weight-red-hat-text-medium);
+
+        /* Desktop */
+        --font-weight-body-default-desktop: var(--font-weight-red-hat-text-regular);
+        --font-weight-body-bold-desktop: var(--font-weight-red-hat-text-bold);
+        --font-weight-body-caption-desktop: var(--font-weight-red-hat-text-medium);
+        
+
+
+    /* MAPPED - Letter Spacing */
+    /* Mobile */
+    --font-letter-spacing-default-mobile: var(0.1px);
+
+    /* Desktop */
+    --font-letter-spacing-default-desktop: var(1px);
+
+}
+
+
+/* MAPPED SIZING /////////////////////////////////////////////////////////////////////////////////*/
+/* Testing Media Query for Font-Size Variables HERE!!! */
+
+
+/* Regular Mobile Screen Sizes */
+@media screen and (min-width: 359px) {
+    :root {
+        /* Everything in here is what was in the original ROOT area. To Fix, move it back up ///////////////////////////////////////////////////////////////*/
+
+        /* MAPPED - Font Size */
+        /* Header */
+        /* Mobile */
+        --font-size-header-h1-mobile: var(--font-size-lg);
+        --font-size-header-h2-mobile: var(--font-size-md);
+        --font-size-header-h3-mobile: var(--font-size-sm);
+        --font-size-header-h4-mobile: var(--font-size-xs);
+
+        /* Desktop */
+        --font-size-header-h1-desktop: var(--font-size-xl);
+        --font-size-header-h2-desktop: var(--font-size-lg);
+        --font-size-header-h3-desktop: var(--font-size-md);
+        --font-size-header-h4-desktop: var(--font-size-sm);
+            
+        /* MAPPED - Font Size */
+        /* Body */
+        /* Mobile */
+        --font-size-body-default-mobile: var(--font-size-2xs);
+        --font-size-body-caption-mobile: var(--font-size-3xs);
+
+        /* Desktop */
+        --font-size-body-default-desktop: var(--font-size-xs);
+        --font-size-body-caption-desktop: var(--font-size-2xs);
+
+        
+
+        /* MAPPED - Font Line Height */
+        /* Header */
+        /* Mobile */
+        --font-line-height-header-h1-mobile: var(--font-line-height-lg);
+        --font-line-height-header-h2-mobile: var(--font-line-height-md);
+        --font-line-height-header-h3-mobile: var(--font-line-height-sm);
+        --font-line-height-header-h4-mobile: var(--font-line-height-xs);
+
+        /* Desktop */
+        --font-line-height-header-h1-desktop: var(--font-line-height-xl);
+        --font-line-height-header-h2-desktop: var(--font-line-height-lg);
+        --font-line-height-header-h3-desktop: var(--font-line-height-md);
+        --font-line-height-header-h4-desktop: var(--font-line-height-sm);
+
+
+        /* MAPPED - Font Line Height Body */
+        /* Body */
+        /* Mobile */
+        --font-line-height-body-default-mobile: var(--font-line-height-2xs);
+        --font-line-height-body-caption-mobile: var(--font-line-height-3xs);
+
+        /* Desktop */
+        --font-line-height-body-default-desktop: var(--font-line-height-xs);
+        --font-line-height-body-caption-desktop: var(--font-line-height-2xs);
+
+        /* MAPPED - Font Paragraph Spacing */
+        /* Header */
+        /* Mobile */
+        --font-paragraph-spacing-header-h1-mobile: var(--font-paragraph-spacing-lg);
+        --font-paragraph-spacing-header-h2-mobile: var(--font-paragraph-spacing-md);
+        --font-paragraph-spacing-header-h3-mobile: var(--font-paragraph-spacing-sm);
+        --font-paragraph-spacing-header-h4-mobile: var(--font-paragraph-spacing-xs);
+
+        /* Desktop */
+        --font-paragraph-spacing-header-h1-desktop: var(--font-paragraph-spacing-xl);
+        --font-paragraph-spacing-header-h2-desktop: var(--font-paragraph-spacing-lg);
+        --font-paragraph-spacing-header-h3-desktop: var(--font-paragraph-spacing-md);
+        --font-paragraph-spacing-header-h4-desktop: var(--font-paragraph-spacing-sm);
+
+        /* MAPPED - Font Paragraph Spacing */
+        /* Body */
+        /* Mobile */
+        --font-paragraph-spacing-body-default-mobile: var(--font-paragraph-spacing-2xs);
+        --font-paragraph-spacing-body-caption-mobile: var(--font-paragraph-spacing-3xs);
+
+        /* Desktop */
+        --font-paragraph-spacing-body-default-desktop: var(--font-paragraph-spacing-xs);
+        --font-paragraph-spacing-body-caption-desktop: var(--font-paragraph-spacing-2xs);
+    }
+};
+
+/* Small mobile screen sizes */
+@media screen and (max-width: 361px) {
+    :root {
+        /* MAPPED - Font Size */
+        /* Header */
+        /* Mobile */
+        --font-size-header-h1-mobile: var(--font-size-md);
+        --font-size-header-h2-mobile: var(--font-size-sm);
+        --font-size-header-h3-mobile: var(--font-size-xs);
+        --font-size-header-h4-mobile: var(--font-size-xxs); /* VIA MADDOX: Possible change to 2xs */
+
+        /* Desktop */
+        --font-size-header-h1-desktop: var(--font-size-lg);
+        --font-size-header-h2-desktop: var(--font-size-md);
+        --font-size-header-h3-desktop: var(--font-size-sm);
+        --font-size-header-h4-desktop: var(--font-size-xs);
+            
+        /* MAPPED - Font Size */
+        /* Body */
+        /* Mobile */
+        --font-size-body-default-mobile: var(--font-size-2xs);
+        --font-size-body-caption-mobile: var(--font-size-4xs); /* MADDOX: Come back and check on caption */
+
+        /* Desktop */
+        --font-size-body-default-desktop: var(--font-size-2xs);
+        --font-size-body-caption-desktop: var(--font-size-4xs);
+
+        
+
+        /* MAPPED - Font Line Height */
+        /* Header */
+        /* Mobile */
+        --font-line-height-header-h1-mobile: var(--font-line-height-md);
+        --font-line-height-header-h2-mobile: var(--font-line-height-sm);
+        --font-line-height-header-h3-mobile: var(--font-line-height-xs);
+        --font-line-height-header-h4-mobile: var(--font-line-height-2xs);
+
+        /* Desktop */
+        --font-line-height-header-h1-desktop: var(--font-line-height-lg);
+        --font-line-height-header-h2-desktop: var(--font-line-height-md);
+        --font-line-height-header-h3-desktop: var(--font-line-height-sm);
+        --font-line-height-header-h4-desktop: var(--font-line-height-xs);
+
+        /* MAPPED - Font Line Height Body */
+        /* Body */
+        /* Mobile */
+        --font-line-height-body-default-mobile: var(--font-line-height-2xs);
+        --font-line-height-body-caption-mobile: var(--font-line-height-3xs);
+
+        /* Desktop */
+        --font-line-height-body-default-desktop: var(--font-line-height-2xs);
+        --font-line-height-body-caption-desktop: var(--font-line-height-3xs);
+
+        /* MAPPED - Font Paragraph Spacing */
+        /* Header */
+        /* Mobile */
+        --font-paragraph-spacing-header-h1-mobile: var(--font-paragraph-spacing-md);
+        --font-paragraph-spacing-header-h2-mobile: var(--font-paragraph-spacing-sm);
+        --font-paragraph-spacing-header-h3-mobile: var(--font-paragraph-spacing-xs);
+        --font-paragraph-spacing-header-h4-mobile: var(--font-paragraph-spacing-xxs);
+
+        /* Desktop */
+        --font-paragraph-spacing-header-h1-desktop: var(--font-paragraph-spacing-lg);
+        --font-paragraph-spacing-header-h2-desktop: var(--font-paragraph-spacing-md);
+        --font-paragraph-spacing-header-h3-desktop: var(--font-paragraph-spacing-sm);
+        --font-paragraph-spacing-header-h4-desktop: var(--font-paragraph-spacing-xs);
+
+        /* MAPPED - Font Paragraph Spacing */
+        /* Body */
+        /* Mobile */
+        --font-paragraph-spacing-body-default-mobile: var(--font-paragraph-spacing-2xs);
+        --font-paragraph-spacing-body-caption-mobile: var(--font-paragraph-spacing-3xs);
+
+        /* Desktop */
+        --font-paragraph-spacing-body-default-desktop: var(--font-paragraph-spacing-2xs);
+        --font-paragraph-spacing-body-caption-desktop: var(--font-paragraph-spacing-3xs);
+    }
+};
+
+/* Big Mobile Screen Sizes */
+@media screen and (min-width: 420px) {
+    :root {
+        /* MAPPED - Font Size */
+        /* Header */
+        /* Mobile */
+        --font-size-header-h1-mobile: var(--font-size-xl);
+        --font-size-header-h2-mobile: var(--font-size-lg);
+        --font-size-header-h3-mobile: var(--font-size-md);
+        --font-size-header-h4-mobile: var(--font-size-sm);
+
+        /* Desktop */
+        --font-size-header-h1-desktop: var(--font-size-xl);
+        --font-size-header-h2-desktop: var(--font-size-lg);
+        --font-size-header-h3-desktop: var(--font-size-md);
+        --font-size-header-h4-desktop: var(--font-size-sm);
+            
+        /* MAPPED - Font Size */
+        /* Body */
+        /* Mobile */
+        --font-size-body-default-mobile: var(--font-size-xxs);
+        --font-size-body-caption-mobile: var(--font-size-3xs);
+
+        /* Desktop */
+        --font-size-body-default-desktop: var(--font-size-xs);
+        --font-size-body-caption-desktop: var(--font-size-2xs);
+
+        
+
+        /* MAPPED - Font Line Height */
+        /* Header */
+        /* Mobile */
+        --font-line-height-header-h1-mobile: var(--font-line-height-xl);
+        --font-line-height-header-h2-mobile: var(--font-line-height-lg);
+        --font-line-height-header-h3-mobile: var(--font-line-height-md);
+        --font-line-height-header-h4-mobile: var(--font-line-height-sm);
+
+        /* Desktop */
+        --font-line-height-header-h1-desktop: var(--font-line-height-xl);
+        --font-line-height-header-h2-desktop: var(--font-line-height-lg);
+        --font-line-height-header-h3-desktop: var(--font-line-height-md);
+        --font-line-height-header-h4-desktop: var(--font-line-height-sm);
+
+
+        /* MAPPED - Font Line Height Body */
+        /* Body */
+        /* Mobile */
+        --font-line-height-body-default-mobile: var(--font-line-height-xs);
+        --font-line-height-body-caption-mobile: var(--font-line-height-3xs);
+
+        /* Desktop */
+        --font-line-height-body-default-desktop: var(--font-line-height-xs);
+        --font-line-height-body-caption-desktop: var(--font-line-height-2xs);
+
+        /* MAPPED - Font Paragraph Spacing */
+        /* Header */
+        /* Mobile */
+        --font-paragraph-spacing-header-h1-mobile: var(--font-paragraph-spacing-lg);
+        --font-paragraph-spacing-header-h2-mobile: var(--font-paragraph-spacing-md);
+        --font-paragraph-spacing-header-h3-mobile: var(--font-paragraph-spacing-sm);
+        --font-paragraph-spacing-header-h4-mobile: var(--font-paragraph-spacing-xs);
+
+        /* Desktop */
+        --font-paragraph-spacing-header-h1-desktop: var(--font-paragraph-spacing-lg);
+        --font-paragraph-spacing-header-h2-desktop: var(--font-paragraph-spacing-md);
+        --font-paragraph-spacing-header-h3-desktop: var(--font-paragraph-spacing-sm);
+        --font-paragraph-spacing-header-h4-desktop: var(--font-paragraph-spacing-xs);
+
+        /* MAPPED - Font Paragraph Spacing */
+        /* Body */
+        /* Mobile */
+        --font-paragraph-spacing-body-default-mobile: var(--font-paragraph-spacing-xs);
+        --font-paragraph-spacing-body-caption-mobile: var(--font-paragraph-spacing-2xs);
+
+        /* Desktop */
+        --font-paragraph-spacing-body-default-desktop: var(--font-paragraph-spacing-xs);
+        --font-paragraph-spacing-body-caption-desktop: var(--font-paragraph-spacing-3xs);
+    }
+
+    a:link {
+        color: var(--color-primary-interact-bold-default);
+        /* color: var(--color-accent-primary-700-default); */
+        /* color: blue; */
+
+        text-decoration: underline;
+
+        font-family: var(--font-family-body-mobile, "Nunito Sans");
+        font-size: var(--font-size-body-default-mobile, 16px);
+        font-style: normal;
+        font-weight: var(--font-weight-body-default-mobile, 400);
+        line-height: var(--font-line-height-body-default-mobile, 24px);
+        /* 150% */
+        letter-spacing: var(--font-letter-spacing-default-mobile, 0.1px);
+        margin-top: var(--spacing-md-mobile, 12px);
+        margin-bottom: var(--spacing-md-mobile, 12px);
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+    }
+
+    a:visited {
+        color: var(--color-tertiary-800);
+    }
+  
+    a:hover {
+        color: var(--color-accent-primary-700-default);
+        text-decoration: underline;
+    }
+    
+    a:active {
+        color: var(--color-primary-interact-bold-default);
+        text-decoration: underline;
+    }
+
+    ol li {
+        margin-bottom: 12px;
+    }
+
+};
+
+/* .textObject-h1 {
+    color: var(--color-text-default);
+    font-family: "Crimson Text";
+    font-size: 34px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 42px;
+    letter-spacing: 0.1px;
+
+} */
+
+/* .textObject-h2 {
+    color: var(--color-text-default);
+    font-size: 1.556rem;
+    font-weight: 650;
+    font-family: var(--font-family-header);
+}
+
+.textObject-h3 {
+    color: var(--color-text-default);
+    font-size: 1.278rem;
+    font-weight: 650;
+    font-family: var(--font-family-body);
+}
+
+.textObject-h4 {
+    color: var(--color-text-default);
+    font-size: 1.0rem;
+    font-weight: 600;
+    font-family: var(--font-family-body);
+}
+
+.textObject-body {
+    color: var(--color-text-default);
+    font-size: 1.0rem;
+    font-weight: 400;
+    font-family: var(--font-family-body);
+}
+
+.textObject-body-bold {
+    color: var(--color-text-default);
+    font-size: 1.0rem;
+    font-weight: 600;
+    font-family: var(--font-family-body);
+}
+
+.textObject-caption {
+    color: var(--color-text-default);
+    font-size: 0.778rem;
+    font-weight: 600;
+    font-family: var(--font-family-body);
+} */

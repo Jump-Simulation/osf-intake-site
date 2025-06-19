@@ -1,0 +1,18 @@
+@import "./Object_Item_Text.css";
+/* @import "./Brand-Text.css";
+@import "./Brand-Colors.css";
+@import "./Brand-Scale-and-Spacing.css"; */
+
+.object-navbar-spacer-parent {
+
+
+    width: 20%;
+
+    /*    position: sticky;
+    bottom: 0; */
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+
+}

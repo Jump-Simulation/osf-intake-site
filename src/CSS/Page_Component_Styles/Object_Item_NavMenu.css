@@ -1,0 +1,241 @@
+@import "./Object_Item_Text.css";
+/* @import "./Brand-Text.css";
+@import "./Brand-Colors.css";
+@import "./Brand-Scale-and-Spacing.css"; */
+
+
+.nav-menu-container-desktop {
+    /*   background-color: var(--color-surface-default); */
+
+    position: absolute;
+
+    height: 100%;
+    top: 0;
+    right: 0;
+
+    width: 100%;
+    z-index: 9999;
+
+}
+
+
+.nav-menu-parent-desktop {
+    background-color: var(--color-surface-default);
+
+    position: absolute;
+
+    height: 100%;
+    top: 0;
+    right: 0;
+
+
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-direction: column;
+    width: 75%;
+    z-index: 9999;
+    box-shadow: -75px 0px 25px 25px rgba(0, 0, 0, 0.15);
+    clip-path: inset(0 0 0 -2000px);
+
+    border-top-left-radius: var(--spacing-xl-desktop);
+    /* Top left rounded corner */
+    border-bottom-left-radius: var(--spacing-xl-desktop);
+    /* Bottom left rounded corner */
+    padding: var(--spacing-2xl-desktop, 28px) var(--spacing-md-desktop, 16px);
+}
+
+
+.nav-menu-top-row-desktop {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    flex-direction: row;
+    width: 100%;
+    padding-left: var(--spacing-2xl-desktop);
+    padding-right: var(--spacing-md-desktop);
+
+}
+
+.nav-menu-button-holder-desktop {
+
+    width: 100%;
+
+    z-index: 100;
+    text-align: start;
+    overflow: auto;
+    scrollbar-width: none;
+    /* Firefox */
+
+
+
+}
+
+.nav-menu-button-holder-desktop::-webkit-scrollbar {
+    display: none;
+    /* WebKit (Chrome, Safari, Edge) */
+}
+
+
+
+.nav-menu-close-button-desktop {
+
+
+    /*     background-color: lightgreen; */
+    /*    height: 40%;
+    width: 25% */
+
+    height: 100%;
+}
+
+.nav-menu-close-button-icon-desktop {
+    /*     color: darkred; */
+    height: 100%;
+
+}
+
+.nav-menu-bottom-bar-desktop {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: start;
+    margin-top: auto;
+    width: 100%;
+    /*  padding: 1%; */
+    gap: 5%;
+    padding: var(--spacing-2xl-desktop, 28px) var(--spacing-md-desktop, 16px);
+}
+
+.nav-menu-osf-logo-desktop {
+    /*   background-color: yellowgreen; */
+    max-width: 75%;
+    /* Prevents the image from exceeding the width of the parent */
+    max-height: 100%;
+    /* Prevents the image from exceeding the height of the parent */
+    object-fit: contain;
+    /* Ensures the image fits within the dimensions without distortion */
+    overflow: hidden;
+    /* Prevents the image from spilling out */
+    display: inline-block;
+    /* Ensures the div fits its content */
+    /* width: 100%; */
+    /* Optional: Ensures the image fully adapts */
+    height: auto;
+    /* Maintains aspect ratio */
+    padding-left: 12px;
+}
+
+
+/* 
+MOBILE ////////////////////////////////////////////////////////////////////////////////////////////// */
+.nav-menu-container-mobile {
+    position: absolute;
+
+    height: 100%;
+    top: 0;
+    right: 0;
+
+    width: 100%;
+    z-index: 9999;
+}
+
+
+.nav-menu-parent-mobile {
+    background-color: var(--color-surface-default);
+    position: absolute;
+
+    height: 100%;
+    top: 0;
+    right: 0;
+
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-direction: column;
+    width: 75%;
+    z-index: 9999;
+    box-shadow: -75px 0px 25px 25px rgba(0, 0, 0, 0.15);
+    clip-path: inset(0 0 0 -2000px);
+
+    border-top-left-radius: var(--spacing-xl-mobile);
+    /* Top left rounded corner */
+    border-bottom-left-radius: var(--spacing-xl-mobile);
+    /* Bottom left rounded corner */
+    padding: var(--spacing-2xl-mobile, 24px) var(--spacing-md-mobile, 16px);
+}
+
+
+.nav-menu-top-row-mobile {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    flex-direction: row;
+    width: 100%;
+    padding-left: var(--spacing-2xl-mobile, 24px);
+    padding-right: var(--spacing-md-mobile);
+    margin-bottom: var(--spacing-md-mobile, 24px);
+
+}
+
+.nav-menu-button-holder-mobile {
+
+    width: 100%;
+
+    z-index: 100;
+    text-align: start;
+    scrollbar-width: none;
+
+
+}
+
+.nav-menu-button-holder-mobile::-webkit-scrollbar {
+    display: none;
+    /* WebKit (Chrome, Safari, Edge) */
+}
+
+
+.nav-menu-bottom-bar-mobile {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: start;
+    margin-top: auto;
+    width: 100%;
+    /*  padding: 1%; */
+    gap: 5%;
+    padding: var(--spacing-2xl-mobile, 24px) var(--spacing-md-mobile, 16px);
+}
+
+
+
+
+.nav-menu-close-button-mobile {
+
+    height: 100%;
+}
+
+.nav-menu-close-button-icon-mobile {
+    /*     color: darkred; */
+    height: 100%;
+
+}
+
+
+.nav-menu-osf-logo-mobile {
+    /*   background-color: yellowgreen; */
+    max-width: 75%;
+    /* Prevents the image from exceeding the width of the parent */
+    max-height: 100%;
+    /* Prevents the image from exceeding the height of the parent */
+    object-fit: contain;
+    /* Ensures the image fits within the dimensions without distortion */
+    overflow: hidden;
+    /* Prevents the image from spilling out */
+    display: inline-block;
+    /* Ensures the div fits its content */
+    /* width: 100%; */
+    /* Optional: Ensures the image fully adapts */
+    height: auto;
+    /* Maintains aspect ratio */
+    padding-left: 16px;
+}

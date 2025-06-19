@@ -1,0 +1,79 @@
+@import "./Page_Component_Styles/Object_Item_Text.css";
+/* @import "./Page_Component_Styles/Brand-Text.css";
+@import "./Page_Component_Styles/Brand-Colors.css";
+@import "./Page_Component_Styles/Brand-Scale-and-Spacing.css"; */
+
+
+
+
+
+.app-padding-mobile,
+.app-padding-desktop {
+
+    /*     backgroundColor: "gray", containerType: "inline-size", containerName: "mainContainer",
+      display: "flex", flexDirection: "column", justifyContent: "start", alignItems: "center", height: "100%", padding: "12px"
+ */
+    background-color: var(--color-surface-default);
+
+    container-type: inline-size;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100dvh;
+    width: 100%;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+
+    /*    overflow: hidden; */
+
+    overflow: visible;
+}
+
+.app-padding-mobile {
+    max-width: 100% !important;
+
+    /*    overflow: visible; */
+}
+
+.app-padding-desktop {
+    max-width: 600px !important;
+    /*   padding-top: 13px; */
+
+    /*     padding-left: 36px;
+    padding-right: 20px; */
+
+    position: relative;
+
+
+    /*   overflow: visible; */
+}
+
+.nav-bar {
+    /*  background-color: white; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+
+    position: absolute;
+    top: 8px;
+
+
+    z-index: 101;
+
+    /*  background: linear-gradient(180deg, rgba(248, 249, 251, 0.80) 34.72%, rgba(248, 249, 251, 0.35) 78%, rgba(248, 249, 251, 0.00) 100%);
+
+    backdrop-filter: blur(1px); */
+    background: linear-gradient(180deg,
+            rgba(248, 249, 251, 0.80) 25.07%,
+            rgba(248, 249, 251, 0.50) 66.37%,
+            rgba(248, 249, 251, 0.20) 89.44%,
+            rgba(248, 249, 251, 0.00) 100%);
+    /*     max-width: 500px !important; */
+    /*    
+    
+    /*  box-shadow: 0 0 15px rgba(0, 0, 0, 0.75);
+    clip-path: inset(0 0 -15px 0); */
+}

@@ -1,0 +1,237 @@
+@import "./Object_Item_Text.css";
+/* @import "./Brand-Text.css";
+@import "./Brand-Colors.css";
+@import "./Brand-Scale-and-Spacing.css"; */
+
+.multi-select-button-desktop,
+.multi-select-button-selected-desktop,
+.multi-select-button-disabled-desktop {
+
+    /*  margin-top: var(--spacing-md-desktop);
+    margin-bottom: var(--spacing-md-desktop); */
+
+    cursor: pointer;
+    margin-right: auto;
+    margin-left: auto;
+
+    width: 100%;
+    border-width: 1.5px;
+    border-style: solid;
+    border-radius: 8px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    transition: background-color 0.2s ease;
+    user-select: none;
+    /*     margin-top: 10px;
+    margin-bottom: 10px; */
+
+    gap: var(--spacing-lg-desktop, 20px);
+
+    padding-top: var(--spacing-md-desktop);
+    padding-bottom: var(--spacing-md-desktop);
+    padding-left: var(--spacing-lg-desktop);
+    padding-right: var(--spacing-lg-desktop);
+
+    font-family: var(--font-family-body-desktop, "Nunito Sans");
+    font-size: var(--font-size-body-default-desktop, 16px);
+    font-style: normal;
+    font-weight: var(--font-weight-body-default-desktop, 400);
+    line-height: var(--font-line-height-body-default-desktop, 24px);
+    letter-spacing: var(--font-letter-spacing-default-desktop, 0.1px);
+    text-align: start;
+}
+
+.multi-select-button-desktop {
+    font-family: var(--font-family-body);
+    border-color: var(--color-primary-interact-light-default, #b4c5ff);
+    color: var(--color-primary-interact-bolder-default, #0d30ad);
+    background-color: var(--color-primary-interact-transparent-default, #F8F9FB);
+}
+
+.multi-select-button-disabled-desktop {
+    font-weight: normal;
+    font-family: var(--font-family-body);
+    border-color: var(--color-disabled-light, #C3C6D1);
+    color: var(--color-disabled-bold, #7D808A);
+    background-color: var(--color-surface-default, #F8F9FB);
+
+    cursor: default;
+}
+
+.multi-select-button-desktop:hover {
+    font-weight: normal;
+    font-family: var(--font-family-body);
+    background-color: var(--color-primary-interact-transparent-hovered, #F2F5FF);
+}
+
+
+.multi-select-button-desktop:hover.multi-select-button-desktop:active {
+    font-weight: normal;
+    font-family: var(--font-family-body);
+    background-color: var(--color-primary-interact-transparent-pressed, #DAE2FF);
+}
+
+.multi-select-button-selected-desktop {
+    font-weight: 700;
+    font-family: var(--font-family-body);
+    border-color: transparent;
+    color: var(--color-on-primary-bold, #FFFFFF);
+    background-color: var(--color-primary-interact-bolder-default, #0D30AD);
+}
+
+.multi-select-button-selected-desktop:hover {
+    font-weight: 700;
+    font-family: var(--font-family-body);
+    background-color: var(--color-primary-interact-bolder-hovered, #1f4be8);
+}
+
+.multi-select-button-selected-desktop:hover.multi-select-button-selected-desktop:active {
+    font-weight: 700;
+    font-family: var(--font-family-body);
+    background-color: var(--color-primary-interact-bolder-pressed, #3b63f3);
+}
+
+
+
+.multi-select-icon-desktop {
+    color: var(--color-primary-interact-bolder-default, #0d30ad);
+    transition: color 0.2s ease;
+}
+
+.multi-select-icon-selected-desktop {
+    color: var(--color-on-primary-bold, #FFFFFF);
+    transition: color 0.2s ease;
+}
+
+.multi-select-icon-holder-desktop {
+    color: var(--color-primary-interact-bolder-default, #0d30ad);
+    transition: color 0.2s ease;
+
+}
+
+.multi-select-icon-holder-selected-desktop {
+    color: var(--color-on-primary-bold, #FFFFFF);
+    transition: color 0.2s ease;
+}
+
+.multi-select-icon-holder-disabled-desktop {
+    color: var(--color-disabled-bold, #7D808A);
+    transition: color 0.2s ease;
+}
+
+
+/*MOBILE*/
+
+
+.multi-select-button-mobile,
+.multi-select-button-selected-mobile,
+.multi-select-button-disabled-mobile {
+
+    /*  margin-top: var(--spacing-md-mobile);
+    margin-bottom: var(--spacing-md-mobile); */
+    margin-right: auto;
+    margin-left: auto;
+
+    width: 100%;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 5px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    transition: background-color 0.2s ease;
+    user-select: none;
+    /*     margin-top: 10px;
+    margin-bottom: 10px; */
+
+    gap: var(--spacing-lg-mobile), 16px;
+
+    padding-top: var(--spacing-md-mobile);
+    padding-bottom: var(--spacing-md-mobile);
+    padding-left: var(--spacing-lg-mobile);
+    padding-right: var(--spacing-lg-mobile);
+    text-align: start;
+}
+
+
+
+
+.multi-select-button-mobile {
+    font-family: var(--font-family-body);
+    border-color: var(--color-primary-interact-light-default, #b4c5ff);
+    color: var(--color-primary-interact-bolder-default, #0d30ad);
+    background-color: var(--color-primary-interact-transparent-default, #F8F9FB);
+
+}
+
+.multi-select-button-disabled-mobile {
+    font-weight: normal;
+    font-family: var(--font-family-body);
+    border-color: var(--color-disabled-light, #C3C6D1);
+    color: var(--color-disabled-bold, #7D808A);
+    background-color: var(--color-surface-default, #F8F9FB);
+}
+
+.multi-select-button-mobile:hover {
+    font-weight: normal;
+    font-family: var(--font-family-body);
+    /* background-color: var(--color-primary-interact-transparent-hovered, #F2F5FF); */
+    background-color: var(--color-primary-interact-transparent-default, #F8F9FB);
+}
+
+
+.multi-select-button-mobile:hover.multi-select-button-mobile:active {
+    font-weight: normal;
+    font-family: var(--font-family-body);
+    background-color: var(--color-primary-interact-transparent-pressed, #DAE2FF);
+}
+
+.multi-select-button-selected-mobile {
+    font-weight: 700;
+    font-family: var(--font-family-body);
+    border-color: transparent;
+    color: var(--color-on-primary-bold, #FFFFFF);
+    background-color: var(--color-primary-interact-bolder-default, #0D30AD);
+}
+
+.multi-select-button-selected-mobile:hover {
+    font-weight: 700;
+    font-family: var(--font-family-body);
+    /* background-color: var(--color-primary-interact-bolder-hovered, #1f4be8); */
+    background-color: var(--color-primary-interact-bolder-default, #0D30AD);
+}
+
+.multi-select-button-selected-mobile:hover.multi-select-button-selected-mobile:active {
+    font-weight: 700;
+    font-family: var(--font-family-body);
+    background-color: var(--color-primary-interact-bolder-pressed, #3b63f3);
+}
+
+
+
+.multi-select-icon-mobile {
+    color: var(--color-primary-interact-bolder-default, #0d30ad);
+    transition: color 0.2s ease;
+}
+
+.multi-select-icon-selected-mobile {
+    color: var(--color-on-primary-bold, #FFFFFF);
+    transition: color 0.2s ease;
+}
+
+.multi-select-icon-holder-mobile {
+    color: var(--color-primary-interact-bolder-default, #0d30ad);
+    transition: color 0.2s ease;
+
+}
+
+.multi-select-icon-holder-selected-mobile {
+    color: var(--color-on-primary-bold, #FFFFFF);
+    transition: color 0.2s ease;
+}
+
+.multi-select-icon-holder-disabled-mobile {
+    color: var(--color-disabled-bold, #7D808A);
+    transition: color 0.2s ease;
+}

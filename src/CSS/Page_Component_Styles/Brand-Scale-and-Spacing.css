@@ -1,0 +1,137 @@
+@import "./Brand-Text.css";
+
+:root {
+
+    /*BRAND*/
+    --scale-50-2: 2px;
+    --scale-100-4: 4px;
+    --scale-200-8: 8px;
+    --scale-250-10: 10px;
+    --scale-300-12: 12px;
+    --scale-350-14: 14px;
+    --scale-400-16: 16px;
+    --scale-450-18: 18px;
+    --scale-500-20: 20px;
+    --scale-600-24: 24px;
+    --scale-700-28: 28px;
+    --scale-800-32: 32px;
+    --scale-900-36: 36px;
+    --scale-1000-40: 40px;
+    --scale-1100-44: 44px;
+    --scale-1200-48: 48px;
+    --scale-1300-52: 52px;
+    --scale-1400-56: 56px;
+    --scale-1600-64: 64px;
+    --scale-1800-72: 72px;
+    --scale-2000-80: 80px;
+
+}
+
+/* Regular Mobile Screen Sizes */
+@media screen and (min-width: 359px) {
+    :root {
+        /* Everything in here is what was in the original ROOT area. To Fix, move it back up ///////////////////////////////////////////////////////////////*/
+        
+        /*MAPPED*/
+        /* MOBILE */
+        --spacing-xs-mobile: var(--scale-100-4);
+        --spacing-sm-mobile: var(--scale-200-8);
+        --spacing-md-mobile: var(--scale-300-12);
+        --spacing-lg-mobile: var(--scale-400-16);
+        --spacing-xl-mobile: var(--scale-500-20);
+        --spacing-2xl-mobile: var(--scale-600-24);
+        --spacing-3xl-mobile: var(--scale-800-32);
+        --spacing-side-margin-mobile: var(--scale-800-32);
+
+        /* Desktop */
+        --spacing-xs-desktop: var(--scale-100-4);
+        --spacing-sm-desktop: var(--scale-200-8);
+        --spacing-md-desktop: var(--scale-300-12);
+        --spacing-lg-desktop: var(--scale-400-16);
+        --spacing-xl-desktop: var(--scale-500-20);
+        --spacing-2xl-desktop: var(--scale-600-24);
+        --spacing-3xl-desktop: var(--scale-800-32);
+        --spacing-side-margin-desktop: var(--scale-800-32);
+
+
+        /* OLD and BIGGER Desktop
+        --spacing-xs-desktop: var(--scale-200-8);
+        --spacing-sm-desktop: var(--scale-300-12);
+        --spacing-md-desktop: var(--scale-400-16);
+        --spacing-lg-desktop: var(--scale-500-20);
+        --spacing-xl-desktop: var(--scale-600-24);
+        --spacing-2xl-desktop: var(--scale-700-28);
+        --spacing-3xl-desktop: var(--scale-900-36);
+        --spacing-side-margin-desktop: var(--scale-900-36); */
+        
+    }
+};
+
+
+/* Small mobile screen sizes */
+@media screen and (max-width: 359px) {
+    :root {
+        /* Everything in here is what was in the original ROOT area. To Fix, move it back up ///////////////////////////////////////////////////////////////*/
+        
+        /*MAPPED*/
+        /* MOBILE */
+        --spacing-xs-mobile: var(--scale-50-2);
+        --spacing-sm-mobile: var(--scale-100-4);
+        --spacing-md-mobile: var(--scale-200-8);
+        --spacing-lg-mobile: var(--scale-300-12);
+        --spacing-xl-mobile: var(--scale-400-16);
+        --spacing-2xl-mobile: var(--scale-500-20);
+        --spacing-3xl-mobile: var(--scale-600-24);
+        --spacing-side-margin-mobile: var(--scale-600-24);
+
+        /* Desktop */
+        --spacing-xs-desktop: var(--scale-50-2);
+        --spacing-sm-desktop: var(--scale-100-4);
+        --spacing-md-desktop: var(--scale-200-8);
+        --spacing-lg-desktop: var(--scale-300-12);
+        --spacing-xl-desktop: var(--scale-400-16);
+        --spacing-2xl-desktop: var(--scale-500-20);
+        --spacing-3xl-desktop: var(--scale-600-24);
+        --spacing-side-margin-desktop: var(--scale-600-24);
+        
+        /* OLD and BIGGER Desktop
+        --spacing-xs-desktop: var(--scale-100-4);
+        --spacing-sm-desktop: var(--scale-200-8);
+        --spacing-md-desktop: var(--scale-300-12);
+        --spacing-lg-desktop: var(--scale-400-16);
+        --spacing-xl-desktop: var(--scale-500-20);
+        --spacing-2xl-desktop: var(--scale-600-24);
+        --spacing-3xl-desktop: var(--scale-700-28);
+        --spacing-side-margin-desktop: var(--scale-700-28); */
+        
+    }
+};
+
+/* Big Mobile Screen Sizes */
+@media screen and (min-width: 420px) {
+    :root {
+        /* Everything in here is what was in the original ROOT area. To Fix, move it back up ///////////////////////////////////////////////////////////////*/
+        
+        /*MAPPED*/
+        /* MOBILE */
+        --spacing-xs-mobile: var(--scale-100-4);
+        --spacing-sm-mobile: var(--scale-200-8);
+        --spacing-md-mobile: var(--scale-300-12);
+        --spacing-lg-mobile: var(--scale-400-16);
+        --spacing-xl-mobile: var(--scale-500-20);
+        --spacing-2xl-mobile: var(--scale-600-24);
+        --spacing-3xl-mobile: var(--scale-800-32);
+        --spacing-side-margin-mobile: var(--scale-800-32);
+
+        /* Desktop */
+        --spacing-xs-desktop: var(--scale-200-8);
+        --spacing-sm-desktop: var(--scale-300-12);
+        --spacing-md-desktop: var(--scale-400-16);
+        --spacing-lg-desktop: var(--scale-500-20);
+        --spacing-xl-desktop: var(--scale-600-24);
+        --spacing-2xl-desktop: var(--scale-700-28);
+        --spacing-3xl-desktop: var(--scale-900-36);
+        --spacing-side-margin-desktop: var(--scale-900-36);
+        
+    }
+};

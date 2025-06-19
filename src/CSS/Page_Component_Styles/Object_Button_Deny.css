@@ -1,0 +1,624 @@
+@import "./Object_Item_Text.css";
+/* @import "./Brand-Text.css";
+@import "./Brand-Colors.css";
+@import "./Brand-Scale-and-Spacing.css"; */
+
+.deny-button-primary-desktop,
+.deny-button-primary-disabled-desktop,
+.deny-button-secondary-desktop,
+.deny-button-secondary-disabled-desktop,
+.deny-button-tertiary-desktop,
+.deny-button-tertiary-disabled-desktop {
+    /* You can define common styles here, or leave it empty to inherit .deny-button styles */
+    margin-top: var(--spacing-md-desktop);
+    margin-bottom: var(--spacing-md-desktop);
+    margin-right: auto;
+    margin-left: auto;
+    border: 1px solid var(--color-danger-interact-bold-default, #BA1629);
+    ;
+
+
+    display: inline-flex;
+    padding: var(--spacing-sm-desktop, 8px) var(--spacing-lg, 16px);
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-sm-desktop, 8px);
+
+    border-radius: var(--spacing-sm-desktop, 8px);
+    display: flex;
+    place-items: center;
+    justify-content: space-evenly;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    user-select: none;
+    /*     height: 100%;
+; */
+    width: 100%
+}
+
+.deny-button-primary-desktop {
+    background: var(--color-danger-interact-bold-default, #BA1629);
+    ;
+}
+
+.deny-button-primary-desktop:hover {
+
+    background: var(--color-danger-interact-bold-hovered, #890010);
+    ;
+    border: 1px solid var(--color-danger-interact-bold-hovered, #890010);
+    ;
+}
+
+.deny-button-primary-desktop:active {
+    background: var(--color-danger-interact-bold-pressed, #68000C);
+    border: 1px solid var(--color-danger-interact-bold-pressed, #68000C);
+}
+
+
+
+.deny-button-primary-disabled-desktop {
+    background: var(--color-disabled-bold, #7D808A);
+    border: 1px solid var(--color-disabled-bold, #7D808A);
+}
+
+/* Text */
+.deny-button-primary-text-desktop {
+    color: white;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.deny-button-primary-text-disabled-desktop {
+
+    color: white;
+}
+
+.deny-button-primary-desktop:hover .deny-button-primary-text-desktop {
+
+    color: white;
+}
+
+.deny-button-primary-desktop:active .deny-button-primary-text-desktop {
+
+    color: white;
+}
+
+.deny-button-primary-desktop:hover:active .deny-button-primary-text-desktop {
+
+    color: white;
+}
+
+
+
+/* Icon */
+.deny-button-primary-icon-desktop {
+
+    color: white;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.deny-button-primary-icon-disabled-desktop {
+
+    color: white;
+}
+
+.deny-button-primary-desktop:hover .deny-button-primary-icon-desktop {
+
+    color: white;
+}
+
+.deny-button-primary-desktop:active .deny-button-primary-icon-desktop {
+
+    color: white;
+}
+
+.deny-button-primary-desktop:hover:active .deny-button-primary-icon-desktop {
+
+    color: white;
+}
+
+/* ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* Secondary Styles*/
+/* Button */
+.deny-button-secondary-desktop {
+    background-color: var(--color-surface-default);
+    border-radius: var(--spacing-sm-desktop, 8px);
+    border: 1px solid var(--color-danger-interact-bold-default, #BA1629);
+    ;
+
+    display: flex;
+    place-items: center;
+    justify-content: space-evenly;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    user-select: none;
+
+    color: var(--color-danger-interact-bold-hovered, #890010);
+    ;
+    ;
+
+}
+
+.deny-button-secondary-desktop:hover {
+    border: 1px solid var(--color-danger-interact-bold-hovered, #890010);
+    ;
+
+}
+
+.deny-button-secondary-desktop:active {
+    border: 1px solid var(--color-danger-interact-bold-pressed, #68000C);
+}
+
+
+
+
+.deny-button-secondary-disabled-desktop {
+    background-color: transparent;
+    border: 2px solid #4d4d4d;
+}
+
+/* Text */
+.deny-button-secondary-text-desktop {
+    /* this is no longer really useful */
+    color: var(--color-danger-interact-bold-default, #BA1629);
+    ;
+}
+
+.deny-button-secondary-text-disabled-desktop {
+
+    color: var(--color-disabled-bold, #7D808A);
+
+}
+
+.deny-button-secondary-desktop:hover .deny-button-secondary-text-desktop {
+
+    color: var(--color-danger-interact-bold-hovered, #890010);
+    ;
+}
+
+.deny-button-secondary-desktop:active .deny-button-secondary-text-desktop {
+
+    color: var(--color-danger-interact-bold-pressed, #68000C);
+}
+
+.deny-button-secondary-desktop:hover:active .deny-button-secondary-text-desktop {
+
+    color: var(--color-danger-interact-bold-pressed, #68000C);
+}
+
+
+
+/* Icon */
+.deny-button-secondary-icon-desktop {
+
+
+    color: var(--color-danger-interact-bold-default, #BA1629);
+    ;
+}
+
+.deny-button-secondary-icon-disabled-desktop {
+
+    color: var(--color-disabled-bold, #7D808A);
+
+}
+
+.deny-button-secondary-desktop:hover .deny-button-secondary-icon-desktop {
+
+    color: var(--color-danger-interact-bold-hovered, #890010);
+    ;
+}
+
+.deny-button-secondary-desktop:active .deny-button-secondary-icon-desktop {
+
+    color: var(--color-danger-interact-bold-pressed, #68000C);
+}
+
+.deny-button-secondary-desktop:hover:active .deny-button-secondary-icon-desktop {
+
+    color: var(--color-danger-interact-bold-pressed, #68000C);
+}
+
+/* ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* Tertiary Styles*/
+/* Button */
+.deny-button-tertiary-desktop {
+    background-color: transparent;
+    display: flex;
+    place-items: center;
+    justify-content: space-evenly;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    user-select: none;
+    border-color: transparent;
+
+}
+
+.deny-button-tertiary-desktop:hover {
+
+    background-color: transparent
+}
+
+.deny-button-tertiary-desktop:active {
+    background-color: transparent
+}
+
+.deny-button-tertiary-desktop:hover:active {
+    background-color: transparent
+}
+
+.deny-button-tertiary-disabled-desktop {
+    background-color: transparent
+}
+
+/* Text */
+.deny-button-tertiary-text-desktop {
+    color: var(--color-danger-interact-bold-default, #BA1629);
+    ;
+
+}
+
+.deny-button-tertiary-text-disabled-desktop {
+
+    color: var(--color-disabled-bold, #7D808A);
+
+}
+
+.deny-button-tertiary-desktop:hover .deny-button-tertiary-text-desktop {
+
+    color: var(--color-danger-interact-bold-hovered, #890010);
+    ;
+}
+
+.deny-button-tertiary-desktop:active .deny-button-tertiary-text-desktop {
+
+    color: var(--color-danger-interact-bold-pressed, #68000C);
+}
+
+.deny-button-tertiary-desktop:hover:active .deny-button-tertiary-text-desktop {
+
+    color: var(--color-danger-interact-bold-pressed, #68000C);
+}
+
+
+
+/* Icon */
+.deny-button-tertiary-icon-desktop {
+
+    color: var(--color-danger-interact-bold-default, #BA1629);
+    ;
+}
+
+.deny-button-tertiary-icon-disabled-desktop {
+
+    color: var(--color-disabled-bold, #7D808A);
+
+}
+
+.deny-button-tertiary-desktop:hover .deny-button-tertiary-icon-desktop {
+
+    color: var(--color-danger-interact-bold-hovered, #890010);
+    ;
+}
+
+.deny-button-tertiary-desktop:active .deny-button-tertiary-icon-desktop {
+
+    color: var(--color-danger-interact-bold-pressed, #68000C);
+}
+
+.deny-button-tertiary-desktop:hover:active .deny-button-tertiary-icon-desktop {
+
+    color: var(--color-danger-interact-bold-pressed, #68000C);
+}
+
+
+
+/* MOBILE /////////////////////////////////*/
+
+.deny-button-primary-mobile,
+.deny-button-primary-disabled-mobile,
+.deny-button-secondary-mobile,
+.deny-button-secondary-disabled-mobile,
+.deny-button-tertiary-mobile,
+.deny-button-tertiary-disabled-mobile {
+    /* You can define common styles here, or leave it empty to inherit .deny-button styles */
+    margin-top: var(--spacing-md-mobile);
+    margin-bottom: var(--spacing-md-mobile);
+    margin-right: auto;
+    margin-left: auto;
+    border: 1px solid var(--color-danger-interact-bold-default, #BA1629);
+    ;
+
+
+    display: inline-flex;
+    padding: var(--spacing-sm-mobile, 8px) var(--spacing-lg-mobile, 16px);
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-sm-mobile, 8px);
+
+    border-radius: var(--spacing-sm-mobile, 8px);
+    display: flex;
+    place-items: center;
+    justify-content: space-evenly;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    user-select: none;
+    /*     height: 100%;
+; */
+    width: 100%
+}
+
+.deny-button-primary-mobile {
+    background: var(--color-danger-interact-bold-default, #BA1629);
+    ;
+}
+
+.deny-button-primary-mobile:hover {
+
+    background: var(--color-danger-interact-bold-hovered, #890010);
+    ;
+    border: 1px solid var(--color-danger-interact-bold-hovered, #890010);
+    ;
+}
+
+.deny-button-primary-mobile:active {
+    background: var(--color-danger-interact-bold-pressed, #68000C);
+    border: 1px solid var(--color-danger-interact-bold-pressed, #68000C);
+}
+
+
+
+.deny-button-primary-disabled-mobile {
+    background: var(--color-disabled-bold, #7D808A);
+    border: 1px solid var(--color-disabled-bold, #7D808A);
+}
+
+/* Text */
+.deny-button-primary-text-mobile {
+    color: white;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.deny-button-primary-text-disabled-mobile {
+
+    color: white;
+}
+
+.deny-button-primary-mobile:hover .deny-button-primary-text-mobile {
+
+    color: white;
+}
+
+.deny-button-primary-mobile:active .deny-button-primary-text-mobile {
+
+    color: white;
+}
+
+.deny-button-primary-mobile:hover:active .deny-button-primary-text-mobile {
+
+    color: white;
+}
+
+
+
+/* Icon */
+.deny-button-primary-icon-mobile {
+
+    color: white;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.deny-button-primary-icon-disabled-mobile {
+
+    color: white;
+}
+
+.deny-button-primary-mobile:hover .deny-button-primary-icon-mobile {
+
+    color: white;
+}
+
+.deny-button-primary-mobile:active .deny-button-primary-icon-mobile {
+
+    color: white;
+}
+
+.deny-button-primary-mobile:hover:active .deny-button-primary-icon-mobile {
+
+    color: white;
+}
+
+/* ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* Secondary Styles*/
+/* Button */
+.deny-button-secondary-mobile {
+    background-color: var(--color-surface-default);
+    border-radius: var(--spacing-sm-mobile, 8px);
+    border: 1px solid var(--color-danger-interact-bold-default, #BA1629);
+    ;
+
+    display: flex;
+    place-items: center;
+    justify-content: space-evenly;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    user-select: none;
+
+    color: var(--color-danger-interact-bold-hovered, #890010);
+    ;
+    ;
+
+}
+
+.deny-button-secondary-mobile:hover {
+    border: 1px solid var(--color-danger-interact-bold-hovered, #890010);
+    ;
+
+}
+
+.deny-button-secondary-mobile:active {
+    border: 1px solid var(--color-danger-interact-bold-pressed, #68000C);
+}
+
+
+
+
+.deny-button-secondary-disabled-mobile {
+    background-color: transparent;
+    border: 2px solid #4d4d4d;
+}
+
+/* Text */
+.deny-button-secondary-text-mobile {
+    /* this is no longer really useful */
+    color: var(--color-danger-interact-bold-default, #BA1629);
+    ;
+}
+
+.deny-button-secondary-text-disabled-mobile {
+
+    color: var(--color-disabled-bold, #7D808A);
+
+}
+
+.deny-button-secondary-mobile:hover .deny-button-secondary-text-mobile {
+
+    color: var(--color-danger-interact-bold-hovered, #890010);
+    ;
+}
+
+.deny-button-secondary-mobile:active .deny-button-secondary-text-mobile {
+
+    color: var(--color-danger-interact-bold-pressed, #68000C);
+}
+
+.deny-button-secondary-mobile:hover:active .deny-button-secondary-text-mobile {
+
+    color: var(--color-danger-interact-bold-pressed, #68000C);
+}
+
+
+
+/* Icon */
+.deny-button-secondary-icon-mobile {
+
+
+    color: var(--color-danger-interact-bold-default, #BA1629);
+    ;
+}
+
+.deny-button-secondary-icon-disabled-mobile {
+
+    color: var(--color-disabled-bold, #7D808A);
+
+}
+
+.deny-button-secondary-mobile:hover .deny-button-secondary-icon-mobile {
+
+    color: var(--color-danger-interact-bold-hovered, #890010);
+    ;
+}
+
+.deny-button-secondary-mobile:active .deny-button-secondary-icon-mobile {
+
+    color: var(--color-danger-interact-bold-pressed, #68000C);
+}
+
+.deny-button-secondary-mobile:hover:active .deny-button-secondary-icon-mobile {
+
+    color: var(--color-danger-interact-bold-pressed, #68000C);
+}
+
+/* ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* Tertiary Styles*/
+/* Button */
+.deny-button-tertiary-mobile {
+    background-color: transparent;
+    display: flex;
+    place-items: center;
+    justify-content: space-evenly;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    user-select: none;
+    border-color: transparent;
+
+}
+
+.deny-button-tertiary-mobile:hover {
+
+    background-color: transparent
+}
+
+.deny-button-tertiary-mobile:active {
+    background-color: transparent
+}
+
+.deny-button-tertiary-mobile:hover:active {
+    background-color: transparent
+}
+
+.deny-button-tertiary-disabled-mobile {
+    background-color: transparent
+}
+
+/* Text */
+.deny-button-tertiary-text-mobile {
+    color: var(--color-danger-interact-bold-default, #BA1629);
+    ;
+
+}
+
+.deny-button-tertiary-text-disabled-mobile {
+
+    color: var(--color-disabled-bold, #7D808A);
+
+}
+
+.deny-button-tertiary-mobile:hover .deny-button-tertiary-text-mobile {
+
+    color: var(--color-danger-interact-bold-hovered, #890010);
+    ;
+}
+
+.deny-button-tertiary-mobile:active .deny-button-tertiary-text-mobile {
+
+    color: var(--color-danger-interact-bold-pressed, #68000C);
+}
+
+.deny-button-tertiary-mobile:hover:active .deny-button-tertiary-text-mobile {
+
+    color: var(--color-danger-interact-bold-pressed, #68000C);
+}
+
+
+
+/* Icon */
+.deny-button-tertiary-icon-mobile {
+
+    color: var(--color-danger-interact-bold-default, #BA1629);
+    ;
+}
+
+.deny-button-tertiary-icon-disabled-mobile {
+
+    color: var(--color-disabled-bold, #7D808A);
+
+}
+
+.deny-button-tertiary-mobile:hover .deny-button-tertiary-icon-mobile {
+
+    color: var(--color-danger-interact-bold-hovered, #890010);
+    ;
+}
+
+.deny-button-tertiary-mobile:active .deny-button-tertiary-icon-mobile {
+
+    color: var(--color-danger-interact-bold-pressed, #68000C);
+}
+
+.deny-button-tertiary-mobile:hover:active .deny-button-tertiary-icon-mobile {
+
+    color: var(--color-danger-interact-bold-pressed, #68000C);
+}

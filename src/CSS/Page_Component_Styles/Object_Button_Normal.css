@@ -1,0 +1,595 @@
+@import "./Object_Item_Text.css";
+/* @import "./Brand-Text.css";
+@import "./Brand-Colors.css";
+@import "./Brand-Scale-and-Spacing.css"; */
+
+.normal-button-primary-desktop,
+.normal-button-primary-disabled-desktop,
+.normal-button-secondary-desktop,
+.normal-button-secondary-disabled-desktop,
+.normal-button-tertiary-desktop,
+.normal-button-tertiary-disabled-desktop {
+    /* You can define common styles here, or leave it empty to inherit .normal-button styles */
+    margin-top: var(--spacing-md-desktop);
+    margin-bottom: var(--spacing-md-desktop);
+    margin-right: auto;
+    margin-left: auto;
+    border: 1px solid var(--color-primary-interact-bold-default, #1F4BE8);
+
+
+    display: inline-flex;
+    padding: var(--spacing-sm-desktop, 8px) var(--spacing-lg-desktop, 16px);
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-sm-desktop, 8px);
+
+    border-radius: var(--spacing-sm-desktop, 8px);
+    display: flex;
+    place-items: center;
+    justify-content: space-evenly;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    user-select: none;
+    /*     height: 100%;
+; */
+    width: 100%
+}
+
+.normal-button-primary-desktop {
+    background: var(--color-primary-interact-bold-default, #1F4BE8);
+}
+
+.normal-button-primary-desktop:hover {
+
+    background: var(--color-primary-interact-bold-hovered, #0D30AD);
+    border: 1px solid var(--color-primary-interact-bold-hovered, #0D30AD);
+}
+
+.normal-button-primary-desktop:active {
+    background: var(--color-primary-interact-bold-pressed, #0B247D);
+    border: 1px solid var(--color-primary-interact-bold-pressed, #0B247D);
+}
+
+
+
+.normal-button-primary-disabled-desktop {
+    background: var(--color-disabled-bold, #7D808A);
+    border: 1px solid var(--color-disabled-bold, #7D808A);
+}
+
+/* Text */
+.normal-button-primary-text-desktop {
+    color: white;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.normal-button-primary-text-disabled-desktop {
+
+    color: white;
+}
+
+.normal-button-primary-desktop:hover .normal-button-primary-text-desktop {
+
+    color: white;
+}
+
+.normal-button-primary-desktop:active .normal-button-primary-text-desktop {
+
+    color: white;
+}
+
+.normal-button-primary-desktop:hover:active .normal-button-primary-text-desktop {
+
+    color: white;
+}
+
+
+
+/* Icon */
+.normal-button-primary-icon-desktop {
+
+    color: white;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.normal-button-primary-icon-disabled-desktop {
+
+    color: white;
+}
+
+.normal-button-primary-desktop:hover .normal-button-primary-icon-desktop {
+
+    color: white;
+}
+
+.normal-button-primary-desktop:active .normal-button-primary-icon-desktop {
+
+    color: white;
+}
+
+.normal-button-primary-desktop:hover:active .normal-button-primary-icon-desktop {
+
+    color: white;
+}
+
+/* ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* Secondary Styles*/
+/* Button */
+.normal-button-secondary-desktop {
+    /*  background-color: var(--color-surface-default); */
+    background-color: var("transparent");
+    border-radius: var(--spacing-sm-desktop, 8px);
+    border: 1px solid var(--color-primary-interact-bold-default, #1F4BE8);
+
+    display: flex;
+    place-items: center;
+    justify-content: space-evenly;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    user-select: none;
+
+    color: var(--color-primary-interact-bold-hovered, #0D30AD);
+    ;
+
+}
+
+.normal-button-secondary-desktop:hover {
+    border: 1px solid var(--color-primary-interact-bold-hovered, #0D30AD);
+
+}
+
+.normal-button-secondary-desktop:active {
+    border: 1px solid var(--color-primary-interact-bold-pressed, #0B247D);
+}
+
+
+
+
+.normal-button-secondary-disabled-desktop {
+    background-color: transparent;
+    border: 2px solid #4d4d4d;
+}
+
+/* Text */
+.normal-button-secondary-text-desktop {
+    /* this is no longer really useful */
+    color: var(--color-primary-interact-bold-default, #1F4BE8);
+}
+
+.normal-button-secondary-text-disabled-desktop {
+
+    color: var(--color-disabled-bold, #7D808A);
+
+}
+
+.normal-button-secondary-desktop:hover .normal-button-secondary-text-desktop {
+
+    color: var(--color-primary-interact-bold-hovered, #0D30AD);
+}
+
+.normal-button-secondary-desktop:active .normal-button-secondary-text-desktop {
+
+    color: var(--color-primary-interact-bold-pressed, #0B247D);
+}
+
+.normal-button-secondary-desktop:hover:active .normal-button-secondary-text-desktop {
+
+    color: var(--color-primary-interact-bold-pressed, #0B247D);
+}
+
+
+
+/* Icon */
+.normal-button-secondary-icon-desktop {
+
+
+    color: var(--color-primary-interact-bold-default, #1F4BE8);
+}
+
+.normal-button-secondary-icon-disabled-desktop {
+
+    color: var(--color-disabled-bold, #7D808A);
+
+}
+
+.normal-button-secondary-desktop:hover .normal-button-secondary-icon-desktop {
+
+    color: var(--color-primary-interact-bold-hovered, #0D30AD);
+}
+
+.normal-button-secondary-desktop:active .normal-button-secondary-icon-desktop {
+
+    color: var(--color-primary-interact-bold-pressed, #0B247D);
+}
+
+.normal-button-secondary-desktop:hover:active .normal-button-secondary-icon-desktop {
+
+    color: var(--color-primary-interact-bold-pressed, #0B247D);
+}
+
+/* ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* Tertiary Styles*/
+/* Button */
+.normal-button-tertiary-desktop {
+    background-color: transparent;
+    display: flex;
+    place-items: center;
+    justify-content: space-evenly;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    user-select: none;
+    border-color: transparent;
+
+}
+
+.normal-button-tertiary-desktop:hover {
+
+    background-color: transparent
+}
+
+.normal-button-tertiary-desktop:active {
+    background-color: transparent
+}
+
+.normal-button-tertiary-desktop:hover:active {
+    background-color: transparent
+}
+
+.normal-button-tertiary-disabled-desktop {
+    background-color: transparent
+}
+
+/* Text */
+.normal-button-tertiary-text-desktop {
+    color: var(--color-primary-interact-bold-default, #1F4BE8);
+
+}
+
+.normal-button-tertiary-text-disabled-desktop {
+
+    color: var(--color-disabled-bold, #7D808A);
+
+}
+
+.normal-button-tertiary-desktop:hover .normal-button-tertiary-text-desktop {
+
+    color: var(--color-primary-interact-bold-hovered, #0D30AD);
+}
+
+.normal-button-tertiary-desktop:active .normal-button-tertiary-text-desktop {
+
+    color: var(--color-primary-interact-bold-pressed, #0B247D);
+}
+
+.normal-button-tertiary-desktop:hover:active .normal-button-tertiary-text-desktop {
+
+    color: var(--color-primary-interact-bold-pressed, #0B247D);
+}
+
+
+
+/* Icon */
+.normal-button-tertiary-icon-desktop {
+
+    color: var(--color-primary-interact-bold-default, #1F4BE8);
+}
+
+.normal-button-tertiary-icon-disabled-desktop {
+
+    color: var(--color-disabled-bold, #7D808A);
+
+}
+
+.normal-button-tertiary-desktop:hover .normal-button-tertiary-icon-desktop {
+
+    color: var(--color-primary-interact-bold-hovered, #0D30AD);
+}
+
+.normal-button-tertiary-desktop:active .normal-button-tertiary-icon-desktop {
+
+    color: var(--color-primary-interact-bold-pressed, #0B247D);
+}
+
+.normal-button-tertiary-desktop:hover:active .normal-button-tertiary-icon-desktop {
+
+    color: var(--color-primary-interact-bold-pressed, #0B247D);
+}
+
+
+
+/* MOBILE /////////////////////////////////*/
+
+.normal-button-primary-mobile,
+.normal-button-primary-disabled-mobile,
+.normal-button-secondary-mobile,
+.normal-button-secondary-disabled-mobile,
+.normal-button-tertiary-mobile,
+.normal-button-tertiary-disabled-mobile {
+    /* You can define common styles here, or leave it empty to inherit .normal-button styles */
+    margin-top: var(--spacing-md-mobile);
+    margin-bottom: var(--spacing-md-mobile);
+    margin-right: auto;
+    margin-left: auto;
+    border: 1px solid var(--color-primary-interact-bold-default, #1F4BE8);
+
+
+    display: inline-flex;
+    padding: var(--spacing-sm-mobile, 8px) var(--spacing-lg-mobile, 16px);
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-sm-mobile, 8px);
+
+    border-radius: var(--spacing-sm-mobile, 8px);
+    display: flex;
+    place-items: center;
+    justify-content: space-evenly;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    user-select: none;
+    /*     height: 100%;
+; */
+    width: 100%
+}
+
+.normal-button-primary-mobile {
+    background: var(--color-primary-interact-bold-default, #1F4BE8);
+}
+
+.normal-button-primary-mobile:hover {
+
+    background: var(--color-primary-interact-bold-hovered, #0D30AD);
+    border: 1px solid var(--color-primary-interact-bold-hovered, #0D30AD);
+}
+
+.normal-button-primary-mobile:active {
+    background: var(--color-primary-interact-bold-pressed, #0B247D);
+    border: 1px solid var(--color-primary-interact-bold-pressed, #0B247D);
+}
+
+
+
+.normal-button-primary-disabled-mobile {
+    background: var(--color-disabled-bold, #7D808A);
+    border: 1px solid var(--color-disabled-bold, #7D808A);
+}
+
+/* Text */
+.normal-button-primary-text-mobile {
+    color: white;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.normal-button-primary-text-disabled-mobile {
+
+    color: white;
+}
+
+.normal-button-primary-mobile:hover .normal-button-primary-text-mobile {
+
+    color: white;
+}
+
+.normal-button-primary-mobile:active .normal-button-primary-text-mobile {
+
+    color: white;
+}
+
+.normal-button-primary-mobile:hover:active .normal-button-primary-text-mobile {
+
+    color: white;
+}
+
+
+
+/* Icon */
+.normal-button-primary-icon-mobile {
+
+    color: white;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.normal-button-primary-icon-disabled-mobile {
+
+    color: white;
+}
+
+.normal-button-primary-mobile:hover .normal-button-primary-icon-mobile {
+
+    color: white;
+}
+
+.normal-button-primary-mobile:active .normal-button-primary-icon-mobile {
+
+    color: white;
+}
+
+.normal-button-primary-mobile:hover:active .normal-button-primary-icon-mobile {
+
+    color: white;
+}
+
+/* ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* Secondary Styles*/
+/* Button */
+.normal-button-secondary-mobile {
+    background-color: var(--color-surface-default);
+    border-radius: var(--spacing-sm-mobile, 8px);
+    border: 1px solid var(--color-primary-interact-bold-default, #1F4BE8);
+
+    display: flex;
+    place-items: center;
+    justify-content: space-evenly;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    user-select: none;
+
+    color: var(--color-primary-interact-bold-hovered, #0D30AD);
+    ;
+
+}
+
+.normal-button-secondary-mobile:hover {
+    border: 1px solid var(--color-primary-interact-bold-hovered, #0D30AD);
+
+}
+
+.normal-button-secondary-mobile:active {
+    border: 1px solid var(--color-primary-interact-bold-pressed, #0B247D);
+}
+
+
+
+
+.normal-button-secondary-disabled-mobile {
+    background-color: transparent;
+    border: 2px solid #4d4d4d;
+}
+
+/* Text */
+.normal-button-secondary-text-mobile {
+    /* this is no longer really useful */
+    color: var(--color-primary-interact-bold-default, #1F4BE8);
+}
+
+.normal-button-secondary-text-disabled-mobile {
+
+    color: var(--color-disabled-bold, #7D808A);
+
+}
+
+.normal-button-secondary-mobile:hover .normal-button-secondary-text-mobile {
+
+    color: var(--color-primary-interact-bold-hovered, #0D30AD);
+}
+
+.normal-button-secondary-mobile:active .normal-button-secondary-text-mobile {
+
+    color: var(--color-primary-interact-bold-pressed, #0B247D);
+}
+
+.normal-button-secondary-mobile:hover:active .normal-button-secondary-text-mobile {
+
+    color: var(--color-primary-interact-bold-pressed, #0B247D);
+}
+
+
+
+/* Icon */
+.normal-button-secondary-icon-mobile {
+
+
+    color: var(--color-primary-interact-bold-default, #1F4BE8);
+}
+
+.normal-button-secondary-icon-disabled-mobile {
+
+    color: var(--color-disabled-bold, #7D808A);
+
+}
+
+.normal-button-secondary-mobile:hover .normal-button-secondary-icon-mobile {
+
+    color: var(--color-primary-interact-bold-hovered, #0D30AD);
+}
+
+.normal-button-secondary-mobile:active .normal-button-secondary-icon-mobile {
+
+    color: var(--color-primary-interact-bold-pressed, #0B247D);
+}
+
+.normal-button-secondary-mobile:hover:active .normal-button-secondary-icon-mobile {
+
+    color: var(--color-primary-interact-bold-pressed, #0B247D);
+}
+
+/* ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* Tertiary Styles*/
+/* Button */
+.normal-button-tertiary-mobile {
+    background-color: transparent;
+    display: flex;
+    place-items: center;
+    justify-content: space-evenly;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    user-select: none;
+    border-color: transparent;
+
+}
+
+.normal-button-tertiary-mobile:hover {
+
+    background-color: transparent
+}
+
+.normal-button-tertiary-mobile:active {
+    background-color: transparent
+}
+
+.normal-button-tertiary-mobile:hover:active {
+    background-color: transparent
+}
+
+.normal-button-tertiary-disabled-mobile {
+    background-color: transparent
+}
+
+/* Text */
+.normal-button-tertiary-text-mobile {
+    color: var(--color-primary-interact-bold-default, #1F4BE8);
+
+}
+
+.normal-button-tertiary-text-disabled-mobile {
+
+    color: var(--color-disabled-bold, #7D808A);
+
+}
+
+.normal-button-tertiary-mobile:hover .normal-button-tertiary-text-mobile {
+
+    color: var(--color-primary-interact-bold-hovered, #0D30AD);
+}
+
+.normal-button-tertiary-mobile:active .normal-button-tertiary-text-mobile {
+
+    color: var(--color-primary-interact-bold-pressed, #0B247D);
+}
+
+.normal-button-tertiary-mobile:hover:active .normal-button-tertiary-text-mobile {
+
+    color: var(--color-primary-interact-bold-pressed, #0B247D);
+}
+
+
+
+/* Icon */
+.normal-button-tertiary-icon-mobile {
+
+    color: var(--color-primary-interact-bold-default, #1F4BE8);
+}
+
+.normal-button-tertiary-icon-disabled-mobile {
+
+    color: var(--color-disabled-bold, #7D808A);
+
+}
+
+.normal-button-tertiary-mobile:hover .normal-button-tertiary-icon-mobile {
+
+    color: var(--color-primary-interact-bold-hovered, #0D30AD);
+}
+
+.normal-button-tertiary-mobile:active .normal-button-tertiary-icon-mobile {
+
+    color: var(--color-primary-interact-bold-pressed, #0B247D);
+}
+
+.normal-button-tertiary-mobile:hover:active .normal-button-tertiary-icon-mobile {
+
+    color: var(--color-primary-interact-bold-pressed, #0B247D);
+}

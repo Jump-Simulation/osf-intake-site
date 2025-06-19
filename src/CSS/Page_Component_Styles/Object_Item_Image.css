@@ -1,0 +1,73 @@
+@import "./Object_Item_Text.css";
+/* @import "./Brand-Text.css";
+@import "./Brand-Colors.css";
+@import "./Brand-Scale-and-Spacing.css"; */
+
+.image-holder-desktop {
+    margin-top: var(--spacing-xl-desktop);
+    margin-bottom: var(--spacing-xs-desktop);
+    margin-right: auto;
+    margin-left: auto;
+    z-index: 1;
+    pointer-events: none;
+    overflow: visible;
+
+    /* width: 67%; */
+
+    width: 38vh;
+    min-width: 60%;
+    max-width: 70%;
+
+    /* padding-left: var(--spacing-3xl-desktop); */
+    /* padding-right: var(--spacing-3xl-desktop); */
+
+
+
+
+}
+
+.image-object-desktop {
+    /*   height: 100%; */
+    /*  width: 100%; */
+
+    width: 100%;
+    object-fit: contain;
+    pointer-events: none;
+    border-radius: var(--spacing-xs-desktop);
+
+
+
+}
+
+/* MOBILE/////////////////////////// */
+
+
+.image-holder-mobile {
+    margin-top: var(--spacing-xl-mobile);
+    margin-bottom: var(--spacing-xs-mobile);
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+    z-index: 1;
+    pointer-events: none;
+    padding-left: var(--spacing-3xl-mobile);
+    padding-right: var(--spacing-3xl-mobile);
+
+
+}
+
+.image-object-mobile {
+    /*     height: 100%; */
+    width: 100%;
+    object-fit: contain;
+    pointer-events: none;
+    border-radius: var(--spacing-xs-mobile);
+}
+
+.image-sizing-landscape {
+    /*   aspect-ratio: 16 / 9; */
+}
+
+.image-sizing-portrait {
+    /*   aspect-ratio: 1 / 1; */
+}

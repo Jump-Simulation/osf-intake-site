@@ -1,0 +1,119 @@
+@import "./Object_Item_Text.css";
+/* @import "./Brand-Text.css";
+@import "./Brand-Colors.css";
+@import "./Brand-Scale-and-Spacing.css"; */
+
+.object-button-schuedule-parent-desktop {
+
+
+
+    /* border: 1px solid var(--color-primary-interact-bold-default, #1F4BE8); */
+
+
+    display: flex;
+
+    justify-content: end;
+    align-items: start;
+
+    transition: background-color 0.3s ease;
+    user-select: none;
+    /*   padding: 5px; */
+    margin-right: 10px;
+    width: 20%;
+}
+
+
+.object-button-navbar-schedule-desktop {
+
+    /*  background-color: var(--color-surface-default); */
+    background-color: transparent;
+    border-radius: 25%;
+    height: 45px;
+    width: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+
+
+    /*    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15); */
+
+    /* Stick to the bottom of the viewport */
+}
+
+.object-icon-navbar-schedule-desktop {
+
+    font-size: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: var(--color-primary-interact-boldest-default);
+    height: 24px;
+
+}
+
+
+
+/* MOBILE /////////////////////////////////////////// */
+.object-button-schuedule-parent-mobile {
+
+
+
+    /* border: 1px solid var(--color-primary-interact-bold-default, #1F4BE8); */
+
+
+    display: flex;
+
+    justify-content: end;
+    align-items: start;
+
+    transition: background-color 0.3s ease;
+    user-select: none;
+    /*   padding: 5px; */
+    margin-right: 10px;
+    width: 20%;
+}
+
+
+.object-button-navbar-schedule-parent-mobile {
+
+
+    display: flex;
+
+    justify-content: end;
+    align-items: start;
+
+    transition: background-color 0.3s ease;
+    user-select: none;
+    /*   padding: 5px; */
+    padding-right: 10px;
+    width: 20%;
+}
+
+
+.object-button-navbar-schedule-mobile {
+
+    /*    background-color: var(--color-surface-default); */
+    background-color: transparent;
+    border-radius: 25%;
+    height: 45px;
+    width: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    /*    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15); */
+
+    /* Stick to the bottom of the viewport */
+}
+
+.object-icon-navbar-schedule-mobile {
+    font-size: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: var(--color-primary-interact-boldest-default);
+    height: 24px;
+}

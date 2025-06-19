@@ -1,0 +1,358 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200..900;1,200..900&display=swap');
+
+
+
+@import "./Object_Item_Text.css";
+/* @import "./Brand-Text.css";
+@import "./Brand-Colors.css";
+@import "./Brand-Scale-and-Spacing.css";
+ */
+
+
+.textObject-h1-desktop {
+    color: var(--color-on-surface-default, #1A1C22);
+    font-family: var(--font-family-h1-desktop, "Red Hat Display");
+    font-size: var(--font-size-header-h1-desktop, 36px);
+    font-style: normal;
+    font-weight: var(--font-weight-header-h1-desktop, 600);
+    line-height: var(--font-line-height-header-h1-desktop, 44px);
+
+    letter-spacing: var(--font-letter-spacing-default-desktop, 0.1px);
+
+    margin-top: var(--spacing-3xl-desktop);
+    margin-bottom: var(--spacing-md-desktop);
+    /*  text-align: center; */
+}
+
+.textObject-h2-desktop {
+    color: var(--color-on-surface-default, #1A1C22);
+    font-family: var(--font-family-h2-desktop, "Red Hat Display");
+    font-size: var(--font-size-header-h2-desktop, 28px);
+    font-style: normal;
+    font-weight: var(--font-weight-header-h2-desktop, 700);
+    line-height: var(--font-line-height-header-h2-desktop, 36px);
+    /* 128.571% */
+    letter-spacing: var(--font-letter-spacing-default-desktop, 0.1px);
+
+    margin-top: var(--spacing-2xl-desktop);
+    margin-bottom: var(--spacing-md-desktop);
+    /*    text-align: center; */
+}
+
+.textObject-h2-navigation-desktop {
+    color: var(--color-on-surface-default, #1A1C22);
+    font-family: var(--font-family-h2-desktop, "Red Hat Display");
+    font-size: var(--font-size-header-h2-desktop, 28px);
+    font-style: normal;
+    font-weight: var(--font-weight-header-h2-desktop, 700);
+    line-height: var(--font-line-height-header-h2-desktop, 36px);
+    /* 128.571% */
+    letter-spacing: var(--font-letter-spacing-default-desktop, 0.1px);
+
+    /*   margin-top: var(--spacing-2xl-desktop);
+    margin-bottom: var(--spacing-md-desktop); */
+    /* 
+    text-align: center; */
+}
+
+.textObject-h2-confirm-desktop {
+    color: var(--color-accent-success-bold-800-default);
+    font-family: var(--font-family-h2-desktop, "Red Hat Display");
+    font-size: var(--font-size-header-h2-desktop, 28px);
+    font-style: normal;
+    font-weight: var(--font-weight-header-h2-desktop, 700);
+    line-height: var(--font-line-height-header-h2-desktop, 36px);
+    /* 128.571% */
+    letter-spacing: var(--font-letter-spacing-default-desktop, 0.1px);
+
+    margin-top: var(--spacing-2xl-desktop);
+    margin-bottom: var(--spacing-md-desktop);
+    /*    text-align: center; */
+}
+
+.textObject-h3-desktop {
+    color: var(--color-on-surface-default, #1A1C22);
+    font-family: var(--font-family-h3-desktop, "Red Hat Display");
+    font-size: var(--font-size-header-h3-desktop, 24px);
+    font-style: normal;
+    font-weight: var(--font-weight-header-h3-desktop, 700);
+    line-height: var(--font-line-height-header-h3-desktop, 32px);
+    /* 133.333% */
+    letter-spacing: var(--font-letter-spacing-default-desktop, 0.1px);
+    /* margin-top: var(--spacing-2xl-desktop, 24px); */
+    margin-top: var(--spacing-md-desktop, 24px);
+    margin-bottom: var(--spacing-md-desktop, 12px);
+    /*   text-align: center; */
+}
+
+.textObject-h4-desktop {
+    color: var(--color-on-surface-default, #1A1C22);
+    font-family: var(--font-family-h4-desktop, "Red Hat Display");
+    font-size: var(--font-size-header-h4-desktop, 20px);
+    font-style: normal;
+    font-weight: var(--font-weight-header-h4-desktop, 700);
+    line-height: var(--font-line-height-header-h4-desktop, 28px);
+    /* 140% */
+    letter-spacing: var(--font-letter-spacing-default-desktop, 0.1px);
+    margin-top: var(--spacing-md-desktop, 12px);
+    margin-bottom: var(--spacing-md-desktop, 12px);
+    /*  text-align: center; */
+
+
+}
+
+.textObject-buttonText-desktop {
+    /*   color: var(--color-on-surface-default, #1A1C22); */
+
+    font-family: var(--font-family-body-desktop, "Nunito Sans");
+    font-size: var(--font-size-header-h4-desktop, 20px);
+    font-style: normal;
+    font-weight: var(--font-weight-header-h4-desktop, 700);
+    line-height: var(--font-line-height-header-h4-desktop, 28px);
+
+    /* 140% */
+    letter-spacing: var(--font-letter-spacing-default-desktop, 0.1px);
+    /*  text-align: center; */
+}
+
+.textObject-body-desktop {
+    /*  color: var(--color-on-surface-default, #1A1C22); */
+    font-family: var(--font-family-body-desktop, "Nunito Sans");
+    font-size: var(--font-size-body-default-desktop, 20px);
+    font-style: normal;
+    font-weight: var(--font-weight-body-default-desktop, 400);
+    line-height: var(--font-line-height-body-default-desktop, 24px);
+
+    letter-spacing: var(--font-letter-spacing-default-desktop, 0.1px);
+    margin-top: var(--spacing-md-desktop, 12px);
+    margin-bottom: var(--spacing-md-desktop, 12px);
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    /*   text-align: start; */
+}
+
+.textObject-caption-desktop {
+    color: var(--color-on-surface-default, #1A1C22);
+    font-family: var(--font-family-bod-desktopy, "Nunito Sans");
+    font-size: var(--font-size-body-caption-desktop, 16px);
+    /* font-size: 16px; */
+    font-style: normal;
+    font-weight: var(--font-weight-body-caption-desktop, 500);
+    line-height: var(--font-line-height-body-caption-desktop, 20px);
+    /* 166.667% */
+    letter-spacing: var(--font-letter-spacing-default-desktop, 0.1px);
+    margin-top: var(--spacing-md-desktop, 12px);
+    margin-bottom: var(--spacing-md-desktop, 12px);
+
+    /*  text-align: start; */
+}
+
+
+.textObject-container-desktop {
+    padding-top: var(--spacing-lg-desktop);
+    padding-bottom: var(--spacing-lg-desktop);
+    padding-left: var(--spacing-2xl-desktop);
+    padding-right: var(--spacing-2xl-desktop);
+    border-radius: var(--spacing-sm-desktop)
+}
+
+.textObject-container-transparent-desktop {
+    background-color: transparent;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    border-radius: var(--spacing-sm-desktop)
+}
+
+.object-text-icon-left-desktop {
+    height: 100%;
+    max-height: 40px;
+    margin-right: var(--spacing-md-desktop);
+}
+
+.object-text-icon-right-desktop {
+    height: 100%;
+    max-height: 40px;
+    margin-left: var(--spacing-md-desktop);
+}
+
+
+
+.object-text-megaParent-desktop {
+    gap: var(--spacing-md-desktop);
+}
+
+/* MOBILE ////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+.textObject-h1-mobile {
+    color: var(--color-on-surface-default, #1A1C22);
+    font-family: var(--font-family-h1-mobile, "Crimson Text");
+    font-size: var(--font-size-header-h1-mobile, 36px);
+    font-style: normal;
+    font-weight: var(--font-weight-header-h1-mobile, 600);
+    line-height: var(--font-line-height-header-h1-mobile, 44px);
+
+    letter-spacing: var(--font-letter-spacing-default-mobile, 0.1px);
+
+    margin-top: var(--spacing-3xl-mobile);
+    margin-bottom: var(--spacing-md-mobile);
+    /*    text-align: center; */
+}
+
+.textObject-h2-mobile {
+    color: var(--color-on-surface-default, #1A1C22);
+    font-family: var(--font-family-h2-mobile, "Nunito Sans");
+    font-size: var(--font-size-header-h2-mobile, 28px);
+    font-style: normal;
+    font-weight: var(--font-weight-header-h2-mobile, 700);
+    line-height: var(--font-line-height-header-h2-mobile, 36px);
+    /* 128.571% */
+    letter-spacing: var(--font-letter-spacing-default-mobile, 0.1px);
+
+    margin-top: var(--spacing-2xl-mobile);
+    margin-bottom: var(--spacing-md-mobile);
+    /*   text-align: center; */
+}
+
+.textObject-h2-navigation-mobile {
+    color: var(--color-on-surface-default, #1A1C22);
+    font-family: var(--font-family-h2-mobile, "Nunito Sans");
+    font-size: var(--font-size-header-h2-mobile, 28px);
+    font-style: normal;
+    font-weight: var(--font-weight-header-h2-mobile, 700);
+    line-height: var(--font-line-height-header-h2-mobile, 36px);
+    /* 128.571% */
+    letter-spacing: var(--font-letter-spacing-default-mobile, 0.1px);
+
+    /*   margin-top: var(--spacing-2xl-mobile);
+    margin-bottom: var(--spacing-md-mobile); */
+    /* text-align: center; */
+}
+
+
+.textObject-h2-confirm-mobile {
+    color: var(--color-accent-success-bold-800-default);
+    font-family: var(--font-family-h2-mobile, "Nunito Sans");
+    font-size: var(--font-size-header-h2-mobile, 28px);
+    font-style: normal;
+    font-weight: var(--font-weight-header-h2-mobile, 700);
+    line-height: var(--font-line-height-header-h2-mobile, 36px);
+    /* 128.571% */
+    letter-spacing: var(--font-letter-spacing-default-mobile, 0.1px);
+
+    margin-top: var(--spacing-2xl-mobile);
+    margin-bottom: var(--spacing-md-mobile);
+    /*     text-align: center; */
+}
+
+.textObject-h3-mobile {
+    color: var(--color-on-surface-default, #1A1C22);
+    font-family: var(--font-family-h3-mobile, "Nunito Sans");
+    font-size: var(--font-size-header-h3-mobile, 24px);
+    font-style: normal;
+    font-weight: var(--font-weight-header-h3-mobile, 600);
+    line-height: var(--font-line-height-header-h3-mobile, 32px);
+    /* 133.333% */
+    letter-spacing: var(--font-letter-spacing-default-mobile, 0.1px);
+    margin-top: var(--spacing-2xl-mobile, 24px);
+    margin-bottom: var(--spacing-md-mobile, 12px);
+    /*     text-align: center; */
+}
+
+.textObject-h4-mobile {
+    color: var(--color-on-surface-default, #1A1C22);
+    font-family: var(--font-family-body-mobile, "Nunito Sans");
+    font-size: var(--font-size-header-h4-mobile, 20px);
+    font-style: normal;
+    font-weight: var(--font-weight-header-h4-mobile, 600);
+    line-height: var(--font-line-height-header-h4-mobile, 28px);
+    /* 140% */
+    letter-spacing: var(--font-letter-spacing-default-mobile, 0.1px);
+    margin-top: var(--spacing-xl-mobile, 20px);
+    margin-bottom: var(--spacing-md-mobile, 12px);
+    /*     text-align: center; */
+}
+
+.textObject-buttonText-mobile {
+    /*   color: var(--color-on-surface-default, #1A1C22); */
+    font-family: var(--font-family-body-mobile, "Nunito Sans");
+    font-size: var(--font-size-header-h4-mobile, 20px);
+    font-style: normal;
+    font-weight: var(--font-weight-header-h4-mobile, 700);
+    line-height: var(--font-line-height-header-h4-mobile, 28px);
+    /* 140% */
+    letter-spacing: var(--font-letter-spacing-default-mobile, 0.1px);
+    /*  text-align: center; */
+}
+
+
+.textObject-body-mobile {
+    /*    color: var(--color-on-surface-default, #1A1C22); */
+    font-family: var(--font-family-body-mobile, "Nunito Sans");
+    font-size: var(--font-size-body-default-mobile, 16px);
+    font-style: normal;
+    font-weight: var(--font-weight-body-default-mobile, 400);
+    line-height: var(--font-line-height-body-default-mobile, 24px);
+    /* 150% */
+    letter-spacing: var(--font-letter-spacing-default-mobile, 0.1px);
+    margin-top: var(--spacing-md-mobile, 12px);
+    margin-bottom: var(--spacing-md-mobile, 12px);
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    /*    text-align: start; */
+}
+
+.textObject-caption-mobile {
+    color: var(--color-on-surface-default, #1A1C22);
+    font-family: var(--font-family-body-mobile, "Nunito Sans");
+    font-size: var(--font-size-body-caption-mobile, 12px);
+    font-style: normal;
+    font-weight: var(--font-weight-body-caption-mobile, 500);
+    line-height: var(--font-line-height-body-caption-mobile, 20px);
+    /* 166.667% */
+    letter-spacing: var(--font-letter-spacing-default-mobile, 0.1px);
+    margin-top: var(--spacing-md-mobile, 12px);
+    margin-bottom: var(--spacing-md-mobile, 12px);
+    /*     text-align: start; */
+}
+
+
+.textObject-container-mobile {
+    padding-top: var(--spacing-lg-mobile);
+    padding-bottom: var(--spacing-lg-mobile);
+    padding-left: var(--spacing-2xl-mobile);
+    padding-right: var(--spacing-2xl-mobile);
+    border-radius: var(--spacing-sm-mobile);
+}
+
+.textObject-container-transparent-mobile {
+    background-color: transparent;
+
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    border-radius: var(--spacing-sm-mobile)
+}
+
+.object-text-megaParent-mobile {
+    gap: var(--spacing-md-mobile)
+}
+
+
+
+.object-text-icon-left-mobile {
+    height: 100%;
+    max-height: 40px;
+    margin-right: var(--spacing-md-mobile);
+}
+
+.object-text-icon-right-desktop {
+    height: 100%;
+    max-height: 40px;
+    margin-left: var(--spacing-md-mobile);
+}

@@ -1,0 +1,32 @@
+.holder-bottom-button-items-desktop {
+    /*     background-color: red; */
+    width: 100%;
+    /* display: block; */
+    /*   margin-top: auto; */
+
+    /*  position: sticky;
+    bottom: 0; */
+
+    text-align: center;
+    color: black;
+    padding-bottom: var(--spacing-2xl-desktop);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.holder-bottom-button-items-mobile {
+    /*     background-color: red; */
+    width: 100%;
+    /*  display: block; */
+
+    text-align: center;
+    padding-bottom: var(--spacing-2xl-mobile);
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+}

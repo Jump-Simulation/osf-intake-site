@@ -1,0 +1,26 @@
+.object-button-languageSelect-parent-unpressed-desktop {
+    width: 100%;
+    background-color: transparent;
+    color: var(--color-on-primary-light);
+    /*  border-radius:
+        var(--spacing-md-desktop) var(--spacing-md-desktop) var(--spacing-md-desktop) var(--spacing-md-desktop);
+ */
+    border-radius: 6px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--color-primary-interact-light-default);
+    /* color/primary/interact/light/default */
+}
+
+.object-button-languageSelect-parent-pressed-desktop {
+    width: 100%;
+    background-color: var(--color-primary-interact-bold-default);
+    color: var(--color-on-primary-bold);
+    /*  border-radius:
+        var(--spacing-md-desktop) var(--spacing-md-desktop) var(--spacing-md-desktop) var(--spacing-md-desktop);
+ */
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 6px;
+
+}

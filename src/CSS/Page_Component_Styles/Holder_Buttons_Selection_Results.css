@@ -1,0 +1,26 @@
+@import "./Object_Item_Text.css";
+/* @import "./Brand-Text.css";
+@import "./Brand-Colors.css";
+@import "./Brand-Scale-and-Spacing.css"; */
+
+.holder-buttons-selection-results-desktop {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-md-desktop, 12px);
+    align-self: stretch;
+    margin-top: var(--spacing-2xl-desktop);
+    margin-bottom: var(--spacing-2xl-desktop);
+    width: 100%;
+}
+
+.holder-buttons-selection-results-mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-md-mobile, 12px);
+    align-self: stretch;
+    margin-top: var(--spacing-2xl-mobile);
+    margin-bottom: var(--spacing-2xl-mobile);
+    width: 100%;
+}
