@@ -142,6 +142,7 @@ import Object_Button_OptOut from "./Components/Page_Components/Object_Button_Opt
 import { initializeAppCheck, ReCaptchaV3Provider } from "firebase/app-check";
 import { auth, firestore } from "./Components/Firebase";
 import { en_intakeQuestions_Book } from "./en-intakeQuestions";
+import Object_Input_Text from "./Components/Page_Components/Object_Input_Text";
 
 var osfProceduresPath: string = `organizations/osf_st-francis/procedures`;
 
@@ -2576,6 +2577,12 @@ function App() {
           givenGlobal_ShouldExcludeByDefault={
             pageItem.excludeByDefault || false
           }
+        />
+      );
+    } else if (pageItem.componentType === "input-text") {
+      tempPageItem = (
+        <Object_Input_Text
+          givenPlaceHolderText={pageItem.placeHolderText || "Type answer here"}
         />
       );
     } else if (pageItem.componentType === "text") {
