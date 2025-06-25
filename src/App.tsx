@@ -143,6 +143,7 @@ import { initializeAppCheck, ReCaptchaV3Provider } from "firebase/app-check";
 import { auth, firestore } from "./Components/Firebase";
 import { en_intakeQuestions_Book } from "./en-intakeQuestions";
 import Object_Input_Text from "./Components/Page_Components/Object_Input_Text";
+import Object_file_input from "./Components/Page_Components/Object_file_input";
 
 var osfProceduresPath: string = `organizations/osf_st-francis/procedures`;
 
@@ -2583,8 +2584,11 @@ function App() {
       tempPageItem = (
         <Object_Input_Text
           givenPlaceHolderText={pageItem.placeHolderText || "Type answer here"}
+          questionID={pageItem.questionID}
         />
       );
+    } else if (pageItem.componentType === "input-file") {
+      tempPageItem = <Object_file_input />;
     } else if (pageItem.componentType === "text") {
       tempPageItem = (
         <Object_Item_Text

@@ -71,6 +71,7 @@ export const en_intakeQuestions_Book: BookObject = {
               renderOrder: 3,
               componentType: "input-text",
               placeHolderText: "Type your answer here",
+              questionID: "problem_solving",
             },
           ],
 
@@ -125,6 +126,7 @@ export const en_intakeQuestions_Book: BookObject = {
               renderOrder: 3,
               componentType: "input-text",
               placeHolderText: "Type your answer here",
+              questionID: "personally_connect",
             },
           ],
 
@@ -179,6 +181,7 @@ export const en_intakeQuestions_Book: BookObject = {
               renderOrder: 3,
               componentType: "input-text",
               placeHolderText: "Type your answer here",
+              questionID: "when_where",
             },
           ],
 
@@ -213,7 +216,7 @@ export const en_intakeQuestions_Book: BookObject = {
               // Image
               renderOrder: 0,
               componentType: "image",
-              fileName: "qa-earth.png",
+              fileName: "qa-clock.png",
               sizeOfPageTaken: "20%",
               animationName: "fade-up",
               pageOrientation: "portrait",
@@ -233,6 +236,7 @@ export const en_intakeQuestions_Book: BookObject = {
               renderOrder: 3,
               componentType: "input-text",
               placeHolderText: "Type your answer here",
+              questionID: "get_worse",
             },
           ],
 
@@ -355,6 +359,7 @@ export const en_intakeQuestions_Book: BookObject = {
               renderOrder: 3,
               componentType: "input-text",
               placeHolderText: "Type your answer here",
+              questionID: "describe_idea",
             },
           ],
 
@@ -398,6 +403,7 @@ export const en_intakeQuestions_Book: BookObject = {
               renderOrder: 3,
               componentType: "input-text",
               placeHolderText: "Type your answer here",
+              questionID: "idea_name",
             },
 
             {
@@ -462,6 +468,7 @@ export const en_intakeQuestions_Book: BookObject = {
               renderOrder: 3,
               componentType: "input-text",
               placeHolderText: "Type your answer here",
+              questionID: "user_invention",
             },
           ],
 
@@ -515,6 +522,7 @@ export const en_intakeQuestions_Book: BookObject = {
               renderOrder: 3,
               componentType: "input-text",
               placeHolderText: "Type your answer here",
+              questionID: "buyer_invention",
             },
           ],
 
@@ -817,6 +825,7 @@ export const en_intakeQuestions_Book: BookObject = {
               renderOrder: 3,
               componentType: "input-text",
               placeHolderText: "Type your answer here",
+              questionID: "year_from_now",
             },
           ],
 
@@ -878,6 +887,7 @@ export const en_intakeQuestions_Book: BookObject = {
                 "I just want to share the idea and let others run with it (1 hour a month)",
                 "I'm not sure yet",
               ],
+              questionID: "how_involved",
             },
           ],
 
@@ -896,6 +906,34 @@ export const en_intakeQuestions_Book: BookObject = {
               },
             ],
           },
+        },
+        {
+          id: "file_input",
+          navTitle: "null",
+          keywords: "introduction",
+          authors: "Kyle Formella, Maddox Binder",
+          lastUpdated: "12092024",
+          pageBackgroundColor: "--osfBrand-tealgray-50, #F4FBFC",
+          hasVariables: false,
+          hasLock: false,
+
+          pageItems: [
+            {
+              // Page Title
+              renderOrder: 1,
+              componentType: "text",
+              textValue:
+                "Have any files of your idea you would like to submit?",
+              textType: "h2",
+              textAlignment: "left",
+            },
+
+            {
+              // Page Title
+              renderOrder: 1,
+              componentType: "input-file",
+            },
+          ],
         },
       ],
     },

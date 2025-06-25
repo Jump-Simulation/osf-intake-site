@@ -95,6 +95,7 @@ export interface PageItem {
   iconFileName?: string;
 
   placeHolderText?: string;
+  questionID?: string;
 
   colorText?: string;
   colorBackground?: string;

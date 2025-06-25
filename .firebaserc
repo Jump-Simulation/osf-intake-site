@@ -1,9 +1,9 @@
 {
   "projects": {
-    "default": "osf-innovation-intake"
+    "default": "innovationstudio-a1e59"
   },
   "targets": {
-    "osf-innovation-intake": {
+    "innovationstudio-a1e59": {
       "hosting": {
         "test": [
           "osf-innovation-intake"
