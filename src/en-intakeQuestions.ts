@@ -350,7 +350,20 @@ export const en_intakeQuestions_Book: BookObject = {
           BottomButtonHolderObject: {
             bottomButtonHolderID: "FH Page 1 Button Holder",
             bottomButtonHolderItems: [
-              {
+              
+              { // Button Selection Confirmation
+                    renderOrder: 5,
+                    componentType: "button-selection-confirmation",
+                    buttonStyleNoneSelected: "tertiary",
+                    buttonStyleSomethingSelected: "primary",
+                    iconVisible: false,
+                    textValueNoneSelected: "Select an Option",
+                    destinationNoneSelected: "null",
+                    textValueSomethingSelected: "Next Question!",
+                    destinationSomethingSelected: "page-next", // Stop These Medications / Medication Review Page
+                },
+              
+              /* {          MADDOX *** COMMENTED OUT IN CASE WE NEED TO RESTORE
                 // Button
                 renderOrder: 4,
                 componentType: "button",
@@ -359,7 +372,7 @@ export const en_intakeQuestions_Book: BookObject = {
                 iconVisible: false,
                 textValue: "Next Question!",
                 destination: "page-next",
-              },
+              }, */
             ],
           },
         },
