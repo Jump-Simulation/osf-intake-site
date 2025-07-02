@@ -1,30 +1,60 @@
 import { useState } from "react";
-import { collection, doc, setDoc, Timestamp } from "firebase/firestore";
+import { Timestamp, doc, setDoc } from "firebase/firestore";
+import { firestore } from "../Firebase";
 import "../../CSS/Page_Component_Styles/Object_Input_Text.css";
-import { firestore } from "../Firebase"; // Make sure this points to your Firebase config
 
 interface Object_Input_Text_Props {
   givenPlaceHolderText: string;
   questionID: string;
+  submissionId?: string;
+  min?: string;
+  max?: string;
 }
 
 export default function Object_Input_Text({
   givenPlaceHolderText,
   questionID,
+  submissionId,
+  min = "0",
+  max = "10000",
 }: Object_Input_Text_Props) {
   const [inputValue, setInputValue] = useState("");
+  const [error, setError] = useState("");
+
+  const minWords = parseInt(min);
+  const maxWords = parseInt(max);
+
+  const getWordCount = (text: string) =>
+    text.trim().split(/\s+/).filter(Boolean).length;
 
   const saveToFirestore = async (value: string) => {
-    if (value.trim() === "") return;
+    const wordCount = getWordCount(value);
+    if (wordCount < minWords) {
+      setError(`Please enter at least ${minWords} words.`);
+      return;
+    }
+
+    const trimmed = value.trim().split(/\s+/).slice(0, maxWords).join(" ");
+
+    const idToUse = submissionId || localStorage.getItem("submissionId");
+    if (!idToUse) {
+      console.warn("No submission ID available.");
+      return;
+    }
 
     try {
-      const docRef = doc(firestore, "responses", questionID);
-      await setDoc(docRef, {
-        response: value,
-        questionId: questionID,
-        timestamp: Timestamp.now(),
-      });
-      console.log("Saved response for", questionID);
+      const docRef = doc(firestore, `submission/${idToUse}`);
+
+      await setDoc(
+        docRef,
+        {
+          [`q-${questionID}`]: trimmed,
+          dateUpdated: Timestamp.now(),
+        },
+        { merge: true }
+      );
+      console.log("Saved q-" + questionID + " under submission:", idToUse);
+      setError("");
     } catch (err) {
       console.error("Error saving to Firestore:", err);
     }
@@ -34,15 +64,42 @@ export default function Object_Input_Text({
     saveToFirestore(inputValue);
   };
 
+  const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const text = e.target.value;
+    const words = text.trim().split(/\s+/).filter(Boolean);
+
+    if (words.length <= maxWords) {
+      setInputValue(text);
+    } else {
+      const trimmed = words.slice(0, maxWords).join(" ");
+      setInputValue(trimmed);
+    }
+  };
+
+  const currentWords = getWordCount(inputValue);
+
   return (
-    <div className="text_entry_bubble">
-      <textarea
-        placeholder={givenPlaceHolderText}
-        className="body"
-        value={inputValue}
-        onChange={(e) => setInputValue(e.target.value)}
-        onBlur={handleBlur}
-      />
+    <div>
+      <div className="text_entry_bubble">
+        <textarea
+          placeholder={givenPlaceHolderText}
+          className="body"
+          value={inputValue}
+          onChange={handleChange}
+        />
+
+        {error && <p className="error-text">{error}</p>}
+      </div>
+      <div>
+        {" "}
+        <button
+          className="normal-button-primary-desktop"
+          style={{ fontSize: "24px" }}
+          onClick={() => saveToFirestore(inputValue)}
+        >
+          Next Question!
+        </button>
+      </div>
     </div>
   );
 }

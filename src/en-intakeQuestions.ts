@@ -27,6 +27,73 @@ export const en_intakeQuestions_Book: BookObject = {
       pageObjects: [
         // Introduction Screen 1
         {
+          id: "page-welcome",
+          navTitle: "null",
+          keywords: "introduction",
+          authors: "Kyle Formella, Maddox Binder",
+          lastUpdated: "12092024",
+          pageBackgroundColor: "--osfBrand-tealgray-50, #F4FBFC",
+          hasVariables: false,
+          hasLock: false,
+
+          pageItems: [
+            {
+              componentType: "start-screen",
+            },
+          ],
+
+          BottomButtonHolderObject: {
+            bottomButtonHolderID: "QA Page 3 Button Holder",
+            bottomButtonHolderItems: [
+              {
+                // Button
+                renderOrder: 4,
+                componentType: "button",
+                buttonType: "swipe-indicator",
+                buttonStyle: "primary",
+                iconVisible: false,
+                textValue: "Next Question!",
+                destination: "page-next",
+              },
+            ],
+          },
+        },
+        {
+          id: "page-login",
+          navTitle: "null",
+          keywords: "introduction",
+          authors: "Kyle Formella, Maddox Binder",
+          lastUpdated: "12092024",
+          pageBackgroundColor: "--osfBrand-tealgray-50, #F4FBFC",
+          hasVariables: false,
+          hasLock: false,
+
+          pageItems: [
+            {
+              // Page Title
+              renderOrder: 1,
+              componentType: "login",
+            },
+          ],
+
+          BottomButtonHolderObject: {
+            bottomButtonHolderID: "QA Page 3 Button Holder",
+            bottomButtonHolderItems: [
+              {
+                // Button
+                renderOrder: 4,
+                componentType: "button",
+                buttonType: "swipe-indicator",
+                buttonStyle: "primary",
+                iconVisible: false,
+                textValue: "Next Question!",
+                destination: "page-next",
+              },
+            ],
+          },
+        },
+
+        {
           id: "page-problemSolve",
           navTitle: "Intake Start",
           keywords: "introduction",
@@ -37,17 +104,6 @@ export const en_intakeQuestions_Book: BookObject = {
           hasLock: false,
 
           pageItems: [
-            {
-              // Image
-              renderOrder: 0,
-              componentType: "image",
-              fileName: "qa-rocket.png",
-              sizeOfPageTaken: "20%",
-              animationName: "fade-up",
-              pageOrientation: "portrait",
-              hasDropShadow: false,
-            },
-
             {
               // Page Title
               renderOrder: 1,
@@ -73,23 +129,17 @@ export const en_intakeQuestions_Book: BookObject = {
               placeHolderText: "Type your answer here",
               questionID: "problem_solving",
             },
-          ],
 
-          BottomButtonHolderObject: {
-            bottomButtonHolderID: "FH Page 1 Button Holder",
-            bottomButtonHolderItems: [
-              {
-                // Button
-                renderOrder: 4,
-                componentType: "button",
-                buttonType: "normal",
-                buttonStyle: "primary",
-                iconVisible: false,
-                textValue: "Next Question!",
-                destination: "page-problemConnect",
-              },
-            ],
-          },
+            {
+              renderOrder: 0,
+              componentType: "image",
+              fileName: "qa-astro-man.png",
+              sizeOfPageTaken: "20%",
+              animationName: "fade-up",
+              pageOrientation: "portrait",
+              hasDropShadow: false,
+            },
+          ],
         },
 
         {
@@ -104,10 +154,9 @@ export const en_intakeQuestions_Book: BookObject = {
 
           pageItems: [
             {
-              // Image
               renderOrder: 0,
               componentType: "image",
-              fileName: "qa-spaceman.png",
+              fileName: "qa-problem-solve-rocket.png",
               sizeOfPageTaken: "20%",
               animationName: "fade-up",
               pageOrientation: "portrait",
@@ -168,7 +217,6 @@ export const en_intakeQuestions_Book: BookObject = {
               pageOrientation: "portrait",
               hasDropShadow: false,
             },
-
             {
               // Page Title
               renderOrder: 1,
@@ -294,6 +342,8 @@ export const en_intakeQuestions_Book: BookObject = {
               componentType: "button-item-list",
               selectMultiple: false,
               buttonItemsList: ["Yes", "No"],
+              writeToAddress: "questionID",
+              questionID: "search_for",
             },
           ],
 
@@ -585,6 +635,7 @@ export const en_intakeQuestions_Book: BookObject = {
                 "An educational or training approach",
                 "Not sure / doesn't fit neatly into these",
               ],
+              questionID: "solution-category",
             },
           ],
 
@@ -647,6 +698,7 @@ export const en_intakeQuestions_Book: BookObject = {
                 "I have a concept but nothing built",
                 "I've just started thinking about it",
               ],
+              questionID: "built-tested",
             },
           ],
 
@@ -710,6 +762,7 @@ export const en_intakeQuestions_Book: BookObject = {
                 "Analysis paralysis - I don't know where to start.",
                 "Other",
               ],
+              questionID: "what-is-stopping-you",
             },
           ],
 
@@ -772,6 +825,7 @@ export const en_intakeQuestions_Book: BookObject = {
                 "A mix of both",
                 "Haven't worked on it much yet",
               ],
+              questionID: "time-worked",
             },
           ],
 

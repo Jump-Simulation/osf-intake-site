@@ -7,17 +7,13 @@ import "../../CSS/Page_Component_Styles/Object_Button_Selection_Multi.css";
 import "../../CSS/Page_Component_Styles/Object_Item_Text.css";
 import { BaseCarouselChildProps } from "../../BaseProps";
 
-
-
 interface Object_Button_Selection_Multi_Props extends BaseCarouselChildProps {
-
   isMobile: string;
 
   givenButtonText: string;
   checked: boolean;
   isDisabled: boolean;
   HandleChecked(): void;
-
 
   givenLockNumber: number;
   givenAddressToWrite: string;
@@ -29,12 +25,11 @@ interface Object_Button_Selection_Multi_Props extends BaseCarouselChildProps {
   givenNewPrimaryColor?: string;
   givenNewHoverColor?: string;
   givenNewActiveColor?: string;
-
 }
 
-export default function Object_Button_Selection_Multi(props: Object_Button_Selection_Multi_Props) {
-
-
+export default function Object_Button_Selection_Multi(
+  props: Object_Button_Selection_Multi_Props
+) {
   const [isChecked, setIsChecked] = useState(props.checked);
 
   const [buttonStyleToUse, setButtonStyleToUse] = useState("");
@@ -45,45 +40,58 @@ export default function Object_Button_Selection_Multi(props: Object_Button_Selec
   useEffect(() => {
     if (!props.isDisabled) {
       if (isChecked) {
-        setButtonStyleToUse(`multi-select-button-selected${props.givenGlobal_isMobile}`);
-        setIconHolderStyleToUse(`multi-select-icon-holder-selected${props.givenGlobal_isMobile}`);
-        setIconStyleToUse(`multi-select-icon-selected${props.givenGlobal_isMobile}`);
-      }
-      else {
+        setButtonStyleToUse(
+          `multi-select-button-selected${props.givenGlobal_isMobile}`
+        );
+        setIconHolderStyleToUse(
+          `multi-select-icon-holder-selected${props.givenGlobal_isMobile}`
+        );
+        setIconStyleToUse(
+          `multi-select-icon-selected${props.givenGlobal_isMobile}`
+        );
+      } else {
         setButtonStyleToUse(`multi-select-button${props.givenGlobal_isMobile}`);
-        setIconHolderStyleToUse(`multi-select-icon-holder${props.givenGlobal_isMobile}`);
+        setIconHolderStyleToUse(
+          `multi-select-icon-holder${props.givenGlobal_isMobile}`
+        );
         setIconStyleToUse(`multi-select-icon${props.givenGlobal_isMobile}`);
       }
-
+    } else if (props.isDisabled) {
+      setButtonStyleToUse(
+        `multi-select-button-disabled${props.givenGlobal_isMobile}`
+      );
+      setIconHolderStyleToUse(
+        `multi-select-icon-holder-disabled${props.givenGlobal_isMobile}`
+      );
+      setIconStyleToUse(
+        `multi-select-icon-disabled${props.givenGlobal_isMobile}`
+      );
     }
-    else if (props.isDisabled) {
-      setButtonStyleToUse(`multi-select-button-disabled${props.givenGlobal_isMobile}`);
-      setIconHolderStyleToUse(`multi-select-icon-holder-disabled${props.givenGlobal_isMobile}`);
-      setIconStyleToUse(`multi-select-icon-disabled${props.givenGlobal_isMobile}`);
-    }
-  }, [isChecked])
+  }, [isChecked]);
 
   const handleCheckboxToggle = () => {
     if (!props.isDisabled) {
       if (isChecked) {
-        props.givenSetLockNumber(1, "MultiButtonSelect Unchecked")
+        props.givenSetLockNumber(1, "MultiButtonSelect Unchecked");
         setIsChecked(false);
-        props.givenRemoveFromSelectionMap(props.givenAddressToWrite, props.givenButtonText);
+        props.givenRemoveFromSelectionMap(
+          props.givenAddressToWrite,
+          props.givenButtonText
+        );
       } else {
-        props.givenSetLockNumber(-1, "MultiButtonSelect Unchecked")
+        props.givenSetLockNumber(-1, "MultiButtonSelect Unchecked");
         setIsChecked(true);
-        props.givenAddToSelectionMap(props.givenAddressToWrite, props.givenButtonText)
+        props.givenAddToSelectionMap(
+          props.givenAddressToWrite,
+          props.givenButtonText
+        );
         /*         console.log("MultiSelectButton wrote the following tag: " + props.givenButtonText + " to address: " + props.givenAddressToWrite); */
-
       }
       props.HandleChecked(); // Call your existing handler if needed
     }
   };
 
-
-
   function RenderCheckbox() {
-
     //STEP 2
     const customStyles = {
       background: props.givenNewPrimaryColor,
@@ -104,7 +112,6 @@ export default function Object_Button_Selection_Multi(props: Object_Button_Selec
     };
 
     return (
-
       <div
         className={buttonStyleToUse}
         onClick={handleCheckboxToggle} // Attach the click handler to the button
@@ -113,13 +120,9 @@ export default function Object_Button_Selection_Multi(props: Object_Button_Selec
         onMouseLeave={(e) => Object.assign(e.currentTarget.style, customStyles)} // Desktop hover end
         onMouseDown={(e) => Object.assign(e.currentTarget.style, activeStyles)} // Desktop active
         onMouseUp={(e) => Object.assign(e.currentTarget.style, hoverStyles)} // Desktop release
-
         // Mobile Touch Support
         onTouchStart={(e) => Object.assign(e.currentTarget.style, activeStyles)} // Mobile press
         onTouchEnd={(e) => Object.assign(e.currentTarget.style, customStyles)} // Mobile release
-
-
-
       >
         <div
           style={{
@@ -136,42 +139,43 @@ export default function Object_Button_Selection_Multi(props: Object_Button_Selec
             disabled={props.isDisabled}
             disableRipple
             sx={{
-              '& .MuiSvgIcon-root': {
-                '&:hover': {
-                  backgroundColor: 'transparent', // Remove any hover background effect
-                  outline: 'none', // Remove focus outline if any
-                  boxShadow: 'none', // Remove the shadow on hover
+              "& .MuiSvgIcon-root": {
+                "&:hover": {
+                  backgroundColor: "transparent", // Remove any hover background effect
+                  outline: "none", // Remove focus outline if any
+                  boxShadow: "none", // Remove the shadow on hover
                 },
-                '&:focus': {
-                  backgroundColor: 'transparent', // Remove any hover background effect
-                  outline: 'none', // Remove focus outline if any
-                  boxShadow: 'none', // Remove the shadow on hover
+                "&:focus": {
+                  backgroundColor: "transparent", // Remove any hover background effect
+                  outline: "none", // Remove focus outline if any
+                  boxShadow: "none", // Remove the shadow on hover
                 },
-                '&:active': {
-                  backgroundColor: 'transparent', // Remove any hover background effect
-                  outline: 'none', // Remove focus outline if any
-                  boxShadow: 'none', // Remove the shadow on hover
+                "&:active": {
+                  backgroundColor: "transparent", // Remove any hover background effect
+                  outline: "none", // Remove focus outline if any
+                  boxShadow: "none", // Remove the shadow on hover
                 },
               },
-              '&:hover': {
-                backgroundColor: 'transparent', // Remove any hover background effect
-                outline: 'none', // Remove focus outline if any
-                boxShadow: 'none', // Remove the shadow on hover
+              "&:hover": {
+                backgroundColor: "transparent", // Remove any hover background effect
+                outline: "none", // Remove focus outline if any
+                boxShadow: "none", // Remove the shadow on hover
               },
-              '&:active': {
-                backgroundColor: 'transparent', // Remove any hover background effect
-                outline: 'none', // Remove focus outline if any
-                boxShadow: 'none', // Remove the shadow on hover
+              "&:active": {
+                backgroundColor: "transparent", // Remove any hover background effect
+                outline: "none", // Remove focus outline if any
+                boxShadow: "none", // Remove the shadow on hover
               },
             }}
           />
-          <div className={`textObject-body-desktop${props.givenGlobal_isMobile}`}>{props.givenButtonText}</div>
-
+          <div
+            className={`textObject-body-desktop${props.givenGlobal_isMobile}`}
+          >
+            {props.givenButtonText}
+          </div>
         </div>
       </div>
-
     );
-
   }
 
   return RenderCheckbox();

@@ -96,6 +96,8 @@ export interface PageItem {
 
   placeHolderText?: string;
   questionID?: string;
+  min?: string;
+  max?: string;
 
   colorText?: string;
   colorBackground?: string;

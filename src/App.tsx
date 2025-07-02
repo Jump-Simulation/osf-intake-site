@@ -144,6 +144,9 @@ import { auth, firestore } from "./Components/Firebase";
 import { en_intakeQuestions_Book } from "./en-intakeQuestions";
 import Object_Input_Text from "./Components/Page_Components/Object_Input_Text";
 import Object_file_input from "./Components/Page_Components/Object_file_input";
+import Object_Login from "./Components/Page_Components/Object_Login";
+import Object_Start_Screen from "./Components/Page_Components/Object_Start_Screen";
+import Object_image_Compontent from "./Components/Page_Components/Object_image_Compontent";
 
 var osfProceduresPath: string = `organizations/osf_st-francis/procedures`;
 
@@ -2585,10 +2588,18 @@ function App() {
         <Object_Input_Text
           givenPlaceHolderText={pageItem.placeHolderText || "Type answer here"}
           questionID={pageItem.questionID}
+          max={pageItem.max}
+          min={pageItem.min}
         />
       );
+    } else if (pageItem.componentType === "login") {
+      tempPageItem = <Object_Login />;
     } else if (pageItem.componentType === "input-file") {
       tempPageItem = <Object_file_input />;
+    } else if (pageItem.componentType === "start-screen") {
+      tempPageItem = <Object_Start_Screen />;
+    } else if (pageItem.componentType === "new-image") {
+      tempPageItem = <Object_image_Compontent />;
     } else if (pageItem.componentType === "text") {
       tempPageItem = (
         <Object_Item_Text
