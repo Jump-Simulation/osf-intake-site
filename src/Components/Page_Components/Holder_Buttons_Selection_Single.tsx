@@ -45,19 +45,36 @@ export default function Holder_Buttons_Selection_Single(
     );
   }, [props.givenGlobal_TagsTrueArray, props.givenGlobal_TagsFalseArray]);
 
+  useEffect(() => {
+    const saved = localStorage.getItem(
+      `answer-q-${props.givenGlobal_CurrentPageID}`
+    );
+    if (saved) {
+      setSelectedValue(saved);
+      props.givenAddToSelectionMap(props.givenAddressToWrite, saved);
+    }
+  }, [props.givenGlobal_CurrentPageID]);
+
   const saveToFirestore = async (value: string) => {
     const submissionId = localStorage.getItem("submissionId");
+
     if (!submissionId) {
       console.warn("No submission ID found");
       return;
     }
 
     try {
-      const docRef = doc(firestore, "submission", submissionId); // no subcollection
+      localStorage.setItem(
+        `answer-q-${props.givenGlobal_CurrentPageID}`,
+        value
+      );
+
+      const docRef = doc(firestore, "submission", submissionId);
       await updateDoc(docRef, {
         [`q-${props.givenGlobal_CurrentPageID}`]: value,
         dateUpdated: Timestamp.now(),
       });
+
       console.log(
         `Saved ${props.givenAddressToWrite} under submission ${submissionId}`
       );

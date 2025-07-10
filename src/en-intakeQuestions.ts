@@ -128,6 +128,7 @@ export const en_intakeQuestions_Book: BookObject = {
               componentType: "input-text",
               placeHolderText: "Type your answer here",
               questionID: "problem_solving",
+              destination: "page-next",
             },
 
             {
@@ -176,24 +177,9 @@ export const en_intakeQuestions_Book: BookObject = {
               componentType: "input-text",
               placeHolderText: "Type your answer here",
               questionID: "personally_connect",
+              destination: "page-next",
             },
           ],
-
-          BottomButtonHolderObject: {
-            bottomButtonHolderID: "QA Page 2 Button Holder",
-            bottomButtonHolderItems: [
-              {
-                // Button
-                renderOrder: 4,
-                componentType: "button",
-                buttonType: "swipe-indicator",
-                buttonStyle: "primary",
-                iconVisible: false,
-                textValue: "Next Question!",
-                destination: "page-next",
-              },
-            ],
-          },
         },
 
         {
@@ -230,24 +216,9 @@ export const en_intakeQuestions_Book: BookObject = {
               componentType: "input-text",
               placeHolderText: "Type your answer here",
               questionID: "when_where",
+              destination: "page-next",
             },
           ],
-
-          BottomButtonHolderObject: {
-            bottomButtonHolderID: "QA Page 3 Button Holder",
-            bottomButtonHolderItems: [
-              {
-                // Button
-                renderOrder: 4,
-                componentType: "button",
-                buttonType: "swipe-indicator",
-                buttonStyle: "primary",
-                iconVisible: false,
-                textValue: "Next Question!",
-                destination: "page-next",
-              },
-            ],
-          },
         },
         {
           id: "page-willItGetWorse",
@@ -285,24 +256,9 @@ export const en_intakeQuestions_Book: BookObject = {
               componentType: "input-text",
               placeHolderText: "Type your answer here",
               questionID: "get_worse",
+              destination: "page-next",
             },
           ],
-
-          BottomButtonHolderObject: {
-            bottomButtonHolderID: "QA Page 4 Button Holder",
-            bottomButtonHolderItems: [
-              {
-                // Button
-                renderOrder: 4,
-                componentType: "button",
-                buttonType: "swipe-indicator",
-                buttonStyle: "primary",
-                iconVisible: false,
-                textValue: "Next Question!",
-                destination: "page-next",
-              },
-            ],
-          },
         },
 
         {
@@ -350,19 +306,19 @@ export const en_intakeQuestions_Book: BookObject = {
           BottomButtonHolderObject: {
             bottomButtonHolderID: "FH Page 1 Button Holder",
             bottomButtonHolderItems: [
-              
-              { // Button Selection Confirmation
-                    renderOrder: 5,
-                    componentType: "button-selection-confirmation",
-                    buttonStyleNoneSelected: "tertiary",
-                    buttonStyleSomethingSelected: "primary",
-                    iconVisible: false,
-                    textValueNoneSelected: "Select an Option",
-                    destinationNoneSelected: "null",
-                    textValueSomethingSelected: "Next Question!",
-                    destinationSomethingSelected: "page-next", // Stop These Medications / Medication Review Page
-                },
-              
+              {
+                // Button Selection Confirmation
+                renderOrder: 5,
+                componentType: "button-selection-confirmation",
+                buttonStyleNoneSelected: "tertiary",
+                buttonStyleSomethingSelected: "primary",
+                iconVisible: false,
+                textValueNoneSelected: "Select an Option",
+                destinationNoneSelected: "null",
+                textValueSomethingSelected: "Next Question!",
+                destinationSomethingSelected: "page-next", // Stop These Medications / Medication Review Page
+              },
+
               /* {          MADDOX *** COMMENTED OUT IN CASE WE NEED TO RESTORE
                 // Button
                 renderOrder: 4,
@@ -423,24 +379,9 @@ export const en_intakeQuestions_Book: BookObject = {
               componentType: "input-text",
               placeHolderText: "Type your answer here",
               questionID: "describe_idea",
+              destination: "page-next",
             },
           ],
-
-          BottomButtonHolderObject: {
-            bottomButtonHolderID: "QA Page 4 Button Holder",
-            bottomButtonHolderItems: [
-              {
-                // Button
-                renderOrder: 4,
-                componentType: "button",
-                buttonType: "swipe-indicator",
-                buttonStyle: "primary",
-                iconVisible: false,
-                textValue: "Next Question!",
-                destination: "page-next",
-              },
-            ],
-          },
         },
 
         {
@@ -467,6 +408,7 @@ export const en_intakeQuestions_Book: BookObject = {
               componentType: "input-text",
               placeHolderText: "Type your answer here",
               questionID: "idea_name",
+              destination: "page-next",
             },
 
             {
@@ -480,22 +422,6 @@ export const en_intakeQuestions_Book: BookObject = {
               textAlignment: "left",
             },
           ],
-
-          BottomButtonHolderObject: {
-            bottomButtonHolderID: "QA Page 4 Button Holder",
-            bottomButtonHolderItems: [
-              {
-                // Button
-                renderOrder: 4,
-                componentType: "button",
-                buttonType: "swipe-indicator",
-                buttonStyle: "primary",
-                iconVisible: false,
-                textValue: "Next Question!",
-                destination: "page-next",
-              },
-            ],
-          },
         },
         {
           id: "page-userOfTheInvention",
@@ -532,24 +458,9 @@ export const en_intakeQuestions_Book: BookObject = {
               componentType: "input-text",
               placeHolderText: "Type your answer here",
               questionID: "user_invention",
+              destination: "page-next",
             },
           ],
-
-          BottomButtonHolderObject: {
-            bottomButtonHolderID: "QA Page 4 Button Holder",
-            bottomButtonHolderItems: [
-              {
-                // Button
-                renderOrder: 4,
-                componentType: "button",
-                buttonType: "swipe-indicator",
-                buttonStyle: "primary",
-                iconVisible: false,
-                textValue: "Next Question!",
-                destination: "page-next",
-              },
-            ],
-          },
         },
         {
           id: "page-whoWouldBuy",
@@ -586,24 +497,9 @@ export const en_intakeQuestions_Book: BookObject = {
               componentType: "input-text",
               placeHolderText: "Type your answer here",
               questionID: "buyer_invention",
+              destination: "page-next",
             },
           ],
-
-          BottomButtonHolderObject: {
-            bottomButtonHolderID: "QA Page 4 Button Holder",
-            bottomButtonHolderItems: [
-              {
-                // Button
-                renderOrder: 4,
-                componentType: "button",
-                buttonType: "swipe-indicator",
-                buttonStyle: "primary",
-                iconVisible: false,
-                textValue: "Next Question!",
-                destination: "page-next",
-              },
-            ],
-          },
         },
 
         {
@@ -893,24 +789,9 @@ export const en_intakeQuestions_Book: BookObject = {
               componentType: "input-text",
               placeHolderText: "Type your answer here",
               questionID: "year_from_now",
+              destination: "page-next",
             },
           ],
-
-          BottomButtonHolderObject: {
-            bottomButtonHolderID: "QA Page 4 Button Holder",
-            bottomButtonHolderItems: [
-              {
-                // Button
-                renderOrder: 4,
-                componentType: "button",
-                buttonType: "swipe-indicator",
-                buttonStyle: "primary",
-                iconVisible: false,
-                textValue: "Next Question!",
-                destination: "page-next",
-              },
-            ],
-          },
         },
         {
           id: "page-haveYouWorkedOnThis",
@@ -999,6 +880,32 @@ export const en_intakeQuestions_Book: BookObject = {
               // Page Title
               renderOrder: 1,
               componentType: "input-file",
+            },
+            {
+              // Button
+              renderOrder: 3,
+              componentType: "button",
+              buttonType: "swipe-indicator",
+              buttonStyle: "primary",
+              iconVisible: false,
+              textValue: "Next Question!",
+              destination: "page-next",
+            },
+          ],
+        },
+        {
+          id: "file_input",
+          navTitle: "null",
+          keywords: "introduction",
+          authors: "Kyle Formella, Maddox Binder",
+          lastUpdated: "12092024",
+          pageBackgroundColor: "--osfBrand-tealgray-50, #F4FBFC",
+          hasVariables: false,
+          hasLock: false,
+
+          pageItems: [
+            {
+              componentType: "review",
             },
           ],
         },

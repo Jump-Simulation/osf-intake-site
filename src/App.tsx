@@ -147,6 +147,7 @@ import Object_file_input from "./Components/Page_Components/Object_file_input";
 import Object_Login from "./Components/Page_Components/Object_Login";
 import Object_Start_Screen from "./Components/Page_Components/Object_Start_Screen";
 import Object_image_Compontent from "./Components/Page_Components/Object_image_Compontent";
+import Object_Review_Screen from "./Components/Page_Components/Object_Review_Screen";
 
 var osfProceduresPath: string = `organizations/osf_st-francis/procedures`;
 
@@ -2590,16 +2591,19 @@ function App() {
           questionID={pageItem.questionID}
           max={pageItem.max}
           min={pageItem.min}
+          submissionId={localStorage.getItem("submissionId") || undefined}
+          givenGoToDestination={GoToDestination}
+          givenDestination={pageItem.destination}
         />
       );
+    } else if (pageItem.componentType === "review") {
+      tempPageItem = <Object_Review_Screen />;
     } else if (pageItem.componentType === "login") {
       tempPageItem = <Object_Login />;
     } else if (pageItem.componentType === "input-file") {
       tempPageItem = <Object_file_input />;
     } else if (pageItem.componentType === "start-screen") {
       tempPageItem = <Object_Start_Screen />;
-    } else if (pageItem.componentType === "new-image") {
-      tempPageItem = <Object_image_Compontent />;
     } else if (pageItem.componentType === "text") {
       tempPageItem = (
         <Object_Item_Text

@@ -40,7 +40,11 @@ export default function AuthScreen() {
 
   const handleLogin = async () => {
     try {
-      await signInWithEmailAndPassword(auth, email, password);
+      const userCred = await signInWithEmailAndPassword(auth, email, password);
+      const uid = userCred.user.uid;
+
+      localStorage.setItem("submissionId", uid); // ✅ This is what was missing
+
       setStatus("Signed in successfully!");
     } catch (err: any) {
       console.error("Login error:", err);
@@ -97,9 +101,9 @@ export default function AuthScreen() {
       <div className="auth-card">
         <h2 className="auth-title">
           {mode === "login"
-            ? "Welcome Back"
+            ? ""
             : step === 1
-            ? "Create Your Inventor Account"
+            ? "Create Your Account"
             : "Complete Your Profile"}
         </h2>
 
