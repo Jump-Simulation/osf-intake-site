@@ -1,10 +1,6 @@
-//Conflict
-//
-//
-//
-//
-//
 
+
+//Conflict
 import { useEffect, useState } from "react";
 import { Timestamp, doc, setDoc } from "firebase/firestore";
 import { auth, firestore } from "../Firebase";
@@ -150,10 +146,10 @@ export default function Object_Input_Text({
               : givenPlaceHolderText
           }
           className={`body ${attemptedSubmit && currentWords <= minWords
-            ? "error"
-            : currentWords >= 1
-              ? "success"
-              : ""
+              ? "error"
+              : currentWords >= 1
+                ? "success"
+                : ""
             }`}
           value={inputValue}
           onChange={handleChange}
