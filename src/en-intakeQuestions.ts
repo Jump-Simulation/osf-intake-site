@@ -38,7 +38,17 @@ export const en_intakeQuestions_Book: BookObject = {
 
           pageItems: [
             {
-              componentType: "start-screen",
+
+              renderOrder: 0,
+              componentType: "image-custom",
+              fileName: "qa-astro-man.png",
+              sizeOfPageTaken: "80%",
+              animationName: "fade-up",
+              pageOrientation: "portrait",
+              imageHeight: "200px",
+              imageWidth: "300px",
+              hasDropShadow: false,
+
             },
           ],
 
