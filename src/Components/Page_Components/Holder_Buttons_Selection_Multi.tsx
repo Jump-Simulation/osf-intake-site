@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Object_Button_Selection_Multi from "./Object_Button_Selection_Multi";
 import { BaseCarouselChildProps } from "../../BaseProps";
 import { setDoc, doc, Timestamp } from "firebase/firestore";
-import { firestore } from "../Firebase";
+import { auth, firestore } from "../Firebase";
 
 interface Holder_Buttons_Selection_Multi_Props extends BaseCarouselChildProps {
   isMobile: string;
@@ -51,9 +51,16 @@ export default function Holder_Buttons_Selection_Multi(
       return;
     }
 
+    const currentUser = auth.currentUser;
+    const isAnonymous = currentUser?.isAnonymous;
+
+    const docRef = isAnonymous
+      ? doc(firestore, "Guest", submissionId)
+      : doc(firestore, "Registered", submissionId);
+
     try {
       await setDoc(
-        doc(firestore, "submission", submissionId),
+        docRef,
         {
           [`q-${props.givenAddressToWrite}`]: values,
           dateUpdated: Timestamp.now(),

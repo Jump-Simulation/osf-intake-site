@@ -3,6 +3,8 @@ import { Timestamp, doc, setDoc } from "firebase/firestore";
 import { auth, firestore } from "../Firebase";
 import "../../CSS/Page_Component_Styles/Object_Input_Text.css";
 import { AppContext, useAppContext } from "../../App";
+import { getDeviceId } from "./Object_deviceID";
+
 
 interface Object_Input_Text_Props {
   givenPlaceHolderText: string;
@@ -62,18 +64,29 @@ export default function Object_Input_Text({
     }
 
     const trimmed = value.trim().split(/\s+/).slice(0, maxWords).join(" ");
-    const idToUse = auth.currentUser?.uid;
+    const currentUser = auth.currentUser;
+    const isAnonymous = currentUser?.isAnonymous;
 
     localStorage.setItem(`answer-q-${questionID}`, trimmed);
     context.state_Set_QuestionAnswer_Map_Value(`answer-q-${questionID}`, trimmed);
 
+    // Get deviceId or UID
+    const idToUse = isAnonymous
+      ? getDeviceId() // ✅ always initialized and reused
+      : currentUser?.uid;
+
+
     if (!idToUse) {
-      console.warn("User not authenticated.");
+      console.warn("No valid ID for Firestore doc.");
       return;
     }
 
+    // Path based on guest or registered user
+    const docRef = isAnonymous
+      ? doc(firestore, "Guest", idToUse)
+      : doc(firestore, "Registered", idToUse);
+
     try {
-      const docRef = doc(firestore, `submission/${idToUse}`);
       await setDoc(
         docRef,
         {
@@ -82,7 +95,8 @@ export default function Object_Input_Text({
         },
         { merge: true }
       );
-      console.log("Saved to submission:", idToUse);
+
+      console.log("Saved to:", docRef.path);
       setError("");
     } catch (err) {
       console.error("Error saving to Firestore:", err);

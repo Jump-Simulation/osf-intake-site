@@ -69,15 +69,18 @@ export default function Holder_Buttons_Selection_Single(
         value
       );
 
-      const docRef = doc(firestore, "submission", submissionId);
+      const currentUser = auth.currentUser;
+      const isAnonymous = currentUser?.isAnonymous;
+
+      const docRef = isAnonymous
+        ? doc(firestore, "Guest", submissionId)
+        : doc(firestore, "Registered", submissionId);
       await updateDoc(docRef, {
         [`q-${props.givenGlobal_CurrentPageID}`]: value,
         dateUpdated: Timestamp.now(),
       });
 
-      console.log(
-        `Saved ${props.givenAddressToWrite} under submission ${submissionId}`
-      );
+      console.log(`Saved to Firestore doc: ${docRef.path}`);
     } catch (err) {
       console.error("Error saving to Firestore:", err);
     }
