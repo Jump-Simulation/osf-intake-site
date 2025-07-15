@@ -2,7 +2,9 @@ import { useEffect, useState } from "react";
 import { Timestamp, doc, setDoc } from "firebase/firestore";
 import { auth, firestore } from "../Firebase";
 import "../../CSS/Page_Component_Styles/Object_Input_Text.css";
+import { AppContext, useAppContext } from "../../App";
 import { getDeviceId } from "./Object_deviceID";
+
 
 interface Object_Input_Text_Props {
   givenPlaceHolderText: string;
@@ -23,6 +25,9 @@ export default function Object_Input_Text({
   givenDestination,
   givenGoToDestination,
 }: Object_Input_Text_Props) {
+  const context = useAppContext();
+
+
   const [inputValue, setInputValue] = useState("");
   const [error, setError] = useState("");
   const [attemptedSubmit, setAttemptedSubmit] = useState(false);
@@ -62,10 +67,14 @@ export default function Object_Input_Text({
     const currentUser = auth.currentUser;
     const isAnonymous = currentUser?.isAnonymous;
 
+    localStorage.setItem(`answer-q-${questionID}`, trimmed);
+    context.state_Set_QuestionAnswer_Map_Value(`answer-q-${questionID}`, trimmed);
+
     // Get deviceId or UID
     const idToUse = isAnonymous
       ? getDeviceId() // ✅ always initialized and reused
       : currentUser?.uid;
+
 
     if (!idToUse) {
       console.warn("No valid ID for Firestore doc.");
@@ -99,6 +108,26 @@ export default function Object_Input_Text({
     if (saved) setInputValue(saved);
   }, [questionID]);
 
+  useEffect(() => {
+    const key = `answer-q-${questionID}`;
+
+    console.log("[AutoFill useEffect] Running for key:", key);
+
+    if (context.state_QuestionAnswer_Map.has(key)) {
+      console.log(`[AutoFill useEffect] Found key in map: ${key}`);
+      const answerFromMap = context.state_Get_QuestionAnswer_Map_Value(key);
+
+      if (answerFromMap !== undefined) {
+        console.log(`[AutoFill useEffect] Value from map:`, answerFromMap);
+        setInputValue(answerFromMap);
+      } else {
+        console.log(`[AutoFill useEffect] Value from map is undefined for key: ${key}`);
+      }
+    } else {
+      console.log(`[AutoFill useEffect] Key not found in map: ${key}`);
+    }
+  }, [context.state_QuestionAnswer_Map, questionID]);
+
   return (
     <div className="text_input_content_holder">
       {attemptedSubmit && currentWords <= minWords && (
@@ -113,13 +142,12 @@ export default function Object_Input_Text({
               ? "Type your answer here"
               : givenPlaceHolderText
           }
-          className={`body ${
-            attemptedSubmit && currentWords <= minWords
-              ? "error"
-              : currentWords >= 1
+          className={`body ${attemptedSubmit && currentWords <= minWords
+            ? "error"
+            : currentWords >= 1
               ? "success"
               : ""
-          }`}
+            }`}
           value={inputValue}
           onChange={handleChange}
         />
