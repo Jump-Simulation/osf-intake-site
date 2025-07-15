@@ -1,3 +1,6 @@
+///example comment
+
+
 import { useEffect, useState } from "react";
 import { Timestamp, doc, setDoc } from "firebase/firestore";
 import { auth, firestore } from "../Firebase";
@@ -113,13 +116,12 @@ export default function Object_Input_Text({
               ? "Type your answer here"
               : givenPlaceHolderText
           }
-          className={`body ${
-            attemptedSubmit && currentWords <= minWords
+          className={`body ${attemptedSubmit && currentWords <= minWords
               ? "error"
               : currentWords >= 1
-              ? "success"
-              : ""
-          }`}
+                ? "success"
+                : ""
+            }`}
           value={inputValue}
           onChange={handleChange}
         />
