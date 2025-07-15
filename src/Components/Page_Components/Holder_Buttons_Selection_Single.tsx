@@ -4,6 +4,7 @@ import "../../CSS/Page_Component_Styles/Holder_Buttons_Selection_Single.css";
 import { BaseCarouselChildProps } from "../../BaseProps";
 import { doc, updateDoc, Timestamp, setDoc } from "firebase/firestore";
 import { firestore, auth } from "../Firebase";
+import { getDeviceId } from "./Object_deviceID";
 
 interface Holder_Buttons_Selection_Single_Props extends BaseCarouselChildProps {
   isMobile: string;
@@ -72,9 +73,12 @@ export default function Holder_Buttons_Selection_Single(
       const currentUser = auth.currentUser;
       const isAnonymous = currentUser?.isAnonymous;
 
+      const deviceID = getDeviceId();
+      // Path based on guest or registered user
       const docRef = isAnonymous
-        ? doc(firestore, "Guest", submissionId)
-        : doc(firestore, "Registered", submissionId);
+        ? doc(firestore, "Submissions", "Submissions", "Guests", deviceID)
+        : doc(firestore, "Submissions", "Submissions", "Users", submissionId);
+
       await updateDoc(docRef, {
         [`q-${props.givenGlobal_CurrentPageID}`]: value,
         dateUpdated: Timestamp.now(),

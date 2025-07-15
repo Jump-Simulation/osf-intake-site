@@ -1,17 +1,9 @@
-//Conflict
-//
-//
-//
-//
-//
-
 import { useEffect, useState } from "react";
-import { Timestamp, doc, setDoc } from "firebase/firestore";
+import { Timestamp, collection, doc, setDoc } from "firebase/firestore";
 import { auth, firestore } from "../Firebase";
 import "../../CSS/Page_Component_Styles/Object_Input_Text.css";
 import { AppContext, useAppContext } from "../../App";
 import { getDeviceId } from "./Object_deviceID";
-
 
 interface Object_Input_Text_Props {
   givenPlaceHolderText: string;
@@ -33,7 +25,6 @@ export default function Object_Input_Text({
   givenGoToDestination,
 }: Object_Input_Text_Props) {
   const context = useAppContext();
-
 
   const [inputValue, setInputValue] = useState("");
   const [error, setError] = useState("");
@@ -75,23 +66,24 @@ export default function Object_Input_Text({
     const isAnonymous = currentUser?.isAnonymous;
 
     localStorage.setItem(`answer-q-${questionID}`, trimmed);
-    context.state_Set_QuestionAnswer_Map_Value(`answer-q-${questionID}`, trimmed);
+    context.state_Set_QuestionAnswer_Map_Value(
+      `answer-q-${questionID}`,
+      trimmed
+    );
 
     // Get deviceId or UID
-    const idToUse = isAnonymous
-      ? getDeviceId() // ✅ always initialized and reused
-      : currentUser?.uid;
-
+    const idToUse = isAnonymous ? getDeviceId() : currentUser?.uid;
 
     if (!idToUse) {
       console.warn("No valid ID for Firestore doc.");
       return;
     }
 
+    const deviceID = getDeviceId();
     // Path based on guest or registered user
     const docRef = isAnonymous
-      ? doc(firestore, "Guest", idToUse)
-      : doc(firestore, "Registered", idToUse);
+      ? doc(firestore, "Submissions", "Submissions", "Guests", deviceID)
+      : doc(firestore, "Submissions", "Submissions", "Users", submissionId);
 
     try {
       await setDoc(
@@ -99,6 +91,7 @@ export default function Object_Input_Text({
         {
           [`q-${questionID}`]: trimmed,
           dateUpdated: Timestamp.now(),
+          deviceId: getDeviceId(),
         },
         { merge: true }
       );
@@ -128,7 +121,9 @@ export default function Object_Input_Text({
         console.log(`[AutoFill useEffect] Value from map:`, answerFromMap);
         setInputValue(answerFromMap);
       } else {
-        console.log(`[AutoFill useEffect] Value from map is undefined for key: ${key}`);
+        console.log(
+          `[AutoFill useEffect] Value from map is undefined for key: ${key}`
+        );
       }
     } else {
       console.log(`[AutoFill useEffect] Key not found in map: ${key}`);
@@ -149,12 +144,13 @@ export default function Object_Input_Text({
               ? "Type your answer here"
               : givenPlaceHolderText
           }
-          className={`body ${attemptedSubmit && currentWords <= minWords
-            ? "error"
-            : currentWords >= 1
+          className={`body ${
+            attemptedSubmit && currentWords <= minWords
+              ? "error"
+              : currentWords >= 1
               ? "success"
               : ""
-            }`}
+          }`}
           value={inputValue}
           onChange={handleChange}
         />

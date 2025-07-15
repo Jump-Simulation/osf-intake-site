@@ -3,6 +3,7 @@ import Object_Button_Selection_Multi from "./Object_Button_Selection_Multi";
 import { BaseCarouselChildProps } from "../../BaseProps";
 import { setDoc, doc, Timestamp } from "firebase/firestore";
 import { auth, firestore } from "../Firebase";
+import { getDeviceId } from "./Object_deviceID";
 
 interface Holder_Buttons_Selection_Multi_Props extends BaseCarouselChildProps {
   isMobile: string;
@@ -54,9 +55,11 @@ export default function Holder_Buttons_Selection_Multi(
     const currentUser = auth.currentUser;
     const isAnonymous = currentUser?.isAnonymous;
 
+    const deviceID = getDeviceId();
+    // Path based on guest or registered user
     const docRef = isAnonymous
-      ? doc(firestore, "Guest", submissionId)
-      : doc(firestore, "Registered", submissionId);
+      ? doc(firestore, "Submissions", "Submissions", "Guests", deviceID)
+      : doc(firestore, "Submissions", "Submissions", "Users", submissionId);
 
     try {
       await setDoc(

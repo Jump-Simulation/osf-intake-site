@@ -5,11 +5,19 @@ import {
   createUserWithEmailAndPassword,
   signInAnonymously,
 } from "firebase/auth";
-import { doc, setDoc, updateDoc } from "firebase/firestore";
+import { doc, setDoc } from "firebase/firestore";
 import "../../CSS/Page_Component_Styles/Object_Login.css";
 import { getDeviceId } from "./Object_deviceID";
 
-export default function AuthScreen() {
+interface Object_Login_Props {
+  givenDestination: string;
+  givenGoToDestination(givenString: string): void;
+}
+
+export default function AuthScreen({
+  givenDestination,
+  givenGoToDestination,
+}: Object_Login_Props) {
   const [mode, setMode] = useState<"login" | "register">("login");
   const [step, setStep] = useState<1 | 2>(1); // for register steps
 
@@ -51,20 +59,22 @@ export default function AuthScreen() {
       setStatus("Could not sign in as guest.");
     }
   };
-  const handleLogin = async () => {
+
+  const handleLogin = async (): Promise<boolean> => {
     try {
       const userCred = await signInWithEmailAndPassword(auth, email, password);
       const uid = userCred.user.uid;
-
       localStorage.setItem("submissionId", uid);
       setStatus("Signed in successfully!");
+      return true;
     } catch (err: any) {
       console.error("Login error:", err);
       setStatus("Login failed. Check credentials.");
+      return false;
     }
   };
 
-  const handleInitialRegister = async () => {
+  const handleInitialRegister = () => {
     if (password !== confirmPassword) {
       setStatus("Passwords do not match.");
       return;
@@ -72,7 +82,7 @@ export default function AuthScreen() {
     setStep(2);
   };
 
-  const handleFinishRegister = async () => {
+  const handleFinishRegister = async (): Promise<boolean> => {
     try {
       const userCred = await createUserWithEmailAndPassword(
         auth,
@@ -98,6 +108,7 @@ export default function AuthScreen() {
       setStatus("Account created!");
       resetForm();
       setMode("login");
+      return true;
     } catch (err: any) {
       console.error("Registration error:", err);
       if (err.code === "auth/email-already-in-use") {
@@ -105,6 +116,7 @@ export default function AuthScreen() {
       } else {
         setStatus(err.message || "Could not create account.");
       }
+      return false;
     }
   };
 
@@ -190,21 +202,36 @@ export default function AuthScreen() {
         )}
 
         <button
-          onClick={
-            mode === "login"
-              ? handleLogin
-              : step === 1
-              ? handleInitialRegister
-              : handleFinishRegister
-          }
+          onClick={async () => {
+            let success = false;
+
+            if (mode === "login") {
+              success = await handleLogin();
+            } else {
+              if (step === 1) {
+                handleInitialRegister();
+                return; // stop here until step 2
+              } else {
+                success = await handleFinishRegister();
+              }
+            }
+
+            if (success) {
+              givenGoToDestination(givenDestination);
+            }
+          }}
           className="auth-button"
         >
           {mode === "login" ? "Login" : step === 1 ? "Next" : "Create Account"}
         </button>
+
         {mode === "login" && (
           <button
             style={{ marginTop: "6px" }}
-            onClick={handleGuestLogin}
+            onClick={async () => {
+              await handleGuestLogin();
+              givenGoToDestination(givenDestination);
+            }}
             className="auth-button guest-button"
           >
             Continue as Guest

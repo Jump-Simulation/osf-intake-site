@@ -38,7 +38,6 @@ export const en_intakeQuestions_Book: BookObject = {
 
           pageItems: [
             {
-
               renderOrder: 0,
               componentType: "image-custom",
               fileName: "qa-astro-man.png",
@@ -48,7 +47,6 @@ export const en_intakeQuestions_Book: BookObject = {
               imageHeight: "200px",
               imageWidth: "300px",
               hasDropShadow: false,
-
             },
           ],
 
@@ -86,22 +84,6 @@ export const en_intakeQuestions_Book: BookObject = {
               destination: "page-next",
             },
           ],
-
-          BottomButtonHolderObject: {
-            bottomButtonHolderID: "QA Page 3 Button Holder",
-            bottomButtonHolderItems: [
-              {
-                // Button
-                renderOrder: 4,
-                componentType: "button",
-                buttonType: "swipe-indicator",
-                buttonStyle: "primary",
-                iconVisible: false,
-                textValue: "Next Question!",
-                destination: "page-next",
-              },
-            ],
-          },
         },
 
         {
