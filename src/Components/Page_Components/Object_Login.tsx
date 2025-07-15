@@ -3,9 +3,11 @@ import { auth, firestore } from "../Firebase";
 import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
+  signInAnonymously,
 } from "firebase/auth";
 import { doc, setDoc, updateDoc } from "firebase/firestore";
 import "../../CSS/Page_Component_Styles/Object_Login.css";
+import { getDeviceId } from "./Object_deviceID";
 
 export default function AuthScreen() {
   const [mode, setMode] = useState<"login" | "register">("login");
@@ -38,13 +40,23 @@ export default function AuthScreen() {
     setStatus("");
   };
 
+  const handleGuestLogin = async () => {
+    try {
+      await signInAnonymously(auth);
+      const deviceId = getDeviceId();
+      localStorage.setItem("submissionId", deviceId);
+      setStatus("Signed in as guest!");
+    } catch (err: any) {
+      console.error("Guest login error:", err);
+      setStatus("Could not sign in as guest.");
+    }
+  };
   const handleLogin = async () => {
     try {
       const userCred = await signInWithEmailAndPassword(auth, email, password);
       const uid = userCred.user.uid;
 
-      localStorage.setItem("submissionId", uid); // ✅ This is what was missing
-
+      localStorage.setItem("submissionId", uid);
       setStatus("Signed in successfully!");
     } catch (err: any) {
       console.error("Login error:", err);
@@ -57,7 +69,7 @@ export default function AuthScreen() {
       setStatus("Passwords do not match.");
       return;
     }
-    setStep(2); // Go to next screen
+    setStep(2);
   };
 
   const handleFinishRegister = async () => {
@@ -189,6 +201,15 @@ export default function AuthScreen() {
         >
           {mode === "login" ? "Login" : step === 1 ? "Next" : "Create Account"}
         </button>
+        {mode === "login" && (
+          <button
+            style={{ marginTop: "6px" }}
+            onClick={handleGuestLogin}
+            className="auth-button guest-button"
+          >
+            Continue as Guest
+          </button>
+        )}
 
         <div style={{ marginTop: "12px" }}>
           {mode === "login" ? (

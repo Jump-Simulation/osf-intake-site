@@ -73,6 +73,7 @@ export const en_intakeQuestions_Book: BookObject = {
               // Page Title
               renderOrder: 1,
               componentType: "login",
+              destination: "page-next",
             },
           ],
 
