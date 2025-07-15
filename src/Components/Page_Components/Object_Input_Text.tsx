@@ -1,3 +1,10 @@
+//Conflict
+//
+//
+//
+//
+//
+
 import { useEffect, useState } from "react";
 import { Timestamp, doc, setDoc } from "firebase/firestore";
 import { auth, firestore } from "../Firebase";
