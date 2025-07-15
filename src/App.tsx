@@ -148,6 +148,7 @@ import Object_Login from "./Components/Page_Components/Object_Login";
 import Object_Start_Screen from "./Components/Page_Components/Object_Start_Screen";
 import Object_image_Compontent from "./Components/Page_Components/Object_image_Compontent";
 import Object_Review_Screen from "./Components/Page_Components/Object_Review_Screen";
+import Object_Item_Image_Custom from "./Components/Page_Components/Object_Item_Image_Custom";
 
 var osfProceduresPath: string = `organizations/osf_st-francis/procedures`;
 
@@ -176,6 +177,9 @@ export type AppContextType = {
     givenErrorMessage?: string,
     givenErrorLocation?: string
   ): void;
+  state_QuestionAnswer_Map: Map<string, string>;
+  state_Set_QuestionAnswer_Map_Value: (key: string, value: string) => void;
+  state_Get_QuestionAnswer_Map_Value: (key: string) => string | undefined;
 };
 export const AppContext = createContext<AppContextType | undefined>(undefined);
 export const useAppContext = () => {
@@ -302,8 +306,25 @@ function App() {
 
   const [isMobileString, setIsMobileString] = useState("-mobile");
 
+  const [state_QuestionAnswer_Map, stateSet_QuestionAnswer_Map] = useState<Map<string, string>>(new Map());
+
+  const state_Set_QuestionAnswer_Map_Value = (key: string, value: string) => {
+    stateSet_QuestionAnswer_Map(prev => {
+      const updated = new Map(prev);
+      updated.set(key, value);
+      return updated;
+    });
+  };
+
+  const state_Get_QuestionAnswer_Map_Value = (key: string): string | undefined => {
+    return state_QuestionAnswer_Map.get(key);
+  };
+
   const contextValue: AppContextType = {
     SendErrorReport: SendProjectHealthReport,
+    state_QuestionAnswer_Map: state_QuestionAnswer_Map,
+    state_Set_QuestionAnswer_Map_Value: state_Set_QuestionAnswer_Map_Value,
+    state_Get_QuestionAnswer_Map_Value: state_Get_QuestionAnswer_Map_Value,
   };
 
   const deviceInfo = useMemo(() => {
@@ -358,9 +379,8 @@ function App() {
     const browserVersion = result.browser.version || "";
 
     // Formatted display string
-    const formatted = `${deviceModel} (${osName}${
-      osVersion ? ` ${osVersion}` : ""
-    })`;
+    const formatted = `${deviceModel} (${osName}${osVersion ? ` ${osVersion}` : ""
+      })`;
 
     return {
       type: deviceType,
@@ -847,7 +867,7 @@ function App() {
           // Document exists, increment the field
           console.log(
             "individual document exists, incrementing datafield: " +
-              givenVariableName
+            givenVariableName
           );
           await updateDoc(docTimestampRef, {
             [givenVariableName]: increment(1), // Increment the field if document exists
@@ -1250,9 +1270,9 @@ function App() {
     } else {
       console.log(
         "We've seen tag: " +
-          givenString +
-          " in localTagsAnsweredFalse already: " +
-          localTagsAnsweredFalse
+        givenString +
+        " in localTagsAnsweredFalse already: " +
+        localTagsAnsweredFalse
       );
     }
     if (localTagsAnsweredTrue.includes(givenString)) {
@@ -1277,9 +1297,9 @@ function App() {
       } else {
         console.log(
           "We've already seen tag: " +
-            givenString +
-            " in stateFalseTags: " +
-            currentState
+          givenString +
+          " in stateFalseTags: " +
+          currentState
         );
         return currentState; // Do nothing if it already exists
       }
@@ -1309,9 +1329,9 @@ function App() {
 
         console.log(
           "trying to write data: " +
-            data +
-            ", it's address is: " +
-            tempDataAddress
+          data +
+          ", it's address is: " +
+          tempDataAddress
         );
 
         if (tempDataAddress === "aggregate") {
@@ -1387,7 +1407,7 @@ function App() {
           );
           setTagsAnsweredTrue(
             filteredTags.join("_") +
-              (localTagsAnsweredTrue.endsWith("_") ? "_" : "")
+            (localTagsAnsweredTrue.endsWith("_") ? "_" : "")
           );
 
           var tempTagsArray: string[] = localTagsAnsweredFalse
@@ -1413,7 +1433,7 @@ function App() {
           );
           setTagsAnsweredFalse(
             filteredTags.join("_") +
-              (localTagsAnsweredFalse.endsWith("_") ? "_" : "")
+            (localTagsAnsweredFalse.endsWith("_") ? "_" : "")
           );
         }
 
@@ -1690,7 +1710,7 @@ function App() {
     }
   }, [
     localCurrentBookData !== undefined &&
-      localCurrentBookData.chapterObjects.length !== 0,
+    localCurrentBookData.chapterObjects.length !== 0,
     currentCarouselIndex,
   ]);
 
@@ -1744,9 +1764,9 @@ function App() {
     if (localCurrentChapter.chapterID !== givenChapterName) {
       console.log(
         "INVALID CHAPTER NAME GIVEN. CURRENT CHAPTER NAME: " +
-          localCurrentChapter.chapterID +
-          " GIVEN CHAPTER NAME: " +
-          givenChapterName
+        localCurrentChapter.chapterID +
+        " GIVEN CHAPTER NAME: " +
+        givenChapterName
       );
     }
 
@@ -1895,10 +1915,10 @@ function App() {
                 localPagesVisited.push(page.id);
                 incrementFirestoreVariableAggregate(
                   "book" +
-                    contentInfo.replace("4b2", "") +
-                    "-" +
-                    page.id +
-                    "_first-visit"
+                  contentInfo.replace("4b2", "") +
+                  "-" +
+                  page.id +
+                  "_first-visit"
                 );
 
                 setPagesVisited((prevPages) =>
@@ -1918,10 +1938,10 @@ function App() {
                 localPagesVisited.push(page.id);
                 incrementFirestoreVariableAggregate(
                   "book" +
-                    contentInfo.replace("4b2", "") +
-                    "-" +
-                    page.id +
-                    "_second-visit"
+                  contentInfo.replace("4b2", "") +
+                  "-" +
+                  page.id +
+                  "_second-visit"
                 );
 
                 setPagesVisited((prevPages) =>
@@ -1932,10 +1952,10 @@ function App() {
               } else {
                 incrementFirestoreVariableAggregate(
                   "book" +
-                    contentInfo.replace("4b2", "") +
-                    "-" +
-                    page.id +
-                    "_extra-visit"
+                  contentInfo.replace("4b2", "") +
+                  "-" +
+                  page.id +
+                  "_extra-visit"
                 );
               }
             }
@@ -2002,10 +2022,10 @@ function App() {
                 localPagesVisited.push(tempPagesToLookAt[pageIndex + 1].id);
                 incrementFirestoreVariableAggregate(
                   "book" +
-                    contentInfo.replace("4b2", "") +
-                    "-" +
-                    page.id +
-                    "_first-visit"
+                  contentInfo.replace("4b2", "") +
+                  "-" +
+                  page.id +
+                  "_first-visit"
                 );
                 incrementFirestoreVariableAggregate(patientInfo.anesthesiaType);
 
@@ -2026,10 +2046,10 @@ function App() {
                 localPagesVisited.push(tempPagesToLookAt[pageIndex + 1].id);
                 incrementFirestoreVariableAggregate(
                   "book" +
-                    contentInfo.replace("4b2", "") +
-                    "-" +
-                    page.id +
-                    "_second-visit"
+                  contentInfo.replace("4b2", "") +
+                  "-" +
+                  page.id +
+                  "_second-visit"
                 );
                 incrementFirestoreVariableAggregate(patientInfo.anesthesiaType);
 
@@ -2041,17 +2061,17 @@ function App() {
               } else {
                 incrementFirestoreVariableAggregate(
                   "book" +
-                    contentInfo.replace("4b2", "") +
-                    "-" +
-                    page.id +
-                    "_extra-visit"
+                  contentInfo.replace("4b2", "") +
+                  "-" +
+                  page.id +
+                  "_extra-visit"
                 );
               }
               return;
             } else {
               console.log(
                 "WE TRIED GOING PAST THE LAST PAGE!! given destination: " +
-                  givenDestinationName
+                givenDestinationName
               );
               console.log("localCurrentCarouselIndex: " + tempNavVariable);
               console.log(
@@ -2059,7 +2079,7 @@ function App() {
               );
               console.log(
                 "tempPagesToLookAt.length - 1: " +
-                  (tempPagesToLookAt.length - 1)
+                (tempPagesToLookAt.length - 1)
               );
             }
           } else if (
@@ -2068,9 +2088,9 @@ function App() {
           ) {
             console.log(
               "Previous button called at page index: " +
-                pageIndex +
-                " and tempNavVariable (current index): " +
-                tempNavVariable
+              pageIndex +
+              " and tempNavVariable (current index): " +
+              tempNavVariable
             );
 
             //PREVIOUS PAGE RECURSION
@@ -2080,15 +2100,15 @@ function App() {
             console.log(previousPagesVisitedStrings);
             console.log(
               "PREVIOUS PAGE AT INDEX: " +
-                (previousPagesVisitedStrings.length - 1) +
-                " = " +
-                previousPagesVisitedStrings[
-                  previousPagesVisitedStrings.length - 1
-                ]
+              (previousPagesVisitedStrings.length - 1) +
+              " = " +
+              previousPagesVisitedStrings[
+              previousPagesVisitedStrings.length - 1
+              ]
             );
             GoToDestination(
               previousPagesVisitedStrings[
-                previousPagesVisitedStrings.length - 1
+              previousPagesVisitedStrings.length - 1
               ],
               false
             );
@@ -2155,10 +2175,10 @@ function App() {
                   ) {
                     incrementFirestoreVariableAggregate(
                       "book" +
-                        contentInfo.replace("4b2", "") +
-                        "-" +
-                        modal.modalID +
-                        "_first-visit"
+                      contentInfo.replace("4b2", "") +
+                      "-" +
+                      modal.modalID +
+                      "_first-visit"
                     );
                   } else if (
                     localTagsAnsweredTrue.includes(
@@ -2170,18 +2190,18 @@ function App() {
                   ) {
                     incrementFirestoreVariableAggregate(
                       "book" +
-                        contentInfo.replace("4b2", "") +
-                        "-" +
-                        modal.modalID +
-                        "_second-visit"
+                      contentInfo.replace("4b2", "") +
+                      "-" +
+                      modal.modalID +
+                      "_second-visit"
                     );
                   } else {
                     incrementFirestoreVariableAggregate(
                       "book" +
-                        contentInfo.replace("4b2", "") +
-                        "-" +
-                        modal.modalID +
-                        "_extra-visit"
+                      contentInfo.replace("4b2", "") +
+                      "-" +
+                      modal.modalID +
+                      "_extra-visit"
                     );
                   }
                 }
@@ -2244,10 +2264,10 @@ function App() {
                 localPagesVisited.push(page.id);
                 incrementFirestoreVariableAggregate(
                   "book" +
-                    contentInfo.replace("4b2", "") +
-                    "-" +
-                    page.id +
-                    "_first-visit"
+                  contentInfo.replace("4b2", "") +
+                  "-" +
+                  page.id +
+                  "_first-visit"
                 );
 
                 setPagesVisited((prevPages) =>
@@ -2267,10 +2287,10 @@ function App() {
                 localPagesVisited.push(page.id);
                 incrementFirestoreVariableAggregate(
                   "book" +
-                    contentInfo.replace("4b2", "") +
-                    "-" +
-                    page.id +
-                    "_second-visit"
+                  contentInfo.replace("4b2", "") +
+                  "-" +
+                  page.id +
+                  "_second-visit"
                 );
 
                 setPagesVisited((prevPages) =>
@@ -2281,10 +2301,10 @@ function App() {
               } else {
                 incrementFirestoreVariableAggregate(
                   "book" +
-                    contentInfo.replace("4b2", "") +
-                    "-" +
-                    page.id +
-                    "_extra-visit"
+                  contentInfo.replace("4b2", "") +
+                  "-" +
+                  page.id +
+                  "_extra-visit"
                 );
               }
             }
@@ -2351,10 +2371,10 @@ function App() {
                 localPagesVisited.push(tempPagesToLookAt[pageIndex + 1].id);
                 incrementFirestoreVariableAggregate(
                   "book" +
-                    contentInfo.replace("4b2", "") +
-                    "-" +
-                    page.id +
-                    "_first-visit"
+                  contentInfo.replace("4b2", "") +
+                  "-" +
+                  page.id +
+                  "_first-visit"
                 );
                 incrementFirestoreVariableAggregate(patientInfo.anesthesiaType);
 
@@ -2375,10 +2395,10 @@ function App() {
                 localPagesVisited.push(tempPagesToLookAt[pageIndex + 1].id);
                 incrementFirestoreVariableAggregate(
                   "book" +
-                    contentInfo.replace("4b2", "") +
-                    "-" +
-                    page.id +
-                    "_second-visit"
+                  contentInfo.replace("4b2", "") +
+                  "-" +
+                  page.id +
+                  "_second-visit"
                 );
                 incrementFirestoreVariableAggregate(patientInfo.anesthesiaType);
 
@@ -2390,17 +2410,17 @@ function App() {
               } else {
                 incrementFirestoreVariableAggregate(
                   "book" +
-                    contentInfo.replace("4b2", "") +
-                    "-" +
-                    page.id +
-                    "_extra-visit"
+                  contentInfo.replace("4b2", "") +
+                  "-" +
+                  page.id +
+                  "_extra-visit"
                 );
               }
               return;
             } else {
               console.log(
                 "WE TRIED GOING PAST THE LAST PAGE!! given destination: " +
-                  givenDestinationName
+                givenDestinationName
               );
               console.log("localCurrentCarouselIndex: " + tempNavVariable);
               console.log(
@@ -2408,7 +2428,7 @@ function App() {
               );
               console.log(
                 "tempPagesToLookAt.length - 1: " +
-                  (tempPagesToLookAt.length - 1)
+                (tempPagesToLookAt.length - 1)
               );
             }
           } else if (
@@ -2417,9 +2437,9 @@ function App() {
           ) {
             console.log(
               "Previous button called at page index: " +
-                pageIndex +
-                " and tempNavVariable (current index): " +
-                tempNavVariable
+              pageIndex +
+              " and tempNavVariable (current index): " +
+              tempNavVariable
             );
 
             //PREVIOUS PAGE RECURSION
@@ -2427,15 +2447,15 @@ function App() {
             console.log(previousPagesVisitedStrings);
             console.log(
               "PREVIOUS PAGE AT INDEX: " +
-                (previousPagesVisitedStrings.length - 1) +
-                " = " +
-                previousPagesVisitedStrings[
-                  previousPagesVisitedStrings.length - 1
-                ]
+              (previousPagesVisitedStrings.length - 1) +
+              " = " +
+              previousPagesVisitedStrings[
+              previousPagesVisitedStrings.length - 1
+              ]
             );
             GoToDestination(
               previousPagesVisitedStrings[
-                previousPagesVisitedStrings.length - 1
+              previousPagesVisitedStrings.length - 1
               ],
               false
             );
@@ -2584,7 +2604,50 @@ function App() {
           }
         />
       );
-    } else if (pageItem.componentType === "input-text") {
+    }
+
+    else if (pageItem.componentType === "image-custom") {
+      tempPageItem = (
+        <Object_Item_Image_Custom
+          key={givenPage.id + pageItem.renderOrder + keyInt}
+          isMobile={isMobileString}
+          givenImageName={pageItem.fileName || "missing-image.jpg"}
+          givenImageOrientation={pageItem.pageOrientation || "portrait"}
+
+          given_ImageBottom={pageItem.imageBottom || ""}
+          given_ImageTop={pageItem.imageTop || ""}
+          given_ImageRight={pageItem.imageRight || ""}
+          given_ImageLeft={pageItem.imageLeft || ""}
+
+          given_ImageHeight={pageItem.imageHeight || "100%"}
+          given_ImageHeightMax={pageItem.imageHeightMax || "100%"}
+          given_ImageHeightMin={pageItem.imageHeightMin || ""}
+
+          given_ImageWidth={pageItem.imageWidth || "100%"}
+          given_ImageWidthMax={pageItem.imageWidthMax || "100%"}
+          given_ImageWidthMin={pageItem.imageWidthMin || ""}
+
+          given_ImageOpacity={pageItem.imageOpacity || "1"}
+          given_ImagePosition={pageItem.imagePosition || "relative"}
+          given_ImageZPosition={pageItem.imageZPosition || "1"}
+
+
+          givenHasShadow={pageItem.hasDropShadow}
+          givenTagsTrueArray={tagsAnsweredTrue}
+          givenTagsFalseArray={tagsAnsweredFalse}
+          givenTagInclusion={pageItem.tagsInclude || ""}
+          givenTagExclusion={pageItem.tagsExclude || ""}
+          givenCheckTagsToDetermineRendering={CheckTagsToDetermineRendering}
+          givenGlobal_isMobile={isMobileString}
+          givenGlobal_CurrentCarouselIndex={currentCarouselIndex}
+          givenGlobal_PreviousCarouselIndex={previousCarouselIndex}
+          givenGlobal_ShouldExcludeByDefault={
+            pageItem.excludeByDefault || false
+          }
+        />
+      );
+    }
+    else if (pageItem.componentType === "input-text") {
       tempPageItem = (
         <Object_Input_Text
           givenPlaceHolderText={pageItem.placeHolderText || "Type answer here"}
