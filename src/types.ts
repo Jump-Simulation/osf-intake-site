@@ -107,7 +107,7 @@ export interface PageItem {
   marginSides?: string;
   gap?: string;
 
-  // Added By Maddox vvvv
+
 
   externalLink?: string;
 
@@ -115,7 +115,25 @@ export interface PageItem {
   hardcodedPhoneNumber?: string;
   writeToAddress?: string;
   readFromAddress?: string[];
-  // Added By Maddox ^^^^
+
+  imageHeight?: string;
+  imageHeightMax?: string;
+  imageHeightMin?: string;
+
+  imageWidthMin?: string;
+  imageWidthMax?: string;
+  imageWidth?: string;
+
+  imagePosition?: 'static' | 'relative' | 'absolute' | 'sticky' | 'fixed';
+  imageTop?: string;
+  imageBottom?: string;
+  imageLeft?: string;
+  imageRight?: string;
+  imageOpacity?: string;
+
+  imageZPosition?: string;
+
+
 
   newTab?: boolean;
 
