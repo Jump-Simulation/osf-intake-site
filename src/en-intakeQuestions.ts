@@ -85,6 +85,91 @@ export const en_intakeQuestions_Book: BookObject = {
             },
           ],
         },
+        {
+          id: "page-SubmissionsOverview",
+          navTitle: "null",
+          keywords: "introduction",
+          authors: "Eddie",
+          lastUpdated: "12092024",
+          pageBackgroundColor: "--osfBrand-tealgray-50, #F4FBFC",
+          hasVariables: false,
+          hasLock: false,
+
+          pageItems: [
+            {
+
+              componentType: "text",
+              textValue: "SUBMISSIONS OVERVIEW SCREEN",
+              textType: "h2",
+              textAlignment: "left",
+            },
+            {
+              componentType: "submissions-incomplete",
+            },
+
+            {
+
+              componentType: "text",
+              textValue: "Submit a New Solution",
+              textType: "h2",
+              textAlignment: "left",
+            },
+
+            {
+
+              componentType: "page-section",
+              colorBackground: "var(--color-surface-container-lowest, #FFF)",
+              boxShadow: "0px 1px 2px 0px rgba(0, 0, 0, 0.30), 0px 1px 3px 1px rgba(0, 0, 0, 0.15)",
+              width: "95%",
+              pageSectionItems: [
+
+                {
+                  componentType: "text",
+                  textValue: "Have a new, innovative solution in healthcare? Tell us about it!",
+                  textType: "bodyText",
+                  textAlignment: "left"
+                },
+                {
+                  componentType: "button",
+                  buttonType: "normal",
+                  buttonStyle: "primary",
+                  colorBackground: "linear-gradient(90deg, var(--color-accent-secondary-700-default, #487D02) 0%, var(--color-accent-primary-700-default, #007A95) 83.65%)",
+                  textValue: "Submit a New Solution",
+                  colorOverrideDefault: "linear-gradient(90deg, var(--color-accent-secondary-700-default, #487D02) 0%, var(--color-accent-primary-700-default, #007A95) 83.65%)",
+                  colorOverrideHover: "linear-gradient(90deg, var(--color-accent-secondary-700-default, #487D02) 0%, var(--color-accent-primary-700-default, #007A95) 83.65%)",
+                  colorOverrideActive: "linear-gradient(90deg, var(--color-accent-secondary-700-default, #487D02) 0%, var(--color-accent-primary-700-default, #007A95) 83.65%)",
+
+                  destination: "page-next"
+                }
+
+
+              ],
+
+            },
+
+            {
+              componentType: "submissions-complete",
+            },
+          ],
+
+
+          BottomButtonHolderObject: {
+            bottomButtonHolderID: "QA Page 3 Button Holder",
+            bottomButtonHolderItems: [
+              {
+                // Button
+                renderOrder: 4,
+                componentType: "button",
+                buttonType: "swipe-indicator",
+                buttonStyle: "primary",
+                iconVisible: false,
+                textValue: "Next Question!",
+                destination: "page-next",
+              },
+            ],
+          },
+
+        },
 
         {
           id: "page-problemSolve",
@@ -537,7 +622,7 @@ export const en_intakeQuestions_Book: BookObject = {
                 "An educational or training approach",
                 "Not sure / doesn't fit neatly into these",
               ],
-              questionID: "solution-category",
+              questionID: "solution_category",
             },
           ],
 
@@ -600,7 +685,7 @@ export const en_intakeQuestions_Book: BookObject = {
                 "I have a concept but nothing built",
                 "I've just started thinking about it",
               ],
-              questionID: "built-tested",
+              questionID: "built_tested",
             },
           ],
 
@@ -664,7 +749,7 @@ export const en_intakeQuestions_Book: BookObject = {
                 "Analysis paralysis - I don't know where to start.",
                 "Other",
               ],
-              questionID: "what-is-stopping-you",
+              questionID: "what_is_stopping_you",
             },
           ],
 
@@ -727,7 +812,7 @@ export const en_intakeQuestions_Book: BookObject = {
                 "A mix of both",
                 "Haven't worked on it much yet",
               ],
-              questionID: "time-worked",
+              questionID: "time_worked",
             },
           ],
 
@@ -787,7 +872,7 @@ export const en_intakeQuestions_Book: BookObject = {
           ],
         },
         {
-          id: "page-haveYouWorkedOnThis",
+          id: "page-howInvolvedDoYouWantToBe", //    id: "page-haveYouWorkedOnThis",
           navTitle: "null",
           keywords: "introduction",
           authors: "Kyle Formella, Maddox Binder",

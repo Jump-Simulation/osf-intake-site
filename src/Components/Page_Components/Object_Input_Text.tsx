@@ -72,7 +72,7 @@ export default function Object_Input_Text({
     );
 
     // Get deviceId or UID
-    const idToUse = isAnonymous ? getDeviceId() : currentUser?.uid;
+    const idToUse = isAnonymous ? getDeviceId() : currentUser?.email;
 
     if (!idToUse) {
       console.warn("No valid ID for Firestore doc.");
@@ -81,6 +81,9 @@ export default function Object_Input_Text({
 
     const deviceID = getDeviceId();
     // Path based on guest or registered user
+
+
+
     const docRef = isAnonymous
       ? doc(firestore, "Submissions", "Submissions", "Guests", deviceID)
       : doc(firestore, "Submissions", "Submissions", "Users", submissionId);
@@ -92,6 +95,7 @@ export default function Object_Input_Text({
           [`q-${questionID}`]: trimmed,
           dateUpdated: Timestamp.now(),
           deviceId: getDeviceId(),
+          email: idToUse,
         },
         { merge: true }
       );
@@ -144,13 +148,12 @@ export default function Object_Input_Text({
               ? "Type your answer here"
               : givenPlaceHolderText
           }
-          className={`body ${
-            attemptedSubmit && currentWords <= minWords
+          className={`body ${attemptedSubmit && currentWords <= minWords
               ? "error"
               : currentWords >= 1
-              ? "success"
-              : ""
-          }`}
+                ? "success"
+                : ""
+            }`}
           value={inputValue}
           onChange={handleChange}
         />

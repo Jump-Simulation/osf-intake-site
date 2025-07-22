@@ -11,25 +11,17 @@ import {
   useState,
 } from "react";
 import "./App.css";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  useLocation,
-} from "react-router-dom";
+import { SubmissionData } from "./types";
 import "bootstrap/dist/css/bootstrap.css";
 import "./CSS/Page_Main_Styles.css";
 import "./CSS/Page_Component_Styles/Bottom-Shadow.css";
 
 import {
-  FieldValue,
-  collection,
   doc,
   getDoc,
   increment,
   setDoc,
   updateDoc,
-  serverTimestamp,
 } from "firebase/firestore";
 import { getAuth, signInAnonymously } from "firebase/auth";
 import { UAParser } from "ua-parser-js";
@@ -71,7 +63,6 @@ import Holder_Buttons_Selection_Single from "./Components/Page_Components/Holder
 
 import Object_Button_ArrowUp from "./Components/Page_Components/Object_Button_ArrowUp";
 import Object_Button_NavMenuButton from "./Components/Page_Components/Object_Button_NavMenuButton";
-import Object_Item_NavBarSpacer from "./Components/Page_Components/Object_Item_NavBarSpacer";
 
 import Holder_Buttons_Selection_Results from "./Components/Page_Components/Holder_Buttons_Selection_Results";
 
@@ -79,7 +70,6 @@ import Holder_Buttons_Selection_Results from "./Components/Page_Components/Holde
 import Holder_Buttons_Prep_Destinations from "./Components/Page_Components/Holder_Buttons_Prep_Destinations";
 import Object_Button_Prep_Confirm from "./Components/Page_Components/Object_Button_Prep_Confirm";
 
-import ReactSlidingPane from "react-sliding-pane";
 import Object_Item_NavMenu from "./Components/Page_Components/Object_Item_NavMenu";
 import Holder_PageItems from "./Components/Page_Components/Holder_PageItems";
 import Holder_Buttons_AnchoredBottom from "./Components/Page_Components/Holder_Buttons_AnchoredBottom";
@@ -95,12 +85,12 @@ import Holder_Objects_PageSection from "./Components/Page_Components/Holder_Obje
 
 import { sendPatientData } from "./Components/PatientDataSender";
 
-import { fetchData } from "./Components/PatientDataGetter";
 
-import { contactUsExampleData, en_exampleData_book } from "./exampleData";
+
+import { contactUsExampleData } from "./exampleData";
 
 import {
-  en_fh_OpenScheduling_book,
+
   en_fh_contactUs_openScheduling,
 } from "./en-fh-openScheduling";
 import { BaseCarouselChildProps } from "./BaseProps";
@@ -112,32 +102,15 @@ import Object_Modal_ReportProblem from "./Components/Object_Modal_ReportProblem"
 import Object_Modal_OptOut from "./Components/Object_Modal_OptOut";
 import DebugScreens from "./Components/DebugScreens";
 
-import { en_siteIndex, en_contactUs_siteIndex } from "./en-homepage";
-
 import Holder_Objects_HorizontalHolder from "./Components/Page_Components/Holder_Objects_HorizontalHolder";
 
 import DebugMobileScreen from "./Components/DebugMobileScreen";
 import Object_Modal_ContactUs from "./Components/Object_Modal_ContactUs";
-import { en_fh_contactUs_myChart, en_fh_myChart_book } from "./en-fh-mychart";
+
 import Object_Button_IconButton from "./Components/Page_Components/Object_Button_IconButton";
 import Object_Button_ScheduleButton from "./Components/Page_Components/Object_Button_ScheduleButton";
-import {
-  en_fh_contactUs_costChapter,
-  en_fh_costChapter_book,
-} from "./en-fh-costChapter";
-import {
-  en_fh_contactUs_educationChapter,
-  en_fh_educationChapter_book,
-} from "./en-fh-educationChapter";
-import {
-  en_fh_contactUs_familyChapter,
-  en_fh_familyChapter_book,
-} from "./en-fh-familyChapter";
-import {
-  en_fh_contactUs_insuranceChapter,
-  en_fh_insuranceChapter_book,
-} from "./en-fh-insuranceChapter";
-import { en_fh_optOut_book, en_fh_optOut_myChart } from "./en-fh-optOut";
+
+
 import Object_Button_OptOut from "./Components/Page_Components/Object_Button_OptOut";
 import { initializeAppCheck, ReCaptchaV3Provider } from "firebase/app-check";
 import { auth, firestore } from "./Components/Firebase";
@@ -146,11 +119,12 @@ import Object_Input_Text from "./Components/Page_Components/Object_Input_Text";
 import Object_file_input from "./Components/Page_Components/Object_file_input";
 import Object_Login from "./Components/Page_Components/Object_Login";
 import Object_Start_Screen from "./Components/Page_Components/Object_Start_Screen";
-import Object_image_Compontent from "./Components/Page_Components/Object_image_Compontent";
+
 import Object_Review_Screen from "./Components/Page_Components/Object_Review_Screen";
 import Object_Item_Image_Custom from "./Components/Page_Components/Object_Item_Image_Custom";
+import Holder_Objects_CompleteSubmissions from "./Components/Page_Components/Holder_Objects_CompleteSubmissions";
+import Holder_Objects_IncompleteSubmissions from "./Components/Page_Components/Holder_Objects_IncompleteSubmissions";
 
-var osfProceduresPath: string = `organizations/osf_st-francis/procedures`;
 
 var firestoreAnalyticsPath: string = `analytics/organizations/osf-sfmc/procedures`;
 var firestoreFeedbackPath: string = `feedback/organizations/osf-sfmc/procedures`;
@@ -180,6 +154,16 @@ export type AppContextType = {
   state_QuestionAnswer_Map: Map<string, string>;
   state_Set_QuestionAnswer_Map_Value: (key: string, value: string) => void;
   state_Get_QuestionAnswer_Map_Value: (key: string) => string | undefined;
+
+  state_QuestionPageID_Map: Map<string, string>;
+  state_Set_QuestionPageID_Map_Value: (key: string, value: string) => void;
+  state_Get_QuestionPageID_Map_Value: (key: string) => string | undefined;
+  state_CompleteSubmissions: SubmissionData[];
+  state_IncompleteSubmissions: SubmissionData[];
+
+  ResumeSubmission(givenString: string);
+
+  GoToDestination(givenString: string, givenBool?: boolean);
 };
 export const AppContext = createContext<AppContextType | undefined>(undefined);
 export const useAppContext = () => {
@@ -210,10 +194,6 @@ var localCurrentShouldShowTopRightButton: boolean = true;
 var localCurrentPageColor: string = "default";
 
 var currentProgressBarIndex: number = 0;
-// FH STUFF
-
-//var localIntroBookData: PageObject[] = en_fh_openScheduling;
-//var localIntroBookData: PageObject[] = en_fh_openScheduling;
 
 var keyInt = 0;
 
@@ -280,7 +260,6 @@ var localPreviousCarouselIndex: number = -1;
 var previousPagesVisitedStrings: string[] = [];
 
 var localURLVariable: string = "";
-/* var BuildVersion: string = `1.008 - ${new Date().toLocaleString()}`; */
 
 var localChapterID: string = "none yet";
 
@@ -310,6 +289,19 @@ function App() {
     Map<string, string>
   >(new Map());
 
+
+  const [state_Array_IncompleteSubmissions, state_Set_Array_IncompleteSubmissions]
+    = useState<SubmissionData[]>([])
+
+  const [state_Array_CompleteSubmissions, state_Set_Array_CompleteSubmissions]
+    = useState<SubmissionData[]>([])
+
+  useEffect(() => {
+    console.log("state_Array_IncompleteSubmissions changed to: ")
+    console.log(state_Array_IncompleteSubmissions)
+  }, [state_Array_IncompleteSubmissions])
+
+
   const state_Set_QuestionAnswer_Map_Value = (key: string, value: string) => {
     stateSet_QuestionAnswer_Map((prev) => {
       const updated = new Map(prev);
@@ -324,11 +316,38 @@ function App() {
     return state_QuestionAnswer_Map.get(key);
   };
 
+  const [state_QuestionPageID_Map, stateSet_QuestionPageID_Map] = useState<
+    Map<string, string>
+  >(new Map());
+
+
+  const state_Set_QuestionPageID_Map_Value = (key: string, value: string) => {
+    stateSet_QuestionPageID_Map((prev) => {
+      const updated = new Map(prev);
+      updated.set(key, value);
+      return updated;
+    });
+  };
+
+  const state_Get_QuestionPageID_Map_Value = (
+    key: string
+  ): string | undefined => {
+    return state_QuestionPageID_Map.get(key);
+  };
+
   const contextValue: AppContextType = {
     SendErrorReport: SendProjectHealthReport,
     state_QuestionAnswer_Map: state_QuestionAnswer_Map,
     state_Set_QuestionAnswer_Map_Value: state_Set_QuestionAnswer_Map_Value,
     state_Get_QuestionAnswer_Map_Value: state_Get_QuestionAnswer_Map_Value,
+
+    state_QuestionPageID_Map: state_QuestionPageID_Map,
+    state_Set_QuestionPageID_Map_Value: state_Set_QuestionAnswer_Map_Value,
+    state_Get_QuestionPageID_Map_Value: state_Get_QuestionAnswer_Map_Value,
+    state_CompleteSubmissions: state_Array_CompleteSubmissions,
+    state_IncompleteSubmissions: state_Array_IncompleteSubmissions,
+    ResumeSubmission: ResumeSubmission,
+    GoToDestination: GoToDestination,
   };
 
   const deviceInfo = useMemo(() => {
@@ -383,9 +402,8 @@ function App() {
     const browserVersion = result.browser.version || "";
 
     // Formatted display string
-    const formatted = `${deviceModel} (${osName}${
-      osVersion ? ` ${osVersion}` : ""
-    })`;
+    const formatted = `${deviceModel} (${osName}${osVersion ? ` ${osVersion}` : ""
+      })`;
 
     return {
       type: deviceType,
@@ -872,7 +890,7 @@ function App() {
           // Document exists, increment the field
           console.log(
             "individual document exists, incrementing datafield: " +
-              givenVariableName
+            givenVariableName
           );
           await updateDoc(docTimestampRef, {
             [givenVariableName]: increment(1), // Increment the field if document exists
@@ -1275,9 +1293,9 @@ function App() {
     } else {
       console.log(
         "We've seen tag: " +
-          givenString +
-          " in localTagsAnsweredFalse already: " +
-          localTagsAnsweredFalse
+        givenString +
+        " in localTagsAnsweredFalse already: " +
+        localTagsAnsweredFalse
       );
     }
     if (localTagsAnsweredTrue.includes(givenString)) {
@@ -1302,9 +1320,9 @@ function App() {
       } else {
         console.log(
           "We've already seen tag: " +
-            givenString +
-            " in stateFalseTags: " +
-            currentState
+          givenString +
+          " in stateFalseTags: " +
+          currentState
         );
         return currentState; // Do nothing if it already exists
       }
@@ -1334,9 +1352,9 @@ function App() {
 
         console.log(
           "trying to write data: " +
-            data +
-            ", it's address is: " +
-            tempDataAddress
+          data +
+          ", it's address is: " +
+          tempDataAddress
         );
 
         if (tempDataAddress === "aggregate") {
@@ -1412,7 +1430,7 @@ function App() {
           );
           setTagsAnsweredTrue(
             filteredTags.join("_") +
-              (localTagsAnsweredTrue.endsWith("_") ? "_" : "")
+            (localTagsAnsweredTrue.endsWith("_") ? "_" : "")
           );
 
           var tempTagsArray: string[] = localTagsAnsweredFalse
@@ -1438,7 +1456,7 @@ function App() {
           );
           setTagsAnsweredFalse(
             filteredTags.join("_") +
-              (localTagsAnsweredFalse.endsWith("_") ? "_" : "")
+            (localTagsAnsweredFalse.endsWith("_") ? "_" : "")
           );
         }
 
@@ -1715,7 +1733,7 @@ function App() {
     }
   }, [
     localCurrentBookData !== undefined &&
-      localCurrentBookData.chapterObjects.length !== 0,
+    localCurrentBookData.chapterObjects.length !== 0,
     currentCarouselIndex,
   ]);
 
@@ -1769,9 +1787,9 @@ function App() {
     if (localCurrentChapter.chapterID !== givenChapterName) {
       console.log(
         "INVALID CHAPTER NAME GIVEN. CURRENT CHAPTER NAME: " +
-          localCurrentChapter.chapterID +
-          " GIVEN CHAPTER NAME: " +
-          givenChapterName
+        localCurrentChapter.chapterID +
+        " GIVEN CHAPTER NAME: " +
+        givenChapterName
       );
     }
 
@@ -1809,6 +1827,10 @@ function App() {
     setState_currentProgressBarLength(localCurrentChapter.pageObjects.length);
 
     SetTopRightButton();
+  }
+
+  function ResumeSubmission(givenSubmissionName: string) {
+
   }
 
   function GoToDestination(
@@ -1920,10 +1942,10 @@ function App() {
                 localPagesVisited.push(page.id);
                 incrementFirestoreVariableAggregate(
                   "book" +
-                    contentInfo.replace("4b2", "") +
-                    "-" +
-                    page.id +
-                    "_first-visit"
+                  contentInfo.replace("4b2", "") +
+                  "-" +
+                  page.id +
+                  "_first-visit"
                 );
 
                 setPagesVisited((prevPages) =>
@@ -1943,10 +1965,10 @@ function App() {
                 localPagesVisited.push(page.id);
                 incrementFirestoreVariableAggregate(
                   "book" +
-                    contentInfo.replace("4b2", "") +
-                    "-" +
-                    page.id +
-                    "_second-visit"
+                  contentInfo.replace("4b2", "") +
+                  "-" +
+                  page.id +
+                  "_second-visit"
                 );
 
                 setPagesVisited((prevPages) =>
@@ -1957,10 +1979,10 @@ function App() {
               } else {
                 incrementFirestoreVariableAggregate(
                   "book" +
-                    contentInfo.replace("4b2", "") +
-                    "-" +
-                    page.id +
-                    "_extra-visit"
+                  contentInfo.replace("4b2", "") +
+                  "-" +
+                  page.id +
+                  "_extra-visit"
                 );
               }
             }
@@ -2027,10 +2049,10 @@ function App() {
                 localPagesVisited.push(tempPagesToLookAt[pageIndex + 1].id);
                 incrementFirestoreVariableAggregate(
                   "book" +
-                    contentInfo.replace("4b2", "") +
-                    "-" +
-                    page.id +
-                    "_first-visit"
+                  contentInfo.replace("4b2", "") +
+                  "-" +
+                  page.id +
+                  "_first-visit"
                 );
                 incrementFirestoreVariableAggregate(patientInfo.anesthesiaType);
 
@@ -2051,10 +2073,10 @@ function App() {
                 localPagesVisited.push(tempPagesToLookAt[pageIndex + 1].id);
                 incrementFirestoreVariableAggregate(
                   "book" +
-                    contentInfo.replace("4b2", "") +
-                    "-" +
-                    page.id +
-                    "_second-visit"
+                  contentInfo.replace("4b2", "") +
+                  "-" +
+                  page.id +
+                  "_second-visit"
                 );
                 incrementFirestoreVariableAggregate(patientInfo.anesthesiaType);
 
@@ -2066,17 +2088,17 @@ function App() {
               } else {
                 incrementFirestoreVariableAggregate(
                   "book" +
-                    contentInfo.replace("4b2", "") +
-                    "-" +
-                    page.id +
-                    "_extra-visit"
+                  contentInfo.replace("4b2", "") +
+                  "-" +
+                  page.id +
+                  "_extra-visit"
                 );
               }
               return;
             } else {
               console.log(
                 "WE TRIED GOING PAST THE LAST PAGE!! given destination: " +
-                  givenDestinationName
+                givenDestinationName
               );
               console.log("localCurrentCarouselIndex: " + tempNavVariable);
               console.log(
@@ -2084,7 +2106,7 @@ function App() {
               );
               console.log(
                 "tempPagesToLookAt.length - 1: " +
-                  (tempPagesToLookAt.length - 1)
+                (tempPagesToLookAt.length - 1)
               );
             }
           } else if (
@@ -2093,9 +2115,9 @@ function App() {
           ) {
             console.log(
               "Previous button called at page index: " +
-                pageIndex +
-                " and tempNavVariable (current index): " +
-                tempNavVariable
+              pageIndex +
+              " and tempNavVariable (current index): " +
+              tempNavVariable
             );
 
             //PREVIOUS PAGE RECURSION
@@ -2105,15 +2127,15 @@ function App() {
             console.log(previousPagesVisitedStrings);
             console.log(
               "PREVIOUS PAGE AT INDEX: " +
-                (previousPagesVisitedStrings.length - 1) +
-                " = " +
-                previousPagesVisitedStrings[
-                  previousPagesVisitedStrings.length - 1
-                ]
+              (previousPagesVisitedStrings.length - 1) +
+              " = " +
+              previousPagesVisitedStrings[
+              previousPagesVisitedStrings.length - 1
+              ]
             );
             GoToDestination(
               previousPagesVisitedStrings[
-                previousPagesVisitedStrings.length - 1
+              previousPagesVisitedStrings.length - 1
               ],
               false
             );
@@ -2180,10 +2202,10 @@ function App() {
                   ) {
                     incrementFirestoreVariableAggregate(
                       "book" +
-                        contentInfo.replace("4b2", "") +
-                        "-" +
-                        modal.modalID +
-                        "_first-visit"
+                      contentInfo.replace("4b2", "") +
+                      "-" +
+                      modal.modalID +
+                      "_first-visit"
                     );
                   } else if (
                     localTagsAnsweredTrue.includes(
@@ -2195,18 +2217,18 @@ function App() {
                   ) {
                     incrementFirestoreVariableAggregate(
                       "book" +
-                        contentInfo.replace("4b2", "") +
-                        "-" +
-                        modal.modalID +
-                        "_second-visit"
+                      contentInfo.replace("4b2", "") +
+                      "-" +
+                      modal.modalID +
+                      "_second-visit"
                     );
                   } else {
                     incrementFirestoreVariableAggregate(
                       "book" +
-                        contentInfo.replace("4b2", "") +
-                        "-" +
-                        modal.modalID +
-                        "_extra-visit"
+                      contentInfo.replace("4b2", "") +
+                      "-" +
+                      modal.modalID +
+                      "_extra-visit"
                     );
                   }
                 }
@@ -2269,10 +2291,10 @@ function App() {
                 localPagesVisited.push(page.id);
                 incrementFirestoreVariableAggregate(
                   "book" +
-                    contentInfo.replace("4b2", "") +
-                    "-" +
-                    page.id +
-                    "_first-visit"
+                  contentInfo.replace("4b2", "") +
+                  "-" +
+                  page.id +
+                  "_first-visit"
                 );
 
                 setPagesVisited((prevPages) =>
@@ -2292,10 +2314,10 @@ function App() {
                 localPagesVisited.push(page.id);
                 incrementFirestoreVariableAggregate(
                   "book" +
-                    contentInfo.replace("4b2", "") +
-                    "-" +
-                    page.id +
-                    "_second-visit"
+                  contentInfo.replace("4b2", "") +
+                  "-" +
+                  page.id +
+                  "_second-visit"
                 );
 
                 setPagesVisited((prevPages) =>
@@ -2306,10 +2328,10 @@ function App() {
               } else {
                 incrementFirestoreVariableAggregate(
                   "book" +
-                    contentInfo.replace("4b2", "") +
-                    "-" +
-                    page.id +
-                    "_extra-visit"
+                  contentInfo.replace("4b2", "") +
+                  "-" +
+                  page.id +
+                  "_extra-visit"
                 );
               }
             }
@@ -2376,10 +2398,10 @@ function App() {
                 localPagesVisited.push(tempPagesToLookAt[pageIndex + 1].id);
                 incrementFirestoreVariableAggregate(
                   "book" +
-                    contentInfo.replace("4b2", "") +
-                    "-" +
-                    page.id +
-                    "_first-visit"
+                  contentInfo.replace("4b2", "") +
+                  "-" +
+                  page.id +
+                  "_first-visit"
                 );
                 incrementFirestoreVariableAggregate(patientInfo.anesthesiaType);
 
@@ -2400,10 +2422,10 @@ function App() {
                 localPagesVisited.push(tempPagesToLookAt[pageIndex + 1].id);
                 incrementFirestoreVariableAggregate(
                   "book" +
-                    contentInfo.replace("4b2", "") +
-                    "-" +
-                    page.id +
-                    "_second-visit"
+                  contentInfo.replace("4b2", "") +
+                  "-" +
+                  page.id +
+                  "_second-visit"
                 );
                 incrementFirestoreVariableAggregate(patientInfo.anesthesiaType);
 
@@ -2415,17 +2437,17 @@ function App() {
               } else {
                 incrementFirestoreVariableAggregate(
                   "book" +
-                    contentInfo.replace("4b2", "") +
-                    "-" +
-                    page.id +
-                    "_extra-visit"
+                  contentInfo.replace("4b2", "") +
+                  "-" +
+                  page.id +
+                  "_extra-visit"
                 );
               }
               return;
             } else {
               console.log(
                 "WE TRIED GOING PAST THE LAST PAGE!! given destination: " +
-                  givenDestinationName
+                givenDestinationName
               );
               console.log("localCurrentCarouselIndex: " + tempNavVariable);
               console.log(
@@ -2433,7 +2455,7 @@ function App() {
               );
               console.log(
                 "tempPagesToLookAt.length - 1: " +
-                  (tempPagesToLookAt.length - 1)
+                (tempPagesToLookAt.length - 1)
               );
             }
           } else if (
@@ -2442,9 +2464,9 @@ function App() {
           ) {
             console.log(
               "Previous button called at page index: " +
-                pageIndex +
-                " and tempNavVariable (current index): " +
-                tempNavVariable
+              pageIndex +
+              " and tempNavVariable (current index): " +
+              tempNavVariable
             );
 
             //PREVIOUS PAGE RECURSION
@@ -2452,15 +2474,15 @@ function App() {
             console.log(previousPagesVisitedStrings);
             console.log(
               "PREVIOUS PAGE AT INDEX: " +
-                (previousPagesVisitedStrings.length - 1) +
-                " = " +
-                previousPagesVisitedStrings[
-                  previousPagesVisitedStrings.length - 1
-                ]
+              (previousPagesVisitedStrings.length - 1) +
+              " = " +
+              previousPagesVisitedStrings[
+              previousPagesVisitedStrings.length - 1
+              ]
             );
             GoToDestination(
               previousPagesVisitedStrings[
-                previousPagesVisitedStrings.length - 1
+              previousPagesVisitedStrings.length - 1
               ],
               false
             );
@@ -2655,13 +2677,42 @@ function App() {
           givenDestination={pageItem.destination}
         />
       );
-    } else if (pageItem.componentType === "review") {
+    }
+
+    else if (pageItem.componentType === "submissions-complete") {
+      tempPageItem = (
+        <Holder_Objects_CompleteSubmissions
+          given_state_Array_CompleteSubmissions={state_Array_CompleteSubmissions}
+
+          givenGlobal_isMobile={isMobileString}
+          givenGlobal_CurrentCarouselIndex={0}
+          givenGlobal_PreviousCarouselIndex={0}
+          givenGlobal_CompleteSubmissions={state_Array_CompleteSubmissions}
+        />
+      );
+    }
+    else if (pageItem.componentType === "submissions-incomplete") {
+      tempPageItem = (
+        <Holder_Objects_IncompleteSubmissions
+          given_state_Array_IncompleteSubmissions={state_Array_IncompleteSubmissions}
+          givenGlobal_isMobile={isMobileString}
+          givenGlobal_CurrentCarouselIndex={0}
+          givenGlobal_PreviousCarouselIndex={0}
+          givenGlobal_IncompleteSubmissions={state_Array_IncompleteSubmissions}
+        />
+      );
+    }
+
+    else if (pageItem.componentType === "review") {
       tempPageItem = <Object_Review_Screen />;
     } else if (pageItem.componentType === "login") {
       tempPageItem = (
         <Object_Login
           givenGoToDestination={GoToDestination}
           givenDestination={pageItem.destination}
+
+          given_state_Set_Array_CompleteSubmissions={state_Set_Array_CompleteSubmissions}
+          given_state_Set_Array_IncompleteSubmissions={state_Set_Array_IncompleteSubmissions}
         />
       );
     } else if (pageItem.componentType === "input-file") {

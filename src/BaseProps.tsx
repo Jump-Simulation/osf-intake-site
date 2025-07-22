@@ -1,3 +1,5 @@
+import { SubmissionData } from "./types";
+
 export interface BaseCarouselChildProps {
     givenGlobal_isMobile: string;
     givenGlobal_CurrentCarouselIndex: number;
@@ -36,6 +38,9 @@ export interface BaseCarouselChildProps {
     givenGlobal_NewPrimaryColor?: string;
     givenGlobal_NewHoverColor?: string;
     givenGlobal_NewActiveColor?: string;
+
+    givenGlobal_CompleteSubmissions?: SubmissionData[];
+    givenGlobal_IncompleteSubmissions?: SubmissionData[];
 
 
 }

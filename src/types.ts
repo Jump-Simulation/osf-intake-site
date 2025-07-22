@@ -177,3 +177,26 @@ export interface BottomButtonHolderObject {
   bottomButtonHolderID?: string;
   bottomButtonHolderItems: PageItem[];
 }
+
+
+export interface SubmissionData {
+  dateUpdated: any; // or `Timestamp` from Firebase if you're importing
+  deviceId: string;
+  email: string;
+
+  "q-buttonItemListAddress"?: string[];
+  "q-buyer_invention"?: string;
+  "q-describe_idea"?: string;
+  "q-get_worse"?: string;
+  "q-idea_name"?: string;
+  "q-page-category"?: string;
+  "q-page-haveYouTested"?: string;
+  "q-page-haveYouWorkedOnThis"?: string;
+  "q-page-howInvolvedDoYouWantToBe"?: string;
+  "q-page-otherSolutions"?: string;
+  "q-personally_connect"?: string;
+  "q-problem_solving"?: string;
+  "q-user_invention"?: string;
+  "q-when_where"?: string;
+  "q-year_from_now"?: string;
+}
