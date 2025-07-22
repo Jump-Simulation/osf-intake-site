@@ -19,7 +19,7 @@ export default function AuthScreen({
   givenGoToDestination,
 }: Object_Login_Props) {
   const [mode, setMode] = useState<"login" | "register">("login");
-  const [step, setStep] = useState<1 | 2>(1); // for register steps
+  const [step, setStep] = useState<1 | 2>(1);
 
   // Step 1
   const [email, setEmail] = useState("");

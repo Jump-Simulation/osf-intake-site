@@ -96,8 +96,8 @@ export interface PageItem {
 
   placeHolderText?: string;
   questionID?: string;
-  min?: string;
-  max?: string;
+  minWordCount?: string;
+  maxWordCount?: string;
 
   colorText?: string;
   colorBackground?: string;
@@ -106,8 +106,6 @@ export interface PageItem {
   width?: string;
   marginSides?: string;
   gap?: string;
-
-
 
   externalLink?: string;
 
@@ -124,7 +122,7 @@ export interface PageItem {
   imageWidthMax?: string;
   imageWidth?: string;
 
-  imagePosition?: 'static' | 'relative' | 'absolute' | 'sticky' | 'fixed';
+  imagePosition?: "static" | "relative" | "absolute" | "sticky" | "fixed";
   imageTop?: string;
   imageBottom?: string;
   imageLeft?: string;
@@ -132,8 +130,6 @@ export interface PageItem {
   imageOpacity?: string;
 
   imageZPosition?: string;
-
-
 
   newTab?: boolean;
 

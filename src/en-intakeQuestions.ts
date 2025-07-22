@@ -28,39 +28,106 @@ export const en_intakeQuestions_Book: BookObject = {
         // Introduction Screen 1
         {
           id: "page-welcome",
-          navTitle: "null",
+          navTitle: "Intake Start",
           keywords: "introduction",
           authors: "Kyle Formella, Maddox Binder",
           lastUpdated: "12092024",
-          pageBackgroundColor: "--osfBrand-tealgray-50, #F4FBFC",
+          pageBackgroundColor: "var(--color-surface-default, #0E1416)",
           hasVariables: false,
           hasLock: false,
 
           pageItems: [
             {
-              renderOrder: 0,
-              componentType: "image-custom",
-              fileName: "qa-astro-man.png",
-              sizeOfPageTaken: "80%",
-              animationName: "fade-up",
-              pageOrientation: "portrait",
-              imageHeight: "200px",
-              imageWidth: "300px",
-              hasDropShadow: false,
+              // Page Title
+              renderOrder: 1,
+              componentType: "text",
+              textValue: "Section 1/3",
+              textType: "h1",
+              textAlignment: "left",
+            },
+
+            {
+              // Body Text
+              renderOrder: 2,
+              componentType: "text",
+              textValue: "Start With the Problem",
+              textType: "h1",
+              colorText:
+                "var(--color-accent-primary-bold-800-default, #60D6ED)",
+              textAlignment: "left",
+            },
+            {
+              // Body Text
+              renderOrder: 2,
+              componentType: "text",
+              textValue:
+                "Every great invention begins with a clear problem, and no one understands your problem better than you.",
+              textType: "h2",
+              colorText: " var(--color-on-surface-default, #DEE4E5)",
+              textAlignment: "left",
+            },
+            {
+              // Body Text
+              renderOrder: 2,
+              componentType: "text",
+              textValue:
+                "What’s happening, when, and to whom? Why is there a need for change?",
+              textType: "h2",
+              colorText: " var(--color-on-surface-default, #DEE4E5)",
+              textAlignment: "left",
+            },
+            {
+              // Page Holder Horizontal
+              renderOrder: 4,
+              componentType: "page-holder-horizontal",
+              marginSides: "0px",
+              width: "100%",
+              gap: "md",
+
+              pageSectionItems: [
+                {
+                  // Information Icon Button
+                  renderOrder: 0,
+                  componentType: "button",
+                  buttonType: "icon",
+                  iconFileName: "info-icon-fh.png",
+                  iconHorizontalPlacement: "left",
+                  destination: "modal-001",
+                },
+
+                {
+                  // Page Section Component
+                  renderOrder: 6,
+                  componentType: "page-section",
+                  marginSides: "",
+                  // colorBackground: "linear-gradient(90deg, #CEF7FF 0%, var(--color-primary-container-default, #A3EEFF) 68.65%)",
+                  colorBackground: "var(--color-primary-container-default)",
+                  pageSectionItems: [
+                    {
+                      // Caption
+                      renderOrder: 2,
+                      componentType: "text",
+                      textValue: "Questions to Answer: 4",
+                      textType: "caption",
+                      textAlignment: "left",
+                      colorText: "var(--color-on-primary-container)",
+                    },
+                  ],
+                },
+              ],
             },
           ],
-
           BottomButtonHolderObject: {
-            bottomButtonHolderID: "QA Page 3 Button Holder",
+            bottomButtonHolderID: "FH Page 1 Button Holder",
             bottomButtonHolderItems: [
               {
                 // Button
-                renderOrder: 4,
+                renderOrder: 3,
                 componentType: "button",
                 buttonType: "swipe-indicator",
                 buttonStyle: "primary",
                 iconVisible: false,
-                textValue: "Next Question!",
+                textValue: "Let's do this!",
                 destination: "page-next",
               },
             ],
@@ -82,6 +149,7 @@ export const en_intakeQuestions_Book: BookObject = {
               renderOrder: 1,
               componentType: "login",
               destination: "page-next",
+              minWordCount: "5",
             },
           ],
         },

@@ -2648,8 +2648,8 @@ function App() {
         <Object_Input_Text
           givenPlaceHolderText={pageItem.placeHolderText || "Type answer here"}
           questionID={pageItem.questionID}
-          max={pageItem.max}
-          min={pageItem.min}
+          maxWordCount={pageItem.maxWordCount}
+          minWordCount={pageItem.minWordCount}
           submissionId={localStorage.getItem("submissionId") || undefined}
           givenGoToDestination={GoToDestination}
           givenDestination={pageItem.destination}

@@ -9,8 +9,8 @@ interface Object_Input_Text_Props {
   givenPlaceHolderText: string;
   questionID: string;
   submissionId?: string;
-  min?: string;
-  max?: string;
+  minWordCount?: string;
+  maxWordCount?: string;
   givenDestination: string;
   givenGoToDestination(givenString: string): void;
 }
@@ -19,8 +19,8 @@ export default function Object_Input_Text({
   givenPlaceHolderText,
   questionID,
   submissionId,
-  min = "0",
-  max = "10000",
+  minWordCount = "5",
+  maxWordCount = "10000",
   givenDestination,
   givenGoToDestination,
 }: Object_Input_Text_Props) {
@@ -30,8 +30,8 @@ export default function Object_Input_Text({
   const [error, setError] = useState("");
   const [attemptedSubmit, setAttemptedSubmit] = useState(false);
 
-  const minWords = parseInt(min);
-  const maxWords = parseInt(max);
+  const minWordCountWords = parseInt(minWordCount);
+  const maxWordCountWords = parseInt(maxWordCount);
 
   const getWordCount = (text: string) =>
     text.trim().split(/\s+/).filter(Boolean).length;
@@ -42,26 +42,30 @@ export default function Object_Input_Text({
     const text = e.target.value;
     const words = text.trim().split(/\s+/).filter(Boolean);
 
-    if (words.length <= maxWords) {
+    if (words.length <= maxWordCountWords) {
       setInputValue(text);
     } else {
-      const trimmed = words.slice(0, maxWords).join(" ");
+      const trimmed = words.slice(0, maxWordCountWords).join(" ");
       setInputValue(trimmed);
     }
 
-    if (attemptedSubmit && words.length >= minWords) {
+    if (attemptedSubmit && words.length >= minWordCountWords) {
       setError("");
     }
   };
 
   const saveToFirestore = async (value: string) => {
     const wordCount = getWordCount(value);
-    if (wordCount < minWords) {
-      setError(`Please enter at least ${minWords} words.`);
+    if (wordCount < minWordCountWords) {
+      setError(`Please enter at least ${minWordCountWords} words.`);
       return;
     }
 
-    const trimmed = value.trim().split(/\s+/).slice(0, maxWords).join(" ");
+    const trimmed = value
+      .trim()
+      .split(/\s+/)
+      .slice(0, maxWordCountWords)
+      .join(" ");
     const currentUser = auth.currentUser;
     const isAnonymous = currentUser?.isAnonymous;
 
@@ -130,34 +134,68 @@ export default function Object_Input_Text({
     }
   }, [context.state_QuestionAnswer_Map, questionID]);
 
+  let message = "";
+
+  if (currentWords < minWordCountWords && attemptedSubmit === false) {
+    message = `- Write at least ${minWordCountWords} words.`;
+  } else if (currentWords < minWordCountWords && attemptedSubmit === true) {
+    message = `- At least ${minWordCountWords} words required.`;
+  } else if (
+    currentWords >= minWordCountWords &&
+    currentWords >= 0.9 * maxWordCountWords
+  ) {
+    message = `- Approaching ${maxWordCountWords} word limit!`;
+  } else if (
+    currentWords >= minWordCountWords &&
+    currentWords < 0.9 * maxWordCountWords
+  ) {
+    message = "";
+  }
+
   return (
-    <div className="text_input_content_holder">
-      {attemptedSubmit && currentWords <= minWords && (
-        <div style={{ color: "red", fontSize: "14px", marginTop: "4px" }}>
-          *Please enter an answer to continue!
+    <div>
+      <div
+        className={`text_input_content_holder ${
+          attemptedSubmit && currentWords < minWordCountWords
+            ? "error"
+            : currentWords >= minWordCountWords
+            ? "success"
+            : ""
+        }`}
+      >
+        <div className="text_entry_area">
+          <textarea
+            placeholder={
+              attemptedSubmit && currentWords <= minWordCountWords
+                ? "Type your answer here"
+                : givenPlaceHolderText
+            }
+            className={`userInput_textArea ${
+              attemptedSubmit && currentWords <= minWordCountWords
+                ? "error"
+                : currentWords >= minWordCountWords
+                ? "success"
+                : ""
+            }`}
+            value={inputValue}
+            onChange={handleChange}
+          />
         </div>
-      )}
-      <div className="text_entry_bubble">
-        <textarea
-          placeholder={
-            attemptedSubmit && currentWords <= minWords
-              ? "Type your answer here"
-              : givenPlaceHolderText
-          }
-          className={`body ${
-            attemptedSubmit && currentWords <= minWords
+
+        <div
+          className={`Input-Feedback ${
+            attemptedSubmit && currentWords < minWordCountWords
               ? "error"
-              : currentWords >= 1
+              : currentWords >= minWordCountWords
               ? "success"
               : ""
           }`}
-          value={inputValue}
-          onChange={handleChange}
-        />
+        >
+          {currentWords} words {message}
+        </div>
       </div>
-
       <div>
-        {currentWords <= minWords ? (
+        {currentWords < minWordCountWords ? (
           <button
             className="gray-button-primary-desktop"
             style={{
