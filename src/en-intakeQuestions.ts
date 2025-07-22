@@ -33,6 +33,7 @@ export const en_intakeQuestions_Book: BookObject = {
           authors: "Kyle Formella, Maddox Binder",
           lastUpdated: "12092024",
           pageBackgroundColor: "var(--color-surface-default, #0E1416)",
+          // pageBackgroundColor: "var(--neutral-teal-gray-1150, #0E1416)",
           hasVariables: false,
           hasLock: false,
 
