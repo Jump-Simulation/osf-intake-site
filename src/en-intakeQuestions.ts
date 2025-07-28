@@ -25,7 +25,85 @@ export const en_intakeQuestions_Book: BookObject = {
         "linear-gradient(180deg, var(--color-accent-primary-900-default, #007A95) 0%, var(--color-accent-primary-bold-800-default, #00677E) 100%)",
 
       pageObjects: [
-        // Introduction Screen 1
+        {
+          id: "page-login",
+          navTitle: "null",
+          keywords: "introduction",
+          authors: "Kyle Formella, Maddox Binder",
+          lastUpdated: "12092024",
+          pageBackgroundColor: "var(--neutral-teal-gray-1150, #0E1416)",
+          hasVariables: false,
+          hasLock: false,
+
+          pageItems: [
+            {
+              componentType: "text",
+              textValue: "Sign in to get started",
+              textType: "h1",
+              textAlignment: "left",
+            },
+            {
+              componentType: "text",
+              textValue:
+                "Having an account with us allows you to auto-save your progress and receive responses from our team.",
+              textType: "h3",
+              textAlignment: "left",
+            },
+            {
+              // Page Title
+              renderOrder: 1,
+              componentType: "login",
+              destination: "page-welcome",
+              minWordCount: "5",
+            },
+            {
+              componentType: "button",
+              destination: "page-register",
+              textValue: "Create Inventor Account",
+            },
+            {
+              componentType: "text",
+              textValue: "---------Or---------",
+            },
+            {
+              componentType: "text",
+              textValue:
+                "If you'd prefer to create your account later, you can get started from here!",
+            },
+            {
+              componentType: "button",
+              textValue: "Preview as Guest",
+              destination: "page-welcome",
+            },
+          ],
+        },
+        {
+          id: "page-register",
+          navTitle: "Intake Start",
+          keywords: "introduction",
+          authors: "Kyle Formella, Maddox Binder",
+          lastUpdated: "12092024",
+          pageBackgroundColor: "--osfBrand-tealgray-50, #F4FBFC",
+          hasVariables: false,
+          hasLock: false,
+
+          pageItems: [
+            {
+              componentType: "text",
+              textValue: "Create your Inventor Account",
+            },
+            {
+              componentType: "text",
+              textValue:
+                "Welcome, new Inventor! We're excited to meet you. PLease tell us a little about yourself so we know who we're reaching out to!",
+            },
+
+            {
+              componentType: "new-account",
+              destination: "page-welcome",
+            },
+          ],
+        },
         {
           id: "page-welcome",
           navTitle: "Intake Start",
@@ -133,26 +211,6 @@ export const en_intakeQuestions_Book: BookObject = {
               },
             ],
           },
-        },
-        {
-          id: "page-login",
-          navTitle: "null",
-          keywords: "introduction",
-          authors: "Kyle Formella, Maddox Binder",
-          lastUpdated: "12092024",
-          pageBackgroundColor: "--osfBrand-tealgray-50, #F4FBFC",
-          hasVariables: false,
-          hasLock: false,
-
-          pageItems: [
-            {
-              // Page Title
-              renderOrder: 1,
-              componentType: "login",
-              destination: "page-next",
-              minWordCount: "5",
-            },
-          ],
         },
 
         {

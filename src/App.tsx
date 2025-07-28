@@ -149,6 +149,8 @@ import Object_Start_Screen from "./Components/Page_Components/Object_Start_Scree
 import Object_image_Compontent from "./Components/Page_Components/Object_image_Compontent";
 import Object_Review_Screen from "./Components/Page_Components/Object_Review_Screen";
 import Object_Item_Image_Custom from "./Components/Page_Components/Object_Item_Image_Custom";
+import Object_New_Account from "./Components/Page_Components/Object_Full_Account_Creation";
+import Object_Full_Account_Creation from "./Components/Page_Components/Object_Full_Account_Creation";
 
 var osfProceduresPath: string = `organizations/osf_st-francis/procedures`;
 
@@ -2666,6 +2668,13 @@ function App() {
       );
     } else if (pageItem.componentType === "input-file") {
       tempPageItem = <Object_file_input />;
+    } else if (pageItem.componentType === "new-account") {
+      tempPageItem = (
+        <Object_Full_Account_Creation
+          givenGoToDestination={GoToDestination}
+          givenDestination={pageItem.destination}
+        />
+      );
     } else if (pageItem.componentType === "start-screen") {
       tempPageItem = <Object_Start_Screen />;
     } else if (pageItem.componentType === "text") {

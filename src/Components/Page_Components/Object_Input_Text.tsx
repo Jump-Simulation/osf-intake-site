@@ -83,11 +83,16 @@ export default function Object_Input_Text({
       return;
     }
 
+    const uid =
+      submissionId ||
+      auth.currentUser?.uid ||
+      localStorage.getItem("submissionId");
+
     const deviceID = getDeviceId();
     // Path based on guest or registered user
     const docRef = isAnonymous
       ? doc(firestore, "Submissions", "Submissions", "Guests", deviceID)
-      : doc(firestore, "Submissions", "Submissions", "Users", submissionId);
+      : doc(firestore, "Submissions", "Submissions", "Users", uid);
 
     try {
       await setDoc(
