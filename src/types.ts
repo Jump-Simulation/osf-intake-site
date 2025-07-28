@@ -87,6 +87,15 @@ export interface PageItem {
   dataToWriteSomethingSelected?: string;
   dataToWriteNothingSelected?: string;
 
+
+  accountCompleteText?: string;
+  accountCompleteDestination?: string;
+
+  accountIncompleteDestination?: string;
+  accountIncompleteText?: string;
+
+
+
   tagsInclude?: string;
   tagsExclude?: string;
 
