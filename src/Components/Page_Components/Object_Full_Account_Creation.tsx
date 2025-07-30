@@ -3,8 +3,8 @@ import { auth, firestore } from "../Firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
 import "../../CSS/Page_Component_Styles/Object_Full_Account_Creation.css";
-import openEye from "../../assets/eye-open.png";
-import closedEye from "../../assets/eye-closed.png";
+import openEye from "../../assets/eye-open-show.png";
+import closedEye from "../../assets/eye-closed-hidden.png";
 
 interface AuthRegisterProps {
   givenDestination: string;
@@ -138,7 +138,7 @@ export default function AuthRegister({
               style={{ paddingRight: "400px" }}
             />
             <img
-              src={showPassword ? openEye : closedEye}
+              src={showPassword ? closedEye : openEye}
               alt="Toggle password visibility"
               className="toggle-password"
               onClick={() => setShowPassword((prev) => !prev)}
@@ -163,7 +163,7 @@ export default function AuthRegister({
               style={{ paddingRight: "400px" }}
             />
             <img
-              src={showConfirmPassword ? openEye : closedEye}
+              src={showPassword ? closedEye : openEye}
               alt="Toggle confirm password visibility"
               className="toggle-password"
               onClick={() => setShowConfirmPassword((prev) => !prev)}

@@ -297,7 +297,27 @@ export const en_intakeQuestions_Book: BookObject = {
               componentType: "input-text",
               placeHolderText: "Type your answer here",
               questionID: "personally_connect",
-              destination: "page-next",
+              destination: "guestCheck",
+            },
+          ],
+          modalObjects: [
+            {
+              modalID: "modal-001",
+              modalType: "sheet",
+              modalItems: [
+                {
+                  componentType: "text",
+                  textValue: "Create an account to save and continue",
+                },
+                {
+                  componentType: "text",
+                  textValue:
+                    "We're excited to connect! To continue, we need a way to contact you.",
+                },
+                {
+                  componentType: "partial-account-creation",
+                },
+              ],
             },
           ],
         },
@@ -674,11 +694,13 @@ export const en_intakeQuestions_Book: BookObject = {
               {
                 // Button
                 renderOrder: 4,
-                componentType: "button",
+                componentType: "button-selection-confirmation",
                 buttonType: "swipe-indicator",
                 buttonStyle: "primary",
                 iconVisible: false,
-                textValue: "Next Question!",
+                textValueNoneSelected: "Select an Option",
+                destinationNoneSelected: "null",
+                textValueSomethingSelected: "Next Question!",
                 destination: "page-next",
               },
             ],
@@ -737,11 +759,13 @@ export const en_intakeQuestions_Book: BookObject = {
               {
                 // Button
                 renderOrder: 4,
-                componentType: "button",
+                componentType: "button-selection-confirmation",
                 buttonType: "swipe-indicator",
                 buttonStyle: "primary",
                 iconVisible: false,
-                textValue: "Next Question!",
+                textValueNoneSelected: "Select an Option",
+                destinationNoneSelected: "null",
+                textValueSomethingSelected: "Next Question!",
                 destination: "page-next",
               },
             ],
@@ -801,11 +825,13 @@ export const en_intakeQuestions_Book: BookObject = {
               {
                 // Button
                 renderOrder: 4,
-                componentType: "button",
+                componentType: "button-selection-confirmation",
                 buttonType: "swipe-indicator",
                 buttonStyle: "primary",
                 iconVisible: false,
-                textValue: "Next Question!",
+                textValueNoneSelected: "Select an Option",
+                destinationNoneSelected: "null",
+                textValueSomethingSelected: "Next Question!",
                 destination: "page-next",
               },
             ],
@@ -864,11 +890,13 @@ export const en_intakeQuestions_Book: BookObject = {
               {
                 // Button
                 renderOrder: 3,
-                componentType: "button",
+                componentType: "button-selection-confirmation",
                 buttonType: "swipe-indicator",
                 buttonStyle: "primary",
                 iconVisible: false,
-                textValue: "Next Question!",
+                textValueNoneSelected: "Select an Option",
+                destinationNoneSelected: "null",
+                textValueSomethingSelected: "Next Question!",
                 destination: "page-next",
               },
             ],
@@ -970,46 +998,23 @@ export const en_intakeQuestions_Book: BookObject = {
                 buttonStyle: "primary",
                 iconVisible: false,
                 textValue: "Next Question!",
-                destination: "page-next",
+                destination: "modal-002",
               },
             ],
           },
-        },
-        {
-          id: "file_input",
-          navTitle: "null",
-          keywords: "introduction",
-          authors: "Kyle Formella, Maddox Binder",
-          lastUpdated: "12092024",
-          pageBackgroundColor: "--osfBrand-tealgray-50, #F4FBFC",
-          hasVariables: false,
-          hasLock: false,
-
-          pageItems: [
+          modalObjects: [
             {
-              // Page Title
-              renderOrder: 1,
-              componentType: "text",
-              textValue:
-                "Have any files of your idea you would like to submit?",
-              textType: "h2",
-              textAlignment: "left",
-            },
-
-            {
-              // Page Title
-              renderOrder: 1,
-              componentType: "input-file",
-            },
-            {
-              // Button
-              renderOrder: 3,
-              componentType: "button",
-              buttonType: "swipe-indicator",
-              buttonStyle: "primary",
-              iconVisible: false,
-              textValue: "Next Question!",
-              destination: "page-next",
+              modalID: "modal-002",
+              modalType: "sheet",
+              modalItems: [
+                {
+                  componentType: "text",
+                  textValue: "Congrats",
+                },
+                {
+                  componentType: "account-checker",
+                },
+              ],
             },
           ],
         },

@@ -36,7 +36,7 @@ export default function AuthPartialRegister({
       );
       const submissionId = userCred.user.uid;
 
-      await setDoc(doc(firestore, "users", submissionId), {
+      await setDoc(doc(firestore, "users", email), {
         submission: submissionId,
         email,
         createdAt: new Date(),
@@ -50,7 +50,6 @@ export default function AuthPartialRegister({
       if (err.code === "auth/email-already-in-use") {
         setStatus("This email is already registered.");
       } else {
-        setStatus(err.message || "Could not create account.");
       }
     }
   };

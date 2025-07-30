@@ -1,13 +1,16 @@
 import { useState } from "react";
-import { auth } from "../Firebase";
+import { auth, firestore } from "../Firebase";
 import { signInWithEmailAndPassword, signInAnonymously } from "firebase/auth";
 import "../../CSS/Page_Component_Styles/Object_Login.css";
 import { getDeviceId } from "./Object_deviceID";
 import "../../CSS/Page_Component_Styles/Object_Item_Text.css";
 import { BaseCarouselChildProps } from "../../BaseProps";
 import errorIcon from "../../assets/alert-error-icon.png";
-import openEye from "../../assets/eye-open.png";
-import closedEye from "../../assets/eye-closed.png";
+import openEye from "../../assets/eye-open-show.png";
+import closedEye from "../../assets/eye-closed-hidden.png";
+import { onAuthStateChanged } from "firebase/auth";
+import { useEffect } from "react";
+import { doc, setDoc, Timestamp } from "firebase/firestore";
 
 interface AuthLoginProps extends BaseCarouselChildProps {
   givenDestination: string;
@@ -47,8 +50,46 @@ export default function AuthLogin({
     try {
       const userCred = await signInWithEmailAndPassword(auth, email, password);
       const uid = userCred.user.uid;
+
       localStorage.setItem("submissionId", uid);
-      setStatus("Signed in successfully!");
+
+      const userDocRef = doc(
+        firestore,
+        "Submissions",
+        "Submissions",
+        "Users",
+        uid
+      );
+
+      const allKeys = Object.keys(localStorage).filter((key) =>
+        key.startsWith("answer-q-")
+      );
+
+      const answers: Record<string, any> = {};
+
+      allKeys.forEach((key) => {
+        const answer = localStorage.getItem(key);
+        if (answer) {
+          answers[key] = answer;
+        }
+      });
+
+      if (Object.keys(answers).length > 0) {
+        await setDoc(
+          userDocRef,
+          {
+            ...answers,
+            dateUpdated: Timestamp.now(),
+            deviceId: getDeviceId(),
+          },
+          { merge: true }
+        );
+
+        console.log("Migrated local answers to:", userDocRef.path);
+      }
+
+      allKeys.forEach((key) => localStorage.removeItem(key));
+
       return true;
     } catch (err: any) {
       console.error("Login error:", err);
@@ -56,6 +97,30 @@ export default function AuthLogin({
       return false;
     }
   };
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (!user) {
+        signInAnonymously(auth)
+          .then(() => {
+            const deviceId = getDeviceId();
+            localStorage.setItem("submissionId", deviceId);
+            console.log("Signed in as guest");
+          })
+          .catch((err) => {
+            console.error("Auto guest login error:", err);
+            setStatus("Could not sign in as guest.");
+          });
+      } else {
+        const id = user.isAnonymous ? getDeviceId() : user.uid;
+        localStorage.setItem("submissionId", id);
+        console.log("Already signed in:", id);
+      }
+    });
+
+    return () => unsubscribe();
+  }, []);
+
   return (
     <div className="auth-container">
       <div className="auth-field">
@@ -106,7 +171,7 @@ export default function AuthLogin({
             style={{ paddingRight: "400px" }}
           />
           <img
-            src={showPassword ? openEye : closedEye}
+            src={showPassword ? closedEye : openEye}
             alt={showPassword ? "Hide password" : "Show password"}
             className="toggle-password"
             onClick={() => setShowPassword((prev) => !prev)}

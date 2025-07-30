@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { Timestamp, collection, doc, setDoc } from "firebase/firestore";
+import { Timestamp, doc, getDoc, setDoc } from "firebase/firestore";
+import { onAuthStateChanged } from "firebase/auth";
 import { auth, firestore } from "../Firebase";
 import "../../CSS/Page_Component_Styles/Object_Input_Text.css";
 import { AppContext, useAppContext } from "../../App";
@@ -8,7 +9,6 @@ import { getDeviceId } from "./Object_deviceID";
 interface Object_Input_Text_Props {
   givenPlaceHolderText: string;
   questionID: string;
-  submissionId?: string;
   minWordCount?: string;
   maxWordCount?: string;
   givenDestination: string;
@@ -18,7 +18,6 @@ interface Object_Input_Text_Props {
 export default function Object_Input_Text({
   givenPlaceHolderText,
   questionID,
-  submissionId,
   minWordCount = "5",
   maxWordCount = "10000",
   givenDestination,
@@ -29,6 +28,7 @@ export default function Object_Input_Text({
   const [inputValue, setInputValue] = useState("");
   const [error, setError] = useState("");
   const [attemptedSubmit, setAttemptedSubmit] = useState(false);
+  const [guestLogin, setGuestLogin] = useState(false);
 
   const minWordCountWords = parseInt(minWordCount);
   const maxWordCountWords = parseInt(maxWordCount);
@@ -66,32 +66,25 @@ export default function Object_Input_Text({
       .split(/\s+/)
       .slice(0, maxWordCountWords)
       .join(" ");
-    const currentUser = auth.currentUser;
-    const isAnonymous = currentUser?.isAnonymous;
 
+    // Save local
     localStorage.setItem(`answer-q-${questionID}`, trimmed);
     context.state_Set_QuestionAnswer_Map_Value(
       `answer-q-${questionID}`,
       trimmed
     );
 
-    // Get deviceId or UID
-    const idToUse = isAnonymous ? getDeviceId() : currentUser?.uid;
-
-    if (!idToUse) {
-      console.warn("No valid ID for Firestore doc.");
+    const currentUser = auth.currentUser;
+    if (!currentUser) {
+      console.warn("No Firebase user found.");
       return;
     }
 
-    const uid =
-      submissionId ||
-      auth.currentUser?.uid ||
-      localStorage.getItem("submissionId");
+    const isAnonymous = currentUser.isAnonymous;
+    const uid = currentUser.uid;
 
-    const deviceID = getDeviceId();
-    // Path based on guest or registered user
     const docRef = isAnonymous
-      ? doc(firestore, "Submissions", "Submissions", "Guests", deviceID)
+      ? doc(firestore, "Submissions", "Submissions", "Guests", getDeviceId())
       : doc(firestore, "Submissions", "Submissions", "Users", uid);
 
     try {
@@ -113,48 +106,71 @@ export default function Object_Input_Text({
   };
 
   useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setGuestLogin(user.isAnonymous);
+      } else {
+        setGuestLogin(true);
+      }
+    });
+
+    return () => unsubscribe();
+  }, []);
+
+  useEffect(() => {
     const saved = localStorage.getItem(`answer-q-${questionID}`);
     if (saved) setInputValue(saved);
   }, [questionID]);
 
   useEffect(() => {
     const key = `answer-q-${questionID}`;
-
-    console.log("[AutoFill useEffect] Running for key:", key);
-
     if (context.state_QuestionAnswer_Map.has(key)) {
-      console.log(`[AutoFill useEffect] Found key in map: ${key}`);
       const answerFromMap = context.state_Get_QuestionAnswer_Map_Value(key);
-
       if (answerFromMap !== undefined) {
-        console.log(`[AutoFill useEffect] Value from map:`, answerFromMap);
         setInputValue(answerFromMap);
-      } else {
-        console.log(
-          `[AutoFill useEffect] Value from map is undefined for key: ${key}`
-        );
       }
-    } else {
-      console.log(`[AutoFill useEffect] Key not found in map: ${key}`);
     }
   }, [context.state_QuestionAnswer_Map, questionID]);
 
+  useEffect(() => {
+    const fetchAnswerFromFirestore = async () => {
+      const currentUser = auth.currentUser;
+      if (!currentUser) return;
+
+      const isAnonymous = currentUser.isAnonymous;
+      const uid = currentUser.uid;
+      const docRef = isAnonymous
+        ? doc(firestore, "Submissions", "Submissions", "Guests", getDeviceId())
+        : doc(firestore, "Submissions", "Submissions", "Users", uid);
+
+      try {
+        const docSnap = await getDoc(docRef);
+        if (docSnap.exists()) {
+          const data = docSnap.data();
+          const answer = data?.[`q-${questionID}`];
+          if (typeof answer === "string") {
+            setInputValue(answer);
+          }
+        }
+      } catch (err) {
+        console.error("Error loading answer from Firestore:", err);
+      }
+    };
+
+    fetchAnswerFromFirestore();
+  }, [questionID]);
+
   let message = "";
 
-  if (currentWords < minWordCountWords && attemptedSubmit === false) {
+  if (currentWords < minWordCountWords && !attemptedSubmit) {
     message = `- Write at least ${minWordCountWords} words.`;
-  } else if (currentWords < minWordCountWords && attemptedSubmit === true) {
+  } else if (currentWords < minWordCountWords && attemptedSubmit) {
     message = `- At least ${minWordCountWords} words required.`;
   } else if (
     currentWords >= minWordCountWords &&
     currentWords >= 0.9 * maxWordCountWords
   ) {
     message = `- Approaching ${maxWordCountWords} word limit!`;
-  } else if (
-    currentWords >= minWordCountWords &&
-    currentWords < 0.9 * maxWordCountWords
-  ) {
-    message = "";
   }
 
   return (
@@ -199,6 +215,7 @@ export default function Object_Input_Text({
           {currentWords} words {message}
         </div>
       </div>
+
       <div>
         {currentWords < minWordCountWords ? (
           <button
@@ -221,6 +238,16 @@ export default function Object_Input_Text({
             onClick={async () => {
               setAttemptedSubmit(true);
               await saveToFirestore(inputValue);
+
+              if (givenDestination === "guestCheck") {
+                if (guestLogin) {
+                  givenGoToDestination("modal-001");
+                } else {
+                  givenGoToDestination("page-whenWhere");
+                }
+                return;
+              }
+
               givenGoToDestination(givenDestination);
             }}
           >
