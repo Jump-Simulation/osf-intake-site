@@ -168,7 +168,7 @@ export default function AuthLogin({
                 ? "valid-input"
                 : ""
             }`}
-            style={{ paddingRight: "400px" }}
+            style={{ paddingRight: "12%" }}
           />
           <img
             src={showPassword ? closedEye : openEye}
