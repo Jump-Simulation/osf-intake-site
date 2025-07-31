@@ -26,14 +26,22 @@
   flex-direction: column;
   width: 100%;
   align-items: flex-start;
-  gap: var(--spacing-sm, 8px);
+  gap: var(--spacing-sm-mobile, 8px);
+
 }
 .auth-field-desktop {
   display: flex;
   flex-direction: column;
   width: 100%;
   align-items: flex-start;
-  gap: var(--spacing-sm, 8px);
+  gap: var(--spacing-sm-desktop, 8px);
+  
+  font-family: var(--font-family-body-desktop, "Nunito Sans");
+  font-size: var(--font-size-header-h4-desktop, 20px);
+  font-style: normal;
+  font-weight: var(--font-weight-header-h4-desktop, 700);
+  line-height: var(--font-line-height-header-h4-desktop, 28px);
+  letter-spacing: var(--font-letter-spacing-default-desktop, 0.1px);
 }
 /* Normal State */
 .auth-input {
@@ -61,33 +69,66 @@
 }
 
 .auth-button {
-  width: 100%;
-  padding: 14px 18px;
-  border: none;
-  border-radius: 50px;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
+  /* You can define common styles here, or leave it empty to inherit .normal-button styles */
+    margin-top: var(--spacing-md-desktop);
+    margin-bottom: var(--spacing-md-desktop);
+    margin-right: auto;
+    margin-left: auto;
+
+    display: inline-flex;
+    padding: var(--spacing-sm-desktop, 8px) var(--spacing-xl-desktop, 16px);
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-sm-desktop, 8px);
+
+    border-radius: var(--spacing-lg-desktop, 16px);
+    display: flex;
+    place-items: center;
+    justify-content: space-evenly;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    user-select: none;
+
+    width: 100%;
+    
+    background: var(--color-primary-300ds, #88D2E3);
+    border: none;
 }
 
 .auth-button:first-of-type {
-  background-color: #72d2e6;
-  color: #000;
+  border-radius: var(--spacing-lg, 16px);
+  background: var(--color-primary-300ds, #88D2E3);
+  border: none;
 }
 
 .auth-button:first-of-type:hover {
-  background-color: #59c6dd;
+  border-radius: var(--spacing-lg, 16px);
+  background: var(--color-teal-200, #A3EEFF);
+  border: none;
+}
+
+.auth-button:first-of-type:active {
+  border-radius: var(--spacing-lg, 16px);
+  background: var(--color-teal-400, #A3EEFF);
+  border: none;
 }
 
 .auth-button:last-of-type {
-  background-color: transparent;
-  border: 1px solid #72d2e6;
-  color: #72d2e6;
+  border-radius: var(--spacing-lg, 16px);
+  background: var(--color-primary-300ds, #88D2E3);
+  border: none;
 }
 
 .auth-button:last-of-type:hover {
-  background-color: #1e1e1e;
+  border-radius: var(--spacing-lg, 16px);
+  background: var(--color-teal-200, #A3EEFF);
+  border: none;
+}
+
+.auth-button:last-of-type:active {
+  border-radius: var(--spacing-lg, 16px);
+  background: var(--color-teal-400, #A3EEFF);
+  border: none;
 }
 
 .auth-status {
@@ -102,6 +143,17 @@
   width: auto;
   height: 24px;
   align-items: center;
+  color: var(--color-neutral-200, #DEE4E5);
+
+  font-family: var(--font-family-body-desktop, "Nunito Sans");
+  font-size: var(--font-size-body-default-desktop, 20px);
+  font-style: normal;
+  font-weight: var(--font-weight-body-bold-desktop, 400);
+  line-height: var(--font-line-height-body-default-desktop, 24px);
+
+  letter-spacing: var(--font-letter-spacing-default-desktop, 0.1px);
+  margin-top: var(--spacing-md-desktop, 12px);
+  margin-bottom: var(--spacing-md-desktop, 12px);
 }
 
 .auth-input.valid-email {
@@ -122,6 +174,31 @@
   transition: border-color 0.3s ease;
 
   color: white;
+}
+
+.auth-input:focus-within {
+  border-color: var(--color-primary-300, #60D6ED);
+  outline: var(--color-primary-300, #60D6ED);
+}
+
+.auth-input.valid-email:focus-within {
+  border-color: var(--color-secondary-300, #60D6ED);
+  outline: var(--color-secondary-300, #60D6ED);
+}
+
+.auth-input.valid-input:focus-within {
+  border-color: var(--color-secondary-300, #60D6ED);
+  outline: var(--color-secondary-300, #60D6ED);
+}
+
+.auth-input.invalid-email:focus-within {
+  border-color: var(--color-danger-300, #60D6ED);
+  outline: var(--color-danger-300, #60D6ED);
+}
+
+.auth-input.invalid-input:focus-within {
+  border-color: var(--color-danger-300, #60D6ED);
+  outline: var(--color-danger-300, #60D6ED);
 }
 
 .auth-input.invalid-input {
@@ -219,4 +296,5 @@
   position: relative;
   display: flex;
   align-items: center;
+  width: 100%
 }

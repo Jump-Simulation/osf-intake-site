@@ -7,13 +7,14 @@ export const en_intakeQuestions_Book: BookObject = {
   bookId: "fhOpenScheduling",
 
   chapterObjects: [
+    
     // Intake QA Chapter ----------------------------------------------------------------------------------------------
     {
-      chapterID: "intake_QA_chapter",
-      progressBarVisible: true,
+      chapterID: "welcome_login_chapter",
+      progressBarVisible: false,
       progressBarColor: "var(--gray-800, #4D4D4D)",
       progressBarColorBackground: "var(--gray-200, #E6E6E6)",
-      chapterBackgroundColor: "#F7F9FA",
+      chapterBackgroundColor: "var(--color-neutral-1150, #0E1416)",
 
       // TOP RIGHT BUTTON STYLES -------
       topRightNavButtonDestination: "fh-openSchedulingSection-001",
@@ -39,15 +40,17 @@ export const en_intakeQuestions_Book: BookObject = {
             {
               componentType: "text",
               textValue: "Sign in to get started",
-              textType: "h1",
+              textType: "h2",
               textAlignment: "left",
+              colorText: "var(--color-primary-300, #60D6ED)",
             },
             {
               componentType: "text",
               textValue:
                 "Having an account with us allows you to auto-save your progress and receive responses from our team.",
-              textType: "h3",
+              textType: "bodyText",
               textAlignment: "left",
+              colorText: "var(--color-neutral-200, #DEE4E5)",
             },
             {
               // Page Title
@@ -58,21 +61,38 @@ export const en_intakeQuestions_Book: BookObject = {
             },
             {
               componentType: "button",
-              destination: "page-register",
+              buttonType: "normal",
+              buttonStyle: "secondary",
+              colorOverrideDefault: "var(--color-primary-300ds, #88D2E3)",
+              colorOverrideHover: "var(--color-primary-200, #A3EEFF)",
+              colorOverrideActive: "var(--color-primary-100, #E0FAFF)",
+              iconVisible: false,
               textValue: "Create Inventor Account",
+              destination: "page-register"
             },
             {
               componentType: "text",
-              textValue: "---------Or---------",
+              textValue: "----------------- Or -----------------",
+              textType: "bodyText",
+              textAlignment: "center",
+              colorText: "var(--color-neutral-300, #BFC8CA)",
             },
             {
               componentType: "text",
               textValue:
                 "If you'd prefer to create your account later, you can get started from here!",
+              textType: "bodyText",
+              textAlignment: "left",
+              colorText: "var(--color-neutral-200, #DEE4E5)",
             },
             {
               componentType: "button",
-              textValue: "Preview as Guest",
+              buttonStyle: "secondary",
+              colorOverrideDefault: "var(--color-primary-300ds, #88D2E3)",
+              colorOverrideHover: "var(--color-primary-200, #A3EEFF)",
+              colorOverrideActive: "var(--color-primary-100, #E0FAFF)",
+              iconVisible: false,
+              textValue: "Preview as guest",
               destination: "page-welcome",
             },
           ],
@@ -91,11 +111,17 @@ export const en_intakeQuestions_Book: BookObject = {
             {
               componentType: "text",
               textValue: "Create your Inventor Account",
+              textType: "h2",
+              textAlignment: "left",
+              colorText: "var(--color-primary-300, #60D6ED)",
             },
             {
               componentType: "text",
               textValue:
                 "Welcome, new Inventor! We're excited to meet you. PLease tell us a little about yourself so we know who we're reaching out to!",
+              textType: "bodyText",
+              textAlignment: "left",
+              colorText: "var(--color-neutral-200, #DEE4E5)",
             },
 
             {
@@ -110,7 +136,7 @@ export const en_intakeQuestions_Book: BookObject = {
           keywords: "introduction",
           authors: "Kyle Formella, Maddox Binder",
           lastUpdated: "12092024",
-          pageBackgroundColor: "var(--color-surface-default, #0E1416)",
+          pageBackgroundColor: "var(--color-neutral-1150, #0E1416)",
           // pageBackgroundColor: "var(--neutral-teal-gray-1150, #0E1416)",
           hasVariables: false,
           hasLock: false,
@@ -121,7 +147,8 @@ export const en_intakeQuestions_Book: BookObject = {
               renderOrder: 1,
               componentType: "text",
               textValue: "Section 1/3",
-              textType: "h1",
+              textType: "h4",
+              colorText: "var(--color-neutral-300, #BFC8CA)",
               textAlignment: "left",
             },
 
@@ -129,10 +156,10 @@ export const en_intakeQuestions_Book: BookObject = {
               // Body Text
               renderOrder: 2,
               componentType: "text",
-              textValue: "Start With the Problem",
+              textValue: 'Start With the <span style="color: var(--color-accent-secondary-light-300-default);">Problem</span>',
               textType: "h1",
               colorText:
-                "var(--color-accent-primary-bold-800-default, #60D6ED)",
+                "var(--color-accent-primary-light-300-default, #60D6ED)",
               textAlignment: "left",
             },
             {
@@ -141,8 +168,8 @@ export const en_intakeQuestions_Book: BookObject = {
               componentType: "text",
               textValue:
                 "Every great invention begins with a clear problem, and no one understands your problem better than you.",
-              textType: "h2",
-              colorText: " var(--color-on-surface-default, #DEE4E5)",
+              textType: "bodyText",
+              colorText: "var(--color-neutral-200, #DEE4E5)",
               textAlignment: "left",
             },
             {
@@ -151,8 +178,8 @@ export const en_intakeQuestions_Book: BookObject = {
               componentType: "text",
               textValue:
                 "What’s happening, when, and to whom? Why is there a need for change?",
-              textType: "h2",
-              colorText: " var(--color-on-surface-default, #DEE4E5)",
+              textType: "bodyText",
+              colorText: "var(--color-neutral-200, #DEE4E5)",
               textAlignment: "left",
             },
             {
@@ -212,6 +239,27 @@ export const en_intakeQuestions_Book: BookObject = {
             ],
           },
         },
+      ],
+    },
+    
+    // Intake QA Chapter ----------------------------------------------------------------------------------------------
+    {
+      chapterID: "intake_QA_chapter",
+      progressBarVisible: true,
+      progressBarColor: "var(--gray-800, #4D4D4D)",
+      progressBarColorBackground: "var(--gray-200, #E6E6E6)",
+      chapterBackgroundColor: "var(--color-surface-default, #F4FBFC)",
+
+      // TOP RIGHT BUTTON STYLES -------
+      topRightNavButtonDestination: "fh-openSchedulingSection-001",
+      topRightNavButtonColor:
+        "linear-gradient(180deg, var(--color-accent-primary-700-default, #007A95) 0%, var(--color-accent-primary-bold-800-default, #00677E) 100%)",
+      topRightNavButtonColorHover:
+        "linear-gradient(180deg, var(--color-accent-primary-600-default, #007A95) 0%, var(--color-accent-primary-bold-800-default, #00677E) 100%)",
+      topRightNavButtonColorActive:
+        "linear-gradient(180deg, var(--color-accent-primary-900-default, #007A95) 0%, var(--color-accent-primary-bold-800-default, #00677E) 100%)",
+
+      pageObjects: [
 
         {
           id: "page-problemSolve",
@@ -219,7 +267,7 @@ export const en_intakeQuestions_Book: BookObject = {
           keywords: "introduction",
           authors: "Kyle Formella, Maddox Binder",
           lastUpdated: "12092024",
-          pageBackgroundColor: "--osfBrand-tealgray-50, #F4FBFC",
+          pageBackgroundColor: "var(--color-surface-default, #F4FBFC)",
           hasVariables: false,
           hasLock: false,
 
@@ -230,6 +278,7 @@ export const en_intakeQuestions_Book: BookObject = {
               componentType: "text",
               textValue: "What problem are you trying to solve?",
               textType: "h2",
+              colorText: "var(--color-accent-primary-bold-800-default)",
               textAlignment: "left",
             },
 
@@ -240,7 +289,6 @@ export const en_intakeQuestions_Book: BookObject = {
               textValue:
                 "(don't give us the solution just yet - we want to make sure we understand the problem first!)",
               textType: "bodyText",
-              colorText: "var(--color-accent-primary-bold-800-default)",
               textAlignment: "left",
             },
             {

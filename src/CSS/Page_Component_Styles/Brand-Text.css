@@ -13,6 +13,17 @@
 @import "./Brand-Colors.css";
 @import "./Brand-Scale-and-Spacing.css";
 
+@font-face {
+  font-family: 'Avenir';
+  src: url('../../../fonts/Avenir-Font/Avenir-Book-01.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.avenir-text {
+  font-family: 'Avenir', sans-serif;
+}
+
 :root {
 
     /* BRAND /////////////////////////////////////////////////////////////////////////////////*/
@@ -21,6 +32,7 @@
     --font-family-nunito-sans: "Nunito Sans";
     --font-family-red-hat-text: "Red Hat Text";
     --font-family-red-hat-display: "Red Hat Display";
+    --font-family-avenir: 'Avenir';
 
     /*BRAND - Font Weight*/
     --font-weight-300: 300;
