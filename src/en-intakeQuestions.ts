@@ -1013,6 +1013,7 @@ export const en_intakeQuestions_Book: BookObject = {
                 },
                 {
                   componentType: "account-checker",
+                  destination: "",
                 },
               ],
             },

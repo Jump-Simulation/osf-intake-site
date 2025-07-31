@@ -106,7 +106,7 @@ export default function Object_Input_Text({
   };
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
+    const logedIn = onAuthStateChanged(auth, (user) => {
       if (user) {
         setGuestLogin(user.isAnonymous);
       } else {
@@ -114,7 +114,7 @@ export default function Object_Input_Text({
       }
     });
 
-    return () => unsubscribe();
+    return () => logedIn();
   }, []);
 
   useEffect(() => {

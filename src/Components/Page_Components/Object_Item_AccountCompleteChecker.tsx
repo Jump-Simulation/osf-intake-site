@@ -15,7 +15,7 @@ interface AccountCompleteChecker_Props extends BaseCarouselChildProps {
   given_GoToDestination(givenDestination: string): void;
 }
 
-export default function AccountCompleteChecker(
+ export default function AccountCompleteChecker(
   props: AccountCompleteChecker_Props
 ) {
   function RenderAccountCompleteChecker() {
