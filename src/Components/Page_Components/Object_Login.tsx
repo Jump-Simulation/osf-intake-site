@@ -93,7 +93,7 @@ export default function AuthLogin({
       return true;
     } catch (err: any) {
       console.error("Login error:", err);
-      setStatus("Login failed. Check credentials.");
+      setStatus("Invalid email");
       return false;
     }
   };
@@ -135,7 +135,7 @@ export default function AuthLogin({
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           className={`auth-input ${
-            attemptedSubmit && !isEmailValid
+            attemptedSubmit && (!isEmailValid || status)
               ? "invalid-input"
               : isEmailValid
               ? "valid-input"
@@ -145,6 +145,11 @@ export default function AuthLogin({
         {attemptedSubmit && !isEmailValid && (
           <div className="invalid-single-input-feeback-message">
             *Invalid email address
+          </div>
+        )}
+        {status && (
+          <div className="invalid-single-input-feeback-message">
+            *Email not found
           </div>
         )}
       </div>
@@ -213,13 +218,6 @@ export default function AuthLogin({
       >
         Sign in
       </button>
-
-      {status && (
-        <div className="auth-error">
-          <img src={errorIcon} alt="Error" className="inline-error-icon" />
-          {status}
-        </div>
-      )}
     </div>
   );
 }
