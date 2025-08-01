@@ -149,7 +149,7 @@ export default function Object_Button_Selection_Single(props: Object_Button_Sele
 
 
             >
-                <div
+                <div className="singleSelectItemsWrapper" // Eddie, Maddox did this as a temp fix. Needs givenMobile prop to be legit.
                     style={{
                         display: "flex",
                         justifyContent: "left",

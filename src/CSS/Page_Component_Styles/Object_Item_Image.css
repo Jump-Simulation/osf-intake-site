@@ -14,9 +14,12 @@
 
   /* width: 67%; */
 
-  width: 38vh;
+  width: 100%;
+
+/************************* MY VISIT GUIDE IMAGE SIZING *************************/
+/*   width: 38vh;
   min-width: 60%;
-  max-width: 70%;
+  max-width: 70%; */
 
   /* padding-left: var(--spacing-3xl-desktop); */
   /* padding-right: var(--spacing-3xl-desktop); */
