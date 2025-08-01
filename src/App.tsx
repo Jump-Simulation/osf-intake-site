@@ -387,9 +387,8 @@ function App() {
     const browserVersion = result.browser.version || "";
 
     // Formatted display string
-    const formatted = `${deviceModel} (${osName}${
-      osVersion ? ` ${osVersion}` : ""
-    })`;
+    const formatted = `${deviceModel} (${osName}${osVersion ? ` ${osVersion}` : ""
+      })`;
 
     return {
       type: deviceType,
@@ -876,7 +875,7 @@ function App() {
           // Document exists, increment the field
           console.log(
             "individual document exists, incrementing datafield: " +
-              givenVariableName
+            givenVariableName
           );
           await updateDoc(docTimestampRef, {
             [givenVariableName]: increment(1), // Increment the field if document exists
@@ -1279,9 +1278,9 @@ function App() {
     } else {
       console.log(
         "We've seen tag: " +
-          givenString +
-          " in localTagsAnsweredFalse already: " +
-          localTagsAnsweredFalse
+        givenString +
+        " in localTagsAnsweredFalse already: " +
+        localTagsAnsweredFalse
       );
     }
     if (localTagsAnsweredTrue.includes(givenString)) {
@@ -1306,9 +1305,9 @@ function App() {
       } else {
         console.log(
           "We've already seen tag: " +
-            givenString +
-            " in stateFalseTags: " +
-            currentState
+          givenString +
+          " in stateFalseTags: " +
+          currentState
         );
         return currentState; // Do nothing if it already exists
       }
@@ -1338,9 +1337,9 @@ function App() {
 
         console.log(
           "trying to write data: " +
-            data +
-            ", it's address is: " +
-            tempDataAddress
+          data +
+          ", it's address is: " +
+          tempDataAddress
         );
 
         if (tempDataAddress === "aggregate") {
@@ -1416,7 +1415,7 @@ function App() {
           );
           setTagsAnsweredTrue(
             filteredTags.join("_") +
-              (localTagsAnsweredTrue.endsWith("_") ? "_" : "")
+            (localTagsAnsweredTrue.endsWith("_") ? "_" : "")
           );
 
           var tempTagsArray: string[] = localTagsAnsweredFalse
@@ -1442,7 +1441,7 @@ function App() {
           );
           setTagsAnsweredFalse(
             filteredTags.join("_") +
-              (localTagsAnsweredFalse.endsWith("_") ? "_" : "")
+            (localTagsAnsweredFalse.endsWith("_") ? "_" : "")
           );
         }
 
@@ -1719,7 +1718,7 @@ function App() {
     }
   }, [
     localCurrentBookData !== undefined &&
-      localCurrentBookData.chapterObjects.length !== 0,
+    localCurrentBookData.chapterObjects.length !== 0,
     currentCarouselIndex,
   ]);
 
@@ -1773,9 +1772,9 @@ function App() {
     if (localCurrentChapter.chapterID !== givenChapterName) {
       console.log(
         "INVALID CHAPTER NAME GIVEN. CURRENT CHAPTER NAME: " +
-          localCurrentChapter.chapterID +
-          " GIVEN CHAPTER NAME: " +
-          givenChapterName
+        localCurrentChapter.chapterID +
+        " GIVEN CHAPTER NAME: " +
+        givenChapterName
       );
     }
 
@@ -1866,7 +1865,7 @@ function App() {
       );
 
       if (givenDestinationName.includes("page")) {
-        /*  console.log("givenDestination is a page: " + givenDestinationName) */
+        console.log("givenDestination is a page: " + givenDestinationName);
         tempPagesToLookAt.forEach((page, pageIndex) => {
           /*  console.log("looking at pageID: " + page.id + " and pageTitle: " + page.navTitle + " @index: " + pageIndex)
            */
@@ -1895,9 +1894,13 @@ function App() {
               localPagesVisited.push(page.id);
 
               if (shouldWriteToPageHistory !== false) {
+                console.log("PAGE ID writing to previousPagesVisited")
                 previousPagesVisitedStrings.push(
                   tempPagesToLookAt[tempNavVariable].id
                 );
+
+                console.log("previousPagesVisitedStrings: ")
+                console.log(previousPagesVisitedStrings)
               }
 
               //FH STUFF
@@ -1924,10 +1927,10 @@ function App() {
                 localPagesVisited.push(page.id);
                 incrementFirestoreVariableAggregate(
                   "book" +
-                    contentInfo.replace("4b2", "") +
-                    "-" +
-                    page.id +
-                    "_first-visit"
+                  contentInfo.replace("4b2", "") +
+                  "-" +
+                  page.id +
+                  "_first-visit"
                 );
 
                 setPagesVisited((prevPages) =>
@@ -1947,10 +1950,10 @@ function App() {
                 localPagesVisited.push(page.id);
                 incrementFirestoreVariableAggregate(
                   "book" +
-                    contentInfo.replace("4b2", "") +
-                    "-" +
-                    page.id +
-                    "_second-visit"
+                  contentInfo.replace("4b2", "") +
+                  "-" +
+                  page.id +
+                  "_second-visit"
                 );
 
                 setPagesVisited((prevPages) =>
@@ -1961,10 +1964,10 @@ function App() {
               } else {
                 incrementFirestoreVariableAggregate(
                   "book" +
-                    contentInfo.replace("4b2", "") +
-                    "-" +
-                    page.id +
-                    "_extra-visit"
+                  contentInfo.replace("4b2", "") +
+                  "-" +
+                  page.id +
+                  "_extra-visit"
                 );
               }
             }
@@ -1997,9 +2000,12 @@ function App() {
               localPagesVisited.push(tempPagesToLookAt[pageIndex + 1].id);
 
               if (shouldWriteToPageHistory !== false) {
+                console.log("PAGE NEXT writing to previousPagesVisited");
                 previousPagesVisitedStrings.push(
                   tempPagesToLookAt[pageIndex].id
                 );
+                console.log("previousPagesVisitedStrings:");
+                console.log(previousPagesVisitedStrings);
               }
               //FH STUFF
               SetChapterData(tempPagesToLookAt[pageIndex + 1].chapterParent);
@@ -2031,10 +2037,10 @@ function App() {
                 localPagesVisited.push(tempPagesToLookAt[pageIndex + 1].id);
                 incrementFirestoreVariableAggregate(
                   "book" +
-                    contentInfo.replace("4b2", "") +
-                    "-" +
-                    page.id +
-                    "_first-visit"
+                  contentInfo.replace("4b2", "") +
+                  "-" +
+                  page.id +
+                  "_first-visit"
                 );
                 incrementFirestoreVariableAggregate(patientInfo.anesthesiaType);
 
@@ -2055,10 +2061,10 @@ function App() {
                 localPagesVisited.push(tempPagesToLookAt[pageIndex + 1].id);
                 incrementFirestoreVariableAggregate(
                   "book" +
-                    contentInfo.replace("4b2", "") +
-                    "-" +
-                    page.id +
-                    "_second-visit"
+                  contentInfo.replace("4b2", "") +
+                  "-" +
+                  page.id +
+                  "_second-visit"
                 );
                 incrementFirestoreVariableAggregate(patientInfo.anesthesiaType);
 
@@ -2070,17 +2076,17 @@ function App() {
               } else {
                 incrementFirestoreVariableAggregate(
                   "book" +
-                    contentInfo.replace("4b2", "") +
-                    "-" +
-                    page.id +
-                    "_extra-visit"
+                  contentInfo.replace("4b2", "") +
+                  "-" +
+                  page.id +
+                  "_extra-visit"
                 );
               }
               return;
             } else {
               console.log(
                 "WE TRIED GOING PAST THE LAST PAGE!! given destination: " +
-                  givenDestinationName
+                givenDestinationName
               );
               console.log("localCurrentCarouselIndex: " + tempNavVariable);
               console.log(
@@ -2088,7 +2094,7 @@ function App() {
               );
               console.log(
                 "tempPagesToLookAt.length - 1: " +
-                  (tempPagesToLookAt.length - 1)
+                (tempPagesToLookAt.length - 1)
               );
             }
           } else if (
@@ -2097,9 +2103,9 @@ function App() {
           ) {
             console.log(
               "Previous button called at page index: " +
-                pageIndex +
-                " and tempNavVariable (current index): " +
-                tempNavVariable
+              pageIndex +
+              " and tempNavVariable (current index): " +
+              tempNavVariable
             );
 
             //PREVIOUS PAGE RECURSION
@@ -2108,16 +2114,16 @@ function App() {
             console.log("PREVIOUS PAGES: ");
             console.log(previousPagesVisitedStrings);
             console.log(
-              "PREVIOUS PAGE AT INDEX: " +
-                (previousPagesVisitedStrings.length - 1) +
-                " = " +
-                previousPagesVisitedStrings[
-                  previousPagesVisitedStrings.length - 1
-                ]
+              "PREVIOUS PAGE FOUND AT INDEX: " +
+              (previousPagesVisitedStrings.length - 1) +
+              " = " +
+              previousPagesVisitedStrings[
+              previousPagesVisitedStrings.length - 1
+              ]
             );
             GoToDestination(
               previousPagesVisitedStrings[
-                previousPagesVisitedStrings.length - 1
+              previousPagesVisitedStrings.length - 1
               ],
               false
             );
@@ -2184,10 +2190,10 @@ function App() {
                   ) {
                     incrementFirestoreVariableAggregate(
                       "book" +
-                        contentInfo.replace("4b2", "") +
-                        "-" +
-                        modal.modalID +
-                        "_first-visit"
+                      contentInfo.replace("4b2", "") +
+                      "-" +
+                      modal.modalID +
+                      "_first-visit"
                     );
                   } else if (
                     localTagsAnsweredTrue.includes(
@@ -2199,25 +2205,26 @@ function App() {
                   ) {
                     incrementFirestoreVariableAggregate(
                       "book" +
-                        contentInfo.replace("4b2", "") +
-                        "-" +
-                        modal.modalID +
-                        "_second-visit"
+                      contentInfo.replace("4b2", "") +
+                      "-" +
+                      modal.modalID +
+                      "_second-visit"
                     );
                   } else {
                     incrementFirestoreVariableAggregate(
                       "book" +
-                        contentInfo.replace("4b2", "") +
-                        "-" +
-                        modal.modalID +
-                        "_extra-visit"
+                      contentInfo.replace("4b2", "") +
+                      "-" +
+                      modal.modalID +
+                      "_extra-visit"
                     );
                   }
                 }
               });
             }
           });
-      } else {
+      } //end modal else if
+      else {
         tempPagesToLookAt.forEach((page, pageIndex) => {
           /*  console.log("looking at pageID: " + page.id + " and pageTitle: " + page.navTitle + " @index: " + pageIndex)
            */
@@ -2246,9 +2253,12 @@ function App() {
               localPagesVisited.push(page.id);
 
               if (shouldWriteToPageHistory !== false) {
+                console.log("PAGE UNKNOWN previousPagesVisitedStrings pushed")
                 previousPagesVisitedStrings.push(
                   tempPagesToLookAt[tempNavVariable].id
                 );
+                console.log("previousPagesVisitedStrings:");
+                console.log(previousPagesVisitedStrings);
               }
               //FH STUFF
               if (page.chapterParent !== localCurrentChapter.chapterID) {
@@ -2273,10 +2283,10 @@ function App() {
                 localPagesVisited.push(page.id);
                 incrementFirestoreVariableAggregate(
                   "book" +
-                    contentInfo.replace("4b2", "") +
-                    "-" +
-                    page.id +
-                    "_first-visit"
+                  contentInfo.replace("4b2", "") +
+                  "-" +
+                  page.id +
+                  "_first-visit"
                 );
 
                 setPagesVisited((prevPages) =>
@@ -2296,10 +2306,10 @@ function App() {
                 localPagesVisited.push(page.id);
                 incrementFirestoreVariableAggregate(
                   "book" +
-                    contentInfo.replace("4b2", "") +
-                    "-" +
-                    page.id +
-                    "_second-visit"
+                  contentInfo.replace("4b2", "") +
+                  "-" +
+                  page.id +
+                  "_second-visit"
                 );
 
                 setPagesVisited((prevPages) =>
@@ -2310,10 +2320,10 @@ function App() {
               } else {
                 incrementFirestoreVariableAggregate(
                   "book" +
-                    contentInfo.replace("4b2", "") +
-                    "-" +
-                    page.id +
-                    "_extra-visit"
+                  contentInfo.replace("4b2", "") +
+                  "-" +
+                  page.id +
+                  "_extra-visit"
                 );
               }
             }
@@ -2321,14 +2331,6 @@ function App() {
             givenDestinationName.includes("next") &&
             pageIndex === tempNavVariable
           ) {
-            /*         console.log("==============================================================");
-                    console.log("NEXT BUTTON WAS CALLED");
-                    console.log("currentPageID = " + page.id);
-                    console.log("currentPageTitle = " + page.navTitle);
-                    console.log("pageIndex = " + pageIndex);
-                    console.log("Here's the pages we see right now: ")
-                    console.log(tempPagesToLookAt)
-                    console.log("=============================================================="); */
 
             if (pageIndex < tempPagesToLookAt.length - 1) {
               shouldRenderToF = CheckTagsToDetermineRendering(
@@ -2346,9 +2348,12 @@ function App() {
               localPagesVisited.push(tempPagesToLookAt[pageIndex + 1].id);
 
               if (shouldWriteToPageHistory !== false) {
+                console.log("PAGE UNKNOWN NEXT wrote to shouldWriteToPageHistory")
                 previousPagesVisitedStrings.push(
                   tempPagesToLookAt[pageIndex].id
                 );
+                console.log("previousPagesVisitedStrings:")
+                console.log(previousPagesVisitedStrings)
               }
               //FH STUFF
               SetChapterData(tempPagesToLookAt[pageIndex + 1].chapterParent);
@@ -2380,10 +2385,10 @@ function App() {
                 localPagesVisited.push(tempPagesToLookAt[pageIndex + 1].id);
                 incrementFirestoreVariableAggregate(
                   "book" +
-                    contentInfo.replace("4b2", "") +
-                    "-" +
-                    page.id +
-                    "_first-visit"
+                  contentInfo.replace("4b2", "") +
+                  "-" +
+                  page.id +
+                  "_first-visit"
                 );
                 incrementFirestoreVariableAggregate(patientInfo.anesthesiaType);
 
@@ -2404,10 +2409,10 @@ function App() {
                 localPagesVisited.push(tempPagesToLookAt[pageIndex + 1].id);
                 incrementFirestoreVariableAggregate(
                   "book" +
-                    contentInfo.replace("4b2", "") +
-                    "-" +
-                    page.id +
-                    "_second-visit"
+                  contentInfo.replace("4b2", "") +
+                  "-" +
+                  page.id +
+                  "_second-visit"
                 );
                 incrementFirestoreVariableAggregate(patientInfo.anesthesiaType);
 
@@ -2419,17 +2424,17 @@ function App() {
               } else {
                 incrementFirestoreVariableAggregate(
                   "book" +
-                    contentInfo.replace("4b2", "") +
-                    "-" +
-                    page.id +
-                    "_extra-visit"
+                  contentInfo.replace("4b2", "") +
+                  "-" +
+                  page.id +
+                  "_extra-visit"
                 );
               }
               return;
             } else {
               console.log(
                 "WE TRIED GOING PAST THE LAST PAGE!! given destination: " +
-                  givenDestinationName
+                givenDestinationName
               );
               console.log("localCurrentCarouselIndex: " + tempNavVariable);
               console.log(
@@ -2437,7 +2442,7 @@ function App() {
               );
               console.log(
                 "tempPagesToLookAt.length - 1: " +
-                  (tempPagesToLookAt.length - 1)
+                (tempPagesToLookAt.length - 1)
               );
             }
           } else if (
@@ -2446,9 +2451,9 @@ function App() {
           ) {
             console.log(
               "Previous button called at page index: " +
-                pageIndex +
-                " and tempNavVariable (current index): " +
-                tempNavVariable
+              pageIndex +
+              " and tempNavVariable (current index): " +
+              tempNavVariable
             );
 
             //PREVIOUS PAGE RECURSION
@@ -2456,15 +2461,15 @@ function App() {
             console.log(previousPagesVisitedStrings);
             console.log(
               "PREVIOUS PAGE AT INDEX: " +
-                (previousPagesVisitedStrings.length - 1) +
-                " = " +
-                previousPagesVisitedStrings[
-                  previousPagesVisitedStrings.length - 1
-                ]
+              (previousPagesVisitedStrings.length - 1) +
+              " = " +
+              previousPagesVisitedStrings[
+              previousPagesVisitedStrings.length - 1
+              ]
             );
             GoToDestination(
               previousPagesVisitedStrings[
-                previousPagesVisitedStrings.length - 1
+              previousPagesVisitedStrings.length - 1
               ],
               false
             );
@@ -2677,12 +2682,10 @@ function App() {
         <Object_Item_AccountCompleteChecker
           given_AccountComplete={false}
           given_AccountCompleteText={""}
-          given_AccountCompleteDestination={""}
+          given_AccountCompleteDestination={"page-submissionReview"}
           given_AccountIncompleteText={""}
-          given_AccountIncompleteDestination={""}
-          given_GoToDestination={function (givenDestination: string): void {
-            throw new Error("Function not implemented.");
-          }}
+          given_AccountIncompleteDestination={"page-finishYourAccount"}
+          given_GoToDestination={GoToDestination}
           givenGlobal_isMobile={""}
           givenGlobal_CurrentCarouselIndex={0}
           givenGlobal_PreviousCarouselIndex={0}
@@ -2698,10 +2701,8 @@ function App() {
     } else if (pageItem.componentType === "partial-account-creation") {
       tempPageItem = (
         <Object_Partial_Account_Creation
-          givenDestination={""}
-          givenGoToDestination={function (givenString: string): void {
-            throw new Error("Function not implemented.");
-          }}
+          givenDestination={"page-next"}
+          givenGoToDestination={GoToDestination}
         />
       );
     } else if (pageItem.componentType === "start-screen") {
