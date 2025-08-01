@@ -14,23 +14,23 @@
   flex-direction: column;
   align-items: flex-start;
   border-radius: var(--spacing-lg, 16px);
-  border: 1px solid var(--color-primary-interact-light-default, #60d6ed);
+  border: 1.5px solid var(--color-primary-interact-light-default, #60d6ed);
   background: var(--color-surface-container-lowest, #fff);
   box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.3),
     0px 1px 3px 1px rgba(0, 0, 0, 0.15);
 }
 .text_input_content_holder.error {
-  border: 1px solid var(--color-danger-interact-light-default, #60d6ed);
+  border: 1.5px solid var(--color-danger-interact-light-default, #60d6ed);
 }
 .text_input_content_holder.success {
-  border: 1px solid var(--color-success-interact-light-default, #60d6ed);
+  border: 1.5px solid var(--color-success-interact-light-default, #60d6ed);
 }
 
 /*.text_input_content_holder::after {
   content: "";
   position: absolute;
   inset: -4px;
-  border: 2px double black;
+  border: 1.5px double black;
   opacity: 0;
   transition: opacity 0.3s;
   z-index: -1;
@@ -42,30 +42,32 @@
   */
 
 .text_input_content_holder:hover {
-  background: var(--color-primary-interact-lightest-default, #e0faff);
-  border: 1px double var(--color-primary-interact-light-default, #60d6ed);
+  /* background: var(--color-primary-interact-lightest-default, #e0faff); */
+  border: 1.5px solid var(--color-primary-interact-light-default, #60d6ed);
+  box-shadow: 0px 0px 8px 0px rgba(96, 214, 237, 0.7) inset, 0px 1px 2px 0px rgba(0, 0, 0, 0.3),
+    0px 1px 3px 1px rgba(0, 0, 0, 0.15);
 }
 .text_input_content_holder:hover.error {
-  border: 1px solid var(--color-danger-interact-light-default, #ffb3ae);
-  background: var(--color-accent-danger-lightest-100-default, #fff2f1);
+  border: 1.5px solid var(--color-danger-interact-light-default, #ffb3ae);
+  box-shadow: 0px 0px 8px 0px rgba(255, 179, 174, 0.7) inset, 0px 1px 2px 0px rgba(0, 0, 0, 0.3),
+    0px 1px 3px 1px rgba(0, 0, 0, 0.15);
 }
 .text_input_content_holder:hover.success {
-  border: 1px solid var(--color-success-interact-light-default, #a3d660);
-  background: var(--color-accent-secondary-lightest-100-default, #e8fccc);
+  /* background: var(--color-accent-secondary-lightest-100-default, #e8fccc); */
+  border: 1.5px solid var(--color-success-interact-light-default, #a3d660);
+  box-shadow: 0px 0px 8px 0px rgba(163, 214, 96, 0.7) inset, 0px 1px 2px 0px rgba(0, 0, 0, 0.3),
+    0px 1px 3px 1px rgba(0, 0, 0, 0.15);
 }
 
 .text_input_content_holder:focus-within {
-  box-shadow: 0px 0px 8px 0px rgba(96, 214, 237, 0.7) inset,
-    0px 8px 12px 6px rgba(0, 0, 0, 0.15), 0px 4px 4px 0px rgba(0, 0, 0, 0.3);
+  border: 1.5px solid var(--color-accent-primary-500-default, #00A9CE);
 }
 .text_input_content_holder:focus-within.error {
-  box-shadow: 0px 0px 8px 0px rgba(255, 179, 174, 0.7) inset,
-    0px 8px 12px 6px rgba(0, 0, 0, 0.15), 0px 4px 4px 0px rgba(0, 0, 0, 0.3);
+  border: 1.5px solid var(--color-accent-danger-500-default, #EB7A72);
 }
 
 .text_input_content_holder:focus-within.success {
-  box-shadow: 0px 0px 8px 0px rgba(163, 214, 96, 0.7) inset,
-    0px 8px 12px 6px rgba(0, 0, 0, 0.15), 0px 4px 4px 0px rgba(0, 0, 0, 0.3);
+  border: 1.5px solid var(--color-accent-success-500-default, #64A70B);
 }
 
 .text_entry_area {
