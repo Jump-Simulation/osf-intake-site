@@ -42,7 +42,7 @@ export default function AuthPartialRegister({
         createdAt: new Date(),
       });
 
-      localStorage.setItem("submissionId", submissionId);
+      /* localStorage.setItem("submissionId", submissionId); */
       setStatus("Account created!");
       givenGoToDestination(givenDestination);
     } catch (err: any) {

@@ -67,12 +67,12 @@ export default function AuthLogin({
 
       const answers: Record<string, any> = {};
 
-      allKeys.forEach((key) => {
-        const answer = localStorage.getItem(key);
-        if (answer) {
-          answers[key] = answer;
-        }
-      });
+      /*  allKeys.forEach((key) => {
+         const answer = localStorage.getItem(key);
+         if (answer) {
+           answers[key] = answer;
+         }
+       }); */
 
       if (Object.keys(answers).length > 0) {
         await setDoc(
@@ -88,7 +88,7 @@ export default function AuthLogin({
         console.log("Migrated local answers to:", userDocRef.path);
       }
 
-      allKeys.forEach((key) => localStorage.removeItem(key));
+      /*     allKeys.forEach((key) => localStorage.removeItem(key)); */
 
       return true;
     } catch (err: any) {
@@ -104,7 +104,7 @@ export default function AuthLogin({
         signInAnonymously(auth)
           .then(() => {
             const deviceId = getDeviceId();
-            localStorage.setItem("submissionId", deviceId);
+            /*      localStorage.setItem("submissionId", deviceId); */
             console.log("Signed in as guest");
           })
           .catch((err) => {
@@ -113,7 +113,7 @@ export default function AuthLogin({
           });
       } else {
         const id = user.isAnonymous ? getDeviceId() : user.uid;
-        localStorage.setItem("submissionId", id);
+        /*     localStorage.setItem("submissionId", id); */
         console.log("Already signed in:", id);
       }
     });
@@ -134,13 +134,12 @@ export default function AuthLogin({
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className={`auth-input ${
-            attemptedSubmit && (!isEmailValid || status)
+          className={`auth-input ${attemptedSubmit && (!isEmailValid || status)
               ? "invalid-input"
               : isEmailValid
-              ? "valid-input"
-              : ""
-          }`}
+                ? "valid-input"
+                : ""
+            }`}
         />
         {attemptedSubmit && !isEmailValid && (
           <div className="invalid-single-input-feeback-message">
@@ -166,13 +165,12 @@ export default function AuthLogin({
             type={showPassword ? "text" : "password"}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className={`auth-input ${
-              attemptedSubmit && !isPasswordValid
+            className={`auth-input ${attemptedSubmit && !isPasswordValid
                 ? "invalid-input"
                 : isPasswordValid
-                ? "valid-input"
-                : ""
-            }`}
+                  ? "valid-input"
+                  : ""
+              }`}
             style={{ paddingRight: "12%" }}
           />
           <img
@@ -192,13 +190,12 @@ export default function AuthLogin({
         </div>
 
         <div
-          className={`single-input-feeback-message ${
-            attemptedSubmit && !isPasswordValid
+          className={`single-input-feeback-message ${attemptedSubmit && !isPasswordValid
               ? "invalid-single-input-feeback-message"
               : isPasswordValid
-              ? "valid-single-input-feeback-message"
-              : ""
-          }`}
+                ? "valid-single-input-feeback-message"
+                : ""
+            }`}
         >
           *password must be 6 characters
         </div>

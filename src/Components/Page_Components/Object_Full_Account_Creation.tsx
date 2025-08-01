@@ -77,7 +77,7 @@ export default function AuthRegister({
       const submission = userCred.user.uid;
       const emailKey = email;
 
-      localStorage.setItem("submissionId", submission);
+      /*    localStorage.setItem("submissionId", submission); */
 
       await setDoc(doc(firestore, "users", emailKey), {
         submission,
@@ -118,13 +118,12 @@ export default function AuthRegister({
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className={`auth-input ${
-              attemptedSubmit && !isEmailValid
+            className={`auth-input ${attemptedSubmit && !isEmailValid
                 ? "invalid-input"
                 : isEmailValid
-                ? "valid-input"
-                : ""
-            }`}
+                  ? "valid-input"
+                  : ""
+              }`}
           />
           <div className="errorMessage">
             {attemptedSubmit && !isEmailValid && (
@@ -148,13 +147,12 @@ export default function AuthRegister({
             type={showPassword ? "text" : "password"}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className={`auth-input ${
-              attemptedSubmit && !isPasswordValid
+            className={`auth-input ${attemptedSubmit && !isPasswordValid
                 ? "invalid-input"
                 : isPasswordValid
-                ? "valid-input"
-                : ""
-            }`}
+                  ? "valid-input"
+                  : ""
+              }`}
             style={{ paddingRight: "400px" }}
           />
 
@@ -186,13 +184,12 @@ export default function AuthRegister({
             type={showConfirmPassword ? "text" : "password"}
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
-            className={`auth-input ${
-              attemptedSubmit && !isConfirmPasswordValid
+            className={`auth-input ${attemptedSubmit && !isConfirmPasswordValid
                 ? "invalid-input"
                 : isConfirmPasswordValid
-                ? "valid-input"
-                : ""
-            }`}
+                  ? "valid-input"
+                  : ""
+              }`}
             style={{ paddingRight: "400px" }}
           />
           <img
@@ -221,13 +218,12 @@ export default function AuthRegister({
         <input
           value={firstName}
           onChange={(e) => setFirstName(e.target.value)}
-          className={`auth-input ${
-            attemptedSubmit && !isFirstNameValid
+          className={`auth-input ${attemptedSubmit && !isFirstNameValid
               ? "invalid-input"
               : isFirstNameValid
-              ? "valid-input"
-              : ""
-          }`}
+                ? "valid-input"
+                : ""
+            }`}
         />
         <div className="errorMessage">
           {attemptedSubmit && !isFirstNameValid && (
@@ -248,13 +244,12 @@ export default function AuthRegister({
         <input
           value={lastName}
           onChange={(e) => setLastName(e.target.value)}
-          className={`auth-input ${
-            attemptedSubmit && !isLastNameValid
+          className={`auth-input ${attemptedSubmit && !isLastNameValid
               ? "invalid-input"
               : isLastNameValid
-              ? "valid-input"
-              : ""
-          }`}
+                ? "valid-input"
+                : ""
+            }`}
         />
         <div className="errorMessage">
           {attemptedSubmit && !isLastNameValid && (
@@ -275,13 +270,12 @@ export default function AuthRegister({
         <input
           value={role}
           onChange={(e) => setRole(e.target.value)}
-          className={`auth-input ${
-            attemptedSubmit && !isJobValid
+          className={`auth-input ${attemptedSubmit && !isJobValid
               ? "invalid-input"
               : isJobValid
-              ? "valid-input"
-              : ""
-          }`}
+                ? "valid-input"
+                : ""
+            }`}
         />
         <div className="errorMessage">
           {attemptedSubmit && !isJobValid && (
@@ -302,13 +296,12 @@ export default function AuthRegister({
         <input
           value={location}
           onChange={(e) => setLocation(e.target.value)}
-          className={`auth-input ${
-            attemptedSubmit && !isLocationValid
+          className={`auth-input ${attemptedSubmit && !isLocationValid
               ? "invalid-input"
               : isLocationValid
-              ? "valid-input"
-              : ""
-          }`}
+                ? "valid-input"
+                : ""
+            }`}
         />
         <div className="errorMessage">
           {attemptedSubmit && !isLocationValid && (
@@ -329,13 +322,12 @@ export default function AuthRegister({
         <input
           value={experience}
           onChange={(e) => setExperience(e.target.value)}
-          className={`auth-input ${
-            attemptedSubmit && !isExperienceValid
+          className={`auth-input ${attemptedSubmit && !isExperienceValid
               ? "invalid-input"
               : isExperienceValid
-              ? "valid-input"
-              : ""
-          }`}
+                ? "valid-input"
+                : ""
+            }`}
         />
         <div className="errorMessage">
           {attemptedSubmit && !isExperienceValid && (

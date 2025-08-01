@@ -47,10 +47,10 @@ export default function Holder_Buttons_Selection_Multi(
 
   const saveToFirestore = async (values: string[]) => {
     const submissionId = localStorage.getItem("submissionId");
-    if (!submissionId) {
-      console.warn("No submissionId found");
-      return;
-    }
+    /*    if (!submissionId) {
+         console.warn("No submissionId found");
+         return;
+       }  */
 
     const currentUser = auth.currentUser;
     const isAnonymous = currentUser?.isAnonymous;
@@ -58,7 +58,7 @@ export default function Holder_Buttons_Selection_Multi(
     const deviceID = getDeviceId();
     // Path based on guest or registered user
     const docRef = isAnonymous
-      ? doc(firestore, "Submissions", "Submissions", "Guests", deviceID)
+      ? doc(firestore, "Submissions", "Submissions", "Guests", "none")
       : doc(firestore, "Submissions", "Submissions", "Users", submissionId);
 
     try {

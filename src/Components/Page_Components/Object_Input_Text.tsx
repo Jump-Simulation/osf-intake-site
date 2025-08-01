@@ -69,7 +69,7 @@ export default function Object_Input_Text({
       .join(" ");
 
     // Save local
-    localStorage.setItem(`answer-q-${questionID}`, trimmed);
+    // localStorage.setItem(`answer-q-${questionID}`, trimmed);
     context.state_Set_QuestionAnswer_Map_Value(
       `answer-q-${questionID}`,
       trimmed
@@ -118,20 +118,20 @@ export default function Object_Input_Text({
     return () => logedIn();
   }, []);
 
-  useEffect(() => {
-    const saved = localStorage.getItem(`answer-q-${questionID}`);
-    if (saved) setInputValue(saved);
-  }, [questionID]);
+  /*   useEffect(() => {
+      const saved = localStorage.getItem(`answer-q-${questionID}`);
+      if (saved) setInputValue(saved);
+    }, [questionID]); */
 
-  useEffect(() => {
-    const key = `answer-q-${questionID}`;
-    if (context.state_QuestionAnswer_Map.has(key)) {
-      const answerFromMap = context.state_Get_QuestionAnswer_Map_Value(key);
-      if (answerFromMap !== undefined) {
-        setInputValue(answerFromMap);
+  /*   useEffect(() => {
+      const key = `answer-q-${questionID}`;
+      if (context.state_QuestionAnswer_Map.has(key)) {
+        const answerFromMap = context.state_Get_QuestionAnswer_Map_Value(key);
+        if (answerFromMap !== undefined) {
+          setInputValue(answerFromMap);
+        }
       }
-    }
-  }, [context.state_QuestionAnswer_Map, questionID]);
+    }, [context.state_QuestionAnswer_Map, questionID]); */
 
   useEffect(() => {
     const fetchAnswerFromFirestore = async () => {
@@ -141,7 +141,7 @@ export default function Object_Input_Text({
       const isAnonymous = currentUser.isAnonymous;
       const uid = currentUser.uid;
       const docRef = isAnonymous
-        ? doc(firestore, "Submissions", "Submissions", "Guests", getDeviceId())
+        ? doc(firestore, "Submissions", "Submissions", "Guests", "none")
         : doc(firestore, "Submissions", "Submissions", "Users", uid);
 
       try {
@@ -177,13 +177,12 @@ export default function Object_Input_Text({
   return (
     <div className="text_input_items_container">
       <div
-        className={`text_input_content_holder ${
-          attemptedSubmit && currentWords < minWordCountWords
-            ? "error"
-            : currentWords >= minWordCountWords
+        className={`text_input_content_holder ${attemptedSubmit && currentWords < minWordCountWords
+          ? "error"
+          : currentWords >= minWordCountWords
             ? "success"
             : ""
-        }`}
+          }`}
       >
         <div className="text_entry_area">
           <textarea
@@ -192,26 +191,24 @@ export default function Object_Input_Text({
                 ? "Type your answer here"
                 : givenPlaceHolderText
             }
-            className={`userInput_textArea ${
-              attemptedSubmit && currentWords <= minWordCountWords
-                ? "error"
-                : currentWords >= minWordCountWords
+            className={`userInput_textArea ${attemptedSubmit && currentWords <= minWordCountWords
+              ? "error"
+              : currentWords >= minWordCountWords
                 ? "success"
                 : ""
-            }`}
+              }`}
             value={inputValue}
             onChange={handleChange}
           />
         </div>
 
         <div
-          className={`Input-Feedback ${
-            attemptedSubmit && currentWords < minWordCountWords
-              ? "error"
-              : currentWords >= minWordCountWords
+          className={`Input-Feedback ${attemptedSubmit && currentWords < minWordCountWords
+            ? "error"
+            : currentWords >= minWordCountWords
               ? "success"
               : ""
-          }`}
+            }`}
         >
           {currentWords} words {message}
         </div>
@@ -239,7 +236,7 @@ export default function Object_Input_Text({
             onClick={async () => {
               setAttemptedSubmit(true);
               await saveToFirestore(inputValue);
-              
+
 
               if (givenDestination === "guestCheck") {
                 if (guestLogin) {

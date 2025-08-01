@@ -46,16 +46,16 @@ export default function Holder_Buttons_Selection_Single(
     );
   }, [props.givenGlobal_TagsTrueArray, props.givenGlobal_TagsFalseArray]);
 
-  useEffect(() => {
-    const saved = localStorage.getItem(
-      `answer-q-${props.givenGlobal_CurrentPageID}`
-    );
-    if (saved) {
-      setSelectedValue(saved);
-      props.givenAddToSelectionMap(props.givenAddressToWrite, saved);
-    }
-  }, [props.givenGlobal_CurrentPageID]);
-
+  /*   useEffect(() => {
+      const saved = localStorage.getItem(
+        `answer-q-${props.givenGlobal_CurrentPageID}`
+      );
+      if (saved) {
+        setSelectedValue(saved);
+        props.givenAddToSelectionMap(props.givenAddressToWrite, saved);
+      }
+    }, [props.givenGlobal_CurrentPageID]);
+   */
   const saveToFirestore = async (value: string) => {
     const submissionId = localStorage.getItem("submissionId");
 
@@ -65,10 +65,10 @@ export default function Holder_Buttons_Selection_Single(
     }
 
     try {
-      localStorage.setItem(
-        `answer-q-${props.givenGlobal_CurrentPageID}`,
-        value
-      );
+      /*    localStorage.setItem(
+           `answer-q-${props.givenGlobal_CurrentPageID}`,
+           value
+         ); */
 
       const currentUser = auth.currentUser;
       const isAnonymous = currentUser?.isAnonymous;
@@ -76,7 +76,7 @@ export default function Holder_Buttons_Selection_Single(
       const deviceID = getDeviceId();
       // Path based on guest or registered user
       const docRef = isAnonymous
-        ? doc(firestore, "Submissions", "Submissions", "Guests", deviceID)
+        ? doc(firestore, "Submissions", "Submissions", "Guests", "none")
         : doc(firestore, "Submissions", "Submissions", "Users", submissionId);
 
       await updateDoc(docRef, {
