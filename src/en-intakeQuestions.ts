@@ -67,7 +67,7 @@ export const en_intakeQuestions_Book: BookObject = {
               colorOverrideActive: "var(--color-primary-100, #E0FAFF)",
               iconVisible: false,
               textValue: "Create Inventor Account",
-              destination: "page-register",
+              destination: "page-newAccountCreation",
             },
             {
               componentType: "text",
@@ -97,7 +97,7 @@ export const en_intakeQuestions_Book: BookObject = {
           ],
         },
         {
-          id: "page-register",
+          id: "page-newAccountCreation",
           navTitle: "Intake Start",
           keywords: "introduction",
           authors: "Kyle Formella, Maddox Binder",
@@ -960,13 +960,13 @@ export const en_intakeQuestions_Book: BookObject = {
               textValueNoneSelected: "Select an Option",
               destinationNoneSelected: "null",
               textValueSomethingSelected: "Next question!",
-              destination: "modal-accountFinishedCheckpoint",
+              destination: "modal-isAccountFinishedCheckpoint",
             },
           ],
 
           modalObjects: [
             {
-              modalID: "modal-accountFinishedCheckpoint",
+              modalID: "modal-isAccountFinishedCheckpoint",
               modalType: "sheet",
               modalItems: [
                 {
@@ -981,9 +981,83 @@ export const en_intakeQuestions_Book: BookObject = {
             },
           ],
         },
+      ],
+    },
+
+    {
+      chapterID: "account_finish_chapter",
+      progressBarVisible: false,
+      progressBarColor: "var(--color-accent-secondary-bold-800-default, #3C6A00)",
+      progressBarColorBackground: "var(--gray-200, #E6E6E6)",
+      chapterBackgroundColor: "var(--color-surface-default, #F4FBFC)",
+
+      // TOP RIGHT BUTTON STYLES -------
+      topRightNavButtonDestination: "fh-openSchedulingSection-001",
+      topRightNavButtonColor:
+        "linear-gradient(180deg, var(--color-accent-primary-700-default, #007A95) 0%, var(--color-accent-primary-bold-800-default, #00677E) 100%)",
+      topRightNavButtonColorHover:
+        "linear-gradient(180deg, var(--color-accent-primary-600-default, #007A95) 0%, var(--color-accent-primary-bold-800-default, #00677E) 100%)",
+      topRightNavButtonColorActive:
+        "linear-gradient(180deg, var(--color-accent-primary-900-default, #007A95) 0%, var(--color-accent-primary-bold-800-default, #00677E) 100%)",
+
+      pageObjects: [
 
         {
-          id: "page-fileInput",
+          id: "page-finishYourAccount",
+          navTitle: "Finish your account",
+          keywords: "account, finish, clarify, information",
+          authors: "Maddox Binder",
+          lastUpdated: "08012025",
+          pageBackgroundColor: "--osfBrand-tealgray-50, #F4FBFC",
+          hasVariables: false,
+          hasLock: false,
+
+          pageItems: [
+            {
+              componentType: "text",
+              textValue: "Finish your Inventor Account",
+              textType: "h2",
+              textAlignment: "left",
+              colorText: "var(--color-primary-300, #60D6ED)",
+            },
+            {
+              componentType: "text",
+              textValue:
+                "We’re excited to meet you! To finish your submission, please tell us a little about yourself so we know who we’re talking to.",
+              textType: "bodyText",
+              textAlignment: "left",
+              colorText: "var(--color-neutral-200, #DEE4E5)",
+            },
+
+            {
+              componentType: "new-account",
+              destination: "page-accountReview",
+            },
+          ],
+        },
+      ],
+    },
+
+    {
+      chapterID: "intake_form_review_chapter",
+      progressBarVisible: false,
+      progressBarColor: "var(--color-accent-secondary-bold-800-default, #3C6A00)",
+      progressBarColorBackground: "var(--gray-200, #E6E6E6)",
+      chapterBackgroundColor: "var(--color-surface-default, #F4FBFC)",
+
+      // TOP RIGHT BUTTON STYLES -------
+      topRightNavButtonDestination: "fh-openSchedulingSection-001",
+      topRightNavButtonColor:
+        "linear-gradient(180deg, var(--color-accent-primary-700-default, #007A95) 0%, var(--color-accent-primary-bold-800-default, #00677E) 100%)",
+      topRightNavButtonColorHover:
+        "linear-gradient(180deg, var(--color-accent-primary-600-default, #007A95) 0%, var(--color-accent-primary-bold-800-default, #00677E) 100%)",
+      topRightNavButtonColorActive:
+        "linear-gradient(180deg, var(--color-accent-primary-900-default, #007A95) 0%, var(--color-accent-primary-bold-800-default, #00677E) 100%)",
+
+      pageObjects: [
+
+        {
+          id: "page-accountReview",
           navTitle: "null",
           keywords: "introduction",
           authors: "Kyle Formella, Maddox Binder",
