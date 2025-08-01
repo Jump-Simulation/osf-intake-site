@@ -246,7 +246,7 @@ export const en_intakeQuestions_Book: BookObject = {
     {
       chapterID: "intake_section_one_questions_chapter",
       progressBarVisible: true,
-      progressBarColor: "var(--gray-800, #4D4D4D)",
+      progressBarColor: "var(--color-accent-secondary-bold-800-default, #3C6A00)",
       progressBarColorBackground: "var(--gray-200, #E6E6E6)",
       chapterBackgroundColor: "var(--color-surface-default, #F4FBFC)",
 
@@ -467,6 +467,26 @@ export const en_intakeQuestions_Book: BookObject = {
             },
           ],
         },
+      ],
+    },
+
+    {
+      chapterID: "intake_section_two_questions_chapter",
+      progressBarVisible: true,
+      progressBarColor: "var(--color-accent-secondary-bold-800-default, #3C6A00)",
+      progressBarColorBackground: "var(--gray-200, #E6E6E6)",
+      chapterBackgroundColor: "var(--color-surface-default, #F4FBFC)",
+
+      // TOP RIGHT BUTTON STYLES -------
+      topRightNavButtonDestination: "fh-openSchedulingSection-001",
+      topRightNavButtonColor:
+        "linear-gradient(180deg, var(--color-accent-primary-700-default, #007A95) 0%, var(--color-accent-primary-bold-800-default, #00677E) 100%)",
+      topRightNavButtonColorHover:
+        "linear-gradient(180deg, var(--color-accent-primary-600-default, #007A95) 0%, var(--color-accent-primary-bold-800-default, #00677E) 100%)",
+      topRightNavButtonColorActive:
+        "linear-gradient(180deg, var(--color-accent-primary-900-default, #007A95) 0%, var(--color-accent-primary-bold-800-default, #00677E) 100%)",
+
+      pageObjects: [
 
         {
           id: "page-describeYourIdea",
@@ -694,6 +714,26 @@ export const en_intakeQuestions_Book: BookObject = {
             bottomButtonHolderItems: [],
           },
         },
+      ],
+    },
+
+    {
+      chapterID: "intake_section_three_questions_chapter",
+      progressBarVisible: true,
+      progressBarColor: "var(--color-accent-secondary-bold-800-default, #3C6A00)",
+      progressBarColorBackground: "var(--gray-200, #E6E6E6)",
+      chapterBackgroundColor: "var(--color-surface-default, #F4FBFC)",
+
+      // TOP RIGHT BUTTON STYLES -------
+      topRightNavButtonDestination: "fh-openSchedulingSection-001",
+      topRightNavButtonColor:
+        "linear-gradient(180deg, var(--color-accent-primary-700-default, #007A95) 0%, var(--color-accent-primary-bold-800-default, #00677E) 100%)",
+      topRightNavButtonColorHover:
+        "linear-gradient(180deg, var(--color-accent-primary-600-default, #007A95) 0%, var(--color-accent-primary-bold-800-default, #00677E) 100%)",
+      topRightNavButtonColorActive:
+        "linear-gradient(180deg, var(--color-accent-primary-900-default, #007A95) 0%, var(--color-accent-primary-bold-800-default, #00677E) 100%)",
+
+      pageObjects: [
 
         {
           id: "page-haveYouTested",
