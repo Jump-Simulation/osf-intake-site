@@ -779,7 +779,7 @@ export const en_intakeQuestions_Book: BookObject = {
               iconVisible: false,
               textValueNoneSelected: "Select an Option",
               destinationNoneSelected: "null",
-              textValueSomethingSelected: "Next Question!",
+              textValueSomethingSelected: "Next question!",
               destination: "page-next",
             },
           ],
@@ -989,7 +989,7 @@ export const en_intakeQuestions_Book: BookObject = {
       progressBarVisible: false,
       progressBarColor: "var(--color-accent-secondary-bold-800-default, #3C6A00)",
       progressBarColorBackground: "var(--gray-200, #E6E6E6)",
-      chapterBackgroundColor: "var(--color-surface-default, #F4FBFC)",
+      chapterBackgroundColor: "var(--color-neutral-1150, #0E1416)",
 
       // TOP RIGHT BUTTON STYLES -------
       topRightNavButtonDestination: "fh-openSchedulingSection-001",

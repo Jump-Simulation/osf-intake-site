@@ -230,7 +230,7 @@ export default function Object_Input_Text({
               setAttemptedSubmit(true);
             }}
           >
-            Next Question!
+            Next question!
           </button>
         ) : (
           <button
@@ -253,7 +253,7 @@ export default function Object_Input_Text({
               givenGoToDestination(givenDestination);
             }}
           >
-            Next Question!
+            Next question!
           </button>
         )}
       </div>
