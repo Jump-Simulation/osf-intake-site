@@ -129,6 +129,27 @@ export const en_intakeQuestions_Book: BookObject = {
             },
           ],
         },
+      ],
+    },
+
+    {
+      chapterID: "section_one_introduction_chapter",
+      progressBarVisible: false,
+      progressBarColor: "var(--color-accent-secondary-bold-800-default, #3C6A00)",
+      progressBarColorBackground: "var(--gray-200, #E6E6E6)",
+      chapterBackgroundColor: "var(--color-neutral-1150, #0E1416)",
+
+      // TOP RIGHT BUTTON STYLES -------
+      topRightNavButtonDestination: "fh-openSchedulingSection-001",
+      topRightNavButtonColor:
+        "linear-gradient(180deg, var(--color-accent-primary-700-default, #007A95) 0%, var(--color-accent-primary-bold-800-default, #00677E) 100%)",
+      topRightNavButtonColorHover:
+        "linear-gradient(180deg, var(--color-accent-primary-600-default, #007A95) 0%, var(--color-accent-primary-bold-800-default, #00677E) 100%)",
+      topRightNavButtonColorActive:
+        "linear-gradient(180deg, var(--color-accent-primary-900-default, #007A95) 0%, var(--color-accent-primary-bold-800-default, #00677E) 100%)",
+
+      pageObjects: [
+
         {
           id: "page-sectionOneStart",
           navTitle: "Intake Start",
@@ -242,7 +263,7 @@ export const en_intakeQuestions_Book: BookObject = {
       ],
     },
 
-    // Intake QA Chapter ----------------------------------------------------------------------------------------------
+    // Intake Section One Questions ----------------------------------------------------------------------------------------------
     {
       chapterID: "intake_section_one_questions_chapter",
       progressBarVisible: true,
@@ -453,7 +474,7 @@ export const en_intakeQuestions_Book: BookObject = {
               textValueNoneSelected: "Select an Option",
               destinationNoneSelected: "null",
               textValueSomethingSelected: "Next question!",
-              destinationSomethingSelected: "page-next", // Stop These Medications / Medication Review Page
+              destinationSomethingSelected: "page-next",
             },
             {
               // Image
@@ -466,6 +487,137 @@ export const en_intakeQuestions_Book: BookObject = {
               hasDropShadow: false,
             },
           ],
+        },
+      ],
+    },
+
+    {
+      chapterID: "section_two_introduction_chapter",
+      progressBarVisible: false,
+      progressBarColor: "var(--color-accent-secondary-bold-800-default, #3C6A00)",
+      progressBarColorBackground: "var(--gray-200, #E6E6E6)",
+      chapterBackgroundColor: "var(--color-neutral-1150, #0E1416)",
+
+      // TOP RIGHT BUTTON STYLES -------
+      topRightNavButtonDestination: "fh-openSchedulingSection-001",
+      topRightNavButtonColor:
+        "linear-gradient(180deg, var(--color-accent-primary-700-default, #007A95) 0%, var(--color-accent-primary-bold-800-default, #00677E) 100%)",
+      topRightNavButtonColorHover:
+        "linear-gradient(180deg, var(--color-accent-primary-600-default, #007A95) 0%, var(--color-accent-primary-bold-800-default, #00677E) 100%)",
+      topRightNavButtonColorActive:
+        "linear-gradient(180deg, var(--color-accent-primary-900-default, #007A95) 0%, var(--color-accent-primary-bold-800-default, #00677E) 100%)",
+
+      pageObjects: [
+
+        {
+          id: "page-sectionTwoStart",
+          navTitle: "Intake Start",
+          keywords: "introduction",
+          authors: "Kyle Formella, Maddox Binder",
+          lastUpdated: "12092024",
+          pageBackgroundColor: "var(--color-neutral-1150, #0E1416)",
+          // pageBackgroundColor: "var(--neutral-teal-gray-1150, #0E1416)",
+          hasVariables: false,
+          hasLock: false,
+
+          pageItems: [
+            {
+              // Page Title
+              renderOrder: 1,
+              componentType: "text",
+              textValue: "Section 2 / 3",
+              textType: "h4",
+              colorText: "var(--color-neutral-300, #BFC8CA)",
+              textAlignment: "left",
+            },
+
+            {
+              // Body Text
+              renderOrder: 2,
+              componentType: "text",
+              textValue:
+                'Share Your <span style="color: var(--color-accent-secondary-light-300-default);">Solution</span>',
+              textType: "h1",
+              colorText:
+                "var(--color-accent-primary-light-300-default, #60D6ED)",
+              textAlignment: "left",
+            },
+            {
+              // Body Text
+              renderOrder: 2,
+              componentType: "text",
+              textValue:
+                "You’ve successfully laid out the problem - now it’s time to walk us through your solution!",
+              textType: "bodyText",
+              colorText: "var(--color-neutral-200, #DEE4E5)",
+              textAlignment: "left",
+            },
+            {
+              // Body Text
+              renderOrder: 2,
+              componentType: "text",
+              textValue:
+                "What does your solution do? Who is it for? How will it make things better?",
+              textType: "bodyText",
+              colorText: "var(--color-neutral-200, #DEE4E5)",
+              textAlignment: "left",
+            },
+            {
+              // Page Holder Horizontal
+              renderOrder: 4,
+              componentType: "page-holder-horizontal",
+              marginSides: "0px",
+              width: "100%",
+              gap: "md",
+
+              pageSectionItems: [
+                {
+                  // Information Icon Button
+                  renderOrder: 0,
+                  componentType: "button",
+                  buttonType: "icon",
+                  iconFileName: "info-icon-fh.png",
+                  iconHorizontalPlacement: "left",
+                  destination: "modal-001",
+                },
+
+                {
+                  // Page Section Component
+                  renderOrder: 6,
+                  componentType: "page-section",
+                  marginSides: "",
+                  // colorBackground: "linear-gradient(90deg, #CEF7FF 0%, var(--color-primary-container-default, #A3EEFF) 68.65%)",
+                  colorBackground: "var(--color-primary-container-default)",
+                  pageSectionItems: [
+                    {
+                      // Caption
+                      renderOrder: 2,
+                      componentType: "text",
+                      textValue: "Questions to Answer: 4",
+                      textType: "caption",
+                      textAlignment: "left",
+                      colorText: "var(--color-on-primary-container)",
+                    },
+                  ],
+                },
+              ],
+            },
+          ],
+          BottomButtonHolderObject: {
+            bottomButtonHolderID: "FH Page 1 Button Holder",
+            bottomButtonHolderItems: [
+              {
+                // Button
+                renderOrder: 3,
+                componentType: "button",
+                buttonType: "swipe-indicator",
+                buttonStyle: "primary",
+                iconVisible: false,
+                textValue: "Share my solution!",
+                destination: "page-next",
+              },
+            ],
+          },
         },
       ],
     },
@@ -712,6 +864,137 @@ export const en_intakeQuestions_Book: BookObject = {
           BottomButtonHolderObject: {
             bottomButtonHolderID: "FH Page 1 Button Holder",
             bottomButtonHolderItems: [],
+          },
+        },
+      ],
+    },
+
+    {
+      chapterID: "section_three_introduction_chapter",
+      progressBarVisible: false,
+      progressBarColor: "var(--color-accent-secondary-bold-800-default, #3C6A00)",
+      progressBarColorBackground: "var(--gray-200, #E6E6E6)",
+      chapterBackgroundColor: "var(--color-neutral-1150, #0E1416)",
+
+      // TOP RIGHT BUTTON STYLES -------
+      topRightNavButtonDestination: "fh-openSchedulingSection-001",
+      topRightNavButtonColor:
+        "linear-gradient(180deg, var(--color-accent-primary-700-default, #007A95) 0%, var(--color-accent-primary-bold-800-default, #00677E) 100%)",
+      topRightNavButtonColorHover:
+        "linear-gradient(180deg, var(--color-accent-primary-600-default, #007A95) 0%, var(--color-accent-primary-bold-800-default, #00677E) 100%)",
+      topRightNavButtonColorActive:
+        "linear-gradient(180deg, var(--color-accent-primary-900-default, #007A95) 0%, var(--color-accent-primary-bold-800-default, #00677E) 100%)",
+
+      pageObjects: [
+
+        {
+          id: "page-sectionThreeStart",
+          navTitle: "Intake Start",
+          keywords: "introduction",
+          authors: "Kyle Formella, Maddox Binder",
+          lastUpdated: "12092024",
+          pageBackgroundColor: "var(--color-neutral-1150, #0E1416)",
+          // pageBackgroundColor: "var(--neutral-teal-gray-1150, #0E1416)",
+          hasVariables: false,
+          hasLock: false,
+
+          pageItems: [
+            {
+              // Page Title
+              renderOrder: 1,
+              componentType: "text",
+              textValue: "Section 3 / 3",
+              textType: "h4",
+              colorText: "var(--color-neutral-300, #BFC8CA)",
+              textAlignment: "left",
+            },
+
+            {
+              // Body Text
+              renderOrder: 2,
+              componentType: "text",
+              textValue:
+                'Where You <span style="color: var(--color-accent-secondary-light-300-default);">Stand</span>',
+              textType: "h1",
+              colorText:
+                "var(--color-accent-primary-light-300-default, #60D6ED)",
+              textAlignment: "left",
+            },
+            {
+              // Body Text
+              renderOrder: 2,
+              componentType: "text",
+              textValue:
+                "This is the final step - telling us where you’re at today.",
+              textType: "bodyText",
+              colorText: "var(--color-neutral-200, #DEE4E5)",
+              textAlignment: "left",
+            },
+            {
+              // Body Text
+              renderOrder: 2,
+              componentType: "text",
+              textValue:
+                "What progress have you made? What’s in your way? How do you see yourself moving forward?",
+              textType: "bodyText",
+              colorText: "var(--color-neutral-200, #DEE4E5)",
+              textAlignment: "left",
+            },
+            {
+              // Page Holder Horizontal
+              renderOrder: 4,
+              componentType: "page-holder-horizontal",
+              marginSides: "0px",
+              width: "100%",
+              gap: "md",
+
+              pageSectionItems: [
+                {
+                  // Information Icon Button
+                  renderOrder: 0,
+                  componentType: "button",
+                  buttonType: "icon",
+                  iconFileName: "info-icon-fh.png",
+                  iconHorizontalPlacement: "left",
+                  destination: "modal-001",
+                },
+
+                {
+                  // Page Section Component
+                  renderOrder: 6,
+                  componentType: "page-section",
+                  marginSides: "",
+                  // colorBackground: "linear-gradient(90deg, #CEF7FF 0%, var(--color-primary-container-default, #A3EEFF) 68.65%)",
+                  colorBackground: "var(--color-primary-container-default)",
+                  pageSectionItems: [
+                    {
+                      // Caption
+                      renderOrder: 2,
+                      componentType: "text",
+                      textValue: "Questions to Answer: 4",
+                      textType: "caption",
+                      textAlignment: "left",
+                      colorText: "var(--color-on-primary-container)",
+                    },
+                  ],
+                },
+              ],
+            },
+          ],
+          BottomButtonHolderObject: {
+            bottomButtonHolderID: "FH Page 1 Button Holder",
+            bottomButtonHolderItems: [
+              {
+                // Button
+                renderOrder: 3,
+                componentType: "button",
+                buttonType: "swipe-indicator",
+                buttonStyle: "primary",
+                iconVisible: false,
+                textValue: "Onward!",
+                destination: "page-next",
+              },
+            ],
           },
         },
       ],
@@ -1008,7 +1291,7 @@ export const en_intakeQuestions_Book: BookObject = {
           keywords: "account, finish, clarify, information",
           authors: "Maddox Binder",
           lastUpdated: "08012025",
-          pageBackgroundColor: "--osfBrand-tealgray-50, #F4FBFC",
+          pageBackgroundColor: "var(--color-neutral-1150, #0E1416)",
           hasVariables: false,
           hasLock: false,
 
