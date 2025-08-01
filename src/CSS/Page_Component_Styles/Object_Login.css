@@ -102,6 +102,21 @@
 
   background: var(--color-primary-300ds, #88d2e3);
   border: none;
+
+  color: var(--color-primary-1000, #003541);
+  text-align: center;
+
+  /***************** TEMP TEXT STYLE RULES - To be removed when the real text object is applied *****************/
+
+  font-family: var(--font-family-body-desktop, "Nunito Sans");
+  font-size: var(--font-size-header-h4-desktop, 20px);
+  font-style: normal;
+  font-weight: var(--font-weight-header-h4-desktop, 700);
+  line-height: var(--font-line-height-header-h4-desktop, 28px);
+
+  /* 140% */
+  letter-spacing: var(--font-letter-spacing-default-desktop, 0.1px);
+
 }
 
 .auth-button:first-of-type {

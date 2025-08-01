@@ -29,8 +29,8 @@ export const en_intakeQuestions_Book: BookObject = {
           id: "page-login",
           navTitle: "null",
           keywords: "introduction",
-          authors: "Kyle Formella, Maddox Binder",
-          lastUpdated: "12092024",
+          authors: "Maddox Binder, Jacob Wright",
+          lastUpdated: "08012025",
           pageBackgroundColor: "var(--neutral-teal-gray-1150, #0E1416)",
           hasVariables: false,
           hasLock: false,
@@ -117,7 +117,7 @@ export const en_intakeQuestions_Book: BookObject = {
             {
               componentType: "text",
               textValue:
-                "Welcome, new Inventor! We're excited to meet you. PLease tell us a little about yourself so we know who we're reaching out to!",
+                "Welcome, new Inventor! We're excited to meet you. Please tell us a little about yourself so we know who we're reaching out to!",
               textType: "bodyText",
               textAlignment: "left",
               colorText: "var(--color-neutral-200, #DEE4E5)",

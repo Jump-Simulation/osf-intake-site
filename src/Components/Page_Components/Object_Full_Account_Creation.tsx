@@ -356,7 +356,7 @@ export default function AuthRegister({
         }}
         className="auth-button"
       >
-        Create Account
+        Create account
       </button>
     </div>
   );
