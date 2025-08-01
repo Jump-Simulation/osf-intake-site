@@ -1031,7 +1031,7 @@ export const en_intakeQuestions_Book: BookObject = {
 
             {
               componentType: "new-account",
-              destination: "page-accountReview",
+              destination: "page-submissionReview",
             },
           ],
         },
@@ -1057,7 +1057,7 @@ export const en_intakeQuestions_Book: BookObject = {
       pageObjects: [
 
         {
-          id: "page-accountReview",
+          id: "page-submissionReview",
           navTitle: "null",
           keywords: "introduction",
           authors: "Kyle Formella, Maddox Binder",
