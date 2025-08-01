@@ -238,6 +238,7 @@ export default function Object_Input_Text({
             onClick={async () => {
               setAttemptedSubmit(true);
               await saveToFirestore(inputValue);
+              
 
               if (givenDestination === "guestCheck") {
                 if (guestLogin) {

@@ -364,7 +364,9 @@ export const en_intakeQuestions_Book: BookObject = {
                 },
                 {
                   componentType: "partial-account-creation",
+                  destination: "page-next"
                 },
+
               ],
             },
           ],
