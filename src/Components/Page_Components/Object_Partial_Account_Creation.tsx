@@ -77,7 +77,12 @@ export default function AuthPartialRegister({
           />
         </div>
 
-        <button onClick={handleRegister} className="auth-button">
+        <button
+          onClick={async () => {
+            handleRegister();
+            givenGoToDestination(givenDestination);
+          }}
+        >
           Create account
         </button>
 

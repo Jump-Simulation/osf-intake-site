@@ -7,7 +7,6 @@ export const en_intakeQuestions_Book: BookObject = {
   bookId: "fhOpenScheduling",
 
   chapterObjects: [
-    
     // Intake QA Chapter ----------------------------------------------------------------------------------------------
     {
       chapterID: "welcome_login_chapter",
@@ -68,7 +67,7 @@ export const en_intakeQuestions_Book: BookObject = {
               colorOverrideActive: "var(--color-primary-100, #E0FAFF)",
               iconVisible: false,
               textValue: "Create Inventor Account",
-              destination: "page-register"
+              destination: "page-register",
             },
             {
               componentType: "text",
@@ -93,7 +92,7 @@ export const en_intakeQuestions_Book: BookObject = {
               colorOverrideActive: "var(--color-primary-100, #E0FAFF)",
               iconVisible: false,
               textValue: "Preview as guest",
-              destination: "page-welcome",
+              destination: "page-sectionOneStart",
             },
           ],
         },
@@ -156,7 +155,8 @@ export const en_intakeQuestions_Book: BookObject = {
               // Body Text
               renderOrder: 2,
               componentType: "text",
-              textValue: 'Start With the <span style="color: var(--color-accent-secondary-light-300-default);">Problem</span>',
+              textValue:
+                'Start With the <span style="color: var(--color-accent-secondary-light-300-default);">Problem</span>',
               textType: "h1",
               colorText:
                 "var(--color-accent-primary-light-300-default, #60D6ED)",
@@ -241,7 +241,7 @@ export const en_intakeQuestions_Book: BookObject = {
         },
       ],
     },
-    
+
     // Intake QA Chapter ----------------------------------------------------------------------------------------------
     {
       chapterID: "intake_section_one_questions_chapter",
@@ -260,7 +260,6 @@ export const en_intakeQuestions_Book: BookObject = {
         "linear-gradient(180deg, var(--color-accent-primary-900-default, #007A95) 0%, var(--color-accent-primary-bold-800-default, #00677E) 100%)",
 
       pageObjects: [
-
         {
           id: "page-problemSolve",
           navTitle: "Intake Start",
@@ -278,7 +277,8 @@ export const en_intakeQuestions_Book: BookObject = {
               componentType: "text",
               textValue: "What problem are you trying to solve?",
               textType: "h2",
-              colorText: "var(--color-accent-primary-bold-800-default, #00677E)",
+              colorText:
+                "var(--color-accent-primary-bold-800-default, #00677E)",
               textAlignment: "left",
             },
 
@@ -322,14 +322,14 @@ export const en_intakeQuestions_Book: BookObject = {
           hasLock: false,
 
           pageItems: [
-
             {
               // Page Title
               renderOrder: 1,
               componentType: "text",
               textValue: "How do you personally connect to this problem?",
               textType: "h2",
-              colorText: "var(--color-accent-primary-bold-800-default, #00677E)",
+              colorText:
+                "var(--color-accent-primary-bold-800-default, #00677E)",
               textAlignment: "left",
             },
             {
@@ -365,6 +365,7 @@ export const en_intakeQuestions_Book: BookObject = {
                 },
                 {
                   componentType: "partial-account-creation",
+                  destination: "page-next",
                 },
               ],
             },
@@ -388,7 +389,8 @@ export const en_intakeQuestions_Book: BookObject = {
               componentType: "text",
               textValue: "When and where does the problem occur?",
               textType: "h2",
-              colorText: "var(--color-accent-primary-bold-800-default, #00677E)",
+              colorText:
+                "var(--color-accent-primary-bold-800-default, #00677E)",
               textAlignment: "left",
             },
             {
@@ -428,7 +430,8 @@ export const en_intakeQuestions_Book: BookObject = {
               textValue:
                 "Have you searched for other solutions for this problem before?",
               textType: "h2",
-              colorText: "var(--color-accent-primary-bold-800-default, #00677E)",
+              colorText:
+                "var(--color-accent-primary-bold-800-default, #00677E)",
               textAlignment: "left",
             },
             {
@@ -441,17 +444,17 @@ export const en_intakeQuestions_Book: BookObject = {
               questionID: "search_for",
             },
             {
-                // Button Selection Confirmation
-                renderOrder: 5,
-                componentType: "button-selection-confirmation",
-                buttonStyleNoneSelected: "tertiary",
-                buttonStyleSomethingSelected: "primary",
-                iconVisible: false,
-                textValueNoneSelected: "Select an Option",
-                destinationNoneSelected: "null",
-                textValueSomethingSelected: "Next question!",
-                destinationSomethingSelected: "page-next", // Stop These Medications / Medication Review Page
-              },
+              // Button Selection Confirmation
+              renderOrder: 5,
+              componentType: "button-selection-confirmation",
+              buttonStyleNoneSelected: "tertiary",
+              buttonStyleSomethingSelected: "primary",
+              iconVisible: false,
+              textValueNoneSelected: "Select an Option",
+              destinationNoneSelected: "null",
+              textValueSomethingSelected: "Next question!",
+              destinationSomethingSelected: "page-next", // Stop These Medications / Medication Review Page
+            },
             {
               // Image
               renderOrder: 0,
@@ -476,7 +479,6 @@ export const en_intakeQuestions_Book: BookObject = {
           hasLock: false,
 
           pageItems: [
-
             {
               // Page Title
               renderOrder: 1,
@@ -484,7 +486,8 @@ export const en_intakeQuestions_Book: BookObject = {
               textValue:
                 "Describe your idea. How would it work? What would it do?",
               textType: "h2",
-              colorText: "var(--color-accent-primary-bold-800-default, #00677E)",
+              colorText:
+                "var(--color-accent-primary-bold-800-default, #00677E)",
               textAlignment: "left",
             },
             {
@@ -524,7 +527,8 @@ export const en_intakeQuestions_Book: BookObject = {
               componentType: "text",
               textValue: "What is the working name you want to call this by?",
               textType: "h2",
-              colorText: "var(--color-accent-primary-bold-800-default, #00677E)",
+              colorText:
+                "var(--color-accent-primary-bold-800-default, #00677E)",
               textAlignment: "left",
             },
             {
@@ -566,14 +570,14 @@ export const en_intakeQuestions_Book: BookObject = {
           hasLock: false,
 
           pageItems: [
-
             {
               // Page Title
               renderOrder: 1,
               componentType: "text",
               textValue: "Who do you think will be the user of your invention?",
               textType: "h2",
-              colorText: "var(--color-accent-primary-bold-800-default, #00677E)",
+              colorText:
+                "var(--color-accent-primary-bold-800-default, #00677E)",
               textAlignment: "left",
             },
             {
@@ -612,7 +616,8 @@ export const en_intakeQuestions_Book: BookObject = {
               componentType: "text",
               textValue: "Who do you think would buy your invention?",
               textType: "h2",
-              colorText: "var(--color-accent-primary-bold-800-default, #00677E)",
+              colorText:
+                "var(--color-accent-primary-bold-800-default, #00677E)",
               textAlignment: "left",
             },
             {
@@ -652,7 +657,8 @@ export const en_intakeQuestions_Book: BookObject = {
               componentType: "text",
               textValue: "What category does your solution best fit into?",
               textType: "h2",
-              colorText: "var(--color-accent-primary-bold-800-default, #00677E)",
+              colorText:
+                "var(--color-accent-primary-bold-800-default, #00677E)",
               textAlignment: "left",
             },
             {
@@ -685,9 +691,7 @@ export const en_intakeQuestions_Book: BookObject = {
 
           BottomButtonHolderObject: {
             bottomButtonHolderID: "FH Page 1 Button Holder",
-            bottomButtonHolderItems: [
-
-            ],
+            bottomButtonHolderItems: [],
           },
         },
 
@@ -709,7 +713,8 @@ export const en_intakeQuestions_Book: BookObject = {
               textValue:
                 "Have you already built or tested anything related to your solution?",
               textType: "h2",
-              colorText: "var(--color-accent-primary-bold-800-default, #00677E)",
+              colorText:
+                "var(--color-accent-primary-bold-800-default, #00677E)",
               textAlignment: "left",
             },
             {
@@ -726,17 +731,17 @@ export const en_intakeQuestions_Book: BookObject = {
               questionID: "built-tested",
             },
             {
-                // Button
-                renderOrder: 4,
-                componentType: "button-selection-confirmation",
-                buttonType: "swipe-indicator",
-                buttonStyle: "primary",
-                iconVisible: false,
-                textValueNoneSelected: "Select an Option",
-                destinationNoneSelected: "null",
-                textValueSomethingSelected: "Next Question!",
-                destination: "page-next",
-              },
+              // Button
+              renderOrder: 4,
+              componentType: "button-selection-confirmation",
+              buttonType: "swipe-indicator",
+              buttonStyle: "primary",
+              iconVisible: false,
+              textValueNoneSelected: "Select an Option",
+              destinationNoneSelected: "null",
+              textValueSomethingSelected: "Next Question!",
+              destination: "page-next",
+            },
           ],
         },
         {
@@ -757,7 +762,8 @@ export const en_intakeQuestions_Book: BookObject = {
               textValue:
                 "What is stopping you from bringing your idea to life on your own?",
               textType: "h2",
-              colorText: "var(--color-accent-primary-bold-800-default, #00677E)",
+              colorText:
+                "var(--color-accent-primary-bold-800-default, #00677E)",
               textAlignment: "left",
             },
             {
@@ -798,7 +804,8 @@ export const en_intakeQuestions_Book: BookObject = {
               textValue:
                 "Have you worked on this idea during your personal time, work time, or both?",
               textType: "h2",
-              colorText: "var(--color-accent-primary-bold-800-default, #00677E)",
+              colorText:
+                "var(--color-accent-primary-bold-800-default, #00677E)",
               textAlignment: "left",
             },
             {
@@ -815,17 +822,17 @@ export const en_intakeQuestions_Book: BookObject = {
               questionID: "time-worked",
             },
             {
-                // Button
-                renderOrder: 3,
-                componentType: "button-selection-confirmation",
-                buttonType: "swipe-indicator",
-                buttonStyle: "primary",
-                iconVisible: false,
-                textValueNoneSelected: "Select an option",
-                destinationNoneSelected: "null",
-                textValueSomethingSelected: "Next question!",
-                destination: "page-next",
-              },
+              // Button
+              renderOrder: 3,
+              componentType: "button-selection-confirmation",
+              buttonType: "swipe-indicator",
+              buttonStyle: "primary",
+              iconVisible: false,
+              textValueNoneSelected: "Select an option",
+              destinationNoneSelected: "null",
+              textValueSomethingSelected: "Next question!",
+              destination: "page-next",
+            },
           ],
         },
         {
@@ -839,14 +846,14 @@ export const en_intakeQuestions_Book: BookObject = {
           hasLock: false,
 
           pageItems: [
-
             {
               // Page Title
               renderOrder: 1,
               componentType: "text",
               textValue: "Where do you see your invention a year from now?",
               textType: "h2",
-              colorText: "var(--color-accent-primary-bold-800-default, #00677E)",
+              colorText:
+                "var(--color-accent-primary-bold-800-default, #00677E)",
               textAlignment: "left",
             },
             {
@@ -886,7 +893,8 @@ export const en_intakeQuestions_Book: BookObject = {
               textValue:
                 "How involved do you want to be in developing this idea further?",
               textType: "h2",
-              colorText: "var(--color-accent-primary-bold-800-default, #00677E)",
+              colorText:
+                "var(--color-accent-primary-bold-800-default, #00677E)",
               textAlignment: "left",
             },
             {
