@@ -2473,6 +2473,7 @@ function App() {
               ],
               false
             );
+            console.log("Popping previousPagesVisitedStrings")
             previousPagesVisitedStrings.pop();
           } else if (
             page.id !== "page-next" &&
@@ -3554,7 +3555,7 @@ function App() {
     keyInt++;
     var firstPageLock = 0;
     localPagesVisited = [];
-    previousPagesVisitedStrings = [];
+    // previousPagesVisitedStrings = [];
 
     var tempCarouselPagesToPush: PageObject[] = [];
     //console.log("About to generate some pages, localCurrentBookData is: ");
