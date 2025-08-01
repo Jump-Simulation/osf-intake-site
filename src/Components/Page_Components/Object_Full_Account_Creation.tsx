@@ -126,11 +126,13 @@ export default function AuthRegister({
                 : ""
             }`}
           />
-          {attemptedSubmit && !isEmailValid && (
-            <div className="invalid-single-input-feeback-message">
-              *Please enter a valid email address
-            </div>
-          )}
+          <div className="errorMessage">
+            {attemptedSubmit && !isEmailValid && (
+              <div className="invalid-single-input-feeback-message">
+                *Please enter a valid email address
+              </div>
+            )}
+          </div>
         </div>
       </div>
 
@@ -163,11 +165,13 @@ export default function AuthRegister({
             onClick={() => setShowPassword((prev) => !prev)}
           />
         </div>
-        {attemptedSubmit && !isPasswordValid && (
-          <div className="invalid-single-input-feeback-message">
-            *Please enter a valid password
-          </div>
-        )}
+        <div className="errorMessage">
+          {attemptedSubmit && !isPasswordValid && (
+            <div className="invalid-single-input-feeback-message">
+              *Please enter a valid password
+            </div>
+          )}
+        </div>
       </div>
 
       <div className="auth-field">
@@ -198,11 +202,13 @@ export default function AuthRegister({
             onClick={() => setShowConfirmPassword((prev) => !prev)}
           />
         </div>
-        {attemptedSubmit && !isConfirmPasswordValid && (
-          <div className="invalid-single-input-feeback-message">
-            *Please enter a valid password
-          </div>
-        )}
+        <div className="errorMessage">
+          {attemptedSubmit && !isConfirmPasswordValid && (
+            <div className="invalid-single-input-feeback-message">
+              *Please enter a valid password
+            </div>
+          )}
+        </div>
       </div>
 
       <div className="auth-field">
@@ -223,11 +229,13 @@ export default function AuthRegister({
               : ""
           }`}
         />
-        {attemptedSubmit && !isFirstNameValid && (
-          <div className="invalid-single-input-feeback-message">
-            *Please enter a valid name
-          </div>
-        )}
+        <div className="errorMessage">
+          {attemptedSubmit && !isFirstNameValid && (
+            <div className="invalid-single-input-feeback-message">
+              *Please enter a valid name
+            </div>
+          )}
+        </div>
       </div>
 
       <div className="auth-field">
@@ -248,11 +256,13 @@ export default function AuthRegister({
               : ""
           }`}
         />
-        {attemptedSubmit && !isLastNameValid && (
-          <div className="invalid-single-input-feeback-message">
-            *Please enter a valid name
-          </div>
-        )}
+        <div className="errorMessage">
+          {attemptedSubmit && !isLastNameValid && (
+            <div className="invalid-single-input-feeback-message">
+              *Please enter a valid name
+            </div>
+          )}
+        </div>
       </div>
 
       <div className="auth-field">
@@ -273,11 +283,13 @@ export default function AuthRegister({
               : ""
           }`}
         />
-        {attemptedSubmit && !isJobValid && (
-          <div className="invalid-single-input-feeback-message">
-            *Please enter a valid job
-          </div>
-        )}
+        <div className="errorMessage">
+          {attemptedSubmit && !isJobValid && (
+            <div className="invalid-single-input-feeback-message">
+              *Please enter a valid job
+            </div>
+          )}
+        </div>
       </div>
 
       <div className="auth-field">
@@ -298,11 +310,13 @@ export default function AuthRegister({
               : ""
           }`}
         />
-        {attemptedSubmit && !isLocationValid && (
-          <div className="invalid-single-input-feeback-message">
-            *Please enter a valid location
-          </div>
-        )}
+        <div className="errorMessage">
+          {attemptedSubmit && !isLocationValid && (
+            <div className="invalid-single-input-feeback-message">
+              *Please enter a valid location
+            </div>
+          )}
+        </div>
       </div>
 
       <div className="auth-field">
@@ -323,11 +337,13 @@ export default function AuthRegister({
               : ""
           }`}
         />
-        {attemptedSubmit && !isExperienceValid && (
-          <div className="invalid-single-input-feeback-message">
-            *Please enter a valid number of experience
-          </div>
-        )}
+        <div className="errorMessage">
+          {attemptedSubmit && !isExperienceValid && (
+            <div className="invalid-single-input-feeback-message">
+              *Please enter a valid number of experience
+            </div>
+          )}
+        </div>
       </div>
 
       <button

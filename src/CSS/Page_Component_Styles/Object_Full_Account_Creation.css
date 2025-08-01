@@ -134,3 +134,7 @@
   cursor: pointer;
   object-fit: contain;
 }
+
+.errorMessage {
+  min-height: 20px;
+}
