@@ -156,7 +156,7 @@ export default function AuthRegister({
               className={`auth-input ${
                 attemptedSubmit && !isConfirmPasswordValid
                   ? "invalid-input"
-                  : isPasswordValid
+                  : isConfirmPasswordValid
                   ? "valid-input"
                   : ""
               }`}
@@ -179,7 +179,7 @@ export default function AuthRegister({
             className={`auth-input ${
               attemptedSubmit && !isFirstNameValid
                 ? "invalid-input"
-                : isPasswordValid
+                : isFirstNameValid
                 ? "valid-input"
                 : ""
             }`}
@@ -194,7 +194,7 @@ export default function AuthRegister({
             className={`auth-input ${
               attemptedSubmit && !isLastNameValid
                 ? "invalid-input"
-                : isPasswordValid
+                : isLastNameValid
                 ? "valid-input"
                 : ""
             }`}
@@ -209,7 +209,7 @@ export default function AuthRegister({
             className={`auth-input ${
               attemptedSubmit && !isJobValid
                 ? "invalid-input"
-                : isPasswordValid
+                : isJobValid
                 ? "valid-input"
                 : ""
             }`}
@@ -224,7 +224,7 @@ export default function AuthRegister({
             className={`auth-input ${
               attemptedSubmit && !isLocationValid
                 ? "invalid-input"
-                : isPasswordValid
+                : isLocationValid
                 ? "valid-input"
                 : ""
             }`}
@@ -239,7 +239,7 @@ export default function AuthRegister({
             className={`auth-input ${
               attemptedSubmit && !isExperienceValid
                 ? "invalid-input"
-                : isPasswordValid
+                : isExperienceValid
                 ? "valid-input"
                 : ""
             }`}
