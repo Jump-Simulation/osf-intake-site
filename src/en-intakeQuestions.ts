@@ -56,7 +56,7 @@ export const en_intakeQuestions_Book: BookObject = {
               // Page Title
               renderOrder: 1,
               componentType: "login",
-              destination: "page-welcome",
+              destination: "page-sectionOneStart",
               minWordCount: "5",
             },
             {
@@ -126,12 +126,12 @@ export const en_intakeQuestions_Book: BookObject = {
 
             {
               componentType: "new-account",
-              destination: "page-welcome",
+              destination: "page-sectionOneStart",
             },
           ],
         },
         {
-          id: "page-welcome",
+          id: "page-sectionOneStart",
           navTitle: "Intake Start",
           keywords: "introduction",
           authors: "Kyle Formella, Maddox Binder",
@@ -244,7 +244,7 @@ export const en_intakeQuestions_Book: BookObject = {
     
     // Intake QA Chapter ----------------------------------------------------------------------------------------------
     {
-      chapterID: "intake_QA_chapter",
+      chapterID: "intake_section_one_questions_chapter",
       progressBarVisible: true,
       progressBarColor: "var(--gray-800, #4D4D4D)",
       progressBarColorBackground: "var(--gray-200, #E6E6E6)",
@@ -278,7 +278,7 @@ export const en_intakeQuestions_Book: BookObject = {
               componentType: "text",
               textValue: "What problem are you trying to solve?",
               textType: "h2",
-              colorText: "var(--color-accent-primary-bold-800-default)",
+              colorText: "var(--color-accent-primary-bold-800-default, #00677E)",
               textAlignment: "left",
             },
 
@@ -302,7 +302,7 @@ export const en_intakeQuestions_Book: BookObject = {
             {
               renderOrder: 0,
               componentType: "image",
-              fileName: "qa-astro-man.png",
+              fileName: "astronaut-broken-piece-rocket-lowpoly-draft.png",
               sizeOfPageTaken: "20%",
               animationName: "fade-up",
               pageOrientation: "portrait",
@@ -322,15 +322,6 @@ export const en_intakeQuestions_Book: BookObject = {
           hasLock: false,
 
           pageItems: [
-            {
-              renderOrder: 0,
-              componentType: "image",
-              fileName: "qa-problem-solve-rocket.png",
-              sizeOfPageTaken: "20%",
-              animationName: "fade-up",
-              pageOrientation: "portrait",
-              hasDropShadow: false,
-            },
 
             {
               // Page Title
@@ -338,6 +329,7 @@ export const en_intakeQuestions_Book: BookObject = {
               componentType: "text",
               textValue: "How do you personally connect to this problem?",
               textType: "h2",
+              colorText: "var(--color-accent-primary-bold-800-default, #00677E)",
               textAlignment: "left",
             },
             {
@@ -346,6 +338,15 @@ export const en_intakeQuestions_Book: BookObject = {
               placeHolderText: "Type your answer here",
               questionID: "personally_connect",
               destination: "guestCheck",
+            },
+            {
+              renderOrder: 0,
+              componentType: "image",
+              fileName: "hopeful-connection-astronaut-lowpoly-draft.png",
+              sizeOfPageTaken: "20%",
+              animationName: "fade-up",
+              pageOrientation: "portrait",
+              hasDropShadow: false,
             },
           ],
           modalObjects: [
@@ -384,21 +385,12 @@ export const en_intakeQuestions_Book: BookObject = {
 
           pageItems: [
             {
-              // Image
-              renderOrder: 0,
-              componentType: "image",
-              fileName: "qa-earth.png",
-              sizeOfPageTaken: "20%",
-              animationName: "fade-up",
-              pageOrientation: "portrait",
-              hasDropShadow: false,
-            },
-            {
               // Page Title
               renderOrder: 1,
               componentType: "text",
               textValue: "When and where does the problem occur?",
               textType: "h2",
+              colorText: "var(--color-accent-primary-bold-800-default, #00677E)",
               textAlignment: "left",
             },
             {
@@ -408,45 +400,14 @@ export const en_intakeQuestions_Book: BookObject = {
               questionID: "when_where",
               destination: "page-next",
             },
-          ],
-        },
-        {
-          id: "page-willItGetWorse",
-          navTitle: "null",
-          keywords: "introduction",
-          authors: "Kyle Formella, Maddox Binder",
-          lastUpdated: "12092024",
-          pageBackgroundColor: "--osfBrand-tealgray-50, #F4FBFC",
-          hasVariables: false,
-          hasLock: false,
-
-          pageItems: [
             {
-              // Image
               renderOrder: 0,
               componentType: "image",
-              fileName: "qa-clock.png",
+              fileName: "when-and-where-problem-lowpoly-draft.png",
               sizeOfPageTaken: "20%",
               animationName: "fade-up",
               pageOrientation: "portrait",
               hasDropShadow: false,
-            },
-
-            {
-              // Page Title
-              renderOrder: 1,
-              componentType: "text",
-              textValue:
-                "How will this problem get worse if things stay the way they are?",
-              textType: "h2",
-              textAlignment: "left",
-            },
-            {
-              renderOrder: 3,
-              componentType: "input-text",
-              placeHolderText: "Type your answer here",
-              questionID: "get_worse",
-              destination: "page-next",
             },
           ],
         },
@@ -463,23 +424,13 @@ export const en_intakeQuestions_Book: BookObject = {
 
           pageItems: [
             {
-              // Image
-              renderOrder: 0,
-              componentType: "image",
-              fileName: "qa-car.png",
-              sizeOfPageTaken: "20%",
-              animationName: "fade-up",
-              pageOrientation: "portrait",
-              hasDropShadow: false,
-            },
-
-            {
               // Page Title
               renderOrder: 1,
               componentType: "text",
               textValue:
                 "Have you searched for other solutions for this problem before?",
               textType: "h2",
+              colorText: "var(--color-accent-primary-bold-800-default, #00677E)",
               textAlignment: "left",
             },
             {
@@ -491,12 +442,7 @@ export const en_intakeQuestions_Book: BookObject = {
               writeToAddress: "questionID",
               questionID: "search_for",
             },
-          ],
-
-          BottomButtonHolderObject: {
-            bottomButtonHolderID: "FH Page 1 Button Holder",
-            bottomButtonHolderItems: [
-              {
+            {
                 // Button Selection Confirmation
                 renderOrder: 5,
                 componentType: "button-selection-confirmation",
@@ -505,22 +451,20 @@ export const en_intakeQuestions_Book: BookObject = {
                 iconVisible: false,
                 textValueNoneSelected: "Select an Option",
                 destinationNoneSelected: "null",
-                textValueSomethingSelected: "Next Question!",
+                textValueSomethingSelected: "Next question!",
                 destinationSomethingSelected: "page-next", // Stop These Medications / Medication Review Page
               },
-
-              /* {          MADDOX *** COMMENTED OUT IN CASE WE NEED TO RESTORE
-                // Button
-                renderOrder: 4,
-                componentType: "button",
-                buttonType: "swipe-indicator",
-                buttonStyle: "primary",
-                iconVisible: false,
-                textValue: "Next Question!",
-                destination: "page-next",
-              }, */
-            ],
-          },
+            {
+              // Image
+              renderOrder: 0,
+              componentType: "image",
+              fileName: "searching-for-parts-lowpoly-draft.png",
+              sizeOfPageTaken: "20%",
+              animationName: "fade-up",
+              pageOrientation: "portrait",
+              hasDropShadow: false,
+            },
+          ],
         },
 
         {
@@ -534,16 +478,6 @@ export const en_intakeQuestions_Book: BookObject = {
           hasLock: false,
 
           pageItems: [
-            {
-              // Image
-              renderOrder: 0,
-              componentType: "image",
-              fileName: "qa-blueprint.png",
-              sizeOfPageTaken: "20%",
-              animationName: "fade-up",
-              pageOrientation: "portrait",
-              hasDropShadow: false,
-            },
 
             {
               // Page Title
@@ -552,16 +486,7 @@ export const en_intakeQuestions_Book: BookObject = {
               textValue:
                 "Describe your idea. How would it work? What would it do?",
               textType: "h2",
-              textAlignment: "left",
-            },
-            {
-              // Body Text
-              renderOrder: 2,
-              componentType: "text",
-              textValue:
-                "(don't give us the solution just yet - we want to make sure we understand the problem first!)",
-              textType: "bodyText",
-              colorText: "var(--color-accent-primary-bold-800-default)",
+              colorText: "var(--color-accent-primary-bold-800-default, #00677E)",
               textAlignment: "left",
             },
             {
@@ -570,6 +495,16 @@ export const en_intakeQuestions_Book: BookObject = {
               placeHolderText: "Type your answer here",
               questionID: "describe_idea",
               destination: "page-next",
+            },
+            {
+              // Image
+              renderOrder: 0,
+              componentType: "image",
+              fileName: "astronaut-experiment-lab-lowpoly-draft.png",
+              sizeOfPageTaken: "20%",
+              animationName: "fade-up",
+              pageOrientation: "portrait",
+              hasDropShadow: false,
             },
           ],
         },
@@ -591,6 +526,16 @@ export const en_intakeQuestions_Book: BookObject = {
               componentType: "text",
               textValue: "What is the working name you want to call this by?",
               textType: "h2",
+              colorText: "var(--color-accent-primary-bold-800-default, #00677E)",
+              textAlignment: "left",
+            },
+            {
+              // Body Text
+              renderOrder: 2,
+              componentType: "text",
+              textValue:
+                "Remember, this name does not have to be permanent and can change later!",
+              textType: "bodyText",
               textAlignment: "left",
             },
             {
@@ -600,16 +545,15 @@ export const en_intakeQuestions_Book: BookObject = {
               questionID: "idea_name",
               destination: "page-next",
             },
-
             {
-              // Body Text
-              renderOrder: 2,
-              componentType: "text",
-              textValue:
-                "This name doesn't have to be permanent! It can be only a summary or a brand identity - just let us know what to call it!",
-              textType: "bodyText",
-              colorText: "var(--color-accent-primary-bold-800-default)",
-              textAlignment: "left",
+              // Image
+              renderOrder: 0,
+              componentType: "image",
+              fileName: "astronaut-draw-conspiracy-lowpoly-draft.png",
+              sizeOfPageTaken: "20%",
+              animationName: "fade-up",
+              pageOrientation: "portrait",
+              hasDropShadow: false,
             },
           ],
         },
@@ -624,16 +568,6 @@ export const en_intakeQuestions_Book: BookObject = {
           hasLock: false,
 
           pageItems: [
-            {
-              // Image
-              renderOrder: 0,
-              componentType: "image",
-              fileName: "qa-spaceshipblasting.png",
-              sizeOfPageTaken: "20%",
-              animationName: "fade-up",
-              pageOrientation: "portrait",
-              hasDropShadow: false,
-            },
 
             {
               // Page Title
@@ -641,6 +575,7 @@ export const en_intakeQuestions_Book: BookObject = {
               componentType: "text",
               textValue: "Who do you think will be the user of your invention?",
               textType: "h2",
+              colorText: "var(--color-accent-primary-bold-800-default, #00677E)",
               textAlignment: "left",
             },
             {
@@ -649,6 +584,16 @@ export const en_intakeQuestions_Book: BookObject = {
               placeHolderText: "Type your answer here",
               questionID: "user_invention",
               destination: "page-next",
+            },
+            {
+              // Image
+              renderOrder: 0,
+              componentType: "image",
+              fileName: "robouser-astroobserver-lowpoly-draft.png",
+              sizeOfPageTaken: "20%",
+              animationName: "fade-up",
+              pageOrientation: "portrait",
+              hasDropShadow: false,
             },
           ],
         },
@@ -664,22 +609,12 @@ export const en_intakeQuestions_Book: BookObject = {
 
           pageItems: [
             {
-              // Image
-              renderOrder: 0,
-              componentType: "image",
-              fileName: "qa-groupofspacemen.png",
-              sizeOfPageTaken: "20%",
-              animationName: "fade-up",
-              pageOrientation: "portrait",
-              hasDropShadow: false,
-            },
-
-            {
               // Page Title
               renderOrder: 1,
               componentType: "text",
               textValue: "Who do you think would buy your invention?",
               textType: "h2",
+              colorText: "var(--color-accent-primary-bold-800-default, #00677E)",
               textAlignment: "left",
             },
             {
@@ -689,11 +624,21 @@ export const en_intakeQuestions_Book: BookObject = {
               questionID: "buyer_invention",
               destination: "page-next",
             },
+            {
+              // Image
+              renderOrder: 0,
+              componentType: "image",
+              fileName: "astronaut-robot-handshake-lowpoly-draft.png",
+              sizeOfPageTaken: "20%",
+              animationName: "fade-up",
+              pageOrientation: "portrait",
+              hasDropShadow: false,
+            },
           ],
         },
 
         {
-          id: "page-category",
+          id: "page-categoryOfInvention",
           navTitle: "null",
           keywords: "introduction",
           authors: "Kyle Formella, Maddox Binder",
@@ -704,22 +649,12 @@ export const en_intakeQuestions_Book: BookObject = {
 
           pageItems: [
             {
-              // Image
-              renderOrder: 0,
-              componentType: "image",
-              fileName: "qa-part1.png",
-              sizeOfPageTaken: "20%",
-              animationName: "fade-up",
-              pageOrientation: "portrait",
-              hasDropShadow: false,
-            },
-
-            {
               // Page Title
               renderOrder: 1,
               componentType: "text",
               textValue: "What category does your solution best fit into?",
               textType: "h2",
+              colorText: "var(--color-accent-primary-bold-800-default, #00677E)",
               textAlignment: "left",
             },
             {
@@ -736,23 +671,24 @@ export const en_intakeQuestions_Book: BookObject = {
               ],
               questionID: "solution-category",
             },
+            {
+              // Button
+              renderOrder: 4,
+              componentType: "button-selection-confirmation",
+              buttonType: "swipe-indicator",
+              buttonStyle: "primary",
+              iconVisible: false,
+              textValueNoneSelected: "Select an Option",
+              destinationNoneSelected: "null",
+              textValueSomethingSelected: "Next question!",
+              destination: "page-next",
+            },
           ],
 
           BottomButtonHolderObject: {
             bottomButtonHolderID: "FH Page 1 Button Holder",
             bottomButtonHolderItems: [
-              {
-                // Button
-                renderOrder: 4,
-                componentType: "button-selection-confirmation",
-                buttonType: "swipe-indicator",
-                buttonStyle: "primary",
-                iconVisible: false,
-                textValueNoneSelected: "Select an Option",
-                destinationNoneSelected: "null",
-                textValueSomethingSelected: "Next Question!",
-                destination: "page-next",
-              },
+
             ],
           },
         },
@@ -769,23 +705,13 @@ export const en_intakeQuestions_Book: BookObject = {
 
           pageItems: [
             {
-              // Image
-              renderOrder: 0,
-              componentType: "image",
-              fileName: "qa-part1.png",
-              sizeOfPageTaken: "20%",
-              animationName: "fade-up",
-              pageOrientation: "portrait",
-              hasDropShadow: false,
-            },
-
-            {
               // Page Title
               renderOrder: 1,
               componentType: "text",
               textValue:
                 "Have you already built or tested anything related to your solution?",
               textType: "h2",
+              colorText: "var(--color-accent-primary-bold-800-default, #00677E)",
               textAlignment: "left",
             },
             {
@@ -801,12 +727,7 @@ export const en_intakeQuestions_Book: BookObject = {
               ],
               questionID: "built-tested",
             },
-          ],
-
-          BottomButtonHolderObject: {
-            bottomButtonHolderID: "FH Page 1 Button Holder",
-            bottomButtonHolderItems: [
-              {
+            {
                 // Button
                 renderOrder: 4,
                 componentType: "button-selection-confirmation",
@@ -818,8 +739,7 @@ export const en_intakeQuestions_Book: BookObject = {
                 textValueSomethingSelected: "Next Question!",
                 destination: "page-next",
               },
-            ],
-          },
+          ],
         },
         {
           id: "page-whatIsStoppingYou",
@@ -833,59 +753,33 @@ export const en_intakeQuestions_Book: BookObject = {
 
           pageItems: [
             {
-              // Image
-              renderOrder: 0,
-              componentType: "image",
-              fileName: "qa-part1.png",
-              sizeOfPageTaken: "20%",
-              animationName: "fade-up",
-              pageOrientation: "portrait",
-              hasDropShadow: false,
-            },
-
-            {
               // Page Title
               renderOrder: 1,
               componentType: "text",
               textValue:
                 "What is stopping you from bringing your idea to life on your own?",
               textType: "h2",
+              colorText: "var(--color-accent-primary-bold-800-default, #00677E)",
               textAlignment: "left",
             },
             {
-              // Button Item List
-              renderOrder: 2,
-              componentType: "button-item-list",
-              selectMultiple: true,
-              buttonItemsList: [
-                "Too expensive",
-                "Not enough time(don't have it)",
-                "Can't talk to the right people",
-                "Don't know who the right people are.",
-                "Analysis paralysis - I don't know where to start.",
-                "Other",
-              ],
-              questionID: "what-is-stopping-you",
+              renderOrder: 3,
+              componentType: "input-text",
+              placeHolderText: "Type your answer here",
+              questionID: "barriers_to_begin",
+              destination: "page-next",
+            },
+            {
+              // Image
+              renderOrder: 0,
+              componentType: "image",
+              fileName: "thoughtful-astronaut-satellite-lowpoly-draft.png",
+              sizeOfPageTaken: "20%",
+              animationName: "fade-up",
+              pageOrientation: "portrait",
+              hasDropShadow: false,
             },
           ],
-
-          BottomButtonHolderObject: {
-            bottomButtonHolderID: "FH Page 1 Button Holder",
-            bottomButtonHolderItems: [
-              {
-                // Button
-                renderOrder: 4,
-                componentType: "button-selection-confirmation",
-                buttonType: "swipe-indicator",
-                buttonStyle: "primary",
-                iconVisible: false,
-                textValueNoneSelected: "Select an Option",
-                destinationNoneSelected: "null",
-                textValueSomethingSelected: "Next Question!",
-                destination: "page-next",
-              },
-            ],
-          },
         },
 
         {
@@ -900,23 +794,13 @@ export const en_intakeQuestions_Book: BookObject = {
 
           pageItems: [
             {
-              // Image
-              renderOrder: 0,
-              componentType: "image",
-              fileName: "qa-part2.png",
-              sizeOfPageTaken: "20%",
-              animationName: "fade-up",
-              pageOrientation: "portrait",
-              hasDropShadow: false,
-            },
-
-            {
               // Page Title
               renderOrder: 1,
               componentType: "text",
               textValue:
                 "Have you worked on this idea during your personal time, work time, or both?",
               textType: "h2",
+              colorText: "var(--color-accent-primary-bold-800-default, #00677E)",
               textAlignment: "left",
             },
             {
@@ -932,25 +816,19 @@ export const en_intakeQuestions_Book: BookObject = {
               ],
               questionID: "time-worked",
             },
-          ],
-
-          BottomButtonHolderObject: {
-            bottomButtonHolderID: "FH Page 1 Button Holder",
-            bottomButtonHolderItems: [
-              {
+            {
                 // Button
                 renderOrder: 3,
                 componentType: "button-selection-confirmation",
                 buttonType: "swipe-indicator",
                 buttonStyle: "primary",
                 iconVisible: false,
-                textValueNoneSelected: "Select an Option",
+                textValueNoneSelected: "Select an option",
                 destinationNoneSelected: "null",
-                textValueSomethingSelected: "Next Question!",
+                textValueSomethingSelected: "Next question!",
                 destination: "page-next",
               },
-            ],
-          },
+          ],
         },
         {
           id: "page-whereDoYouSeeInAYear",
@@ -963,16 +841,6 @@ export const en_intakeQuestions_Book: BookObject = {
           hasLock: false,
 
           pageItems: [
-            {
-              // Image
-              renderOrder: 0,
-              componentType: "image",
-              fileName: "qa-part2.png",
-              sizeOfPageTaken: "20%",
-              animationName: "fade-up",
-              pageOrientation: "portrait",
-              hasDropShadow: false,
-            },
 
             {
               // Page Title
@@ -980,6 +848,7 @@ export const en_intakeQuestions_Book: BookObject = {
               componentType: "text",
               textValue: "Where do you see your invention a year from now?",
               textType: "h2",
+              colorText: "var(--color-accent-primary-bold-800-default, #00677E)",
               textAlignment: "left",
             },
             {
@@ -989,10 +858,20 @@ export const en_intakeQuestions_Book: BookObject = {
               questionID: "year_from_now",
               destination: "page-next",
             },
+            {
+              // Image
+              renderOrder: 0,
+              componentType: "image",
+              fileName: "thinking-astronaut-lowpoly-draft.png",
+              sizeOfPageTaken: "20%",
+              animationName: "fade-up",
+              pageOrientation: "portrait",
+              hasDropShadow: false,
+            },
           ],
         },
         {
-          id: "page-haveYouWorkedOnThis",
+          id: "page-howInvolvedDoYouWantToBe",
           navTitle: "null",
           keywords: "introduction",
           authors: "Kyle Formella, Maddox Binder",
@@ -1003,23 +882,13 @@ export const en_intakeQuestions_Book: BookObject = {
 
           pageItems: [
             {
-              // Image
-              renderOrder: 0,
-              componentType: "image",
-              fileName: "qa-part2.png",
-              sizeOfPageTaken: "20%",
-              animationName: "fade-up",
-              pageOrientation: "portrait",
-              hasDropShadow: false,
-            },
-
-            {
               // Page Title
               renderOrder: 1,
               componentType: "text",
               textValue:
                 "How involved do you want to be in developing this idea further?",
               textType: "h2",
+              colorText: "var(--color-accent-primary-bold-800-default, #00677E)",
               textAlignment: "left",
             },
             {
@@ -1035,26 +904,23 @@ export const en_intakeQuestions_Book: BookObject = {
               ],
               questionID: "how_involved",
             },
+            {
+              // Button
+              renderOrder: 4,
+              componentType: "button-selection-confirmation",
+              buttonType: "swipe-indicator",
+              buttonStyle: "primary",
+              iconVisible: false,
+              textValueNoneSelected: "Select an Option",
+              destinationNoneSelected: "null",
+              textValueSomethingSelected: "Next question!",
+              destination: "modal-accountFinishedCheckpoint",
+            },
           ],
 
-          BottomButtonHolderObject: {
-            bottomButtonHolderID: "FH Page 1 Button Holder",
-            bottomButtonHolderItems: [
-              {
-                // Button
-                renderOrder: 3,
-                componentType: "button",
-                buttonType: "swipe-indicator",
-                buttonStyle: "primary",
-                iconVisible: false,
-                textValue: "Next Question!",
-                destination: "modal-002",
-              },
-            ],
-          },
           modalObjects: [
             {
-              modalID: "modal-002",
+              modalID: "modal-accountFinishedCheckpoint",
               modalType: "sheet",
               modalItems: [
                 {
@@ -1069,8 +935,9 @@ export const en_intakeQuestions_Book: BookObject = {
             },
           ],
         },
+
         {
-          id: "file_input",
+          id: "page-fileInput",
           navTitle: "null",
           keywords: "introduction",
           authors: "Kyle Formella, Maddox Binder",

@@ -124,7 +124,7 @@ export default function Object_Button_Selection_Multi(
         onTouchStart={(e) => Object.assign(e.currentTarget.style, activeStyles)} // Mobile press
         onTouchEnd={(e) => Object.assign(e.currentTarget.style, customStyles)} // Mobile release
       >
-        <div
+        <div className="multiSelectItemsWrapper" // Eddie, Maddox did this as a temp fix. Needs givenMobile prop to be legit.
           style={{
             display: "flex",
             justifyContent: "left",

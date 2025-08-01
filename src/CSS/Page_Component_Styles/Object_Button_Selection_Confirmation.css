@@ -14,16 +14,14 @@
     margin-bottom: var(--spacing-md-desktop);
     margin-right: auto;
     margin-left: auto;
-    border: 1px solid var(--color-success-interact-bold-default, #0A6B4E);
-
 
     display: inline-flex;
-    padding: var(--spacing-sm-desktop, 8px) var(--spacing-lg-desktop, 16px);
+    padding: var(--spacing-sm-desktop, 8px) var(--spacing-xl-desktop, 16px);
     justify-content: center;
     align-items: center;
     gap: var(--spacing-sm-desktop, 8px);
 
-    border-radius: var(--spacing-sm-desktop, 8px);
+    border-radius: var(--spacing-lg-desktop, 16px);
     display: flex;
     place-items: center;
     justify-content: space-evenly;
@@ -37,18 +35,18 @@
 }
 
 .selection-confirmation-button-primary-desktop {
-    background: var(--color-success-interact-bold-default, #0A6B4E);
+    background: var(--color-primary-interact-bold-default, #00677E);
 }
 
 .selection-confirmation-button-primary-desktop:hover {
 
-    background: var(--color-success-interact-bold-hovered, #004B35);
-    border: 1px solid var(--color-success-interact-bold-hovered, #004B35);
+    background: var(--color-primary-interact-bold-hovered, #004858);
+    border: 1px solid var(--color-primary-interact-bold-hovered, #004858);
 }
 
 .selection-confirmation-button-primary-desktop:active {
-    background: var(--color-success-interact-bold-pressed, #003727);
-    border: 1px solid var(--color-success-interact-bold-pressed, #003727);
+    background: var(--color-primary-interact-bold-pressed, #003541);
+    border: 1px solid var(--color-primary-interact-bold-pressed, #003541);
 }
 
 
@@ -120,8 +118,8 @@
 /* Button */
 .selection-confirmation-button-secondary-desktop {
     background-color: var(--color-surface-default);
-    border-radius: var(--spacing-sm-desktop, 8px);
-    border: 1px solid var(--color-success-interact-bold-default, #0A6B4E);
+    border-radius: var(--spacing-lg-desktop, 16px);
+    border: 1px solid var(--color-primary-interact-bold-default, #00677E);
 
     display: flex;
     place-items: center;
@@ -130,18 +128,18 @@
     transition: background-color 0.3s ease;
     user-select: none;
 
-    color: var(--color-success-interact-bold-hovered, #004B35);
+    color: var(--color-primary-interact-bold-hovered, #004858);
     ;
 
 }
 
 .selection-confirmation-button-secondary-desktop:hover {
-    border: 1px solid var(--color-success-interact-bold-hovered, #004B35);
+    border: 1px solid var(--color-primary-interact-bold-hovered, #004858);
 
 }
 
 .selection-confirmation-button-secondary-desktop:active {
-    border: 1px solid var(--color-success-interact-bold-pressed, #003727);
+    border: 1px solid var(--color-primary-interact-bold-pressed, #003541);
 }
 
 
@@ -155,7 +153,7 @@
 /* Text */
 .selection-confirmation-button-secondary-text-desktop {
     /* this is no longer really useful */
-    color: var(--color-success-interact-bold-default, #0A6B4E);
+    color: var(--color-primary-interact-bold-default, #00677E);
 }
 
 .selection-confirmation-button-secondary-text-disabled-desktop {
@@ -166,17 +164,17 @@
 
 .selection-confirmation-button-secondary-desktop:hover .selection-confirmation-button-secondary-text-desktop {
 
-    color: var(--color-success-interact-bold-hovered, #004B35);
+    color: var(--color-primary-interact-bold-hovered, #004858);
 }
 
 .selection-confirmation-button-secondary-desktop:active .selection-confirmation-button-secondary-text-desktop {
 
-    color: var(--color-success-interact-bold-pressed, #003727);
+    color: var(--color-primary-interact-bold-pressed, #003541);
 }
 
 .selection-confirmation-button-secondary-desktop:hover:active .selection-confirmation-button-secondary-text-desktop {
 
-    color: var(--color-success-interact-bold-pressed, #003727);
+    color: var(--color-primary-interact-bold-pressed, #003541);
 }
 
 
@@ -185,7 +183,7 @@
 .selection-confirmation-button-secondary-icon-desktop {
 
 
-    color: var(--color-success-interact-bold-default, #0A6B4E);
+    color: var(--color-primary-interact-bold-default, #00677E);
 }
 
 .selection-confirmation-button-secondary-icon-disabled-desktop {
@@ -196,17 +194,17 @@
 
 .selection-confirmation-button-secondary-desktop:hover .selection-confirmation-button-secondary-icon-desktop {
 
-    color: var(--color-success-interact-bold-hovered, #004B35);
+    color: var(--color-primary-interact-bold-hovered, #004858);
 }
 
 .selection-confirmation-button-secondary-desktop:active .selection-confirmation-button-secondary-icon-desktop {
 
-    color: var(--color-success-interact-bold-pressed, #003727);
+    color: var(--color-primary-interact-bold-pressed, #003541);
 }
 
 .selection-confirmation-button-secondary-desktop:hover:active .selection-confirmation-button-secondary-icon-desktop {
 
-    color: var(--color-success-interact-bold-pressed, #003727);
+    color: var(--color-primary-interact-bold-pressed, #003541);
 }
 
 /* ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
@@ -243,7 +241,7 @@
 
 /* Text */
 .selection-confirmation-button-tertiary-text-desktop {
-    color: var(--color-success-interact-bold-default, #0A6B4E);
+    color: var(--color-primary-interact-bold-default, #00677E);
 
 }
 
@@ -255,17 +253,17 @@
 
 .selection-confirmation-button-tertiary-desktop:hover .selection-confirmation-button-tertiary-text-desktop {
 
-    color: var(--color-success-interact-bold-hovered, #004B35);
+    color: var(--color-primary-interact-bold-hovered, #004858);
 }
 
 .selection-confirmation-button-tertiary-desktop:active .selection-confirmation-button-tertiary-text-desktop {
 
-    color: var(--color-success-interact-bold-pressed, #003727);
+    color: var(--color-primary-interact-bold-pressed, #003541);
 }
 
 .selection-confirmation-button-tertiary-desktop:hover:active .selection-confirmation-button-tertiary-text-desktop {
 
-    color: var(--color-success-interact-bold-pressed, #003727);
+    color: var(--color-primary-interact-bold-pressed, #003541);
 }
 
 
@@ -273,7 +271,7 @@
 /* Icon */
 .selection-confirmation-button-tertiary-icon-desktop {
 
-    color: var(--color-success-interact-bold-default, #0A6B4E);
+    color: var(--color-primary-interact-bold-default, #00677E);
 }
 
 .selection-confirmation-button-tertiary-icon-disabled-desktop {
@@ -284,17 +282,17 @@
 
 .selection-confirmation-button-tertiary-desktop:hover .selection-confirmation-button-tertiary-icon-desktop {
 
-    color: var(--color-success-interact-bold-hovered, #004B35);
+    color: var(--color-primary-interact-bold-hovered, #004858);
 }
 
 .selection-confirmation-button-tertiary-desktop:active .selection-confirmation-button-tertiary-icon-desktop {
 
-    color: var(--color-success-interact-bold-pressed, #003727);
+    color: var(--color-primary-interact-bold-pressed, #003541);
 }
 
 .selection-confirmation-button-tertiary-desktop:hover:active .selection-confirmation-button-tertiary-icon-desktop {
 
-    color: var(--color-success-interact-bold-pressed, #003727);
+    color: var(--color-primary-interact-bold-pressed, #003541);
 }
 
 
@@ -312,7 +310,7 @@
     margin-bottom: var(--spacing-md-mobile);
     margin-right: auto;
     margin-left: auto;
-    border: 1px solid var(--color-success-interact-bold-default, #0A6B4E);
+    border: 1px solid var(--color-primary-interact-bold-default, #00677E);
 
 
     display: inline-flex;
@@ -321,7 +319,7 @@
     align-items: center;
     gap: var(--spacing-sm-mobile, 8px);
 
-    border-radius: var(--spacing-sm-mobile, 8px);
+    border-radius: var(--spacing-lg-mobile, 16px);
     display: flex;
     place-items: center;
     justify-content: space-evenly;
@@ -339,18 +337,18 @@
 }
 
 .selection-confirmation-button-primary-mobile {
-    background: var(--color-success-interact-bold-default, #0A6B4E);
+    background: var(--color-primary-interact-bold-default, #00677E);
 }
 
 .selection-confirmation-button-primary-mobile:hover {
 
-    background: var(--color-success-interact-bold-hovered, #004B35);
-    border: 1px solid var(--color-success-interact-bold-hovered, #004B35);
+    background: var(--color-primary-interact-bold-hovered, #004858);
+    border: 1px solid var(--color-primary-interact-bold-hovered, #004858);
 }
 
 .selection-confirmation-button-primary-mobile:active {
-    background: var(--color-success-interact-bold-pressed, #003727);
-    border: 1px solid var(--color-success-interact-bold-pressed, #003727);
+    background: var(--color-primary-interact-bold-pressed, #003541);
+    border: 1px solid var(--color-primary-interact-bold-pressed, #003541);
 }
 
 
@@ -422,8 +420,8 @@
 /* Button */
 .selection-confirmation-button-secondary-mobile {
     background-color: var(--color-surface-default);
-    border-radius: var(--spacing-sm-mobile, 8px);
-    border: 1px solid var(--color-success-interact-bold-default, #0A6B4E);
+    border-radius: var(--spacing-lg-mobile, 16px);
+    border: 1px solid var(--color-primary-interact-bold-default, #00677E);
 
     display: flex;
     place-items: center;
@@ -432,18 +430,18 @@
     transition: background-color 0.3s ease;
     user-select: none;
 
-    color: var(--color-success-interact-bold-hovered, #004B35);
+    color: var(--color-primary-interact-bold-hovered, #004858);
     ;
 
 }
 
 .selection-confirmation-button-secondary-mobile:hover {
-    border: 1px solid var(--color-success-interact-bold-hovered, #004B35);
+    border: 1px solid var(--color-primary-interact-bold-hovered, #004858);
 
 }
 
 .selection-confirmation-button-secondary-mobile:active {
-    border: 1px solid var(--color-success-interact-bold-pressed, #003727);
+    border: 1px solid var(--color-primary-interact-bold-pressed, #003541);
 }
 
 
@@ -457,7 +455,7 @@
 /* Text */
 .selection-confirmation-button-secondary-text-mobile {
     /* this is no longer really useful */
-    color: var(--color-success-interact-bold-default, #0A6B4E);
+    color: var(--color-primary-interact-bold-default, #00677E);
 }
 
 .selection-confirmation-button-secondary-text-disabled-mobile {
@@ -468,17 +466,17 @@
 
 .selection-confirmation-button-secondary-mobile:hover .selection-confirmation-button-secondary-text-mobile {
 
-    color: var(--color-success-interact-bold-hovered, #004B35);
+    color: var(--color-primary-interact-bold-hovered, #004858);
 }
 
 .selection-confirmation-button-secondary-mobile:active .selection-confirmation-button-secondary-text-mobile {
 
-    color: var(--color-success-interact-bold-pressed, #003727);
+    color: var(--color-primary-interact-bold-pressed, #003541);
 }
 
 .selection-confirmation-button-secondary-mobile:hover:active .selection-confirmation-button-secondary-text-mobile {
 
-    color: var(--color-success-interact-bold-pressed, #003727);
+    color: var(--color-primary-interact-bold-pressed, #003541);
 }
 
 
@@ -487,7 +485,7 @@
 .selection-confirmation-button-secondary-icon-mobile {
 
 
-    color: var(--color-success-interact-bold-default, #0A6B4E);
+    color: var(--color-primary-interact-bold-default, #00677E);
 }
 
 .selection-confirmation-button-secondary-icon-disabled-mobile {
@@ -498,17 +496,17 @@
 
 .selection-confirmation-button-secondary-mobile:hover .selection-confirmation-button-secondary-icon-mobile {
 
-    color: var(--color-success-interact-bold-hovered, #004B35);
+    color: var(--color-primary-interact-bold-hovered, #004858);
 }
 
 .selection-confirmation-button-secondary-mobile:active .selection-confirmation-button-secondary-icon-mobile {
 
-    color: var(--color-success-interact-bold-pressed, #003727);
+    color: var(--color-primary-interact-bold-pressed, #003541);
 }
 
 .selection-confirmation-button-secondary-mobile:hover:active .selection-confirmation-button-secondary-icon-mobile {
 
-    color: var(--color-success-interact-bold-pressed, #003727);
+    color: var(--color-primary-interact-bold-pressed, #003541);
 }
 
 /* ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
@@ -545,7 +543,7 @@
 
 /* Text */
 .selection-confirmation-button-tertiary-text-mobile {
-    color: var(--color-success-interact-bold-default, #0A6B4E);
+    color: var(--color-primary-interact-bold-default, #00677E);
 
 }
 
@@ -557,17 +555,17 @@
 
 .selection-confirmation-button-tertiary-mobile:hover .selection-confirmation-button-tertiary-text-mobile {
 
-    color: var(--color-success-interact-bold-hovered, #004B35);
+    color: var(--color-primary-interact-bold-hovered, #004858);
 }
 
 .selection-confirmation-button-tertiary-mobile:active .selection-confirmation-button-tertiary-text-mobile {
 
-    color: var(--color-success-interact-bold-pressed, #003727);
+    color: var(--color-primary-interact-bold-pressed, #003541);
 }
 
 .selection-confirmation-button-tertiary-mobile:hover:active .selection-confirmation-button-tertiary-text-mobile {
 
-    color: var(--color-success-interact-bold-pressed, #003727);
+    color: var(--color-primary-interact-bold-pressed, #003541);
 }
 
 
@@ -575,7 +573,7 @@
 /* Icon */
 .selection-confirmation-button-tertiary-icon-mobile {
 
-    color: var(--color-success-interact-bold-default, #0A6B4E);
+    color: var(--color-primary-interact-bold-default, #00677E);
 }
 
 .selection-confirmation-button-tertiary-icon-disabled-mobile {
@@ -586,15 +584,15 @@
 
 .selection-confirmation-button-tertiary-mobile:hover .selection-confirmation-button-tertiary-icon-mobile {
 
-    color: var(--color-success-interact-bold-hovered, #004B35);
+    color: var(--color-primary-interact-bold-hovered, #004858);
 }
 
 .selection-confirmation-button-tertiary-mobile:active .selection-confirmation-button-tertiary-icon-mobile {
 
-    color: var(--color-success-interact-bold-pressed, #003727);
+    color: var(--color-primary-interact-bold-pressed, #003541);
 }
 
 .selection-confirmation-button-tertiary-mobile:hover:active .selection-confirmation-button-tertiary-icon-mobile {
 
-    color: var(--color-success-interact-bold-pressed, #003727);
+    color: var(--color-primary-interact-bold-pressed, #003541);
 }
