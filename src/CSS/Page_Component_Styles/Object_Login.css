@@ -19,8 +19,17 @@
   flex-direction: column;
   width: 100%;
   align-items: flex-start;
-  gap: var(--spacing-sm, 8px);
+  gap: var(--spacing-sm-desktop, 8px);
+
+  font-family: var(--font-family-body-desktop, "Nunito Sans");
+  font-size: var(--font-size-body-default-desktop, 20px);
+  font-style: normal;
+  font-weight: var(--font-weight-body-default-desktop, 400);
+  line-height: var(--font-line-height-body-default-desktop, 24px);
+
+  letter-spacing: var(--font-letter-spacing-default-desktop, 0.1px);
 }
+
 .auth-field-mobile {
   display: flex;
   flex-direction: column;
@@ -34,13 +43,14 @@
   flex-direction: column;
   width: 100%;
   align-items: flex-start;
-  gap: var(--spacing-sm-desktop, 8px);
-  
+  gap: var(--spacing-lg-desktop, 8px);
+
   font-family: var(--font-family-body-desktop, "Nunito Sans");
-  font-size: var(--font-size-header-h4-desktop, 20px);
+  font-size: var(--font-size-body-default-desktop, 20px);
   font-style: normal;
-  font-weight: var(--font-weight-header-h4-desktop, 700);
-  line-height: var(--font-line-height-header-h4-desktop, 28px);
+  font-weight: var(--font-weight-body-default-desktop, 400);
+  line-height: var(--font-line-height-body-default-desktop, 24px);
+
   letter-spacing: var(--font-letter-spacing-default-desktop, 0.1px);
 }
 /* Normal State */

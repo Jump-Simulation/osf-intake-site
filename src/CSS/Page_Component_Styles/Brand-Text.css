@@ -13,11 +13,180 @@
 @import "./Brand-Colors.css";
 @import "./Brand-Scale-and-Spacing.css";
 
+/******************************************** Avenir Font - Normal ********************************************/
+
+@font-face {
+  font-family: 'Avenir';
+  src: url('../../../fonts/Avenir-Font/Avenir-Light-07.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+}
+
 @font-face {
   font-family: 'Avenir';
   src: url('../../../fonts/Avenir-Font/Avenir-Book-01.ttf') format('truetype');
-  font-weight: normal;
+  font-weight: 300;
   font-style: normal;
+}
+
+@font-face {
+  font-family: 'Avenir';
+  src: url('../../../fonts/Avenir-Font/Avenir-Roman-12.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Avenir';
+  src: url('../../../fonts/Avenir-Font/Avenir-Medium-09.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Avenir';
+  src: url('../../../fonts/Avenir-Font/Avenir-Heavy-05.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Avenir';
+  src: url('../../../fonts/Avenir-Font/Avenir-Black-03.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+/******************************************** Avenir Font - Italic ********************************************/
+
+@font-face {
+  font-family: 'Avenir';
+  src: url('../../../fonts/Avenir-Font/Avenir-LightOblique-08.ttf') format('truetype');
+  font-weight: 200;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Avenir';
+  src: url('../../../fonts/Avenir-Font/Avenir-BookOblique-02.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Avenir';
+  src: url('../../../fonts/Avenir-Font/Avenir-Oblique-11.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Avenir';
+  src: url('../../../fonts/Avenir-Font/Avenir-MediumOblique-10.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Avenir';
+  src: url('../../../fonts/Avenir-Font/Avenir-HeavyOblique-06.ttf') format('truetype');
+  font-weight: 800;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Avenir';
+  src: url('../../../fonts/Avenir-Font/Avenir-BlackOblique-04.ttf') format('truetype');
+  font-weight: 900;
+  font-style: italic;
+}
+
+/******************************************** Avenir Next Font - Normal ********************************************/
+
+@font-face {
+  font-family: 'Avenir Next';
+  src: url('../../../fonts/Avenir-Font/AvenirNext-UltraLight-11.ttf') format('truetype');
+  font-weight: 275;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Avenir Next';
+  src: url('../../../fonts/Avenir-Font/AvenirNext-Regular-08.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Avenir Next';
+  src: url('../../../fonts/Avenir-Font/AvenirNext-Medium-06.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Avenir Next';
+  src: url('../../../fonts/Avenir-Font/AvenirNext-DemiBold-03.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Avenir Next';
+  src: url('../../../fonts/Avenir-Font/AvenirNext-Bold-01.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Avenir Next';
+  src: url('../../../fonts/Avenir-Font/AvenirNext-Heavy-09.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+/******************************************** Avenir Next Font - Italic ********************************************/
+
+@font-face {
+  font-family: 'Avenir Next';
+  src: url('../../../fonts/Avenir-Font/AvenirNext-UltraLightItalic-12.ttf') format('truetype');
+  font-weight: 275;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Avenir Next';
+  src: url('../../../fonts/Avenir-Font/AvenirNext-Italic-05.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Avenir Next';
+  src: url('../../../fonts/Avenir-Font/AvenirNext-MediumItalic-07.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Avenir Next';
+  src: url('../../../fonts/Avenir-Font/AvenirNext-DemiBoldItalic-04.ttf') format('truetype');
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Avenir Next';
+  src: url('../../../fonts/Avenir-Font/AvenirNext-BoldItalic-02.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Avenir Next';
+  src: url('../../../fonts/Avenir-Font/AvenirNext-HeavyItalic-10.ttf') format('truetype');
+  font-weight: 900;
+  font-style: italic;
 }
 
 .avenir-text {
@@ -33,6 +202,7 @@
     --font-family-red-hat-text: "Red Hat Text";
     --font-family-red-hat-display: "Red Hat Display";
     --font-family-avenir: 'Avenir';
+    --font-family-avenir-next: 'Avenir Next';
 
     /*BRAND - Font Weight*/
     --font-weight-300: 300;
@@ -46,9 +216,9 @@
 
     /* ALIAS /////////////////////////////////////////////////////////////////////////////////*/
     /*ALIAS - Font Family*/
-    --font-family-header: var(--font-family-red-hat-display);
-    --font-family-subheader: var(--font-family-red-hat-display);
-    --font-family-body: var(--font-family-red-hat-text);
+    --font-family-header: var(--font-family-avenir-next);
+    --font-family-subheader: var(--font-family-avenir-next);
+    --font-family-body: var(--font-family-avenir);
 
     /*ALIAS - Font Weight*/
 
@@ -71,6 +241,14 @@
     --font-weight-red-hat-display-semibold: 600;
     --font-weight-red-hat-display-bold: 700;
 
+    --font-weight-avenir-regular: 400;
+    --font-weight-avenir-medium: 500;
+    --font-weight-avenir-bold: 800;
+
+    --font-weight-avenir-next-regular: 400;
+    --font-weight-avenir-next-semibold: 500;
+    --font-weight-avenir-next-bold: 600;
+
     /*ALIAS - Line Height*/
     --font-line-height-5xs: var(--scale-300-12);
     --font-line-height-4xs: var(--scale-400-16);
@@ -85,6 +263,8 @@
     --font-line-height-3xl: var(--scale-1400-56);
     --font-line-height-4xl: var(--scale-1600-64);
     --font-line-height-5xl: var(--scale-1800-72);
+    --font-line-height-6xl: var(--scale-2000-80);
+    --font-line-height-7xl: var(--scale-2200-88);
 
     /*ALIAS - Size*/
     --font-size-5xs: var(--scale-250-10);
@@ -101,6 +281,8 @@
     --font-size-3xl: var(--scale-1200-48);
     --font-size-4xl: var(--scale-1400-56);
     --font-size-5xl: var(--scale-1600-64);
+    --font-size-6xl: var(--scale-1800-72);
+    --font-size-7xl: var(--scale-2000-80);
 
     /*ALIAS - Paragraph Spacing*/
     --font-paragraph-spacing-5xs: var(--scale-250-10);
@@ -117,6 +299,8 @@
     --font-paragraph-spacing-3xl: var(--scale-1200-48);
     --font-paragraph-spacing-4xl: var(--scale-1400-56);
     --font-paragraph-spacing-5xl: var(--scale-1600-64);
+    --font-paragraph-spacing-6xl: var(--scale-1800-72);
+    --font-paragraph-spacing-7xl: var(--scale-2000-80);
 
     /* MAPPED WEIGHTS /////////////////////////////////////////////////////////////////////////////////*/
     /* MAPPED - Font Family */
@@ -139,28 +323,28 @@
         /* MAPPED - Font Weight*/
         /* Header */
         /* Mobile */
-        --font-weight-header-h1-mobile: var(--font-weight-red-hat-display-bold);
-        --font-weight-header-h2-mobile: var(--font-weight-red-hat-display-bold);
-        --font-weight-header-h3-mobile: var(--font-weight-red-hat-display-bold);
-        --font-weight-header-h4-mobile: var(--font-weight-red-hat-display-semibold);
+        --font-weight-header-h1-mobile: var(--font-weight-avenir-next-bold);
+        --font-weight-header-h2-mobile: var(--font-weight-avenir-next-bold);
+        --font-weight-header-h3-mobile: var(--font-weight-avenir-next-bold);
+        --font-weight-header-h4-mobile: var(--font-weight-avenir-next-bold);
 
         /* Desktop */
-        --font-weight-header-h1-desktop: var(--font-weight-red-hat-display-bold);
-        --font-weight-header-h2-desktop: var(--font-weight-red-hat-display-semibold);
-        --font-weight-header-h3-desktop: var(--font-weight-red-hat-display-bold);
-        --font-weight-header-h4-desktop: var(--font-weight-red-hat-display-semibold);
+        --font-weight-header-h1-desktop: var(--font-weight-avenir-next-bold);
+        --font-weight-header-h2-desktop: var(--font-weight-avenir-next-bold);
+        --font-weight-header-h3-desktop: var(--font-weight-avenir-next-bold);
+        --font-weight-header-h4-desktop: var(--font-weight-avenir-next-bold);
 
         /* MAPPED - Font Weight */
         /* Body */
         /* Mobile */
-        --font-weight-body-default-mobile: var(--font-weight-red-hat-text-regular);
-        --font-weight-body-bold-mobile: var(--font-weight-red-hat-text-bold);
-        --font-weight-body-caption-mobile: var(--font-weight-red-hat-text-medium);
+        --font-weight-body-default-mobile: var(--font-weight-avenir-regular);
+        --font-weight-body-bold-mobile: var(--font-weight-avenir-bold);
+        --font-weight-body-caption-mobile: var(--font-weight-avenir-medium);
 
         /* Desktop */
-        --font-weight-body-default-desktop: var(--font-weight-red-hat-text-regular);
-        --font-weight-body-bold-desktop: var(--font-weight-red-hat-text-bold);
-        --font-weight-body-caption-desktop: var(--font-weight-red-hat-text-medium);
+        --font-weight-body-default-desktop: var(--font-weight-avenir-regular);
+        --font-weight-body-bold-desktop: var(--font-weight-avenir-bold);
+        --font-weight-body-caption-desktop: var(--font-weight-avenir-medium);
         
 
 
@@ -425,7 +609,7 @@
 
         text-decoration: underline;
 
-        font-family: var(--font-family-body-mobile, "Nunito Sans");
+        font-family: var(--font-family-body-mobile, "Avenir");
         font-size: var(--font-size-body-default-mobile, 16px);
         font-style: normal;
         font-weight: var(--font-weight-body-default-mobile, 400);

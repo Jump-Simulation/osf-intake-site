@@ -3,6 +3,7 @@ import { Timestamp, doc, getDoc, setDoc } from "firebase/firestore";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth, firestore } from "../Firebase";
 import "../../CSS/Page_Component_Styles/Object_Input_Text.css";
+import "../../CSS/Page_Component_Styles/Object_Button_Normal.css";
 import { AppContext, useAppContext } from "../../App";
 import { getDeviceId } from "./Object_deviceID";
 
@@ -174,7 +175,7 @@ export default function Object_Input_Text({
   }
 
   return (
-    <div>
+    <div className="text_input_items_container">
       <div
         className={`text_input_content_holder ${
           attemptedSubmit && currentWords < minWordCountWords
@@ -216,7 +217,7 @@ export default function Object_Input_Text({
         </div>
       </div>
 
-      <div>
+      <div className="input_button_holder">
         {currentWords < minWordCountWords ? (
           <button
             className="gray-button-primary-desktop"
