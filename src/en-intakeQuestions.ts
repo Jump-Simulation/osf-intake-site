@@ -646,7 +646,7 @@ export const en_intakeQuestions_Book: BookObject = {
           keywords: "introduction",
           authors: "Kyle Formella, Maddox Binder",
           lastUpdated: "12092024",
-          pageBackgroundColor: "--osfBrand-tealgray-50, #F4FBFC",
+          pageBackgroundColor: "var(--color-surface-default, #F4FBFC)",
           hasVariables: false,
           hasLock: false,
 
@@ -688,7 +688,7 @@ export const en_intakeQuestions_Book: BookObject = {
           keywords: "introduction",
           authors: "Kyle Formella, Maddox Binder",
           lastUpdated: "12092024",
-          pageBackgroundColor: "--osfBrand-tealgray-50, #F4FBFC",
+          pageBackgroundColor: "var(--color-surface-default, #F4FBFC)",
           hasVariables: false,
           hasLock: false,
 
@@ -737,7 +737,7 @@ export const en_intakeQuestions_Book: BookObject = {
           keywords: "introduction",
           authors: "Kyle Formella, Maddox Binder",
           lastUpdated: "12092024",
-          pageBackgroundColor: "--osfBrand-tealgray-50, #F4FBFC",
+          pageBackgroundColor: "var(--color-surface-default, #F4FBFC)",
           hasVariables: false,
           hasLock: false,
 
@@ -777,7 +777,7 @@ export const en_intakeQuestions_Book: BookObject = {
           keywords: "introduction",
           authors: "Kyle Formella, Maddox Binder",
           lastUpdated: "12092024",
-          pageBackgroundColor: "--osfBrand-tealgray-50, #F4FBFC",
+          pageBackgroundColor: "var(--color-surface-default, #F4FBFC)",
           hasVariables: false,
           hasLock: false,
 
@@ -818,7 +818,7 @@ export const en_intakeQuestions_Book: BookObject = {
           keywords: "introduction",
           authors: "Kyle Formella, Maddox Binder",
           lastUpdated: "12092024",
-          pageBackgroundColor: "--osfBrand-tealgray-50, #F4FBFC",
+          pageBackgroundColor: "var(--color-surface-default, #F4FBFC)",
           hasVariables: false,
           hasLock: false,
 
@@ -1024,7 +1024,7 @@ export const en_intakeQuestions_Book: BookObject = {
           keywords: "introduction",
           authors: "Kyle Formella, Maddox Binder",
           lastUpdated: "12092024",
-          pageBackgroundColor: "--osfBrand-tealgray-50, #F4FBFC",
+          pageBackgroundColor: "var(--color-surface-default, #F4FBFC)",
           hasVariables: false,
           hasLock: false,
 
@@ -1073,7 +1073,7 @@ export const en_intakeQuestions_Book: BookObject = {
           keywords: "introduction",
           authors: "Kyle Formella, Maddox Binder",
           lastUpdated: "12092024",
-          pageBackgroundColor: "--osfBrand-tealgray-50, #F4FBFC",
+          pageBackgroundColor: "var(--color-surface-default, #F4FBFC)",
           hasVariables: false,
           hasLock: false,
 
@@ -1115,7 +1115,7 @@ export const en_intakeQuestions_Book: BookObject = {
           keywords: "introduction",
           authors: "Kyle Formella, Maddox Binder",
           lastUpdated: "12092024",
-          pageBackgroundColor: "--osfBrand-tealgray-50, #F4FBFC",
+          pageBackgroundColor: "var(--color-surface-default, #F4FBFC)",
           hasVariables: false,
           hasLock: false,
 
@@ -1164,7 +1164,7 @@ export const en_intakeQuestions_Book: BookObject = {
           keywords: "introduction",
           authors: "Kyle Formella, Maddox Binder",
           lastUpdated: "12092024",
-          pageBackgroundColor: "--osfBrand-tealgray-50, #F4FBFC",
+          pageBackgroundColor: "var(--color-surface-default, #F4FBFC)",
           hasVariables: false,
           hasLock: false,
 
@@ -1204,7 +1204,7 @@ export const en_intakeQuestions_Book: BookObject = {
           keywords: "introduction",
           authors: "Kyle Formella, Maddox Binder",
           lastUpdated: "12092024",
-          pageBackgroundColor: "--osfBrand-tealgray-50, #F4FBFC",
+          pageBackgroundColor: "var(--color-surface-default, #F4FBFC)",
           hasVariables: false,
           hasLock: false,
 
@@ -1345,7 +1345,7 @@ export const en_intakeQuestions_Book: BookObject = {
           keywords: "introduction",
           authors: "Kyle Formella, Maddox Binder",
           lastUpdated: "12092024",
-          pageBackgroundColor: "--osfBrand-tealgray-50, #F4FBFC",
+          pageBackgroundColor: "var(--color-surface-default, #F4FBFC)",
           hasVariables: false,
           hasLock: false,
 
