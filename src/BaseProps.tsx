@@ -37,5 +37,9 @@ export interface BaseCarouselChildProps {
     givenGlobal_NewHoverColor?: string;
     givenGlobal_NewActiveColor?: string;
 
+    givenGlobal_NewPrimaryTextColor?: string;
+    givenGlobal_NewHoverTextColor?: string;
+    givenGlobal_NewActiveTextColor?: string;
+
 
 }

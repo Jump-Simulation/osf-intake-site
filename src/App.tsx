@@ -515,56 +515,7 @@ function App() {
     }
   }, []);
 
-  const [patientInfo_ScrubbedId, setPatientInfo_ScrubbedId] = useState("null");
-  const [patientInfo_PatientNameFirst, setPatientInfo_PatientNameFirst] =
-    useState("null");
-  const [patientInfo_PatientNameLast, setPatientInfo_PatientNameLast] =
-    useState("null");
-  const [patientInfo_PatientAge, setPatientInfo_PatientAge] = useState(-1);
-  const [patientInfo_PatientSex, setPatientInfo_PatientSex] = useState("null");
-  const [
-    patientInfo_PatientDateOfProcedure,
-    setPatientInfo_PatientDateOfProcedure,
-  ] = useState("null");
-  const [
-    patientInfo_PatientAnesthesiaType,
-    setPatientInfo_PatientAnesthesiaType,
-  ] = useState("null");
-  const [
-    patientInfo_PatientDateEnteredPatientFlow,
-    setPatientInfo_PatientDateEnteredPatientFlow,
-  ] = useState("null");
-  const [
-    patientInfo_PatientTimeOfProcedure,
-    setPatientInfo_PatientTimeOfProcedure,
-  ] = useState("null");
-  const [patientInfo_PatientProcedureID, setPatientInfo_PatientProcedureID] =
-    useState("null");
-  const [
-    patientInfo_PatientProcedureLocation,
-    setPatientInfo_PatientProcedureLocation,
-  ] = useState("null");
-  const [
-    patientInfo_PatientPreferedLanguage,
-    setPatientInfo_PatientPreferedLanguage,
-  ] = useState("null");
-  const [
-    patientInfo_PatientHasSeenProcedureIntro,
-    setPatientInfo_PatientHasSeenProcedureIntro,
-  ] = useState(-1);
-  const [
-    patientInfo_PatientTagsTrueArray,
-    setPatientInfo_PatientTagsTrueArray,
-  ] = useState("null");
-  const [
-    patientInfo_PatientTagsFalseArray,
-    setPatientInfo_PatientTagsFalseArray,
-  ] = useState("null");
-  const [patientInfo_PatientOptOut, setPatientInfo_PatientOptOut] = useState(0);
-  const [
-    patientInfo_PatientProcedureName,
-    setPatientInfo_PatientProcedureName,
-  ] = useState("null");
+
 
   // FH SPECIFIC STUFF
   //var localCurrentProgressbarVisible: boolean = true;
@@ -2731,7 +2682,7 @@ function App() {
           givenGlobal_isMobile={isMobileString}
           givenGlobal_CurrentCarouselIndex={currentCarouselIndex}
           givenGlobal_PreviousCarouselIndex={previousCarouselIndex}
-          givenGlobal_PatientProcedureName={patientInfo_PatientProcedureName}
+          givenGlobal_PatientProcedureName={""}
           givenGlobal_ShouldExcludeByDefault={
             pageItem.excludeByDefault || false
           }
@@ -2762,6 +2713,12 @@ function App() {
               givenNewPrimaryColor={pageItem.colorOverrideDefault || ""}
               givenNewActiveColor={pageItem.colorOverrideActive || ""}
               givenNewHoverColor={pageItem.colorOverrideHover || ""}
+
+              givenNewPrimaryTextColor={pageItem.colorOverrideTextDefault || ""}
+              givenNewActiveTextColor={pageItem.colorOverrideTextActive || ""}
+              givenNewHoverTextColor={pageItem.colorOverrideTextHover || ""}
+
+
               /* 
                             givenSetTagsAnsweredTrue={SetTagsAnsweredTrue}
                             givenSetTagsAnsweredFalse={SetTagsAnsweredFalse} */
@@ -2946,6 +2903,10 @@ function App() {
               givenNewPrimaryColor={pageItem.colorOverrideDefault || ""}
               givenNewActiveColor={pageItem.colorOverrideActive || ""}
               givenNewHoverColor={pageItem.colorOverrideHover || ""}
+
+              givenNewPrimaryTextColor={pageItem.colorOverrideTextDefault || ""}
+              givenNewActiveTextColor={pageItem.colorOverrideTextActive || ""}
+              givenNewHoverTextColor={pageItem.colorOverrideTextHover || ""}
             />
           );
         }
@@ -2984,6 +2945,10 @@ function App() {
             givenNewPrimaryColor={pageItem.colorOverrideDefault || ""}
             givenNewActiveColor={pageItem.colorOverrideActive || ""}
             givenNewHoverColor={pageItem.colorOverrideHover || ""}
+
+            givenNewPrimaryTextColor={pageItem.colorOverrideTextDefault || ""}
+            givenNewActiveTextColor={pageItem.colorOverrideTextActive || ""}
+            givenNewHoverTextColor={pageItem.colorOverrideTextHover || ""}
           />
         );
       }
@@ -3606,14 +3571,12 @@ function App() {
 
       tempCarouselPagesToPush.push(...tempPagesToPush);
       patientInfo.hasSeenProcedureIntro = 1;
-      setPatientInfo_PatientHasSeenProcedureIntro(1);
+
       localTagsAnsweredTrue += "hasSeenIntro_";
       WriteTags("hasSeenIntro-true_");
-      /*    handleSendData(); */
+
     } else {
-      //console.log("We HAVE seen the intro before, ignoring it!")
-      //console.log("localCurrentBookData is: ");
-      //console.log(localCurrentBookData);
+
       tempCarouselPagesToPush = localCurrentPageData.filter((Page) => {
         var shouldInclude: boolean = true;
 
@@ -3948,6 +3911,10 @@ function App() {
     setScreen(givenString);
   }
 
+  async function WriteSubmissionToFirestore(givenAddress: string, givenEmail: string, givenData: string) {
+
+  }
+
   function loadLandingScreen(givenOrigin: string) {
     //navigateTo("Home");
     loadScreen("landingScreen", givenOrigin);
@@ -4223,35 +4190,35 @@ function App() {
           givenGlobal_CurrentCarouselIndex={currentCarouselIndex}
           givenGlobal_PreviousCarouselIndex={previousCarouselIndex}
           givenGlobal_PrepDestination={prepDestination}
-          givenGlobal_ScrubbedId={patientInfo_ScrubbedId}
-          givenGlobal_PatientNameFirst={patientInfo_PatientNameFirst}
-          givenGlobal_PatientNameLast={patientInfo_PatientNameLast}
-          givenGlobal_PatientAnesthesiaType={patientInfo_PatientAnesthesiaType}
-          givenGlobal_PatientSex={patientInfo_PatientSex}
-          givenGlobal_PatientAge={patientInfo_PatientAge}
+          givenGlobal_ScrubbedId={""}
+          givenGlobal_PatientNameFirst={""}
+          givenGlobal_PatientNameLast={""}
+          givenGlobal_PatientAnesthesiaType={""}
+          givenGlobal_PatientSex={""}
+          givenGlobal_PatientAge={0}
           givenGlobal_PatientDateEnteredPatientFlow={
-            patientInfo_PatientDateEnteredPatientFlow
+            ""
           }
           givenGlobal_PatientDateOfProcedure={
-            patientInfo_PatientDateOfProcedure
+            ""
           }
           givenGlobal_PatientHasSeenProcedureIntro={
-            patientInfo_PatientHasSeenProcedureIntro
+            1
           }
           givenGlobal_PatientPreferedLanguage={
-            patientInfo_PatientPreferedLanguage
+            ""
           }
           givenGlobal_PatientProcedureLocation={
-            patientInfo_PatientProcedureLocation
+            ""
           }
           givenGlobal_PatientTimeOfProcedure={
-            patientInfo_PatientTimeOfProcedure
+            ""
           }
-          givenGlobal_PatientProcedureID={patientInfo_PatientProcedureID}
-          givenGlobal_PatientProcedureName={patientInfo_PatientProcedureName}
-          givenGlobal_TagsTrueArray={patientInfo_PatientTagsTrueArray}
-          givenGlobal_TagsFalseArray={patientInfo_PatientTagsFalseArray}
-          givenGlobal_PatientOptOut={patientInfo_PatientOptOut}
+          givenGlobal_PatientProcedureID={""}
+          givenGlobal_PatientProcedureName={""}
+          givenGlobal_TagsTrueArray={""}
+          givenGlobal_TagsFalseArray={""}
+          givenGlobal_PatientOptOut={0}
           givenGlobal_MapToRead={selectionMapState}
           givenGlobal_LockNumber={localPageLockNumber}
           givenGlobal_CurrentPageID={localPageID}

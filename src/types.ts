@@ -1,3 +1,5 @@
+import { Timestamp } from "firebase/firestore";
+
 export interface BookObject {
   bookId: string;
   bookAuthors?: string[];
@@ -159,6 +161,12 @@ export interface PageItem {
   colorOverrideDefault?: string;
   colorOverrideHover?: string;
   colorOverrideActive?: string;
+
+  colorOverrideTextDefault?: string;
+  colorOverrideTextHover?: string;
+  colorOverrideTextActive?: string;
+
+
   iconSizeOverride?: string;
 }
 
@@ -181,4 +189,44 @@ export interface ModalObject {
 export interface BottomButtonHolderObject {
   bottomButtonHolderID?: string;
   bottomButtonHolderItems: PageItem[];
+}
+
+export interface SubmissionObject {
+
+  dateCreated: Timestamp;
+  dateUpdated: Timestamp;
+  randomizedId: string;
+
+  email: string;
+
+  q_problem_solving: string;
+
+  q_solution_category: string;
+
+  q_built_tested: string;
+
+  q_what_is_stopping_you: string;
+
+  q_time_worked: string;
+
+  q_year_from_now: string;
+
+  q_how_involved: string;
+
+  q_personally_connect: string;
+
+  q_when_where: string;
+
+  q_get_worse: string;
+
+  q_search_for: string;
+
+  q_describe_idea: string;
+
+  q_idea_name: string;
+
+  q_user_invention: string;
+
+  q_buyer_invention: string;
+
 }
