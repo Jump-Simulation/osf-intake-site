@@ -48,6 +48,10 @@ interface Object_Button_Normal_Props extends BaseCarouselChildProps {
   givenNewHoverColor?: string;
   givenNewActiveColor?: string;
 
+  givenNewPrimaryBorderColor?: string;
+  givenNewHoverBorderColor?: string;
+  givenNewActiveBorderColor?: string;
+
 
   givenNewPrimaryTextColor?: string;
   givenNewHoverTextColor?: string;
@@ -179,21 +183,21 @@ export default function Object_Button_Normal(
     //STEP 2
     const customStyles = {
       background: props.givenNewPrimaryColor,
-      border: `1px solid ${props.givenNewPrimaryColor}`,
+      border: `1px solid ${props.givenNewPrimaryBorderColor}`,
       transition: "background 0.3s ease-in-out",
       color: props.givenNewPrimaryTextColor,
     };
 
     const hoverStyles = {
       background: props.givenNewHoverColor,
-      border: `1px solid ${props.givenNewHoverColor}`,
+      border: `1px solid ${props.givenNewHoverBorderColor}`,
       transition: "background 0.3s ease-in-out",
       color: props.givenNewHoverTextColor,
     };
 
     const activeStyles = {
       background: props.givenNewActiveColor,
-      border: `1px solid ${props.givenNewActiveColor}`,
+      border: `1px solid ${props.givenNewActiveBorderColor}`,
       transition: "background 0.3s ease-in-out",
       color: props.givenNewActiveTextColor,
     };

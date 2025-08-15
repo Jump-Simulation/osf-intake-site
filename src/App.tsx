@@ -2710,9 +2710,15 @@ function App() {
               givenWriteTags={WriteTags}
               givenWriteData={WriteData}
               givenDataToWrite={pageItem.dataToWrite || ""}
+
+
               givenNewPrimaryColor={pageItem.colorOverrideDefault || ""}
               givenNewActiveColor={pageItem.colorOverrideActive || ""}
               givenNewHoverColor={pageItem.colorOverrideHover || ""}
+
+              givenNewPrimaryBorderColor={pageItem.colorOverrideBorderDefault || ""}
+              givenNewActiveBorderColor={pageItem.colorOverrideBorderActive || ""}
+              givenNewHoverBorderColor={pageItem.colorOverrideBorderHover || ""}
 
               givenNewPrimaryTextColor={pageItem.colorOverrideTextDefault || ""}
               givenNewActiveTextColor={pageItem.colorOverrideTextActive || ""}
@@ -2904,6 +2910,10 @@ function App() {
               givenNewActiveColor={pageItem.colorOverrideActive || ""}
               givenNewHoverColor={pageItem.colorOverrideHover || ""}
 
+              givenNewPrimaryBorderColor={pageItem.colorOverrideBorderDefault || ""}
+              givenNewActiveBorderColor={pageItem.colorOverrideBorderActive || ""}
+              givenNewHoverBorderColor={pageItem.colorOverrideBorderHover || ""}
+
               givenNewPrimaryTextColor={pageItem.colorOverrideTextDefault || ""}
               givenNewActiveTextColor={pageItem.colorOverrideTextActive || ""}
               givenNewHoverTextColor={pageItem.colorOverrideTextHover || ""}
@@ -2945,6 +2955,10 @@ function App() {
             givenNewPrimaryColor={pageItem.colorOverrideDefault || ""}
             givenNewActiveColor={pageItem.colorOverrideActive || ""}
             givenNewHoverColor={pageItem.colorOverrideHover || ""}
+
+            givenNewPrimaryBorderColor={pageItem.colorOverrideBorderDefault || ""}
+            givenNewActiveBorderColor={pageItem.colorOverrideBorderActive || ""}
+            givenNewHoverBorderColor={pageItem.colorOverrideBorderHover || ""}
 
             givenNewPrimaryTextColor={pageItem.colorOverrideTextDefault || ""}
             givenNewActiveTextColor={pageItem.colorOverrideTextActive || ""}

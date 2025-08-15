@@ -162,6 +162,10 @@ export interface PageItem {
   colorOverrideHover?: string;
   colorOverrideActive?: string;
 
+  colorOverrideBorderDefault?: string;
+  colorOverrideBorderHover?: string;
+  colorOverrideBorderActive?: string;
+
   colorOverrideTextDefault?: string;
   colorOverrideTextHover?: string;
   colorOverrideTextActive?: string;
