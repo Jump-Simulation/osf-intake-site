@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import "../../CSS/Page_Component_Styles/Brand-Colors.css";
 import "../../CSS/Page_Component_Styles/Object_Item_Text.css";
 import { BaseCarouselChildProps } from "../../BaseProps";
+import { useAppContext } from "../../App";
 
 type TextAlignOptions = "left" | "right" | "center" | "justify" | "start" | "end" | "match-parent";
 
@@ -24,9 +25,14 @@ interface Object_Item_Text_Props extends BaseCarouselChildProps {
 
     givenIconVisible?: boolean;
     givenIconFileName?: string;
-    givenIconHorizontalPlcement?: string;
+    givenIconHorizontalPlacement?: string;
 
     givenIconSizeOverride?: string;
+
+    given_IconSizeOverridePixels?: string;
+
+    given_IconGoToDestination?: string;
+    given_TextWidthOverride?: string;
 
 
     givenLockNumber?: number;
@@ -38,6 +44,10 @@ interface Object_Item_Text_Props extends BaseCarouselChildProps {
 
 export default function Object_Item_Text(props: Object_Item_Text_Props) {
 
+
+    const context = useAppContext();
+
+
     const [textToRender, setTextToRender] = useState(props.givenTextValue)
     const [shouldRender, setShouldRender] = useState(true);
 
@@ -45,7 +55,7 @@ export default function Object_Item_Text(props: Object_Item_Text_Props) {
 
     const [hasIcon, setHasIcon] = useState(props.givenIconVisible || false);
     const [iconFileName, setIconFileName] = useState(props.givenIconFileName || "");
-    const [iconHorizontalPlacement, setIconHorizontalPlacement] = useState(props.givenIconHorizontalPlcement || "left");
+    const [iconHorizontalPlacement, setIconHorizontalPlacement] = useState(props.givenIconHorizontalPlacement || "left");
 
 
     useEffect(() => {
@@ -340,7 +350,7 @@ export default function Object_Item_Text(props: Object_Item_Text_Props) {
                 <span style={{ display: 'inline-block', verticalAlign: 'middle' }}>
                     {RenderLeftIcon()}
                 </span>
-                <span style={{ display: 'inline-block', verticalAlign: 'middle' }}>
+                <span style={{ display: 'inline-block', verticalAlign: 'middle', width: props.given_TextWidthOverride }}>
                     <div
 
                         dangerouslySetInnerHTML={{ __html: textToRender }}
@@ -398,7 +408,14 @@ export default function Object_Item_Text(props: Object_Item_Text_Props) {
                     className={`object-text-icon-left${props.givenGlobal_isMobile}`}
                     style={{
                         height: `var(${props.givenIconSizeOverride}${props.givenGlobal_isMobile})`,
-                        width: `var(${props.givenIconSizeOverride}${props.givenGlobal_isMobile})`
+                        width: `var(${props.givenIconSizeOverride}${props.givenGlobal_isMobile})`,
+                        maxHeight: props.given_IconSizeOverridePixels,
+                        maxWidth: props.given_IconSizeOverridePixels,
+                    }}
+                    onClick={() => {
+                        if (props.given_IconGoToDestination !== "") {
+                            context.GoToDestination(props.given_IconGoToDestination)
+                        }
                     }}
                     src={`/assets/${iconFileName.toLocaleLowerCase()}`} >
                 </img>
@@ -413,7 +430,18 @@ export default function Object_Item_Text(props: Object_Item_Text_Props) {
                     className={`object-text-icon-right${props.givenGlobal_isMobile}`}
                     style={{
                         height: `var(${props.givenIconSizeOverride}${props.givenGlobal_isMobile})`,
-                        width: `var(${props.givenIconSizeOverride}${props.givenGlobal_isMobile})`
+                        width: `var(${props.givenIconSizeOverride}${props.givenGlobal_isMobile})`,
+
+
+                        maxHeight: props.given_IconSizeOverridePixels,
+                        maxWidth: props.given_IconSizeOverridePixels,
+
+                    }}
+
+                    onClick={() => {
+                        if (props.given_IconGoToDestination !== "") {
+                            context.GoToDestination(props.given_IconGoToDestination)
+                        }
                     }}
                     src={`/assets/${iconFileName.toLocaleLowerCase()}`} >
                 </img>

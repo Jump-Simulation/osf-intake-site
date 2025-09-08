@@ -37,6 +37,7 @@
   align-items: flex-start;
   gap: var(--spacing-sm-mobile, 8px);
 }
+
 .auth-field-desktop {
   display: flex;
   flex-direction: column;
@@ -52,6 +53,7 @@
 
   letter-spacing: var(--font-letter-spacing-default-desktop, 0.1px);
 }
+
 /* Normal State */
 .auth-input {
   display: flex;
@@ -69,12 +71,11 @@
   background: var(--color-neutral-1100, #171d1e);
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3), 0 1px 3px 1px rgba(0, 0, 0, 0.15);
   transition: border-color 0.3s ease;
-
-  color: red;
+  color: var(#FFF);
 }
 
 .auth-input::placeholder {
-  color: red;
+  color: var(#FFF);
 }
 
 .auth-button {
@@ -244,6 +245,7 @@
 
   color: var(--color-danger-300ds, #f5b7b3);
 }
+
 .auth-input.valid-input {
   display: flex;
   flex-direction: column;
@@ -272,7 +274,8 @@
   font-size: var(--font-size-body-caption, 13px);
   font-style: normal;
   font-weight: var(--font-weight-body-caption, 400);
-  line-height: var(--font-line-height-body-caption, 20px); /* 153.846% */
+  line-height: var(--font-line-height-body-caption, 20px);
+  /* 153.846% */
   letter-spacing: var(--font-letter-spacing-default, 0.2px);
 }
 
@@ -284,12 +287,14 @@
   font-size: var(--font-size-body-caption, 13px);
   font-style: normal;
   font-weight: var(--font-weight-body-caption, 400);
-  line-height: var(--font-line-height-body-caption, 20px); /* 153.846% */
+  line-height: var(--font-line-height-body-caption, 20px);
+  /* 153.846% */
   letter-spacing: var(--font-letter-spacing-default, 0.2px);
 }
 
 .error-icon {
-  width: 20px; /* or whatever size you want */
+  width: 20px;
+  /* or whatever size you want */
   height: 20px;
   object-fit: contain;
 }
@@ -311,11 +316,13 @@
 .toggle-password {
   position: absolute;
   right: 12px;
-  width: 24px; /* adjust to your PNG size */
+  width: 24px;
+  /* adjust to your PNG size */
   height: 24px;
   cursor: pointer;
   object-fit: contain;
 }
+
 .password-wrapper {
   position: relative;
   display: flex;

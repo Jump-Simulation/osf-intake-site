@@ -1,0 +1,61 @@
+.submission-review-holder {
+    height: 100dvh;
+    width: 100%;
+    display: "flex";
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: left;
+
+}
+
+.submission-review-text-title {
+    color: #3C6A00;
+    /* H2: Header */
+    font-family: var(--font-family-h2, "Avenir Next");
+    font-size: var(--font-size-header-h2, 28px);
+    font-style: normal;
+    font-weight: var(--font-weight-header-h2, 600);
+    line-height: var(--font-line-height-header-h2, 36px);
+    /* 128.571% */
+    letter-spacing: var(--font-letter-spacing-default, 0.2px);
+    margin-bottom: 24px;
+}
+
+.submission-review-text-subtitle {
+    color: var(--color-secondary-interact-bold-default, #3C6A00);
+    /* H3: Subheader */
+    font-family: var(--font-family-h3, "Avenir Next");
+    font-size: var(--font-size-header-h3, 24px);
+    font-style: normal;
+    font-weight: var(--font-weight-header-h3, 600);
+    line-height: var(--font-line-height-header-h3, 32px);
+    /* 133.333% */
+    letter-spacing: var(--font-letter-spacing-default, 0.2px);
+    margin-top: 24px;
+}
+
+
+.submission-review-text-title-data {
+    color: var(--color-on-surface-variant, #3F484A);
+    /* Body */
+    font-family: var(--font-family-body, Avenir);
+    font-size: var(--font-size-body-default, 16px);
+    font-style: normal;
+    font-weight: var(--font-weight-body-default, 400);
+    line-height: var(--font-line-height-body-default, 24px);
+    /* 150% */
+    letter-spacing: var(--font-letter-spacing-default, 0.2px);
+}
+
+.submission-review-text-data {
+    color: var(--color-on-surface-default, #171D1E);
+    /* H4: Button */
+    font-family: var(--font-family-h4, "Avenir Next");
+    font-size: var(--font-size-header-h4, 20px);
+    font-style: normal;
+    font-weight: var(--font-weight-header-h4, 600);
+    line-height: var(--font-line-height-header-h4, 28px);
+    /* 140% */
+    letter-spacing: var(--font-letter-spacing-default, 0.2px);
+}

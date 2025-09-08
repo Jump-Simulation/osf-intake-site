@@ -43,6 +43,13 @@ export interface Object_Item_Modal_Slide_Props extends BaseCarouselChildProps {
     givenCheckTagsToDetermineRendering(givenTagInclusion: string, givenTagExclusion: string,
         givenObjectName: string, givenObjectType: string, givenObjectExcludeByDefault: boolean): boolean;
 
+    given_OverrideBackgroundColor: string;
+    given_OverrideBackdropFilter: string;
+    given_OverrideModalPlacementTop: string;
+    given_OverrideModalPlacementBottom: string;
+    given_OverrideModalPlacementLeft: string;
+    given_OverrideModalPlacementRight: string;
+    given_OverrideModalShowX: boolean;
 
 }
 var repeatableInt: number = 1;
@@ -103,24 +110,42 @@ export default function Object_Item_Modal_Slide(props: Object_Item_Modal_Slide_P
 
         if (isActivated) {
             return (
-                <div data-givenkey={props.givenKey} className={`modal-container-slide${props.givenGlobal_isMobile}`}
+                <div data-givenkey={props.givenKey + props.givenModalID} className={`modal-container-slide${props.givenGlobal_isMobile}`}
                     onClick={() => {
-                        props.givenSetCurrentModal("null");
+                        if (props.given_OverrideModalShowX) {
+                            props.givenSetCurrentModal("null");
+                        }
+
 
                     }}>
                     <div className={`modal-slide${props.givenGlobal_isMobile}`}
+                        style={{
+                            backgroundColor: props.given_OverrideBackgroundColor,
+                            backdropFilter: `blur(${props.given_OverrideBackdropFilter})`,
+                            top: props.given_OverrideModalPlacementTop,
+                            bottom: props.given_OverrideModalPlacementBottom,
+                            left: props.given_OverrideModalPlacementLeft,
+                            right: props.given_OverrideModalPlacementRight,
+                        }}
                         onClick={(e) => {
                             e.stopPropagation();
                         }}>
                         {props.givenModalItems}
 
-                        <div className={`modal-x-mark-parent${props.givenGlobal_isMobile}`} onClick={() => {
-                            setIsActivated(false),
-                                props.givenSetCurrentModal("none");
-                        }}> <FontAwesomeIcon
-                                icon={faXmark as IconProp}
-                                className={`modal-x-mark${props.givenGlobal_isMobile}`}
-                            /></div>
+                        {props.given_OverrideModalShowX && (
+                            <div
+                                className={`modal-x-mark-parent${props.givenGlobal_isMobile}`}
+                                onClick={() => {
+                                    setIsActivated(false);
+                                    props.givenSetCurrentModal("none");
+                                }}
+                            >
+                                <FontAwesomeIcon
+                                    icon={faXmark as IconProp}
+                                    className={`modal-x-mark${props.givenGlobal_isMobile}`}
+                                />
+                            </div>
+                        )}
                     </div>
                 </div>
 

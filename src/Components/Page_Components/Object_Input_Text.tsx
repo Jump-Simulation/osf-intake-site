@@ -8,22 +8,17 @@ import { AppContext, useAppContext } from "../../App";
 import { getDeviceId } from "./Object_deviceID";
 
 interface Object_Input_Text_Props {
-  givenPlaceHolderText: string;
-  questionID: string;
-  minWordCount?: string;
-  maxWordCount?: string;
-  givenDestination: string;
-  givenGoToDestination(givenString: string): void;
+  given_PlaceHolderText: string;
+  given_questionID: string;
+  given_minWordCount?: string;
+  given_maxWordCount?: string;
+  given_Destination: string;
+  given_GoToDestination(givenString: string): void;
+
+  given_WriteSubmissionToFirestore(givenFieldName: string, givenData: string);
 }
 
-export default function Object_Input_Text({
-  givenPlaceHolderText,
-  questionID,
-  minWordCount = "5",
-  maxWordCount = "10000",
-  givenDestination,
-  givenGoToDestination,
-}: Object_Input_Text_Props) {
+export default function Object_Input_Text(props: Object_Input_Text_Props) {
   const context = useAppContext();
 
   const [inputValue, setInputValue] = useState("");
@@ -31,8 +26,13 @@ export default function Object_Input_Text({
   const [attemptedSubmit, setAttemptedSubmit] = useState(false);
   const [guestLogin, setGuestLogin] = useState(false);
 
-  const minWordCountWords = parseInt(minWordCount);
-  const maxWordCountWords = parseInt(maxWordCount);
+  const minWordCountWords = props.given_minWordCount
+    ? parseInt(props.given_minWordCount)
+    : 0;
+
+  const maxWordCountWords = props.given_maxWordCount
+    ? parseInt(props.given_maxWordCount)
+    : Infinity; // no max if not provided
 
   const getWordCount = (text: string) =>
     text.trim().split(/\s+/).filter(Boolean).length;
@@ -42,6 +42,8 @@ export default function Object_Input_Text({
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const text = e.target.value;
     const words = text.trim().split(/\s+/).filter(Boolean);
+
+    /*    setInputValue(text); */
 
     if (words.length <= maxWordCountWords) {
       setInputValue(text);
@@ -55,56 +57,6 @@ export default function Object_Input_Text({
     }
   };
 
-  const saveToFirestore = async (value: string) => {
-    const wordCount = getWordCount(value);
-    if (wordCount < minWordCountWords) {
-      setError(`Please enter at least ${minWordCountWords} words.`);
-      return;
-    }
-
-    const trimmed = value
-      .trim()
-      .split(/\s+/)
-      .slice(0, maxWordCountWords)
-      .join(" ");
-
-    // Save local
-    // localStorage.setItem(`answer-q-${questionID}`, trimmed);
-    context.state_Set_QuestionAnswer_Map_Value(
-      `answer-q-${questionID}`,
-      trimmed
-    );
-
-    const currentUser = auth.currentUser;
-    if (!currentUser) {
-      console.warn("No Firebase user found.");
-      return;
-    }
-
-    const isAnonymous = currentUser.isAnonymous;
-    const uid = currentUser.uid;
-
-    const docRef = isAnonymous
-      ? doc(firestore, "Submissions", "Submissions", "Guests", getDeviceId())
-      : doc(firestore, "Submissions", "Submissions", "Users", uid);
-
-    try {
-      await setDoc(
-        docRef,
-        {
-          [`q-${questionID}`]: trimmed,
-          dateUpdated: Timestamp.now(),
-          deviceId: getDeviceId(),
-        },
-        { merge: true }
-      );
-
-      console.log("Saved to:", docRef.path);
-      setError("");
-    } catch (err) {
-      console.error("Error saving to Firestore:", err);
-    }
-  };
 
   useEffect(() => {
     const logedIn = onAuthStateChanged(auth, (user) => {
@@ -148,7 +100,7 @@ export default function Object_Input_Text({
         const docSnap = await getDoc(docRef);
         if (docSnap.exists()) {
           const data = docSnap.data();
-          const answer = data?.[`q-${questionID}`];
+          const answer = data?.[`q-${props.given_questionID}`];
           if (typeof answer === "string") {
             setInputValue(answer);
           }
@@ -159,7 +111,7 @@ export default function Object_Input_Text({
     };
 
     fetchAnswerFromFirestore();
-  }, [questionID]);
+  }, [props.given_questionID]);
 
   let message = "";
 
@@ -189,7 +141,7 @@ export default function Object_Input_Text({
             placeholder={
               attemptedSubmit && currentWords <= minWordCountWords
                 ? "Type your answer here"
-                : givenPlaceHolderText
+                : props.given_PlaceHolderText
             }
             className={`userInput_textArea ${attemptedSubmit && currentWords <= minWordCountWords
               ? "error"
@@ -235,19 +187,23 @@ export default function Object_Input_Text({
             style={{ fontSize: "24px" }}
             onClick={async () => {
               setAttemptedSubmit(true);
-              await saveToFirestore(inputValue);
+
+              console.log("QUESTION ID: " + props.given_questionID);
+
+              props.given_WriteSubmissionToFirestore(props.given_questionID, inputValue);
+              /*   await saveToFirestore(inputValue); */
 
 
-              if (givenDestination === "guestCheck") {
-                if (guestLogin) {
-                  givenGoToDestination("modal-001");
+              if (props.given_Destination === "guestCheck") {
+                if (guestLogin && context.localCurrentEmail === "null") {
+                  props.given_GoToDestination("modal-001");
                 } else {
-                  givenGoToDestination("page-whenWhere");
+                  props.given_GoToDestination("page-whenWhere");
                 }
                 return;
               }
 
-              givenGoToDestination(givenDestination);
+              props.given_GoToDestination(props.given_Destination);
             }}
           >
             Next question!

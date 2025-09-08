@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Checkbox from "@mui/material/Checkbox";
 import CircleOutlined from "@mui/icons-material/CircleOutlined";
 import RadioButtonChecked from "@mui/icons-material/RadioButtonChecked";
-import { Row } from "react-bootstrap";
+
 import "../../CSS/Page_Component_Styles/Object_Button_Selection_Single.css";
 import "../../CSS/Page_Component_Styles/Brand-Text.css";
 import { BaseCarouselChildProps } from "../../BaseProps";
@@ -52,7 +52,7 @@ export default function Object_Button_Selection_Single(props: Object_Button_Sele
         if (!props.isDisabled) {
             if (props.givenIndex !== props.givenCurrentIndex) {
                 setIsChecked(false);
-
+                props.givenRemoveFromSelectionMap(props.givenAddressToWrite, props.givenButtonText);
                 setButtonStyleToUse(`single-select-button${props.givenGlobal_isMobile}`);
                 setIconHolderStyleToUse(`single-select-icon-holder${props.givenGlobal_isMobile}`);
                 setIconStyleToUse(`single-select-icon${props.givenGlobal_isMobile}`);
@@ -106,7 +106,6 @@ export default function Object_Button_Selection_Single(props: Object_Button_Sele
                 setIconStyleToUse(`single-select-icon-selected${props.givenGlobal_isMobile}`);
             }
         }
-
     }
 
     function RenderCheckbox() {

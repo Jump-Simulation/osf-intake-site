@@ -1,6 +1,6 @@
 var projectName: string = "OSF-Intake-Submission";
-var BuildVersion: string = `0.01`;
-var debugMode = false;
+var BuildVersion: string = `0.78`;
+var debugMode = true;
 
 import {
   ReactElement,
@@ -11,12 +11,6 @@ import {
   useState,
 } from "react";
 import "./App.css";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  useLocation,
-} from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
 import "./CSS/Page_Main_Styles.css";
 import "./CSS/Page_Component_Styles/Bottom-Shadow.css";
@@ -30,8 +24,10 @@ import {
   setDoc,
   updateDoc,
   serverTimestamp,
+  Timestamp,
+  addDoc,
 } from "firebase/firestore";
-import { getAuth, signInAnonymously } from "firebase/auth";
+import { User, getAuth, isSignInWithEmailLink, onAuthStateChanged, signInAnonymously, signInWithEmailLink } from "firebase/auth";
 import { UAParser } from "ua-parser-js";
 import { CarouselOrientation } from "./Components/Eddies_Custom_Carousel";
 import Eddies_Custom_Carousel from "./Components/Eddies_Custom_Carousel";
@@ -53,6 +49,7 @@ import {
   ContactUsObject,
   BookObject,
   ChapterObject,
+  SubmissionObject,
 } from "./types";
 
 /* import Object_Button_Swipe from './Components/Page_Components/Object_Button_Swipe' */
@@ -153,6 +150,11 @@ import Object_New_Account from "./Components/Page_Components/Object_Full_Account
 import Object_Full_Account_Creation from "./Components/Page_Components/Object_Full_Account_Creation";
 import Object_Partial_Account_Creation from "./Components/Page_Components/Object_Partial_Account_Creation";
 import Object_Item_AccountCompleteChecker from "./Components/Page_Components/Object_Item_AccountCompleteChecker";
+import Object_Login_2 from "./Components/Page_Components/Object_Login_2";
+import Object_Item_ConfirmOTP from "./Components/Page_Components/Object_Item_ConfirmOTP";
+import Holder_Objects_SubmissionOverview from "./Components/Page_Components/Holder_Objects_SubmissionOverview";
+import Object_Item_VideoPlayer from "./Components/Page_Components/Object_Item_VideoPlayer";
+import Object_Item_SubmissionReviewActual from "./Components/Page_Components/Object_Item_SubmissionReviewActual";
 
 var osfProceduresPath: string = `organizations/osf_st-francis/procedures`;
 
@@ -172,6 +174,8 @@ var localCurrentContactUsPage: ContactUsObject = en_fh_contactUs_openScheduling;
 
 var projectHealthReportString: string = "";
 
+
+
 const originalLog = console.log;
 const originalError = console.error;
 
@@ -184,6 +188,17 @@ export type AppContextType = {
   state_QuestionAnswer_Map: Map<string, string>;
   state_Set_QuestionAnswer_Map_Value: (key: string, value: string) => void;
   state_Get_QuestionAnswer_Map_Value: (key: string) => string | undefined;
+  state_currentEmail: string;
+  localCurrentEmail: string;
+  isMobileString: string;
+  localCurrentSubmissionId: string;
+  localCurrentSubmissions: Record<string, any>;
+  localCurrentSubmissionSelected: SubmissionObject;
+  SetLocalCurrentSubmissionSelected(givenSubId: string): void;
+  GoToDestination(givenString: string): void;
+  state_currentlySelectedSubmission: SubmissionObject;
+  stateSet_currentlySelectedSubmission(givenObject: SubmissionObject)
+
 };
 export const AppContext = createContext<AppContextType | undefined>(undefined);
 export const useAppContext = () => {
@@ -296,6 +311,39 @@ function setLocalModalID(givenModalId: string) {
   localModalID = givenModalId;
 }
 
+function getDeviceId(): string {
+  let deviceId = localStorage.getItem("deviceId");
+  if (!deviceId) {
+    deviceId = crypto.randomUUID(); // generates a unique ID
+    localStorage.setItem("deviceId", deviceId);
+  }
+  return deviceId;
+}
+
+var localSubmissionObject: SubmissionObject = {
+  dateCreated: Timestamp.fromDate(new Date("1940-01-01T00:00:00Z")),
+  dateUpdated: Timestamp.fromDate(new Date("1940-01-01T00:00:00Z")),
+  deviceId: "",
+  email: "",
+  q_problem_solving: "",
+  q_solution_category: "",
+  q_built_tested: "",
+  q_time_worked: "",
+  q_year_from_now: "",
+  q_how_involved: "",
+  q_personally_connect: "",
+  q_when_where: "",
+  q_search_for: "",
+  q_describe_idea: "",
+  q_idea_name: "",
+  q_user_invention: "",
+  q_buyer_invention: "",
+  submissionId: ""
+}
+
+
+
+
 var localPageLockNumber: number = 1;
 var contentProcedure: string = "";
 var contentBook: string = "";
@@ -305,10 +353,188 @@ var localSelectionMapVariable: Map<string, string[]> = new Map();
 
 var dataLock: number = 0;
 
+var localCurrentEmail: string = "null"
+function SetLocalCurrentEmail(givenEmail: string) {
+  localCurrentEmail = givenEmail;
+}
+
+var localCurrentSubmissionId: string = "null";
+function SetLocalCurrentSubmissionId(givenId: string) {
+  localCurrentSubmissionId = givenId;
+}
+
+var localCurrentSubmissions: Record<string, any> = {};
+
+var localCurrentSubmissionSelected: SubmissionObject = {
+  dateCreated: Timestamp.fromDate(new Date("1940-01-01T00:00:00Z")),
+  dateUpdated: Timestamp.fromDate(new Date("1940-01-01T00:00:00Z")),
+  deviceId: "",
+  submissionId: "",
+  email: "",
+  q_problem_solving: "",
+  q_solution_category: "",
+  q_built_tested: "",
+  q_time_worked: "",
+  q_year_from_now: "",
+  q_how_involved: "",
+  q_personally_connect: "",
+  q_when_where: "",
+  q_search_for: "",
+  q_describe_idea: "",
+  q_idea_name: "",
+  q_user_invention: "",
+  q_buyer_invention: ""
+}
+
+
+
+async function CreateFirebaseUser(
+  givenEmail: string,
+  givenAdditionalData?: Record<string, any>
+) {
+  try {
+    // 1️⃣ Extract docID (everything before @)
+    const docID = givenEmail.split("@")[0];
+
+    // 2️⃣ Reference to /Users/{docID}
+    const userRef = doc(firestore, "Users", docID);
+
+    // 3️⃣ Check if doc already exists
+    const docSnap = await getDoc(userRef);
+
+    let existingSubmissions = "";
+    if (docSnap.exists()) {
+      existingSubmissions = (docSnap.data().Submissions as string) || "";
+    }
+
+    // 4️⃣ Append localCurrentSubmissionId if defined
+    let updatedSubmissions = existingSubmissions;
+    if (typeof localCurrentSubmissionId !== "undefined" && localCurrentSubmissionId !== "null") {
+      updatedSubmissions += `||${localCurrentSubmissionId}`;
+    }
+
+    // 5️⃣ Base user data
+    const baseData: Record<string, any> = {
+      cred: givenEmail,
+      dateCreated: serverTimestamp(),
+      Submissions: updatedSubmissions,
+    };
+
+    // 6️⃣ Merge additional fields if provided
+    const finalData = givenAdditionalData
+      ? { ...baseData, ...givenAdditionalData }
+      : baseData;
+
+    // 7️⃣ Write/merge the doc
+    await setDoc(userRef, finalData, { merge: true });
+
+    console.log(`User created/updated with docID: ${docID}`);
+  } catch (error) {
+    console.error("Error creating Firebase user:", error);
+  }
+}
+
+async function FetchSubmissions() {
+  try {
+    // 1️⃣ Extract docID (before "@")
+    var docID: string = "";
+    if (localCurrentEmail !== "null") {
+      docID = localCurrentEmail.split("@")[0];
+    }
+    else {
+      console.log("NO VALID EMAIL FOUND IN FetchSubmissions()")
+      return
+    };
+
+    // 2️⃣ Reference /Users/{docID}
+    const userRef = doc(firestore, "Users", docID);
+    const userSnap = await getDoc(userRef);
+
+    if (!userSnap.exists()) {
+      console.warn("No user found for:", localCurrentEmail);
+      return {};
+    }
+
+    const userData = userSnap.data();
+    if (!userData || userData.cred !== localCurrentEmail) {
+      console.warn("cred mismatch for:", localCurrentEmail);
+      return {};
+    }
+
+    // 3️⃣ Extract Submissions string
+    const submissionsString: string = userData.Submissions;
+    if (!submissionsString) {
+      console.log("No submissions found.");
+      return {};
+    }
+
+    // 4️⃣ Split by "||" and ignore [0] (empty before first delimiter)
+    const submissionIds = submissionsString.split("||").slice(1);
+
+
+
+    // 5️⃣ Loop through each submission ID
+    for (const submissionId of submissionIds) {
+      if (!submissionId) continue;
+
+      // 6️⃣ Get document from /Submissions/{submissionId}
+      const submissionRef = doc(firestore, "Submissions", submissionId);
+      const submissionSnap = await getDoc(submissionRef);
+
+      if (!submissionSnap.exists()) {
+        console.warn("No submission found for ID:", submissionId);
+        continue;
+      }
+
+      const submissionData = submissionSnap.data();
+
+      // 7️⃣ Navigate into /Submissions/{id}/submission-data/submission-data
+      const subDataRef = doc(
+        firestore,
+        "Submissions",
+        submissionId,
+        "submission-data",
+        "submission-data"
+      );
+      const subDataSnap = await getDoc(subDataRef);
+
+      if (!subDataSnap.exists()) {
+        console.warn("No submission-data doc for:", submissionId);
+        continue;
+      }
+
+      const subData = subDataSnap.data();
+
+      // 8️⃣ Store in local map
+      localCurrentSubmissions[submissionId] = {
+        submissionMeta: submissionData, // top-level submission doc
+        submissionData: subData, // submission-data doc
+      };
+    }
+
+    console.log("Fetched submissions:", localCurrentSubmissions);
+    return localCurrentSubmissions;
+  } catch (error) {
+    console.error("Error fetching submissions:", error);
+    return {};
+  }
+}
+
 function App() {
   const [appPaddingStyle, setAppPaddingStyle] = useState("");
 
   const [isMobileString, setIsMobileString] = useState("-mobile");
+
+
+  const [state_currentEmail, stateSet_currentEmail] = useState("null")
+
+  const [state_placeholderBarOpacity, stateSet_placeholderBarOpacity] = useState(0.8)
+
+  const [state_currentlySelectedSubmission, stateSet_currentlySelectedSubmission] = useState<SubmissionObject>()
+
+  const [loading, setLoading] = useState(true);
+
+
 
   const [state_QuestionAnswer_Map, stateSet_QuestionAnswer_Map] = useState<
     Map<string, string>
@@ -333,6 +559,18 @@ function App() {
     state_QuestionAnswer_Map: state_QuestionAnswer_Map,
     state_Set_QuestionAnswer_Map_Value: state_Set_QuestionAnswer_Map_Value,
     state_Get_QuestionAnswer_Map_Value: state_Get_QuestionAnswer_Map_Value,
+    state_currentEmail: state_currentEmail,
+    localCurrentEmail: localCurrentEmail,
+    isMobileString: isMobileString,
+    localCurrentSubmissionId: localCurrentSubmissionId,
+    localCurrentSubmissions: localCurrentSubmissions,
+    GoToDestination: GoToDestination,
+    localCurrentSubmissionSelected: localCurrentSubmissionSelected,
+    SetLocalCurrentSubmissionSelected: SetLocalCurrentSubmissionSelected,
+    state_currentlySelectedSubmission: state_currentlySelectedSubmission,
+    stateSet_currentlySelectedSubmission: stateSet_currentlySelectedSubmission
+
+
   };
 
   const deviceInfo = useMemo(() => {
@@ -403,6 +641,36 @@ function App() {
       isMobileString,
     };
   }, []);
+
+
+  function SetLocalCurrentSubmissionSelected(givenSubId: string) {
+    const found = Object.values(localCurrentSubmissions).find((sub: any, idx) => {
+      // console.log(`Index ${idx}:`, sub);
+      // console.log("Comparing:", sub.submissionData?.submissionId, "with", givenSubId);
+
+
+      return sub.submissionData?.submissionId === givenSubId;
+    });
+
+    if (found) {
+      // console.log("WE FOUND THE SUBMISSION OBJECT WITH ID: " + givenSubId)
+      // Make sure it's a SubmissionObject
+      localCurrentSubmissionSelected = {
+        ...found,
+        // Fallbacks in case any field is missing
+        dateCreated: found.dateCreated || Timestamp.fromDate(new Date("1940-01-01T00:00:00Z")),
+        dateUpdated: found.dateUpdated || Timestamp.fromDate(new Date("1940-01-01T00:00:00Z")),
+      };
+
+      stateSet_currentlySelectedSubmission(found.submissionData)
+      console.log("Selected submission:", localCurrentSubmissionSelected);
+
+    } else {
+      console.warn("No submission found with id", givenSubId);
+    }
+  }
+
+
 
   async function SendProjectHealthReport(
     givenReportType: string,
@@ -1156,9 +1424,105 @@ function App() {
 
   const [shouldShowModalShadow, setShouldShowModalShadow] = useState(false);
 
+  //USED FOR SINGLE AND MULTI SELECTION BUTTONS
   const [selectionMapState, setSelectionMapState] = useState<
     Map<string, string[]>
   >(new Map());
+  function addToSelectionMap(key: string, newValue: string) {
+    // console.log("About to add the following map value: " + newValue + " for map key: " + key)
+
+    var tempMap = localSelectionMapVariable;
+    const tempExistingValues = tempMap.get(key) || [];
+
+    if (!tempExistingValues.includes(newValue)) {
+      //   console.log(`Adding value "${newValue}" to key "${key}"`);
+      tempMap.set(key, [...tempExistingValues, newValue]);
+      localSelectionMapVariable = tempMap;
+    } else {
+      //   console.log(`Value "${newValue}" already exists for key "${key}"`);
+    }
+
+    setSelectionMapState((prevMap) => {
+      // Create a copy of the previous map
+      const newMap = new Map(prevMap);
+      //   console.log("newMap before addition: ");
+      // console.log(newMap);
+      // Retrieve the existing values for the key or initialize an empty array
+      const existingValues = newMap.get(key) || [];
+
+      // Add the new value only if it doesn't already exist
+      if (!existingValues.includes(newValue)) {
+        newMap.set(key, [...existingValues, newValue]);
+      } else {
+        //     console.log(`Value "${newValue}" already exists for key "${key}"`);
+      }
+
+      //   console.log("newMap after addition: ");
+      //    console.log(newMap);
+
+      return newMap;
+    });
+  }
+
+  function removeFromSelectionMap(key: string, valueToRemove: string) {
+    // Create a new map from the current state
+    //   console.log("About to remove the following value: " + valueToRemove + " from map key: " + key);
+
+    var tempNewMap = localSelectionMapVariable;
+
+
+
+    //  console.log("tempNewMap before removal: ");
+    //  console.log(tempNewMap);
+    // Check if the key exists in the map
+    var existingValues = tempNewMap.get(key);
+
+    if (existingValues) {
+      // Filter out the value to remove
+      var updatedValues = existingValues.filter(
+        (value) => value !== valueToRemove
+      );
+
+      if (updatedValues.length > 0) {
+        // Update the map with the filtered array
+        tempNewMap.set(key, updatedValues);
+      } else {
+        // Remove the key entirely if no values remain
+        tempNewMap.delete(key);
+      }
+    }
+    //   console.log("tempNewMap after removal: ");
+    //   console.log(tempNewMap);
+    // Update the state with the modified map
+    setSelectionMapState((prevMap) => {
+      // Create a copy of the previous map
+      const newMap = new Map(prevMap);
+
+      //  console.log("newMap before removal: ", newMap);
+
+      const existingValues = newMap.get(key);
+
+      if (existingValues) {
+        const updatedValues = existingValues.filter(
+          (value) => value !== valueToRemove
+        );
+
+        if (updatedValues.length > 0) {
+          newMap.set(key, updatedValues);
+        } else {
+          newMap.delete(key);
+        }
+      }
+
+      //   console.log("newMap after removal: ", newMap);
+
+      return newMap;
+    });
+  }
+
+
+
+
 
   const [prepDestination, setPrepDestination] = useState("null");
 
@@ -1179,7 +1543,6 @@ function App() {
 
   const [screen, setScreen] = useState("splashScreen");
 
-  var urlBarString: string = window.location.href;
 
   function SetTagsAnsweredTrue(
     givenString: string,
@@ -1573,78 +1936,6 @@ function App() {
     return booleanToReturn;
   }
 
-  function addToSelectionMap(key: string, newValue: string) {
-    //console.log("About to add the following tag: " + newValue + " from map key: " + key)
-
-    var tempMap = localSelectionMapVariable;
-    const tempExistingValues = tempMap.get(key) || [];
-
-    if (!tempExistingValues.includes(newValue)) {
-      /*  console.log(`Adding value "${newValue}" to key "${key}"`); */
-      tempMap.set(key, [...tempExistingValues, newValue]);
-      localSelectionMapVariable = tempMap;
-    } else {
-      //console.log(`Value "${newValue}" already exists for key "${key}"`);
-    }
-
-    setSelectionMapState((prevMap) => {
-      // Create a copy of the previous map
-      const newMap = new Map(prevMap);
-      // console.log("newMap before addition: ");
-      // console.log(newMap);
-      // Retrieve the existing values for the key or initialize an empty array
-      const existingValues = newMap.get(key) || [];
-
-      // Add the new value only if it doesn't already exist
-      if (!existingValues.includes(newValue)) {
-        /*  console.log(`Adding value "${newValue}" to key "${key}"`); */
-        newMap.set(key, [...existingValues, newValue]);
-      } else {
-        console.log(`Value "${newValue}" already exists for key "${key}"`);
-      }
-
-      /*  console.log("newMap")
-       console.log(newMap) */
-
-      // console.log("newMap after addition: ");
-      // console.log(newMap);
-
-      return newMap;
-    });
-  }
-
-  function removeFromSelectionMap(key: string, valueToRemove: string) {
-    // Create a new map from the current state
-    //console.log("About to remove the following tag: " + valueToRemove + " from map key: " + key);
-
-    var tempNewMap = localSelectionMapVariable;
-
-    //const newMap = new Map(selectionMapState);
-
-    // console.log("tempNewMap before removal: ");
-    // console.log(tempNewMap);
-    // Check if the key exists in the map
-    var existingValues = tempNewMap.get(key);
-
-    if (existingValues) {
-      // Filter out the value to remove
-      var updatedValues = existingValues.filter(
-        (value) => value !== valueToRemove
-      );
-
-      if (updatedValues.length > 0) {
-        // Update the map with the filtered array
-        tempNewMap.set(key, updatedValues);
-      } else {
-        // Remove the key entirely if no values remain
-        tempNewMap.delete(key);
-      }
-    }
-    // console.log("tempNewMap after removal: ");
-    // console.log(tempNewMap);
-    // Update the state with the modified map
-    setSelectionMapState(tempNewMap);
-  }
 
   function SetShouldShowModalShadow(givenBool: boolean, givenOrigin: string) {
     /*     console.log("TRYING TO CHANGE SHADOW BOOL FROM ORIGIN: " + givenOrigin);
@@ -1772,7 +2063,7 @@ function App() {
     if (goToDestinationLockNumber < 1) {
       /*    goToDestinationLockNumber += 1; */
       shouldRenderToF = true;
-      // console.log("GoToDestination called with givenDestination: " + givenDestinationName)
+      //  console.log("GoToDestination called with givenDestination: " + givenDestinationName)
       localPageLockNumber = 1; //TODO, MIGHT HAVE TO GO ELSEWHERE, CHECK SCRUBBED IN
       setPageLockNumber(1); //TODO, MIGHT HAVE TO GO ELSEWHERE, CHECK SCRUBBED IN
       localModalID = "none"; //TODO, MIGHT HAVE TO GO ELSEWHERE, CHECK SCRUBBED IN
@@ -1816,7 +2107,7 @@ function App() {
       );
 
       if (givenDestinationName.includes("page")) {
-        console.log("givenDestination is a page: " + givenDestinationName);
+        //console.log("givenDestination is a page: " + givenDestinationName);
         tempPagesToLookAt.forEach((page, pageIndex) => {
           /*  console.log("looking at pageID: " + page.id + " and pageTitle: " + page.navTitle + " @index: " + pageIndex)
            */
@@ -1845,13 +2136,13 @@ function App() {
               localPagesVisited.push(page.id);
 
               if (shouldWriteToPageHistory !== false) {
-                console.log("PAGE ID writing to previousPagesVisited")
+                //  console.log("PAGE ID writing to previousPagesVisited")
                 previousPagesVisitedStrings.push(
                   tempPagesToLookAt[tempNavVariable].id
                 );
 
-                console.log("previousPagesVisitedStrings: ")
-                console.log(previousPagesVisitedStrings)
+                // console.log("previousPagesVisitedStrings: ")
+                //  console.log(previousPagesVisitedStrings)
               }
 
               //FH STUFF
@@ -1926,14 +2217,7 @@ function App() {
             givenDestinationName.includes("next") &&
             pageIndex === tempNavVariable
           ) {
-            /*         console.log("==============================================================");
-                    console.log("NEXT BUTTON WAS CALLED");
-                    console.log("currentPageID = " + page.id);
-                    console.log("currentPageTitle = " + page.navTitle);
-                    console.log("pageIndex = " + pageIndex);
-                    console.log("Here's the pages we see right now: ")
-                    console.log(tempPagesToLookAt)
-                    console.log("=============================================================="); */
+
 
             if (pageIndex < tempPagesToLookAt.length - 1) {
               shouldRenderToF = CheckTagsToDetermineRendering(
@@ -1951,12 +2235,12 @@ function App() {
               localPagesVisited.push(tempPagesToLookAt[pageIndex + 1].id);
 
               if (shouldWriteToPageHistory !== false) {
-                console.log("PAGE NEXT writing to previousPagesVisited");
+                // console.log("PAGE NEXT writing to previousPagesVisited");
                 previousPagesVisitedStrings.push(
                   tempPagesToLookAt[pageIndex].id
                 );
-                console.log("previousPagesVisitedStrings:");
-                console.log(previousPagesVisitedStrings);
+                // console.log("previousPagesVisitedStrings:");
+                //  console.log(previousPagesVisitedStrings);
               }
               //FH STUFF
               SetChapterData(tempPagesToLookAt[pageIndex + 1].chapterParent);
@@ -2204,12 +2488,12 @@ function App() {
               localPagesVisited.push(page.id);
 
               if (shouldWriteToPageHistory !== false) {
-                console.log("PAGE UNKNOWN previousPagesVisitedStrings pushed")
+                //  console.log("PAGE UNKNOWN previousPagesVisitedStrings pushed")
                 previousPagesVisitedStrings.push(
                   tempPagesToLookAt[tempNavVariable].id
                 );
-                console.log("previousPagesVisitedStrings:");
-                console.log(previousPagesVisitedStrings);
+                // console.log("previousPagesVisitedStrings:");
+                // console.log(previousPagesVisitedStrings);
               }
               //FH STUFF
               if (page.chapterParent !== localCurrentChapter.chapterID) {
@@ -2299,12 +2583,12 @@ function App() {
               localPagesVisited.push(tempPagesToLookAt[pageIndex + 1].id);
 
               if (shouldWriteToPageHistory !== false) {
-                console.log("PAGE UNKNOWN NEXT wrote to shouldWriteToPageHistory")
+                //  console.log("PAGE UNKNOWN NEXT wrote to shouldWriteToPageHistory")
                 previousPagesVisitedStrings.push(
                   tempPagesToLookAt[pageIndex].id
                 );
-                console.log("previousPagesVisitedStrings:")
-                console.log(previousPagesVisitedStrings)
+                //   console.log("previousPagesVisitedStrings:")
+                //  console.log(previousPagesVisitedStrings)
               }
               //FH STUFF
               SetChapterData(tempPagesToLookAt[pageIndex + 1].chapterParent);
@@ -2607,24 +2891,28 @@ function App() {
     } else if (pageItem.componentType === "input-text") {
       tempPageItem = (
         <Object_Input_Text
-          givenPlaceHolderText={pageItem.placeHolderText || "Type answer here"}
-          questionID={pageItem.questionID}
-          maxWordCount={pageItem.maxWordCount}
-          minWordCount={pageItem.minWordCount}
-          givenGoToDestination={GoToDestination}
-          givenDestination={pageItem.destination}
+          given_PlaceHolderText={pageItem.placeHolderText || "Type answer here"}
+          given_questionID={pageItem.questionID}
+          given_maxWordCount={pageItem.maxWordCount}
+          given_minWordCount={pageItem.minWordCount}
+          given_GoToDestination={GoToDestination}
+          given_Destination={pageItem.destination}
+
+          given_WriteSubmissionToFirestore={WriteSubmissionToFirestore}
         />
       );
     } else if (pageItem.componentType === "review") {
       tempPageItem = <Object_Review_Screen />;
     } else if (pageItem.componentType === "login") {
       tempPageItem = (
-        <Object_Login
-          givenGoToDestination={GoToDestination}
-          givenDestination={pageItem.destination}
+        <Object_Login_2
+          given_GoToDestination={GoToDestination}
+          given_Destination={pageItem.destination}
           givenGlobal_isMobile={""}
           givenGlobal_CurrentCarouselIndex={0}
           givenGlobal_PreviousCarouselIndex={0}
+          given_LocalSubmissionObject={localSubmissionObject}
+          given_SetCurrentEmail={SetLocalCurrentEmail}
         />
       );
     } else if (pageItem.componentType === "input-file") {
@@ -2643,7 +2931,16 @@ function App() {
           givenGlobal_PreviousCarouselIndex={0}
         />
       );
-    } else if (pageItem.componentType === "new-account") {
+    } else if (pageItem.componentType === "confirm-otp") {
+      tempPageItem = (
+        <Object_Item_ConfirmOTP
+          given_GoToDestination={GoToDestination}
+          given_Destination={pageItem.destination}
+          given_FetchSubmissions={FetchSubmissions}
+        />
+      );
+    }
+    else if (pageItem.componentType === "full-account-creation") {
       tempPageItem = (
         <Object_Full_Account_Creation
           givenGoToDestination={GoToDestination}
@@ -2655,10 +2952,17 @@ function App() {
         <Object_Partial_Account_Creation
           givenDestination={"page-next"}
           givenGoToDestination={GoToDestination}
+          given_SetCurrentEmail={SetLocalCurrentEmail}
+          given_WriteSubmissionToFirestore={WriteSubmissionToFirestore}
+          given_CreateFirebaseUser={CreateFirebaseUser}
         />
       );
     } else if (pageItem.componentType === "start-screen") {
       tempPageItem = <Object_Start_Screen />;
+    } else if (pageItem.componentType === "submissions-overview") {
+      tempPageItem = <Holder_Objects_SubmissionOverview />;
+    } else if (pageItem.componentType === "submission-review") {
+      tempPageItem = <Object_Item_SubmissionReviewActual />;
     } else if (pageItem.componentType === "text") {
       tempPageItem = (
         <Object_Item_Text
@@ -2674,10 +2978,11 @@ function App() {
           givenTextContainerColor={pageItem.colorBackground || ""}
           givenIconVisible={pageItem.iconVisible || false}
           givenIconFileName={pageItem.iconFileName || ""}
-          givenIconHorizontalPlcement={
+          givenIconHorizontalPlacement={
             pageItem.iconHorizontalPlacement || "left"
           }
           givenIconSizeOverride={pageItem.iconSizeOverride || ""}
+          given_IconSizeOverridePixels={pageItem.iconSizeOverridePixels || ""}
           givenCheckTagsToDetermineRendering={CheckTagsToDetermineRendering}
           givenGlobal_isMobile={isMobileString}
           givenGlobal_CurrentCarouselIndex={currentCarouselIndex}
@@ -2686,6 +2991,8 @@ function App() {
           givenGlobal_ShouldExcludeByDefault={
             pageItem.excludeByDefault || false
           }
+          given_IconGoToDestination={pageItem.textIconGoToDestination || ""}
+          given_TextWidthOverride={pageItem.textWidthOverride || ""}
         />
       );
     } else if (pageItem.componentType === "button") {
@@ -3058,60 +3365,39 @@ function App() {
           isMobile={isMobileString}
           givenIconBool={pageItem.iconVisible || false}
           givenIconFileName={pageItem.iconFileName || "backupImage.jpg"}
-          givenIconHorizontalPlacement={
-            pageItem.iconHorizontalPlacement || "left"
-          }
+          givenIconHorizontalPlacement={pageItem.iconHorizontalPlacement || "left"}
           givenIsDisabled={pageItem.buttonDisabled || false}
           givenIsLocked={givenPage.hasLock || false}
           givenPageLockNumberLocal={localPageLockNumber}
           givenPageLockNumberState={pageLockNumber}
-          givenButtonTextNoneSelected={
-            pageItem.textValueNoneSelected || "None of the above"
-          }
-          givenButtonTextSomethingSelected={
-            pageItem.textValueSomethingSelected || "Confirm and Continue"
-          }
-          givenButtonStyleNoneSelected={
-            pageItem.buttonStyleNoneSelected || "tertiary"
-          }
-          givenButtonStyleSomethingSelected={
-            pageItem.buttonStyleSomethingSelected || "primary"
-          }
-          givenDestinationNoneSelected={
-            pageItem.destinationNoneSelected || "page-next"
-          }
-          givenDestinationSomethingSelected={
-            pageItem.destinationSomethingSelected || "page-next"
-          }
+          givenButtonTextNoneSelected={pageItem.textValueNoneSelected || "None of the above"}
+          givenButtonTextSomethingSelected={pageItem.textValueSomethingSelected || "Confirm and Continue"}
+          givenButtonStyleNoneSelected={pageItem.buttonStyleNoneSelected || "tertiary"}
+          givenButtonStyleSomethingSelected={pageItem.buttonStyleSomethingSelected || "primary"}
+          givenDestinationNoneSelected={pageItem.destinationNoneSelected || "page-next"}
+          givenDestinationSomethingSelected={pageItem.destinationSomethingSelected || "page-next"}
           givenGoToDestination={GoToDestination}
           givenPageIndex={currentCarouselIndex}
           givenWriteTags={WriteTags}
           givenMapToRead={selectionMapState}
           givenWriteData={WriteData}
-          givenDataToWriteSomethingSelected={
-            pageItem.dataToWriteSomethingSelected || ""
-          }
-          givenDataToWriteNothingSelected={
-            pageItem.dataToWriteNothingSelected || ""
-          }
+          givenDataToWriteSomethingSelected={pageItem.dataToWriteSomethingSelected || ""}
+          givenDataToWriteNothingSelected={pageItem.dataToWriteNothingSelected || ""}
           givenGlobal_isMobile={isMobileString}
           givenGlobal_CurrentCarouselIndex={currentCarouselIndex}
           givenGlobal_PreviousCarouselIndex={previousCarouselIndex}
           givenGlobal_LockNumber={localPageLockNumber}
-          givenTagsToWriteSomethingSelected={
-            pageItem.tagsToWriteSomethingSelected || ""
-          }
-          givenTagsToWriteNothingSelected={
-            pageItem.tagsToWriteNothingSelected || ""
-          }
-          givenGlobal_ShouldExcludeByDefault={
-            pageItem.excludeByDefault || false
-          }
+          givenTagsToWriteSomethingSelected={pageItem.tagsToWriteSomethingSelected || ""}
+          givenTagsToWriteNothingSelected={pageItem.tagsToWriteNothingSelected || ""}
+          givenGlobal_ShouldExcludeByDefault={pageItem.excludeByDefault || false}
           /*  givenAddressesToRead={[]} */
-
           givenNewPrimaryColor={pageItem.colorOverrideDefault || ""}
           givenNewActiveColor={pageItem.colorOverrideActive || ""}
           givenNewHoverColor={pageItem.colorOverrideHover || ""}
+          given_WriteSubmissionToFirestore={WriteSubmissionToFirestore}
+
+          given_questionID={pageItem.questionID}
+
         />
       );
     } else if (pageItem.componentType === "button-item-list") {
@@ -3372,7 +3658,15 @@ function App() {
           }
         />
       );
-    } else if (pageItem.componentType === "page-section") {
+    }
+    else if (pageItem.componentType === "video-player") {
+      hasNavButton = true;
+      tempPageItem = (
+        <Object_Item_VideoPlayer given_VideoSource={pageItem.videoSource} given_SetPlaceholderBarOpacity={stateSet_placeholderBarOpacity}
+        />
+      );
+    }
+    else if (pageItem.componentType === "page-section") {
       var tempMiniPageItems: React.ReactElement[] = [];
 
       pageItem.pageSectionItems.forEach((sectionElement, index) => {
@@ -3534,21 +3828,16 @@ function App() {
     keyInt++;
     var firstPageLock = 0;
     localPagesVisited = [];
-    // previousPagesVisitedStrings = [];
+
 
     var tempCarouselPagesToPush: PageObject[] = [];
-    //console.log("About to generate some pages, localCurrentBookData is: ");
-    //console.log(localCurrentBookData);
-    //console.log("localTagsAnsweredTrue:");
-    //console.log(localTagsAnsweredTrue);
-    //console.log("hasSeenProcedureIntro is: " + patientInfo.hasSeenProcedureIntro + " and !localTagsAnsweredTrue.includes hasSeenIntro is: " + !localTagsAnsweredTrue.includes("hasSeenIntro"));
+
     if (
       dataLock > 0 &&
       patientInfo.hasSeenProcedureIntro === 0 &&
       !localTagsAnsweredTrue.includes("hasSeenIntro_")
     ) {
-      //console.log("We havent seen the intro before, adding it to the start!")
-      //localCurrentPageData = [...localIntroBookData, ...localCurrentPageData]
+
       var tempPagesToPush: PageObject[] = localCurrentPageData.filter(
         (Page) => {
           var shouldInclude: boolean = true;
@@ -3717,6 +4006,7 @@ function App() {
                       givenSetModalShadowState={SetShouldShowModalShadow}
                       givenTagInclusion={modalObject.tagsInclude || ""}
                       givenTagExclusion={modalObject.tagsExclude || ""}
+
                       givenCheckTagsToDetermineRendering={
                         CheckTagsToDetermineRendering
                       }
@@ -3735,6 +4025,13 @@ function App() {
                       givenGlobal_ShouldExcludeByDefault={
                         modalObject.excludeByDefault || false
                       }
+                      given_OverrideBackgroundColor={modalObject.overrideColorBackground || ""}
+                      given_OverrideBackdropFilter={modalObject.overrideBackdropFilter || ""}
+                      given_OverrideModalPlacementBottom={modalObject.overrideModalPlacementBottom || ""}
+                      given_OverrideModalPlacementTop={modalObject.overrideModalPlacementTop || ""}
+                      given_OverrideModalPlacementRight={modalObject.overrideModalPlacementRight || ""}
+                      given_OverrideModalPlacementLeft={modalObject.overrideModalPlacementLeft || ""}
+                      given_OverrideModalShowX={modalObject.overrideModalShowX}
                     />
                   );
                   localModalSlideItemsToPushTo.push(tempModalObject);
@@ -3925,9 +4222,112 @@ function App() {
     setScreen(givenString);
   }
 
-  async function WriteSubmissionToFirestore(givenAddress: string, givenEmail: string, givenData: string) {
-
+  // helper: generate a random 10-char suffix
+  function generateRandomSuffix(length = 10): string {
+    const chars = "abcdefghijklmnopqrstuvwxyz0123456789";
+    let result = "";
+    for (let i = 0; i < length; i++) {
+      result += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    return result;
   }
+
+  async function WriteSubmissionToFirestore(givenFieldName: string, givenData: string) {
+    let fieldNameActual: string;
+    const deviceId = getDeviceId();
+    const submissionId = `${generateRandomSuffix(18)}`;
+    var submissionRef = doc(firestore, "Submissions", localCurrentSubmissionId);
+
+
+    if (givenFieldName !== "email") {
+      fieldNameActual = "q_" + givenFieldName;
+    } else {
+      fieldNameActual = "email";
+    }
+
+    if (fieldNameActual === "email" || localCurrentEmail !== "null") {
+      console.log("DETECTED LOGGED IN USER!");
+
+      try {
+
+
+        const docSnap = await getDoc(submissionRef);
+
+        if (!docSnap.exists()) {
+
+          if (localCurrentSubmissionId === "null") {
+            localCurrentSubmissionId = submissionId;
+          }
+
+          // 🔹 Write only SubmissionID in the parent doc
+          await setDoc(submissionRef, {
+            DeviceID: deviceId,
+            SubmissionID: localCurrentSubmissionId,
+          });
+          localSubmissionObject.deviceId = deviceId;
+          localSubmissionObject.email = localCurrentEmail;
+
+          // 🔹 Write all fields in the nested /submission-data/submission-data doc
+          const subDataRef = doc(firestore, "Submissions", localCurrentSubmissionId, "submission-data", "submission-data");
+          await setDoc(subDataRef, {
+            ...localSubmissionObject,
+            [fieldNameActual]: givenData,
+            email: localCurrentEmail,
+            submissionId: localCurrentSubmissionId,
+            dateCreated: serverTimestamp(),
+            dateUpdated: serverTimestamp(),
+          });
+
+          console.log("New submission created!");
+        } else {
+          // 🔹 Update only inside the nested /submission-data/submission-data doc
+          const subDataRef = doc(firestore, "Submissions", localCurrentSubmissionId, "submission-data", "submission-data");
+
+
+          if (fieldNameActual in localSubmissionObject) {
+            (localSubmissionObject as any)[fieldNameActual] = givenData;
+
+          }
+          localSubmissionObject.email = localCurrentEmail;
+
+          await setDoc(subDataRef, {
+            [fieldNameActual]: givenData,
+            email: localCurrentEmail,
+            submissionId: localCurrentSubmissionId,
+            dateUpdated: serverTimestamp(),
+          }, { merge: true });
+
+          console.log("localSubmissionObject updated at field: " + fieldNameActual + " with data: " + givenData);
+          console.log("current localSubmissionObject: ");
+          console.log(localSubmissionObject);
+        }
+      } catch (error) {
+        console.error("Error writing submission:", error);
+      }
+    } else {
+      console.log("DETECTED NOT LOGGED IN USER ACTUAL!");
+      localSubmissionObject.deviceId = getDeviceId();
+
+      if (fieldNameActual in localSubmissionObject) {
+        (localSubmissionObject as any)[fieldNameActual] = givenData;
+
+        if (localCurrentSubmissionId === "null") {
+          localCurrentSubmissionId = submissionId;
+          localSubmissionObject.submissionId = submissionId;
+        }
+
+
+
+        console.log("localSubmissionObject updated at field: " + fieldNameActual + " with data: " + givenData);
+        console.log("current localSubmissionObject: ");
+        console.log(localSubmissionObject);
+      } else {
+        console.warn(`Field ${fieldNameActual} does not exist on SubmissionObject`);
+      }
+    }
+  }
+
+
 
   function loadLandingScreen(givenOrigin: string) {
     //navigateTo("Home");
@@ -3936,22 +4336,38 @@ function App() {
   }
 
   const renderCustomDots = () => {
-    const childrenArray = React.Children.toArray(carouselPages);
-    return localCurrentChapter.pageObjects.map((_, index) => (
-      <Eddies_Custom_Carousel_Dots
-        key={index}
-        index={index}
-        currentSlide={currentProgressBarIndex} //currentCarouselIndex
-        active={index === currentProgressBarIndex} //currentCarouselIndex
-        givenNumberOfDots={state_currentProgressBarLength}
-        givenCustomBackgroundColor={state_currentProgressBarColorBackground}
-        givenCustomColor={state_currentProgressbarColor}
-        onClick={() => {
-          /*   props.givenSetPreviousIndex(props.givenCurrentIndex),
-                props.givenSetCurrentIndex(index); */
-        }}
-      />
-    ));
+    if (localCurrentChapter !== undefined) {
+
+      if (localCurrentChapter.pageObjects !== undefined) {
+        return localCurrentChapter.pageObjects.map((_, index) => (
+          <Eddies_Custom_Carousel_Dots
+            key={index}
+            index={index}
+            currentSlide={currentProgressBarIndex} //currentCarouselIndex
+            active={index === currentProgressBarIndex} //currentCarouselIndex 
+            givenNumberOfDots={state_currentProgressBarLength}
+            givenCustomBackgroundColor={state_currentProgressBarColorBackground}
+            givenCustomColor={state_currentProgressbarColor}
+
+            onClick={() => {
+              /*   props.givenSetPreviousIndex(props.givenCurrentIndex),
+                    props.givenSetCurrentIndex(index); */
+
+            }}
+
+          />
+        ));
+      }
+      else {
+        console.log("localCurrentChapter.pageObjects was undefined in renderCustomDots for localCurrentChapter: " + localCurrentChapter.chapterID)
+        return;
+      }
+
+    }
+    else {
+      console.log("localCurrentChapter was undefined in renderCustomDots!")
+      return;
+    }
   };
 
   function renderScreen() {
@@ -3972,6 +4388,7 @@ function App() {
   function renderLandingScreen() {
     return (
       <div className={appPaddingStyle}>
+        <div style={{ color: "red", position: "absolute", bottom: "5%", right: "5%", zIndex: "99999999999" }}>{BuildVersion}</div>
         {state_currentProgressbarVisible ? (
           <div
             style={{
@@ -4003,7 +4420,7 @@ function App() {
               zIndex: "999",
               width: "100%",
               height: "8px",
-              backgroundColor: "rgba(248, 249, 251, 0.80)",
+              backgroundColor: `rgba(248, 249, 251, ${state_placeholderBarOpacity})`,
               position: "absolute",
               left: "0",
               top: "0",
@@ -4123,6 +4540,7 @@ function App() {
         />
 
         <Object_Modal_ContactUs
+
           givenModalItems={contactUsPageChildren}
           givenShowContactUsModal={showContactUsModal}
           givenSetShowContactUsModal={setShowContactUsModal}
@@ -4141,6 +4559,7 @@ function App() {
             child.type === Object_Item_Modal_Popup
           ) {
             return React.cloneElement(child, {
+              key: generateRandomID(10),
               givenGlobal_isMobile: isMobileString,
               givenGlobal_CurrentCarouselIndex: currentCarouselIndex,
               givenGlobal_CurrentModalID: currentModalID,
@@ -4156,6 +4575,7 @@ function App() {
         {React.Children.map(modalSlideStateArray, (child) => {
           if (child.type === Object_Item_Modal_Slide) {
             return React.cloneElement(child, {
+              key: generateRandomID(10),
               givenGlobal_isMobile: isMobileString,
               givenGlobal_CurrentCarouselIndex: currentCarouselIndex,
               givenGlobal_CurrentModalID: currentModalID,
@@ -4171,6 +4591,7 @@ function App() {
         {React.Children.map(modalAlertStateArray, (child) => {
           if (child.type === Object_Item_Modal_Alert) {
             return React.cloneElement(child, {
+              key: generateRandomID(10),
               givenGlobal_isMobile: isMobileString,
               givenGlobal_CurrentCarouselIndex: currentCarouselIndex,
               givenGlobal_CurrentModalID: currentModalID,

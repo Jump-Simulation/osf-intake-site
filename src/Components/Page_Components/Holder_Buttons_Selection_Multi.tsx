@@ -45,36 +45,6 @@ export default function Holder_Buttons_Selection_Multi(
     );
   }, [props.givenGlobal_TagsTrueArray, props.givenGlobal_TagsFalseArray]);
 
-  const saveToFirestore = async (values: string[]) => {
-    const submissionId = localStorage.getItem("submissionId");
-    /*    if (!submissionId) {
-         console.warn("No submissionId found");
-         return;
-       }  */
-
-    const currentUser = auth.currentUser;
-    const isAnonymous = currentUser?.isAnonymous;
-
-    const deviceID = getDeviceId();
-    // Path based on guest or registered user
-    const docRef = isAnonymous
-      ? doc(firestore, "Submissions", "Submissions", "Guests", "none")
-      : doc(firestore, "Submissions", "Submissions", "Users", submissionId);
-
-    try {
-      await setDoc(
-        docRef,
-        {
-          [`q-${props.givenAddressToWrite}`]: values,
-          dateUpdated: Timestamp.now(),
-        },
-        { merge: true }
-      );
-      console.log("Saved multi-select:", values);
-    } catch (err) {
-      console.error("Failed to save multi-select:", err);
-    }
-  };
 
   const handleChecked = (value: string) => {
     setSelectedValues((prev) => {
@@ -87,7 +57,6 @@ export default function Holder_Buttons_Selection_Multi(
         props.givenAddToSelectionMap(props.givenAddressToWrite, value);
       }
 
-      saveToFirestore(updated);
       return updated;
     });
   };

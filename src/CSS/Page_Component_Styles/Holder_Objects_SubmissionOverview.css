@@ -1,0 +1,39 @@
+.submit-new-solution-desktop {
+
+    width: 100%;
+    background-color: #090F10;
+
+    display: flex;
+    width: 100%;
+    padding: var(--spacing-lg-desktop, 16px) var(--spacing-2xl-desktop, 24px);
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    gap: var(--spacing-md-desktop, 12px);
+    border-radius: 16px;
+
+    color: #fff;
+    text-align: start;
+    font-size: 16px;
+    /* M3/Elevation Light/1 */
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.30), 0 1px 3px 1px rgba(0, 0, 0, 0.15);
+}
+
+.submit-new-solution-button {
+    background: linear-gradient(90deg, var(--color-accent-secondary-700-default, #79BF1D) 0%, var(--color-accent-primary-700-default, #1EBBDE) 83.65%);
+    color: #003541 !important;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: var(--font-line-height-header-h4, 28px);
+    /* 140% */
+    letter-spacing: var(--font-letter-spacing-default, 0.2px);
+    font-family: var(--font-family-h4, "Avenir Next");
+
+}
+
+.submit-new-solution-mobile {
+
+    width: 100%;
+    background-color: #090F10;
+
+}

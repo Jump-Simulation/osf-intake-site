@@ -58,6 +58,11 @@ export interface Object_Button_Selection_Confirmation_Props extends BaseCarousel
     givenNewActiveColor?: string;
 
 
+    given_WriteSubmissionToFirestore(dataField, data): void;
+
+    given_questionID: string;
+
+
 }
 
 export default function Object_Button_Selection_Confirmation(props: Object_Button_Selection_Confirmation_Props) {
@@ -148,43 +153,41 @@ export default function Object_Button_Selection_Confirmation(props: Object_Butto
         if (props.givenGlobal_LockNumber <= 0) { //page is unlocked, stuff has been selected
 
             if (props.givenDataToWriteSomethingSelected != "" && props.givenDataToWriteSomethingSelected != undefined) {
-                props.givenWriteData(props.givenDataToWriteSomethingSelected);
+
+                // props.givenWriteData(props.givenDataToWriteSomethingSelected);
+                console.log("WE SHOULD HAVE SEEN A SomethingSelected WRITE")
+            }
+            else {
+                console.log("props.givenDataToWriteSomethingSelected was empty && props.givenDataToWriteSomethingSelected != undefined")
             }
 
             props.givenGlobal_MapToRead.forEach((mapArray, mapIndex) => {
 
                 mapArray.forEach(mapValue => {
-                    if (mapValue !== "" && mapValue != undefined) {
-                        tempTagToWrite = tempTagToWrite + mapValue + "_";
-                        console.log("confirmation button got a value to write: " + tempTagToWrite)
+                    if (mapValue !== "" && mapValue != undefined && mapIndex === props.given_questionID) {
+                        console.log("MAP VALUE: " + mapValue)
+                        console.log("MAP INDEX: " + mapIndex)
+                        tempTagToWrite = tempTagToWrite + mapValue /* + "_" */;
+
+                        props.given_WriteSubmissionToFirestore(props.given_questionID, tempTagToWrite)
+                        //   console.log("confirmation button got a value to write: " + tempTagToWrite)
                     }
 
                 });
 
             });
-            if (tempTagToWrite !== "" && tempTagToWrite !== undefined) {
 
-                if (props.givenTagsToWriteSomethingSelected !== "" && props.givenTagsToWriteSomethingSelected !== undefined) {
-                    props.givenWriteTags(tempTagToWrite + props.givenTagsToWriteSomethingSelected)
-                }
-                else {
-                    props.givenWriteTags(tempTagToWrite)
-                }
-
-                /*   props.givenSetTagsAnsweredTrue(tempTagToWrite);  */
-            }
 
             props.givenGoToDestination(props.givenDestinationSomethingSelected);
 
         }
         else {
             if (props.givenDataToWriteNothingSelected != "" && props.givenDataToWriteNothingSelected != undefined) {
-                props.givenWriteData(props.givenDataToWriteNothingSelected);
+                //  props.givenWriteData(props.givenDataToWriteNothingSelected);
+
+                props.given_WriteSubmissionToFirestore(props.given_questionID, props.givenTagsToWriteNothingSelected)
             }
 
-            if (props.givenTagsToWriteNothingSelected !== "") {
-                props.givenWriteTags(props.givenTagsToWriteNothingSelected)
-            }
             props.givenGoToDestination(props.givenDestinationNoneSelected);
         }
 

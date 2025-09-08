@@ -3,56 +3,58 @@ import { auth, firestore } from "../Firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
 import "../../CSS/Page_Component_Styles/Object_Login.css";
+import "../../CSS/Page_Component_Styles/Object_Button_Normal.css"
+import { useAppContext } from "../../App";
 
 interface AuthPartialRegisterProps {
   givenDestination: string;
   givenGoToDestination(givenString: string): void;
+  given_SetCurrentEmail(givenEmail: string): void;
+  given_WriteSubmissionToFirestore(givenFieldName: string, givenData: string): void;
+  given_CreateFirebaseUser(givenEmail: string)
+
+
 }
 
-export default function AuthPartialRegister({
-  givenDestination,
-  givenGoToDestination,
-}: AuthPartialRegisterProps) {
+export default function AuthPartialRegister(props: AuthPartialRegisterProps) {
+
+  const context = useAppContext();
+
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [confirmEmail, setConfirmEmail] = useState("");
   const [status, setStatus] = useState("");
 
-  const handleRegister = async () => {
+  const handleContinue = () => {
+    const emailTrimmed = email.trim().toLowerCase();
+    const confirmTrimmed = confirmEmail.trim().toLowerCase();
+    // basic regex for email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-      setStatus("Please enter a valid email.");
-      return;
-    }
-    if (password.length < 6) {
-      setStatus("Password must be at least 6 characters.");
+
+    if (!emailTrimmed || !confirmTrimmed) {
+      setStatus("Please fill out both email fields.");
       return;
     }
 
-    try {
-      const userCred = await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
-      const submissionId = userCred.user.uid;
-
-      await setDoc(doc(firestore, "users", email), {
-        submission: submissionId,
-        email,
-        createdAt: new Date(),
-      });
-
-      /* localStorage.setItem("submissionId", submissionId); */
-      setStatus("Account created!");
-      givenGoToDestination(givenDestination);
-    } catch (err: any) {
-      console.error("Registration error:", err);
-      if (err.code === "auth/email-already-in-use") {
-        setStatus("This email is already registered.");
-      } else {
-      }
+    if (!emailRegex.test(emailTrimmed) || !emailRegex.test(confirmTrimmed)) {
+      setStatus("Please enter valid email addresses.");
+      return;
     }
+
+    if (emailTrimmed !== confirmTrimmed) {
+      setStatus("Emails do not match.");
+      return;
+    }
+
+    // ✅ Emails match → proceed
+    props.given_SetCurrentEmail(emailTrimmed);
+    props.given_WriteSubmissionToFirestore("email", emailTrimmed);
+    props.given_CreateFirebaseUser(emailTrimmed);
+    props.givenGoToDestination(props.givenDestination);
   };
+
+  function handleQuit() {
+    props.givenGoToDestination("page-intro");
+  }
 
   return (
     <div className="auth-container">
@@ -64,28 +66,33 @@ export default function AuthPartialRegister({
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             className="auth-input"
+
           />
         </div>
 
         <div className="auth-field">
-          <label className="auth-label">Create Password</label>
+          <label className="auth-label">Confirm Email</label>
           <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            type="email"
+            value={confirmEmail}
+            onChange={(e) => setConfirmEmail(e.target.value)}
             className="auth-input"
+
           />
         </div>
 
         <button
-          onClick={async () => {
-            handleRegister();
-            givenGoToDestination(givenDestination);
-          }}
+          className={`normal-button-primary${context.isMobileString}`}
+          onClick={() => { handleContinue(); }}
         >
-          Create account
+          Continue Submission
         </button>
-
+        <button
+          className={`normal-button-tertiary${context.isMobileString}`}
+          onClick={() => { handleQuit(); }}
+        >
+          Quit this submission
+        </button>
         {status && <p className="auth-status">{status}</p>}
       </div>
     </div>

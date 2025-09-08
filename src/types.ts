@@ -79,6 +79,7 @@ export interface PageItem {
   sizeOfPageTaken?: string;
   textType?: string;
   textValue?: string;
+  textWidthOverride?: string;
   textAlignment?: TextAlignOptions;
   pageOrientation?: string;
   hasDropShadow?: boolean;
@@ -172,6 +173,14 @@ export interface PageItem {
 
 
   iconSizeOverride?: string;
+  iconSizeOverridePixels?: string;
+  textIconGoToDestination?: string;
+
+
+  videoSource?: string;
+  videoEventTriggerTime?: number; // in seconds
+
+
 }
 
 export interface ModalObject {
@@ -188,6 +197,15 @@ export interface ModalObject {
   dismissDestination?: string;
   dismissTimer?: number;
   excludeByDefault?: boolean;
+
+  overrideColorBackground?: string;
+  overrideHeightMax?: string;
+  overrideBackdropFilter?: string;
+  overrideModalPlacementRight?: string;
+  overrideModalPlacementLeft?: string;
+  overrideModalPlacementTop?: string;
+  overrideModalPlacementBottom?: string;
+  overrideModalShowX?: boolean;
 }
 
 export interface BottomButtonHolderObject {
@@ -199,7 +217,8 @@ export interface SubmissionObject {
 
   dateCreated: Timestamp;
   dateUpdated: Timestamp;
-  randomizedId: string;
+  deviceId: string;
+  submissionId: string;
 
   email: string;
 
@@ -209,7 +228,7 @@ export interface SubmissionObject {
 
   q_built_tested: string;
 
-  q_what_is_stopping_you: string;
+
 
   q_time_worked: string;
 
@@ -221,7 +240,7 @@ export interface SubmissionObject {
 
   q_when_where: string;
 
-  q_get_worse: string;
+
 
   q_search_for: string;
 

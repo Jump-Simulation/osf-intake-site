@@ -95,7 +95,7 @@
    --scrubbedInCustom-blue-gray-1150: #11131B;
    --scrubbedInCustom-blue-gray-1200: #0C0E15;
 
-   
+
    /*//////////////////////////////////////////////////// COLORS BRAND OSF HEALTHCARE ////////////////////////////////////////////////////*/
 
 
@@ -471,6 +471,7 @@
    --color-surface-inverse: var(--color-neutral-975);
 
    --color-surface-container-lowest: var(--color-neutral-0);
+   --color-surface-container-lower: var("#f171D1E");
    --color-surface-container-low: var(--color-neutral-100);
    --color-surface-container-default: var(--alpha-surface-default);
    --color-surface-container-high: var(--color-neutral-175);

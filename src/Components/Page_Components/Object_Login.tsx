@@ -1,6 +1,11 @@
 import { useState } from "react";
-import { auth, firestore } from "../Firebase";
-import { signInWithEmailAndPassword, signInAnonymously } from "firebase/auth";
+import { auth, firestore, } from "../Firebase";
+import {
+  signInWithEmailAndPassword, signInAnonymously, sendSignInLinkToEmail,
+  signInWithEmailLink,
+  isSignInWithEmailLink,
+  getAuth,
+} from "firebase/auth";
 import "../../CSS/Page_Component_Styles/Object_Login.css";
 import { getDeviceId } from "./Object_deviceID";
 import "../../CSS/Page_Component_Styles/Object_Item_Text.css";
@@ -13,25 +18,20 @@ import { useEffect } from "react";
 import { doc, setDoc, Timestamp } from "firebase/firestore";
 
 interface AuthLoginProps extends BaseCarouselChildProps {
-  givenDestination: string;
-  givenGoToDestination(givenString: string): void;
+  given_Destination: string;
+  given_GoToDestination(givenString: string): void;
 }
 
-export default function AuthLogin({
-  givenDestination,
-  givenGoToDestination,
-  givenGlobal_isMobile,
-}: AuthLoginProps) {
+export default function AuthLogin_Old(props: AuthLoginProps) {
   const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
   const [password, setPassword] = useState("");
   const [status, setStatus] = useState("");
   const [attemptedSubmit, setAttemptedSubmit] = useState(false);
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const isEmailValid = emailRegex.test(email);
-  const isPasswordValid = password.length >= 6;
-  const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
 
   const handleGuestLogin = async () => {
     try {
@@ -39,64 +39,54 @@ export default function AuthLogin({
       const deviceId = getDeviceId();
       localStorage.setItem("submissionId", deviceId);
       setStatus("Signed in as guest!");
-      givenGoToDestination(givenDestination);
+      props.given_GoToDestination(props.given_Destination);
     } catch (err: any) {
       console.error("Guest login error:", err);
       setStatus("Could not sign in as guest.");
     }
   };
 
-  const handleLogin = async (): Promise<boolean> => {
-    try {
-      const userCred = await signInWithEmailAndPassword(auth, email, password);
-      const uid = userCred.user.uid;
+  // Check if user came back from email link
+  useEffect(() => {
+    const checkLinkSignIn = async () => {
+      const authInstance = getAuth();
+      if (isSignInWithEmailLink(authInstance, window.location.href)) {
+        // Retrieve email from local storage
+        let storedEmail = window.localStorage.getItem("emailForSignIn");
+        if (!storedEmail) {
+          storedEmail = window.prompt("Please provide your email for confirmation") || "";
+        }
 
-      localStorage.setItem("submissionId", uid);
-
-      const userDocRef = doc(
-        firestore,
-        "Submissions",
-        "Submissions",
-        "Users",
-        uid
-      );
-
-      const allKeys = Object.keys(localStorage).filter((key) =>
-        key.startsWith("answer-q-")
-      );
-
-      const answers: Record<string, any> = {};
-
-      /*  allKeys.forEach((key) => {
-         const answer = localStorage.getItem(key);
-         if (answer) {
-           answers[key] = answer;
-         }
-       }); */
-
-      if (Object.keys(answers).length > 0) {
-        await setDoc(
-          userDocRef,
-          {
-            ...answers,
-            dateUpdated: Timestamp.now(),
-            deviceId: getDeviceId(),
-          },
-          { merge: true }
-        );
-
-        console.log("Migrated local answers to:", userDocRef.path);
+        try {
+          await signInWithEmailLink(authInstance, storedEmail, window.location.href);
+          setMessage("✅ Successfully signed in!");
+          window.localStorage.removeItem("emailForSignIn");
+        } catch (error: any) {
+          console.error(error);
+          setMessage("❌ Error signing in: " + error.message);
+        }
       }
+    };
 
-      /*     allKeys.forEach((key) => localStorage.removeItem(key)); */
+    checkLinkSignIn();
+  }, []);
 
-      return true;
-    } catch (err: any) {
-      console.error("Login error:", err);
-      setStatus("Invalid email");
-      return false;
+  const handleSendLink = async () => {
+    const actionCodeSettings = {
+      url: window.location.origin, // redirect back to your app
+      handleCodeInApp: true,
+    };
+
+    try {
+      await sendSignInLinkToEmail(auth, email, actionCodeSettings);
+      window.localStorage.setItem("emailForSignIn", email);
+      setMessage("📧 Check your inbox for the sign-in link!");
+    } catch (error: any) {
+      console.error(error);
+      setMessage("❌ Error sending email: " + error.message);
     }
   };
+
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -135,10 +125,10 @@ export default function AuthLogin({
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           className={`auth-input ${attemptedSubmit && (!isEmailValid || status)
-              ? "invalid-input"
-              : isEmailValid
-                ? "valid-input"
-                : ""
+            ? "invalid-input"
+            : isEmailValid
+              ? "valid-input"
+              : ""
             }`}
         />
         {attemptedSubmit && !isEmailValid && (
@@ -153,63 +143,11 @@ export default function AuthLogin({
         )}
       </div>
 
-      <div className={`auth-field ${givenGlobal_isMobile}`}>
-        <div className="auth-label-wrapper">
-          <label className="auth-label">Password</label>
-          {attemptedSubmit && !isPasswordValid && (
-            <img src={errorIcon} alt="Error" className="inline-error-icon" />
-          )}
-        </div>
-        <div className="password-wrapper">
-          <input
-            type={showPassword ? "text" : "password"}
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className={`auth-input ${attemptedSubmit && !isPasswordValid
-                ? "invalid-input"
-                : isPasswordValid
-                  ? "valid-input"
-                  : ""
-              }`}
-            style={{ paddingRight: "12%" }}
-          />
-          <img
-            src={showPassword ? closedEye : openEye}
-            alt={showPassword ? "Hide password" : "Show password"}
-            className="toggle-password"
-            onClick={() => setShowPassword((prev) => !prev)}
-            role="button"
-            tabIndex={0}
-            onKeyDown={(e) => {
-              if (e.key === "Enter" || e.key === " ") {
-                setShowPassword((prev) => !prev);
-              }
-            }}
-            title={showPassword ? "Hide password" : "Show password"}
-          />
-        </div>
-
-        <div
-          className={`single-input-feeback-message ${attemptedSubmit && !isPasswordValid
-              ? "invalid-single-input-feeback-message"
-              : isPasswordValid
-                ? "valid-single-input-feeback-message"
-                : ""
-            }`}
-        >
-          *password must be 6 characters
-        </div>
-      </div>
 
       <button
         onClick={async () => {
           setAttemptedSubmit(true);
-          if (!isEmailValid || !isPasswordValid) return;
-
-          const success = await handleLogin();
-          if (success) {
-            givenGoToDestination(givenDestination);
-          }
+          handleSendLink();
         }}
         className="auth-button"
       >

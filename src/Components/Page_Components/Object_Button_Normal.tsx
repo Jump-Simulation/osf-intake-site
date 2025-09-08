@@ -202,6 +202,20 @@ export default function Object_Button_Normal(
       color: props.givenNewActiveTextColor,
     };
 
+
+    const customTextStyles = {
+      color: props.givenNewPrimaryTextColor,
+    };
+
+    const hoverTextStyles = {
+      color: props.givenNewHoverTextColor,
+    };
+
+    const activeTextStyles = {
+      color: props.givenNewActiveTextColor,
+    };
+
+
     return (
       <div
         className={buttonClassString}
@@ -213,15 +227,41 @@ export default function Object_Button_Normal(
           border: `1px solid ${props.givenNewPrimaryColor}`,
         }}
         /* STEP 3 */
-        onMouseEnter={(e) => Object.assign(e.currentTarget.style, hoverStyles)} // Desktop hover
-        onMouseLeave={(e) => Object.assign(e.currentTarget.style, customStyles)} // Desktop hover end
-        onMouseDown={(e) => Object.assign(e.currentTarget.style, activeStyles)} // Desktop active
-        onMouseUp={(e) => Object.assign(e.currentTarget.style, hoverStyles)} // Desktop release
+        onMouseEnter={(e) => {
+          Object.assign(e.currentTarget.style, hoverStyles);
+          const child = e.currentTarget.querySelector<HTMLDivElement>(`textObject-buttonText${props.isMobile}`);
+          if (child) Object.assign(child.style, hoverTextStyles);
+        }}
+        onMouseLeave={(e) => {
+          Object.assign(e.currentTarget.style, customStyles);
+          const child = e.currentTarget.querySelector<HTMLDivElement>(`textObject-buttonText${props.isMobile}`);
+          if (child) Object.assign(child.style, customTextStyles);
+        }}
+        onMouseDown={(e) => {
+          Object.assign(e.currentTarget.style, activeStyles);
+          const child = e.currentTarget.querySelector<HTMLDivElement>(`textObject-buttonText${props.isMobile}`);
+          if (child) Object.assign(child.style, activeTextStyles);
+        }}
+        onMouseUp={(e) => {
+          Object.assign(e.currentTarget.style, hoverStyles);
+          const child = e.currentTarget.querySelector<HTMLDivElement>(`textObject-buttonText${props.isMobile}`);
+          if (child) Object.assign(child.style, hoverTextStyles);
+        }}
         // Mobile Touch Support
-        onTouchStart={(e) => Object.assign(e.currentTarget.style, activeStyles)} // Mobile press
-        onTouchEnd={(e) => Object.assign(e.currentTarget.style, customStyles)} // Mobile release
+        onTouchStart={(e) => {
+          Object.assign(e.currentTarget.style, activeStyles);
+          const child = e.currentTarget.querySelector<HTMLDivElement>(`textObject-buttonText${props.isMobile}`);
+          if (child) Object.assign(child.style, activeTextStyles);
+        }}
+        onTouchEnd={(e) => {
+          Object.assign(e.currentTarget.style, customStyles);
+          const child = e.currentTarget.querySelector<HTMLDivElement>(`textObject-buttonText${props.isMobile}`);
+          if (child) Object.assign(child.style, customTextStyles);
+        }}
       >
-        <div className={buttonTextClassString}>
+        <div className={buttonTextClassString}
+
+        >
           {props.givenButtonText}
 
           {props.givenIconBool && (

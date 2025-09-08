@@ -91,7 +91,7 @@
 
 .textObject-h4-desktop {
     color: var(--color-on-surface-default, #1A1C22);
-    font-family: var(--font-family-h4-desktop, "Red Hat Display");
+    font-family: var(--font-family-h4-desktop, "Avenir Next");
     font-size: var(--font-size-header-h4-desktop, 20px);
     font-style: normal;
     font-weight: var(--font-weight-header-h4-desktop, 700);

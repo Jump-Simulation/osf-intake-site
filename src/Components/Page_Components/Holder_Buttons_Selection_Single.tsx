@@ -56,44 +56,11 @@ export default function Holder_Buttons_Selection_Single(
       }
     }, [props.givenGlobal_CurrentPageID]);
    */
-  const saveToFirestore = async (value: string) => {
-    const submissionId = localStorage.getItem("submissionId");
 
-    if (!submissionId) {
-      console.warn("No submission ID found");
-      return;
-    }
-
-    try {
-      /*    localStorage.setItem(
-           `answer-q-${props.givenGlobal_CurrentPageID}`,
-           value
-         ); */
-
-      const currentUser = auth.currentUser;
-      const isAnonymous = currentUser?.isAnonymous;
-
-      const deviceID = getDeviceId();
-      // Path based on guest or registered user
-      const docRef = isAnonymous
-        ? doc(firestore, "Submissions", "Submissions", "Guests", "none")
-        : doc(firestore, "Submissions", "Submissions", "Users", submissionId);
-
-      await updateDoc(docRef, {
-        [`q-${props.givenGlobal_CurrentPageID}`]: value,
-        dateUpdated: Timestamp.now(),
-      });
-
-      console.log(`Saved to Firestore doc: ${docRef.path}`);
-    } catch (err) {
-      console.error("Error saving to Firestore:", err);
-    }
-  };
 
   const handleSelect = (value: string) => {
     props.givenAddToSelectionMap(props.givenAddressToWrite, value);
     setSelectedValue(value);
-    saveToFirestore(value);
   };
 
   return shouldRender ? (

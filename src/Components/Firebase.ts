@@ -12,7 +12,7 @@ const firebaseConfig = {
   storageBucket: "innovationstudio-a1e59.firebasestorage.app",
   messagingSenderId: "179366961533",
   appId: "1:179366961533:web:3d0c98bffacc4921b6ec14",
-  measurementId: "G-WYZGJQZEMM",
+  measurementId: "G-WYZGJQZEMM"
 };
 
 // Initialize Firebase

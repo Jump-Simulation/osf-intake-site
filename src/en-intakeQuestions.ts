@@ -26,6 +26,61 @@ export const en_intakeQuestions_Book: BookObject = {
 
       pageObjects: [
         {
+          id: "page-intro",
+          navTitle: "null",
+          keywords: "null",
+          authors: "Eddie",
+          lastUpdated: "idk",
+          pageBackgroundColor: "var(--neutral-teal-gray-1150, #0E1416)",
+          hasVariables: false,
+          hasLock: false,
+
+          pageItems: [
+            {
+              componentType: "video-player",
+              videoSource: "intake-intro.mp4"
+            },
+
+          ],
+          modalObjects: [
+            {
+              modalID: "modal-000",
+              modalType: "sheet",
+              overrideColorBackground: "rgba(9, 15, 16, 0.70)",
+              overrideBackdropFilter: "10px",
+              overrideModalPlacementRight: "0px",
+              overrideModalShowX: false,
+
+              modalItems: [
+                {
+                  componentType: "text",
+                  textValue: "Where Solutions Take Shape",
+                  textType: "h2",
+                  textAlignment: "left",
+                  colorText: "var(--color-primary-300, #60D6ED)",
+                },
+                {
+                  componentType: "text",
+                  textValue:
+                    "This is OSF Innovation Studio: the place to build, refine, and grow your solution. Making meaningful impact starts here.",
+                  textType: "bodyText",
+                  textAlignment: "left",
+                  colorText: "var(--color-neutral-200, #DEE4E5)",
+                  iconVisible: true,
+                  iconFileName: "object-button-normal.png",
+                  textIconGoToDestination: "page-login",
+                  textWidthOverride: "75%",
+                  iconSizeOverridePixels: "75px",
+                  iconHorizontalPlacement: "right",
+
+                },
+
+              ],
+            },
+
+          ]
+        },
+        {
           id: "page-login",
           navTitle: "null",
           keywords: "introduction",
@@ -55,20 +110,10 @@ export const en_intakeQuestions_Book: BookObject = {
               // Page Title
               renderOrder: 1,
               componentType: "login",
-              destination: "page-sectionOneStart",
+              destination: "page-confirm-otp",
               minWordCount: "5",
             },
-            {
-              componentType: "button",
-              buttonType: "normal",
-              buttonStyle: "secondary",
-              colorOverrideDefault: "var(--color-primary-300ds, #88D2E3)",
-              colorOverrideHover: "var(--color-primary-200, #A3EEFF)",
-              colorOverrideActive: "var(--color-primary-100, #E0FAFF)",
-              iconVisible: false,
-              textValue: "Create Inventor Account",
-              destination: "page-newAccountCreation",
-            },
+
             {
               componentType: "text",
               textValue: "----------------- Or -----------------",
@@ -100,6 +145,109 @@ export const en_intakeQuestions_Book: BookObject = {
           ],
         },
         {
+          id: "page-confirm-otp",
+          navTitle: "null",
+          keywords: "introduction",
+          authors: "EddieB",
+          lastUpdated: "whocares",
+          pageBackgroundColor: "var(--neutral-teal-gray-1150, #0E1416)",
+          hasVariables: false,
+          hasLock: false,
+
+          pageItems: [
+            {
+              componentType: "text",
+              textValue: "Hey, we know you!",
+              textType: "h2",
+              textAlignment: "left",
+              colorText: "var(--color-primary-300, #60D6ED)",
+            },
+            {
+              componentType: "text",
+              textValue:
+                "We've sent a 6-character code to your email address. Please enter the code you received below.",
+              textType: "bodyText",
+              textAlignment: "left",
+              colorText: "var(--color-neutral-200, #DEE4E5)",
+            },
+            {
+              renderOrder: 1,
+              componentType: "confirm-otp",
+              destination: "page-submissions-overview",
+            },
+            {
+              componentType: "text",
+              textValue: "----------------- Or -----------------",
+              textType: "bodyText",
+              textAlignment: "center",
+              colorText: "var(--color-neutral-300, #BFC8CA)",
+            },
+            {
+              componentType: "text",
+              textValue:
+                "If you'd prefer to create your account later, you can get started from here!",
+              textType: "bodyText",
+              textAlignment: "left",
+              colorText: "var(--color-neutral-200, #DEE4E5)",
+            },
+            {
+              componentType: "button",
+              buttonStyle: "secondary",
+              colorOverrideTextDefault: "var(--color-primary-300ds, #88D2E3)",
+              colorOverrideTextHover: "var(--color-primary-200, #A3EEFF)",
+              colorOverrideTextActive: "var(--color-primary-100, #E0FAFF)",
+              colorOverrideBorderDefault: "var(--color-primary-300ds, #88D2E3)",
+              colorOverrideBorderHover: "var(--color-primary-200, #A3EEFF)",
+              colorOverrideBorderActive: "var(--color-primary-100, #E0FAFF)",
+              iconVisible: false,
+              textValue: "Preview as Guest",
+              destination: "page-sectionOneStart",
+            },
+          ],
+        },
+        {
+          id: "page-submissions-overview",
+          navTitle: "null",
+          keywords: "introduction",
+          authors: "EddieB",
+          lastUpdated: "whocares",
+          pageBackgroundColor: "#F4FBFC",
+          hasVariables: false,
+          hasLock: false,
+
+
+          pageItems: [
+
+            {
+              renderOrder: 1,
+              componentType: "submissions-overview",
+            },
+
+
+          ],
+        },
+        {
+          id: "page-submission-review",
+          navTitle: "null",
+          keywords: "introduction",
+          authors: "EddieB",
+          lastUpdated: "whocares",
+          pageBackgroundColor: "#F4FBFC",
+          hasVariables: false,
+          hasLock: false,
+
+
+          pageItems: [
+
+            {
+              renderOrder: 1,
+              componentType: "submission-review",
+            },
+
+
+          ],
+        },
+        {
           id: "page-newAccountCreation",
           navTitle: "Intake Start",
           keywords: "introduction",
@@ -127,7 +275,7 @@ export const en_intakeQuestions_Book: BookObject = {
             },
 
             {
-              componentType: "new-account",
+              componentType: "full-account-creation",
               destination: "page-sectionOneStart",
             },
           ],
@@ -380,12 +528,18 @@ export const en_intakeQuestions_Book: BookObject = {
               modalItems: [
                 {
                   componentType: "text",
-                  textValue: "Create an account to save and continue",
+                  textValue: "Provide an email to save and continue",
+                  textType: "h2",
+                  textAlignment: "left",
+                  colorText: "var(--color-primary-300, #60D6ED)",
                 },
                 {
                   componentType: "text",
                   textValue:
                     "We're excited to connect! To continue, we need a way to contact you.",
+                  textType: "bodyText",
+                  textAlignment: "left",
+                  colorText: "var(--color-neutral-200, #DEE4E5)",
                 },
                 {
                   componentType: "partial-account-creation",
@@ -464,7 +618,8 @@ export const en_intakeQuestions_Book: BookObject = {
               componentType: "button-item-list",
               selectMultiple: false,
               buttonItemsList: ["Yes", "No"],
-              writeToAddress: "questionID",
+
+              writeToAddress: "search_for",
               questionID: "search_for",
             },
             {
@@ -477,7 +632,11 @@ export const en_intakeQuestions_Book: BookObject = {
               textValueNoneSelected: "Select an Option",
               destinationNoneSelected: "null",
               textValueSomethingSelected: "Next question!",
+              dataToWriteNothingSelected: "No",
+              dataToWriteSomethingSelected: "Yes",
               destinationSomethingSelected: "page-next",
+              readFromAddress: ["search_for"],
+              questionID: "search_for",
             },
             {
               // Image
@@ -659,7 +818,7 @@ export const en_intakeQuestions_Book: BookObject = {
               renderOrder: 1,
               componentType: "text",
               textValue:
-                "Describe your idea. How would it work? What would it do?",
+                "Describe your invention or solution. How would it work? What would it do?",
               textType: "h2",
               colorText:
                 "var(--color-accent-primary-bold-800-default, #00677E)",
@@ -700,7 +859,7 @@ export const en_intakeQuestions_Book: BookObject = {
               // Page Title
               renderOrder: 1,
               componentType: "text",
-              textValue: "What is the working name you want to call this by?",
+              textValue: "What should we call your solution?",
               textType: "h2",
               colorText:
                 "var(--color-accent-primary-bold-800-default, #00677E)",
@@ -848,7 +1007,8 @@ export const en_intakeQuestions_Book: BookObject = {
                 "An educational or training approach",
                 "Not sure / doesn't fit neatly into these",
               ],
-              questionID: "solution-category",
+              questionID: "solution_category",
+              writeToAddress: "solution_category",
             },
             {
               // Button
@@ -861,6 +1021,9 @@ export const en_intakeQuestions_Book: BookObject = {
               destinationNoneSelected: "null",
               textValueSomethingSelected: "Next question!",
               destination: "page-next",
+              destinationSomethingSelected: "page-next",
+              readFromAddress: ["solution_category"],
+              questionID: "solution_category"
             },
           ],
 
@@ -1054,7 +1217,8 @@ export const en_intakeQuestions_Book: BookObject = {
                 "I have a concept but nothing built",
                 "I've just started thinking about it",
               ],
-              questionID: "built-tested",
+              questionID: "built_tested",
+              writeToAddress: "built_tested"
             },
             {
               // Button
@@ -1067,6 +1231,9 @@ export const en_intakeQuestions_Book: BookObject = {
               destinationNoneSelected: "null",
               textValueSomethingSelected: "Next question!",
               destination: "page-next",
+              destinationSomethingSelected: "page-next",
+              readFromAddress: ["built_tested"],
+              questionID: "built_tested"
             },
           ],
         },
@@ -1086,7 +1253,7 @@ export const en_intakeQuestions_Book: BookObject = {
               renderOrder: 1,
               componentType: "text",
               textValue:
-                "What is stopping you from bringing your idea to life on your own?",
+                "What barriers rae preventing you from bringing your solution to life on your own?",
               textType: "h2",
               colorText:
                 "var(--color-accent-primary-bold-800-default, #00677E)",
@@ -1145,7 +1312,8 @@ export const en_intakeQuestions_Book: BookObject = {
                 "A mix of both",
                 "Haven't worked on it much yet",
               ],
-              questionID: "time-worked",
+              questionID: "time_worked",
+              writeToAddress: "time_worked"
             },
             {
               // Button
@@ -1158,6 +1326,9 @@ export const en_intakeQuestions_Book: BookObject = {
               destinationNoneSelected: "null",
               textValueSomethingSelected: "Next question!",
               destination: "page-next",
+              readFromAddress: ["time_worked"],
+              questionID: "time_worked",
+              destinationSomethingSelected: "page-next",
             },
           ],
         },
@@ -1235,6 +1406,7 @@ export const en_intakeQuestions_Book: BookObject = {
                 "I'm not sure yet",
               ],
               questionID: "how_involved",
+              writeToAddress: "how_involved"
             },
             {
               // Button
@@ -1246,26 +1418,31 @@ export const en_intakeQuestions_Book: BookObject = {
               textValueNoneSelected: "Select an Option",
               destinationNoneSelected: "null",
               textValueSomethingSelected: "Next question!",
-              destination: "modal-isAccountFinishedCheckpoint",
+              destination: "page-account-checker",
+              destinationSomethingSelected: "page-account-checker",
+              readFromAddress: ["how_involved"],
+              questionID: "how_involved"
+            },
+          ],
+        },
+        {
+          id: "page-account-checker",
+          navTitle: "null",
+          keywords: "introduction",
+          authors: "Eddie",
+          lastUpdated: "12092024",
+          pageBackgroundColor: "var(--color-surface-default, #F4FBFC)",
+          hasVariables: false,
+          hasLock: false,
+
+          pageItems: [
+            {
+              // Page Title   
+              componentType: "account-checker",
             },
           ],
 
-          modalObjects: [
-            {
-              modalID: "modal-isAccountFinishedCheckpoint",
-              modalType: "sheet",
-              modalItems: [
-                {
-                  componentType: "text",
-                  textValue: "Congrats",
-                },
-                {
-                  componentType: "account-checker",
-                  destination: "",
-                },
-              ],
-            },
-          ],
+
         },
       ],
     },
@@ -1316,7 +1493,7 @@ export const en_intakeQuestions_Book: BookObject = {
             },
 
             {
-              componentType: "new-account",
+              componentType: "full-account-creation",
               destination: "page-submissionReview",
             },
           ],

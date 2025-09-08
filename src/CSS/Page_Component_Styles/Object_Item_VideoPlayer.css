@@ -1,0 +1,26 @@
+.video-player-holder {
+    height: 100dvh;
+    width: auto;
+
+    position: fixed;
+    inset: 0;
+
+    overflow: visible;
+    margin-left: -36px;
+    margin-right: -36px;
+    z-index: 3;
+
+}
+
+.video-player {
+    height: 100dvh;
+    width: 100dvw;
+    position: fixed;
+    inset: 0;
+    left: 50%;
+    object-fit: cover;
+    /* scales nicely */
+    transform: translateX(-50%);
+    /* shift left by half width */
+    z-index: 3;
+}

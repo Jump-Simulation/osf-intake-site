@@ -8,6 +8,8 @@ import openEye from "../../assets/eye-open-show.png";
 import closedEye from "../../assets/eye-closed-hidden.png";
 import errorIcon from "../../assets/alert-error-icon.png";
 
+import { useAppContext } from "../../App";
+
 interface AuthRegisterProps {
   givenDestination: string;
   givenGoToDestination(givenString: string): void;
@@ -17,9 +19,13 @@ export default function AuthRegister({
   givenDestination,
   givenGoToDestination,
 }: AuthRegisterProps) {
+
+  const context = useAppContext();
+
+
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  /*  const [password, setPassword] = useState("");
+   const [confirmPassword, setConfirmPassword] = useState(""); */
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [role, setRole] = useState("");
@@ -32,8 +38,8 @@ export default function AuthRegister({
 
   const resetForm = () => {
     setEmail("");
-    setPassword("");
-    setConfirmPassword("");
+    /*  setPassword("");
+     setConfirmPassword(""); */
     setFirstName("");
     setLastName("");
     setRole("");
@@ -45,13 +51,24 @@ export default function AuthRegister({
   const [attemptedSubmit, setAttemptedSubmit] = useState(false);
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const isEmailValid = emailRegex.test(email);
-  const isPasswordValid = password.length >= 6;
-  const isConfirmPasswordValid = confirmPassword.length >= 6;
+  /*   const isPasswordValid = password.length >= 6;
+    const isConfirmPasswordValid = confirmPassword.length >= 6; */
   const isFirstNameValid = firstName.length >= 1;
   const isLastNameValid = lastName.length >= 1;
   const isJobValid = role.length >= 1;
   const isLocationValid = location.length >= 1;
   const isExperienceValid = experience.length >= 1;
+
+
+  const generateRandomPassword = (length: number) => {
+    const characters =
+      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    let result = "";
+    for (let i = 0; i < length; i++) {
+      result += characters.charAt(Math.floor(Math.random() * characters.length));
+    }
+    return result;
+  };
 
   const handleRegister = async (): Promise<boolean> => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -59,37 +76,41 @@ export default function AuthRegister({
       setStatus("Please enter a valid email address.");
       return false;
     }
-    if (password.length < 6) {
-      setStatus("Password must be at least 6 characters.");
-      return false;
-    }
-    if (password !== confirmPassword) {
-      setStatus("Passwords do not match.");
-      return false;
-    }
+    /*     if (password.length < 6) {
+          setStatus("Password must be at least 6 characters.");
+          return false;
+        }
+        if (password !== confirmPassword) {
+          setStatus("Passwords do not match.");
+          return false;
+        } */
 
     try {
       const userCred = await createUserWithEmailAndPassword(
         auth,
         email,
-        password
+        generateRandomPassword(18)
       );
-      const submission = userCred.user.uid;
-      const emailKey = email;
+
+      const emailKey = email.split("@")[0];
 
       /*    localStorage.setItem("submissionId", submission); */
 
-      await setDoc(doc(firestore, "users", emailKey), {
-        submission,
-        firstName,
-        lastName,
-        email,
-        role,
-        location,
-        experience,
-        createdAt: new Date(),
+      await setDoc(doc(firestore, "Users", emailKey), {
+
+        firstName: firstName,
+        lastName: lastName,
+        cred: email,
+        role: role,
+        localtion: location,
+        experience: experience,
+        dateCreated: new Date(),
+        Submissions: "",
       });
 
+
+
+      context.localCurrentEmail = email;
       setStatus("Account created!");
       resetForm();
       return true;
@@ -119,10 +140,10 @@ export default function AuthRegister({
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             className={`auth-input ${attemptedSubmit && !isEmailValid
-                ? "invalid-input"
-                : isEmailValid
-                  ? "valid-input"
-                  : ""
+              ? "invalid-input"
+              : isEmailValid
+                ? "valid-input"
+                : ""
               }`}
           />
           <div className="errorMessage">
@@ -135,7 +156,7 @@ export default function AuthRegister({
         </div>
       </div>
 
-      <div className="auth-field">
+      {/*   <div className="auth-field">
         <div className="auth-label-wrapper">
           <label className="auth-label">Password</label>
           {attemptedSubmit && !isPasswordValid && (
@@ -206,7 +227,7 @@ export default function AuthRegister({
             </div>
           )}
         </div>
-      </div>
+      </div> */}
 
       <div className="auth-field">
         <div className="auth-label-wrapper">
@@ -219,10 +240,10 @@ export default function AuthRegister({
           value={firstName}
           onChange={(e) => setFirstName(e.target.value)}
           className={`auth-input ${attemptedSubmit && !isFirstNameValid
-              ? "invalid-input"
-              : isFirstNameValid
-                ? "valid-input"
-                : ""
+            ? "invalid-input"
+            : isFirstNameValid
+              ? "valid-input"
+              : ""
             }`}
         />
         <div className="errorMessage">
@@ -245,10 +266,10 @@ export default function AuthRegister({
           value={lastName}
           onChange={(e) => setLastName(e.target.value)}
           className={`auth-input ${attemptedSubmit && !isLastNameValid
-              ? "invalid-input"
-              : isLastNameValid
-                ? "valid-input"
-                : ""
+            ? "invalid-input"
+            : isLastNameValid
+              ? "valid-input"
+              : ""
             }`}
         />
         <div className="errorMessage">
@@ -271,10 +292,10 @@ export default function AuthRegister({
           value={role}
           onChange={(e) => setRole(e.target.value)}
           className={`auth-input ${attemptedSubmit && !isJobValid
-              ? "invalid-input"
-              : isJobValid
-                ? "valid-input"
-                : ""
+            ? "invalid-input"
+            : isJobValid
+              ? "valid-input"
+              : ""
             }`}
         />
         <div className="errorMessage">
@@ -297,10 +318,10 @@ export default function AuthRegister({
           value={location}
           onChange={(e) => setLocation(e.target.value)}
           className={`auth-input ${attemptedSubmit && !isLocationValid
-              ? "invalid-input"
-              : isLocationValid
-                ? "valid-input"
-                : ""
+            ? "invalid-input"
+            : isLocationValid
+              ? "valid-input"
+              : ""
             }`}
         />
         <div className="errorMessage">
@@ -323,10 +344,10 @@ export default function AuthRegister({
           value={experience}
           onChange={(e) => setExperience(e.target.value)}
           className={`auth-input ${attemptedSubmit && !isExperienceValid
-              ? "invalid-input"
-              : isExperienceValid
-                ? "valid-input"
-                : ""
+            ? "invalid-input"
+            : isExperienceValid
+              ? "valid-input"
+              : ""
             }`}
         />
         <div className="errorMessage">
