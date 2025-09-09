@@ -1,0 +1,50 @@
+.submission-review-child-holder {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    gap: 12px;
+    /*    margin-left: 10px;
+    margin-right: 10px; */
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 100%;
+}
+
+.submission-review-child-question-title {
+    color: var(--color-primary-interact-bold-default, #00677E);
+    /* H4: Button */
+    font-family: var(--font-family-h4, "Avenir Next");
+    font-size: var(--font-size-header-h4, 20px);
+    font-style: normal;
+    font-weight: var(--font-weight-header-h4, 600);
+    line-height: var(--font-line-height-header-h4, 28px);
+    /* 140% */
+    letter-spacing: var(--font-letter-spacing-default, 0.2px);
+}
+
+.submission-review-child-question-answer-holder {
+    display: flex;
+    padding: var(--spacing-lg, 16px) var(--spacing-xl, 20px);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-lg, 16px);
+    align-self: stretch;
+    border-radius: 16px;
+    border: 1px solid var(--color-outline-variant, #BFC8CA);
+    background: var(--color-surface-container-lowest, #FFF);
+    height: 100%;
+    min-height: 300px;
+}
+
+.submission-review-child-question-answer {
+    color: var(--color-on-secondary-container, #121F00);
+    /* Body */
+    font-family: var(--font-family-body, Avenir);
+    font-size: var(--font-size-body-default, 16px);
+    font-style: normal;
+    font-weight: var(--font-weight-body-default, 400);
+    line-height: var(--font-line-height-body-default, 24px);
+    /* 150% */
+    letter-spacing: var(--font-letter-spacing-default, 0.2px);
+}

@@ -1230,8 +1230,8 @@ export const en_intakeQuestions_Book: BookObject = {
               textValueNoneSelected: "Select an Option",
               destinationNoneSelected: "null",
               textValueSomethingSelected: "Next question!",
-              destination: "page-next",
-              destinationSomethingSelected: "page-next",
+              destination: "page-whatIsStoppingYou",
+              destinationSomethingSelected: "page-whatIsStoppingYou",
               readFromAddress: ["built_tested"],
               questionID: "built_tested"
             },
@@ -1253,7 +1253,7 @@ export const en_intakeQuestions_Book: BookObject = {
               renderOrder: 1,
               componentType: "text",
               textValue:
-                "What barriers rae preventing you from bringing your solution to life on your own?",
+                "What barriers are preventing you from bringing your solution to life on your own?",
               textType: "h2",
               colorText:
                 "var(--color-accent-primary-bold-800-default, #00677E)",

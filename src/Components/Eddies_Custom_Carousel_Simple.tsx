@@ -26,6 +26,8 @@ export default function Eddies_Custom_Carousel_Simple(props: CarouselProps) {
         beforeChange: (current: number, next: number) => setCurrentIndex(next),
         swipe: false,        // disable touch swipe
         draggable: false,    // disable mouse drag
+        /* centerMode: true,  */         // 👈 enables padding around slides
+        centerPadding: "20px",     // 👈 adjust spacing (px or %)
 
     };
 
@@ -50,7 +52,17 @@ export default function Eddies_Custom_Carousel_Simple(props: CarouselProps) {
     const sliderRef = useRef<Slider>(null);
     const childrenArray = React.Children.toArray(props.children);
     return (
-        <div style={{ width: "80%", margin: "0 auto" }}>
+        <div style={{ width: "100%", margin: "0 auto" }}>
+
+            <div style={{ display: "flex", justifyContent: "center", marginBottom: 10 }}>
+                <div onClick={() => sliderRef.current?.slickPrev()} style={{ cursor: "pointer" }}>
+                    <img src="/assets/circle-arrow-left.png"></img>
+                </div>
+                <div onClick={() => sliderRef.current?.slickNext()} style={{ cursor: "pointer" }}>
+                    <img src="/assets/circle-arrow-right.png"></img>
+                </div>
+            </div>
+
             {/* Dots above arrows */}
             <div style={{
                 display: "flex",
@@ -72,22 +84,6 @@ export default function Eddies_Custom_Carousel_Simple(props: CarouselProps) {
                     />
                 ))}
             </div>
-            <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 10 }}>
-                <div onClick={() => sliderRef.current?.slickPrev()} style={{ cursor: "pointer" }}>
-                    <FontAwesomeIcon
-                        icon={faCircleArrowLeft as IconProp}
-                        color="rgb(102,12,110)"
-                        style={{ fontSize: "5cqh" }}
-                    />
-                </div>
-                <div onClick={() => sliderRef.current?.slickNext()} style={{ cursor: "pointer" }}>
-                    <FontAwesomeIcon
-                        icon={faCircleArrowRight as IconProp}
-                        color="rgb(102,12,110)"
-                        style={{ fontSize: "5cqh" }}
-                    />
-                </div>
-            </div>
             <Slider ref={sliderRef} {...settings}>
                 {React.Children.map(props.children, (child) => (
                     <div
@@ -96,6 +92,7 @@ export default function Eddies_Custom_Carousel_Simple(props: CarouselProps) {
                             justifyContent: "center",
                             alignItems: "center",
                             height: "100%", // ensures slide fills slider height
+
                         }}
                     >
                         {child}

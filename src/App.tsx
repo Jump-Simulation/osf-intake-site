@@ -179,6 +179,101 @@ var projectHealthReportString: string = "";
 const originalLog = console.log;
 const originalError = console.error;
 
+
+interface QuestionDefinition {
+  id: string;
+  text: string;    // display text
+  page: string;
+}
+
+const questionLedger: QuestionDefinition[] = [
+
+  {
+    id: "q_problem_solving",
+    text: "What problem are you trying to solve?",
+    page: "page-problemSolve"
+  },
+
+  {
+    id: "q_personally_connect",
+    text: "How do you personally connect to this problem?",
+    page: "page-problemConnect"
+  },
+
+  {
+    id: "q_when_where",
+    text: "When and where does the problem occur?",
+    page: "page-whenWhere"
+  },
+
+  {
+    id: "q_search_for",
+    text: "Have you searched for other solutions for this problem before?",
+    page: "page-otherSolutions"
+  },
+
+  {
+    id: "q_describe_idea",
+    text: "Describe your invention or solution. How would it work? What would it do?",
+    page: "page-describeYourIdea"
+  },
+
+  {
+    id: "q_idea_name",
+    text: "What should we call your solution?",
+    page: "page-whatIsTheName"
+  },
+
+  {
+    id: "q_user_invention",
+    text: "Who do you think will be the user of your invention?",
+    page: "page-userOfTheInvention"
+  },
+
+  {
+    id: "q_buyer_invention",
+    text: "Who do you think would buy your invention?",
+    page: "page-whoWouldBuy"
+  },
+
+  {
+    id: "q_solution_category",
+    text: "What category does your solution best fit into?",
+    page: "page-categoryOfInvention"
+  },
+
+  {
+    id: "q_built_tested",
+    text: "Have you already built or tested anything related to your solution?",
+    page: "page-haveYouTested"
+  },
+
+  {
+    id: "q_barriers_to_begin",
+    text: "What barriers are preventing you from bringing your solution to life on your own?",
+    page: "page-whatIsStoppingYou"
+  },
+
+  {
+    id: "q_time_worked",
+    text: "Have you worked on this idea during your personal time, work time, or both?",
+    page: "page-haveYouWorkedOnThis"
+  },
+
+  {
+    id: "q_year_from_now",
+    text: "Where do you see your invention a year from now?",
+    page: "page-whereDoYouSeeInAYear"
+  },
+
+  {
+    id: "q_how_involved",
+    text: "How involved do you want to be in developing this idea further?",
+    page: "page-howInvolvedDoYouWantToBe"
+  },
+]
+
+
 export type AppContextType = {
   SendErrorReport(
     givenErrorType: string,
@@ -197,9 +292,12 @@ export type AppContextType = {
   SetLocalCurrentSubmissionSelected(givenSubId: string): void;
   GoToDestination(givenString: string): void;
   state_currentlySelectedSubmission: SubmissionObject;
-  stateSet_currentlySelectedSubmission(givenObject: SubmissionObject)
+  stateSet_currentlySelectedSubmission(givenObject: SubmissionObject);
+  questionLedger: QuestionDefinition[];
+  SetLocalCurrentSubmissionId(givenString: string);
 
 };
+
 export const AppContext = createContext<AppContextType | undefined>(undefined);
 export const useAppContext = () => {
   const context = useContext(AppContext);
@@ -434,7 +532,7 @@ async function CreateFirebaseUser(
   }
 }
 
-async function FetchSubmissions() {
+/* async function FetchSubmissions() {
   try {
     // 1️⃣ Extract docID (before "@")
     var docID: string = "";
@@ -507,8 +605,7 @@ async function FetchSubmissions() {
 
       // 8️⃣ Store in local map
       localCurrentSubmissions[submissionId] = {
-        submissionMeta: submissionData, // top-level submission doc
-        submissionData: subData, // submission-data doc
+        subData, // submission-data doc
       };
     }
 
@@ -519,6 +616,72 @@ async function FetchSubmissions() {
     return {};
   }
 }
+ */
+
+async function FetchSubmissions() {
+  try {
+    if (!localCurrentEmail || localCurrentEmail === "null") return {};
+
+    const docID = localCurrentEmail.split("@")[0];
+    const userRef = doc(firestore, "Users", docID);
+    const userSnap = await getDoc(userRef);
+
+    if (!userSnap.exists()) return {};
+    const userData = userSnap.data();
+    if (!userData || userData.cred !== localCurrentEmail) return {};
+
+    const submissionsString: string = userData.Submissions;
+    if (!submissionsString) return {};
+
+    const submissionIds = submissionsString.split("||").slice(1);
+
+    for (const submissionId of submissionIds) {
+      if (!submissionId) continue;
+
+      const submissionRef = doc(firestore, "Submissions", submissionId);
+      const submissionSnap = await getDoc(submissionRef);
+      if (!submissionSnap.exists()) continue;
+
+      const submissionDataDoc = doc(firestore, "Submissions", submissionId, "submission-data", "submission-data");
+      const submissionDataSnap = await getDoc(submissionDataDoc);
+      if (!submissionDataSnap.exists()) continue;
+
+
+      const submissionData = submissionDataSnap.data();
+
+      // Build a flattened SubmissionObject
+      const submissionObject: SubmissionObject = {
+        dateCreated: submissionData.dateCreated,
+        dateUpdated: submissionData.dateUpdated,
+        deviceId: submissionData.deviceId || "",
+        submissionId: submissionId,
+        email: submissionData.email || "",
+        q_problem_solving: submissionData.q_problem_solving || "",
+        q_solution_category: submissionData.q_solution_category || "",
+        q_built_tested: submissionData.q_built_tested || "",
+        q_time_worked: submissionData.q_time_worked || "",
+        q_year_from_now: submissionData.q_year_from_now || "",
+        q_how_involved: submissionData.q_how_involved || "",
+        q_personally_connect: submissionData.q_personally_connect || "",
+        q_when_where: submissionData.q_when_where || "",
+        q_search_for: submissionData.q_search_for || "",
+        q_describe_idea: submissionData.q_describe_idea || "",
+        q_idea_name: submissionData.q_idea_name || "",
+        q_user_invention: submissionData.q_user_invention || "",
+        q_buyer_invention: submissionData.q_buyer_invention || "",
+      };
+
+      localCurrentSubmissions[submissionId] = submissionObject;
+    }
+
+    console.log("Fetched submissions:", localCurrentSubmissions);
+    return localCurrentSubmissions;
+  } catch (error) {
+    console.error("Error fetching submissions:", error);
+    return {};
+  }
+}
+
 
 function App() {
   const [appPaddingStyle, setAppPaddingStyle] = useState("");
@@ -568,7 +731,9 @@ function App() {
     localCurrentSubmissionSelected: localCurrentSubmissionSelected,
     SetLocalCurrentSubmissionSelected: SetLocalCurrentSubmissionSelected,
     state_currentlySelectedSubmission: state_currentlySelectedSubmission,
-    stateSet_currentlySelectedSubmission: stateSet_currentlySelectedSubmission
+    stateSet_currentlySelectedSubmission: stateSet_currentlySelectedSubmission,
+    questionLedger: questionLedger,
+    SetLocalCurrentSubmissionId: SetLocalCurrentSubmissionId,
 
 
   };
@@ -645,22 +810,22 @@ function App() {
 
   function SetLocalCurrentSubmissionSelected(givenSubId: string) {
     const found = Object.values(localCurrentSubmissions).find((sub: any, idx) => {
-      // console.log(`Index ${idx}:`, sub);
-      // console.log("Comparing:", sub.submissionData?.submissionId, "with", givenSubId);
+      console.log(`Index ${idx}:`, sub);
+      console.log("Comparing:", sub.submissionId, "with", givenSubId);
 
 
-      return sub.submissionData?.submissionId === givenSubId;
+      return sub.submissionId === givenSubId;
     });
 
+    console.log("found", found)
+
     if (found) {
-      // console.log("WE FOUND THE SUBMISSION OBJECT WITH ID: " + givenSubId)
-      // Make sure it's a SubmissionObject
       localCurrentSubmissionSelected = {
         ...found,
-        // Fallbacks in case any field is missing
+        // Provide fallbacks for timestamps if missing
         dateCreated: found.dateCreated || Timestamp.fromDate(new Date("1940-01-01T00:00:00Z")),
         dateUpdated: found.dateUpdated || Timestamp.fromDate(new Date("1940-01-01T00:00:00Z")),
-      };
+      } as SubmissionObject;
 
       stateSet_currentlySelectedSubmission(found.submissionData)
       console.log("Selected submission:", localCurrentSubmissionSelected);
@@ -4256,6 +4421,7 @@ function App() {
         if (!docSnap.exists()) {
 
           if (localCurrentSubmissionId === "null") {
+            console.log("localCurrentSubmissionId WAS NULL!!")
             localCurrentSubmissionId = submissionId;
           }
 
@@ -4283,22 +4449,41 @@ function App() {
           // 🔹 Update only inside the nested /submission-data/submission-data doc
           const subDataRef = doc(firestore, "Submissions", localCurrentSubmissionId, "submission-data", "submission-data");
 
-
+          console.log("We are logged in AND submission exists, about to update existing submission!!")
           if (fieldNameActual in localSubmissionObject) {
             (localSubmissionObject as any)[fieldNameActual] = givenData;
 
           }
+
+          var subToSend = localCurrentSubmissions[localCurrentSubmissionId];
+          localSubmissionObject = localCurrentSubmissions[localCurrentSubmissionId];
+          if (subToSend === undefined || !subToSend) {
+
+            console.log("SUB TO SEND WAS NULL!")
+            console.log("localCurrentSubmissionId: " + localCurrentSubmissionId)
+            console.log("localCurrentSubmissions: ", localCurrentSubmissions)
+          }
+
+
           localSubmissionObject.email = localCurrentEmail;
 
+          /*     await setDoc(subDataRef, {
+                [fieldNameActual]: givenData,
+                email: localCurrentEmail,
+                submissionId: localCurrentSubmissionId,
+                dateUpdated: serverTimestamp(),
+              }, { merge: true }); */
+
           await setDoc(subDataRef, {
+            ...subToSend,
             [fieldNameActual]: givenData,
-            email: localCurrentEmail,
-            submissionId: localCurrentSubmissionId,
+
             dateUpdated: serverTimestamp(),
           }, { merge: true });
 
           console.log("localSubmissionObject updated at field: " + fieldNameActual + " with data: " + givenData);
           console.log("current localSubmissionObject: ");
+          localCurrentSubmissions[localCurrentSubmissionId][fieldNameActual] = givenData;
           console.log(localSubmissionObject);
         }
       } catch (error) {
