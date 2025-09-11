@@ -134,6 +134,12 @@ export default function AuthLogin(props: AuthLoginProps) {
         console.log("OTP email sent successfully!");
     }
 
+    function TestAccountCompletion() {
+        setLoading(false); // ⬅️ stop loading
+        props.given_SetCurrentEmail("edouardkb@gmail.com");
+        props.given_GoToDestination("page-account-checker")
+    }
+
     useEffect(() => {
         const checkSignIn = async () => {
             if (isSignInWithEmailLink(auth, window.location.href)) {
@@ -229,6 +235,10 @@ export default function AuthLogin(props: AuthLoginProps) {
             </button>
 
             <button onClick={() => { sneakyEntrance() }}>sneaky entrance</button>
+
+
+
+            <button onClick={() => { TestAccountCompletion() }}>Test Account Completion</button>
 
             {status && <p className="mt-4 text-white">{status}</p>}
         </div>

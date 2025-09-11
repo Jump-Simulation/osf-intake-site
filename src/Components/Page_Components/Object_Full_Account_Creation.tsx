@@ -4,9 +4,8 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
 import "../../CSS/Page_Component_Styles/Object_Full_Account_Creation.css";
 import "../../CSS/Page_Component_Styles/Object_Login.css";
-import openEye from "../../assets/eye-open-show.png";
-import closedEye from "../../assets/eye-closed-hidden.png";
 import errorIcon from "../../assets/alert-error-icon.png";
+
 
 import { useAppContext } from "../../App";
 
@@ -24,8 +23,6 @@ export default function AuthRegister({
 
 
   const [email, setEmail] = useState("");
-  /*  const [password, setPassword] = useState("");
-   const [confirmPassword, setConfirmPassword] = useState(""); */
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [role, setRole] = useState("");
@@ -33,13 +30,8 @@ export default function AuthRegister({
   const [experience, setExperience] = useState("");
   const [status, setStatus] = useState("");
 
-  const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-
   const resetForm = () => {
     setEmail("");
-    /*  setPassword("");
-     setConfirmPassword(""); */
     setFirstName("");
     setLastName("");
     setRole("");
@@ -51,8 +43,6 @@ export default function AuthRegister({
   const [attemptedSubmit, setAttemptedSubmit] = useState(false);
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const isEmailValid = emailRegex.test(email);
-  /*   const isPasswordValid = password.length >= 6;
-    const isConfirmPasswordValid = confirmPassword.length >= 6; */
   const isFirstNameValid = firstName.length >= 1;
   const isLastNameValid = lastName.length >= 1;
   const isJobValid = role.length >= 1;
@@ -76,14 +66,6 @@ export default function AuthRegister({
       setStatus("Please enter a valid email address.");
       return false;
     }
-    /*     if (password.length < 6) {
-          setStatus("Password must be at least 6 characters.");
-          return false;
-        }
-        if (password !== confirmPassword) {
-          setStatus("Passwords do not match.");
-          return false;
-        } */
 
     try {
       const userCred = await createUserWithEmailAndPassword(
@@ -156,78 +138,7 @@ export default function AuthRegister({
         </div>
       </div>
 
-      {/*   <div className="auth-field">
-        <div className="auth-label-wrapper">
-          <label className="auth-label">Password</label>
-          {attemptedSubmit && !isPasswordValid && (
-            <img src={errorIcon} alt="Error" className="inline-error-icon" />
-          )}
-        </div>
-        <div className="password-wrapper">
-          <input
-            type={showPassword ? "text" : "password"}
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className={`auth-input ${attemptedSubmit && !isPasswordValid
-                ? "invalid-input"
-                : isPasswordValid
-                  ? "valid-input"
-                  : ""
-              }`}
-            style={{ paddingRight: "400px" }}
-          />
 
-          <img
-            src={showPassword ? closedEye : openEye}
-            alt="Toggle password visibility"
-            className="toggle-password"
-            onClick={() => setShowPassword((prev) => !prev)}
-          />
-        </div>
-        <div className="errorMessage">
-          {attemptedSubmit && !isPasswordValid && (
-            <div className="invalid-single-input-feeback-message">
-              *Please enter a valid password
-            </div>
-          )}
-        </div>
-      </div>
-
-      <div className="auth-field">
-        <div className="auth-label-wrapper">
-          <label className="auth-label">Confirm Password</label>
-          {attemptedSubmit && !isConfirmPasswordValid && (
-            <img src={errorIcon} alt="Error" className="inline-error-icon" />
-          )}
-        </div>
-        <div className="password-wrapper">
-          <input
-            type={showConfirmPassword ? "text" : "password"}
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            className={`auth-input ${attemptedSubmit && !isConfirmPasswordValid
-                ? "invalid-input"
-                : isConfirmPasswordValid
-                  ? "valid-input"
-                  : ""
-              }`}
-            style={{ paddingRight: "400px" }}
-          />
-          <img
-            src={showPassword ? closedEye : openEye}
-            alt="Toggle confirm password visibility"
-            className="toggle-password"
-            onClick={() => setShowConfirmPassword((prev) => !prev)}
-          />
-        </div>
-        <div className="errorMessage">
-          {attemptedSubmit && !isConfirmPasswordValid && (
-            <div className="invalid-single-input-feeback-message">
-              *Please enter a valid password
-            </div>
-          )}
-        </div>
-      </div> */}
 
       <div className="auth-field">
         <div className="auth-label-wrapper">

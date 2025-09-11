@@ -1,0 +1,26 @@
+.account-complete-checker-title {
+    color: #60D6ED;
+    /* H2: Header */
+    font-family: var(--font-family-h2, "Avenir Next");
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 36px;
+    /* 128.571% */
+    letter-spacing: 0.2px;
+    text-align: left;
+}
+
+.account-complete-checker-subtitle {
+    color: #DEE4E5;
+    /* Body */
+    font-family: var(--font-family-body, Avenir);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    /* 150% */
+    letter-spacing: 0.2px;
+    text-align: left;
+
+}

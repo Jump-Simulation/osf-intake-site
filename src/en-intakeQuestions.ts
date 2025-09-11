@@ -1425,25 +1425,7 @@ export const en_intakeQuestions_Book: BookObject = {
             },
           ],
         },
-        {
-          id: "page-account-checker",
-          navTitle: "null",
-          keywords: "introduction",
-          authors: "Eddie",
-          lastUpdated: "12092024",
-          pageBackgroundColor: "var(--color-surface-default, #F4FBFC)",
-          hasVariables: false,
-          hasLock: false,
 
-          pageItems: [
-            {
-              // Page Title   
-              componentType: "account-checker",
-            },
-          ],
-
-
-        },
       ],
     },
 
@@ -1466,37 +1448,23 @@ export const en_intakeQuestions_Book: BookObject = {
       pageObjects: [
 
         {
-          id: "page-finishYourAccount",
-          navTitle: "Finish your account",
-          keywords: "account, finish, clarify, information",
-          authors: "Maddox Binder",
-          lastUpdated: "08012025",
-          pageBackgroundColor: "var(--color-neutral-1150, #0E1416)",
+          id: "page-account-checker",
+          navTitle: "null",
+          keywords: "introduction",
+          authors: "Eddie",
+          lastUpdated: "12092024",
+          pageBackgroundColor: "#0E1416",
           hasVariables: false,
           hasLock: false,
 
           pageItems: [
             {
-              componentType: "text",
-              textValue: "Finish your Inventor Account",
-              textType: "h2",
-              textAlignment: "left",
-              colorText: "var(--color-primary-300, #60D6ED)",
-            },
-            {
-              componentType: "text",
-              textValue:
-                "We’re excited to meet you! To finish your submission, please tell us a little about yourself so we know who we’re talking to.",
-              textType: "bodyText",
-              textAlignment: "left",
-              colorText: "var(--color-neutral-200, #DEE4E5)",
-            },
-
-            {
-              componentType: "full-account-creation",
-              destination: "page-submissionReview",
+              // Page Title   
+              componentType: "account-checker",
             },
           ],
+
+
         },
       ],
     },
@@ -1520,19 +1488,45 @@ export const en_intakeQuestions_Book: BookObject = {
       pageObjects: [
 
         {
-          id: "page-submissionReview",
+          id: "page-submission-submit",
           navTitle: "null",
           keywords: "introduction",
-          authors: "Kyle Formella, Maddox Binder",
-          lastUpdated: "12092024",
-          pageBackgroundColor: "var(--color-surface-default, #F4FBFC)",
+          authors: "EddieB",
+          lastUpdated: "whocares",
+          pageBackgroundColor: "#F4FBFC",
           hasVariables: false,
           hasLock: false,
 
+
           pageItems: [
+
             {
-              componentType: "review",
+              renderOrder: 1,
+              componentType: "submission-submit",
             },
+
+
+          ],
+        },
+        {
+          id: "page-submission-successful",
+          navTitle: "null",
+          keywords: "introduction",
+          authors: "EddieB",
+          lastUpdated: "whocares",
+          pageBackgroundColor: "#0E1416",
+          hasVariables: false,
+          hasLock: false,
+
+
+          pageItems: [
+
+            {
+              renderOrder: 1,
+              componentType: "submission-successful",
+            },
+
+
           ],
         },
       ],

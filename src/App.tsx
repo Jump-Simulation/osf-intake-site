@@ -155,6 +155,7 @@ import Object_Item_ConfirmOTP from "./Components/Page_Components/Object_Item_Con
 import Holder_Objects_SubmissionOverview from "./Components/Page_Components/Holder_Objects_SubmissionOverview";
 import Object_Item_VideoPlayer from "./Components/Page_Components/Object_Item_VideoPlayer";
 import Object_Item_SubmissionReviewActual from "./Components/Page_Components/Object_Item_SubmissionReviewActual";
+import Object_Page_SubmissionSubmit from "./Components/Page_Components/Object_Page_SubmissionSubmit";
 
 var osfProceduresPath: string = `organizations/osf_st-francis/procedures`;
 
@@ -2228,7 +2229,7 @@ function App() {
     if (goToDestinationLockNumber < 1) {
       /*    goToDestinationLockNumber += 1; */
       shouldRenderToF = true;
-      //  console.log("GoToDestination called with givenDestination: " + givenDestinationName)
+      console.log("GoToDestination called with givenDestination: " + givenDestinationName)
       localPageLockNumber = 1; //TODO, MIGHT HAVE TO GO ELSEWHERE, CHECK SCRUBBED IN
       setPageLockNumber(1); //TODO, MIGHT HAVE TO GO ELSEWHERE, CHECK SCRUBBED IN
       localModalID = "none"; //TODO, MIGHT HAVE TO GO ELSEWHERE, CHECK SCRUBBED IN
@@ -3066,9 +3067,16 @@ function App() {
           given_WriteSubmissionToFirestore={WriteSubmissionToFirestore}
         />
       );
-    } else if (pageItem.componentType === "review") {
+    } /* else if (pageItem.componentType === "review") {
       tempPageItem = <Object_Review_Screen />;
-    } else if (pageItem.componentType === "login") {
+    }  */
+
+    else if (pageItem.componentType === "submission-submit") {
+
+      tempPageItem = (<Object_Page_SubmissionSubmit />);
+    }
+
+    else if (pageItem.componentType === "login") {
       tempPageItem = (
         <Object_Login_2
           given_GoToDestination={GoToDestination}
@@ -3085,15 +3093,7 @@ function App() {
     } else if (pageItem.componentType === "account-checker") {
       tempPageItem = (
         <Object_Item_AccountCompleteChecker
-          given_AccountComplete={false}
-          given_AccountCompleteText={""}
-          given_AccountCompleteDestination={"page-submissionReview"}
-          given_AccountIncompleteText={""}
-          given_AccountIncompleteDestination={"page-finishYourAccount"}
-          given_GoToDestination={GoToDestination}
-          givenGlobal_isMobile={""}
-          givenGlobal_CurrentCarouselIndex={0}
-          givenGlobal_PreviousCarouselIndex={0}
+
         />
       );
     } else if (pageItem.componentType === "confirm-otp") {
@@ -4429,9 +4429,18 @@ function App() {
           await setDoc(submissionRef, {
             DeviceID: deviceId,
             SubmissionID: localCurrentSubmissionId,
+            DateCreated: serverTimestamp()
           });
           localSubmissionObject.deviceId = deviceId;
           localSubmissionObject.email = localCurrentEmail;
+
+
+          const tempLocalSubmissionObject: SubmissionObject = {
+            ...localSubmissionObject,
+            [fieldNameActual]: givenData,
+            email: localCurrentEmail,
+            submissionId: localCurrentSubmissionId,
+          };
 
           // 🔹 Write all fields in the nested /submission-data/submission-data doc
           const subDataRef = doc(firestore, "Submissions", localCurrentSubmissionId, "submission-data", "submission-data");
@@ -4444,7 +4453,12 @@ function App() {
             dateUpdated: serverTimestamp(),
           });
 
-          console.log("New submission created!");
+          console.log("New submission created: " + localCurrentSubmissionId);
+
+          localCurrentSubmissions[localCurrentSubmissionId] = tempLocalSubmissionObject;
+          SetLocalCurrentSubmissionSelected(localCurrentSubmissionId)
+
+
         } else {
           // 🔹 Update only inside the nested /submission-data/submission-data doc
           const subDataRef = doc(firestore, "Submissions", localCurrentSubmissionId, "submission-data", "submission-data");
@@ -4467,13 +4481,6 @@ function App() {
 
           localSubmissionObject.email = localCurrentEmail;
 
-          /*     await setDoc(subDataRef, {
-                [fieldNameActual]: givenData,
-                email: localCurrentEmail,
-                submissionId: localCurrentSubmissionId,
-                dateUpdated: serverTimestamp(),
-              }, { merge: true }); */
-
           await setDoc(subDataRef, {
             ...subToSend,
             [fieldNameActual]: givenData,
@@ -4485,6 +4492,8 @@ function App() {
           console.log("current localSubmissionObject: ");
           localCurrentSubmissions[localCurrentSubmissionId][fieldNameActual] = givenData;
           console.log(localSubmissionObject);
+
+          SetLocalCurrentSubmissionSelected(localCurrentSubmissionId)
         }
       } catch (error) {
         console.error("Error writing submission:", error);
