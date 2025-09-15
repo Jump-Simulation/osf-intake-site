@@ -39,14 +39,14 @@ export default function Object_Item_CompleteSubmissionOverview(props: Object_Ite
                 }}>Submitted: </strong>
                 {props.given_submissionSubmitDate}
             </div>
-            <button
+            {/*   <button
                 onClick={() => { }}
                 className={`normal-button-secondary${context.isMobileString}`
                 }
 
             >
                 Review
-            </button>
+            </button> */}
 
         </div >
 

@@ -234,12 +234,12 @@ export default function AuthLogin(props: AuthLoginProps) {
                 )}
             </button>
 
-            <button onClick={() => { sneakyEntrance() }}>sneaky entrance</button>
+            {/*      <button onClick={() => { sneakyEntrance() }}>sneaky entrance</button>
 
 
 
             <button onClick={() => { TestAccountCompletion() }}>Test Account Completion</button>
-
+ */}
             {status && <p className="mt-4 text-white">{status}</p>}
         </div>
     );

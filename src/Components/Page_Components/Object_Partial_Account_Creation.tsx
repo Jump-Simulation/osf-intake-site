@@ -54,6 +54,7 @@ export default function AuthPartialRegister(props: AuthPartialRegisterProps) {
 
   function handleQuit() {
     props.givenGoToDestination("page-intro");
+    props.given_SetCurrentEmail("null");
   }
 
   return (

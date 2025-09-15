@@ -167,8 +167,8 @@ export default function Object_Item_ConfirmOTP(
             >
                 Confirm
             </button>
-            <button onClick={() => { sneakyContinue() }}>sneaky continue</button>
-
+            {/*       <button onClick={() => { sneakyContinue() }}>sneaky continue</button>
+ */}
             {status && <p style={{ color: "white" }}>{status}</p>}
         </div>
     );

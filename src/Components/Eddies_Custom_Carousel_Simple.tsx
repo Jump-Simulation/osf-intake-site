@@ -12,6 +12,7 @@ interface CarouselProps {
     children: ReactNode;
     slidesToShow?: number;
     infinite?: boolean;
+    onIndexChange?: (newIndex: number) => void; // add this
 }
 
 export default function Eddies_Custom_Carousel_Simple(props: CarouselProps) {
@@ -28,6 +29,7 @@ export default function Eddies_Custom_Carousel_Simple(props: CarouselProps) {
         draggable: false,    // disable mouse drag
         /* centerMode: true,  */         // 👈 enables padding around slides
         centerPadding: "20px",     // 👈 adjust spacing (px or %)
+
 
     };
 

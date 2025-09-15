@@ -70,20 +70,7 @@ export default function Object_Input_Text(props: Object_Input_Text_Props) {
     return () => logedIn();
   }, []);
 
-  /*   useEffect(() => {
-      const saved = localStorage.getItem(`answer-q-${questionID}`);
-      if (saved) setInputValue(saved);
-    }, [questionID]); */
 
-  /*   useEffect(() => {
-      const key = `answer-q-${questionID}`;
-      if (context.state_QuestionAnswer_Map.has(key)) {
-        const answerFromMap = context.state_Get_QuestionAnswer_Map_Value(key);
-        if (answerFromMap !== undefined) {
-          setInputValue(answerFromMap);
-        }
-      }
-    }, [context.state_QuestionAnswer_Map, questionID]); */
 
   useEffect(() => {
     const fetchAnswerFromFirestore = async () => {

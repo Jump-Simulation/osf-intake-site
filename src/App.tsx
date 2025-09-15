@@ -1,5 +1,5 @@
 var projectName: string = "OSF-Intake-Submission";
-var BuildVersion: string = `0.78`;
+var BuildVersion: string = `1.14`;
 var debugMode = true;
 
 import {
@@ -157,6 +157,9 @@ import Object_Item_VideoPlayer from "./Components/Page_Components/Object_Item_Vi
 import Object_Item_SubmissionReviewActual from "./Components/Page_Components/Object_Item_SubmissionReviewActual";
 import Object_Page_SubmissionSubmit from "./Components/Page_Components/Object_Page_SubmissionSubmit";
 
+
+
+
 var osfProceduresPath: string = `organizations/osf_st-francis/procedures`;
 
 var firestoreAnalyticsPath: string = `analytics/organizations/osf-sfmc/procedures`;
@@ -296,6 +299,7 @@ export type AppContextType = {
   stateSet_currentlySelectedSubmission(givenObject: SubmissionObject);
   questionLedger: QuestionDefinition[];
   SetLocalCurrentSubmissionId(givenString: string);
+  WriteSubmissionToFirestore(givenFieldName: string, givenData: string)
 
 };
 
@@ -311,6 +315,10 @@ export const useAppContext = () => {
 const isMobile = /Android|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
   navigator.userAgent
 );
+
+
+
+
 
 //var localCurrentBookData: PageObject[] = en_fh_openScheduling;
 
@@ -735,6 +743,7 @@ function App() {
     stateSet_currentlySelectedSubmission: stateSet_currentlySelectedSubmission,
     questionLedger: questionLedger,
     SetLocalCurrentSubmissionId: SetLocalCurrentSubmissionId,
+    WriteSubmissionToFirestore: WriteSubmissionToFirestore,
 
 
   };
@@ -4582,7 +4591,7 @@ function App() {
   function renderLandingScreen() {
     return (
       <div className={appPaddingStyle}>
-        <div style={{ color: "red", position: "absolute", bottom: "5%", right: "5%", zIndex: "99999999999" }}>{BuildVersion}</div>
+
         {state_currentProgressbarVisible ? (
           <div
             style={{
@@ -4905,6 +4914,7 @@ function App() {
   return (
     <AppContext.Provider value={contextValue}>
       {renderScreen()}
+      <div style={{ color: "rgb(0,0,0,0.2)", position: "absolute", bottom: "2%", left: "2%", zIndex: "99999999999" }}>{BuildVersion}</div>
     </AppContext.Provider>
   );
 }
