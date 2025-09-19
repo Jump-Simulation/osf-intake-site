@@ -1522,12 +1522,41 @@ export const en_intakeQuestions_Book: BookObject = {
           pageItems: [
 
             {
+              // Page Title
               renderOrder: 1,
-              componentType: "submission-successful",
+              componentType: "text",
+              textValue:
+                "Submission Successful!",
+              textType: "h2",
+              colorText:
+                "#60D6ED",
+              textAlignment: "left",
             },
 
 
+
           ],
+          BottomButtonHolderObject: {
+            bottomButtonHolderID: "Complete Bottom Buttons",
+            bottomButtonHolderItems: [
+              {
+                componentType: "text",
+                textValue:
+                  " ",
+                textType: "bodyText",
+                textAlignment: "right",
+                colorText: "var(--color-neutral-200, #DEE4E5)",
+                iconVisible: true,
+                iconFileName: "object-button-normal.png",
+                textIconGoToDestination: "page-login",
+                textWidthOverride: "75%",
+                iconSizeOverridePixels: "75px",
+                iconHorizontalPlacement: "left",
+                width: "100%"
+
+              },
+            ],
+          },
         },
       ],
     },

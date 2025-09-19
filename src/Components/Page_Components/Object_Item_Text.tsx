@@ -38,6 +38,8 @@ interface Object_Item_Text_Props extends BaseCarouselChildProps {
     givenLockNumber?: number;
     givenCheckTagsToDetermineRendering?(givenTagInclusion: string, givenTagExclusion: string,
         givenObjectName: string, givenObjectType: string, givenObjectExcludeByDefault: boolean): boolean;
+
+    given_OverrideWidth?: string;
 }
 
 
@@ -146,7 +148,7 @@ export default function Object_Item_Text(props: Object_Item_Text_Props) {
 
             <div style={{
                 color: props.givenTextColor === "" ? "" : props.givenTextColor
-                , textAlign: `${props.givenTextAlignment}`
+                , textAlign: `${props.givenTextAlignment}`, width: props.given_OverrideWidth
             }}
                 data-shouldrender={shouldRender}
                 className={`textObject-h1${props.givenGlobal_isMobile}`}>
@@ -176,7 +178,7 @@ export default function Object_Item_Text(props: Object_Item_Text_Props) {
 
             <div style={{
                 color: props.givenTextColor === "" ? "" : props.givenTextColor
-                , textAlign: `${props.givenTextAlignment}`
+                , textAlign: `${props.givenTextAlignment}`, width: props.given_OverrideWidth
             }}
                 data-shouldrender={shouldRender}
                 className={`textObject-h2${props.givenGlobal_isMobile}`}>
@@ -203,7 +205,7 @@ export default function Object_Item_Text(props: Object_Item_Text_Props) {
 
             <div style={{
                 color: props.givenTextColor === "" ? "" : props.givenTextColor
-                , textAlign: `${props.givenTextAlignment}`
+                , textAlign: `${props.givenTextAlignment}`, width: props.given_OverrideWidth
             }}
                 data-shouldrender={shouldRender}
                 className={`textObject-h2-navigation${props.givenGlobal_isMobile}`}>
@@ -230,7 +232,7 @@ export default function Object_Item_Text(props: Object_Item_Text_Props) {
 
             <div style={{
                 color: props.givenTextColor === "" ? "" : props.givenTextColor
-                , textAlign: `${props.givenTextAlignment}`
+                , textAlign: `${props.givenTextAlignment}`, width: props.given_OverrideWidth
             }}
                 data-shouldrender={shouldRender}
                 className={`textObject-h2-confirm${props.givenGlobal_isMobile}`}>
@@ -257,7 +259,7 @@ export default function Object_Item_Text(props: Object_Item_Text_Props) {
 
             <div style={{
                 color: props.givenTextColor === "" ? "" : props.givenTextColor
-                , textAlign: `${props.givenTextAlignment}`
+                , textAlign: `${props.givenTextAlignment}`, width: props.given_OverrideWidth
             }}
                 data-shouldrender={shouldRender}
                 className={`textObject-h3${props.givenGlobal_isMobile}`}>
@@ -285,7 +287,7 @@ export default function Object_Item_Text(props: Object_Item_Text_Props) {
 
             <div style={{
                 color: props.givenTextColor === "" ? "" : props.givenTextColor
-                , textAlign: `${props.givenTextAlignment}`
+                , textAlign: `${props.givenTextAlignment}`, width: props.given_OverrideWidth
             }}
                 data-shouldrender={shouldRender}
                 className={`textObject-h4${props.givenGlobal_isMobile}`}>
@@ -314,7 +316,7 @@ export default function Object_Item_Text(props: Object_Item_Text_Props) {
 
             <div style={{
                 color: props.givenTextColor === "" ? "" : props.givenTextColor
-                , textAlign: `${props.givenTextAlignment}`
+                , textAlign: `${props.givenTextAlignment}`, width: props.given_OverrideWidth
             }}
                 data-shouldrender={shouldRender}
                 className={`textObject-buttonText${props.givenGlobal_isMobile} object-text-megaParent${props.givenGlobal_isMobile}`}>
@@ -340,11 +342,13 @@ export default function Object_Item_Text(props: Object_Item_Text_Props) {
     function RenderBodyTextType() {
         return (
 
-            <div style={{
-                color: props.givenTextColor === "" ? "" : props.givenTextColor
-                , textAlign: `${props.givenTextAlignment}`
-            }}
+            <div
+                style={{
+                    color: props.givenTextColor === "" ? "" : props.givenTextColor
+                    , textAlign: `${props.givenTextAlignment}`, width: props.given_OverrideWidth
+                }}
                 data-shouldrender={shouldRender}
+
                 className={`textObject-body${props.givenGlobal_isMobile} object-text-megaParent${props.givenGlobal_isMobile}`}>
 
                 <span style={{ display: 'inline-block', verticalAlign: 'middle' }}>
@@ -374,7 +378,7 @@ export default function Object_Item_Text(props: Object_Item_Text_Props) {
             <>
                 <div style={{
                     color: props.givenTextColor === "" ? "" : props.givenTextColor
-                    , textAlign: `${props.givenTextAlignment}`
+                    , textAlign: `${props.givenTextAlignment}`, width: props.given_OverrideWidth
                 }}
                     data-shouldrender={shouldRender}
                     className={`textObject-caption${props.givenGlobal_isMobile} object-text-megaParent${props.givenGlobal_isMobile}`}>

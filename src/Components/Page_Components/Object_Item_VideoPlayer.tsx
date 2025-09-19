@@ -87,16 +87,25 @@ export default function Object_Item_VideoPlayer(props: Object_Item_VideoPlayer) 
     return (<div className="video-player-holder">
 
         <video
+
             ref={videoRef}
             src={`/assets/${props.given_VideoSource}`}
             controls={false}
             autoPlay
             muted
             playsInline
+
             loop
+
             onTimeUpdate={handleTimeUpdate}
+
             className="video-player"
-            onPlay={() => { context.GoToDestination("modal-000") }}
+
+            onPlay={() => {
+                context.GoToDestination("modal-000")
+
+
+            }}
 
 
         />

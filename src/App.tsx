@@ -1,5 +1,5 @@
 var projectName: string = "OSF-Intake-Submission";
-var BuildVersion: string = `1.14`;
+var BuildVersion: string = `1.16`;
 var debugMode = true;
 
 import {
