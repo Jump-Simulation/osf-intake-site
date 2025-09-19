@@ -27,7 +27,7 @@
 
     height: 100%;
     top: 0;
-    left: 0;
+    right: 0;
 
 
     display: flex;
@@ -36,12 +36,12 @@
     flex-direction: column;
     width: 75%;
     z-index: 9999;
-    box-shadow: 75px 0px 25px 25px rgba(0, 0, 0, 0.15);
+    box-shadow: -75px 0px 25px 25px rgba(0, 0, 0, 0.15);
     /*   clip-path: inset(0 0 0 -2000px); */
 
-    border-top-right-radius: var(--spacing-xl-desktop);
+    border-top-left-radius: var(--spacing-xl-desktop);
     /* Top left rounded corner */
-    border-bottom-right-radius: var(--spacing-xl-desktop);
+    border-bottom-left-radius: var(--spacing-xl-desktop);
     /* Bottom left rounded corner */
     padding: var(--spacing-2xl-desktop, 28px) var(--spacing-md-desktop, 16px);
 

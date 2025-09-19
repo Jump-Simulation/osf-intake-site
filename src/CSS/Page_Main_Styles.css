@@ -63,17 +63,5 @@
 
     z-index: 101;
 
-    /*  background: linear-gradient(180deg, rgba(248, 249, 251, 0.80) 34.72%, rgba(248, 249, 251, 0.35) 78%, rgba(248, 249, 251, 0.00) 100%);
-
-    backdrop-filter: blur(1px); */
-    /*  background: linear-gradient(180deg,
-            rgba(248, 249, 251, 0.80) 25.07%,
-            rgba(248, 249, 251, 0.50) 66.37%,
-            rgba(248, 249, 251, 0.20) 89.44%,
-            rgba(248, 249, 251, 0.00) 100%); */
-    /*     max-width: 500px !important; */
-    /*    
-    
-    /*  box-shadow: 0 0 15px rgba(0, 0, 0, 0.75);
-    clip-path: inset(0 0 -15px 0); */
+  
 }

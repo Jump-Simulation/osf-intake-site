@@ -4,7 +4,7 @@ import "../../CSS/Page_Component_Styles/Object_Item_NavOptionsMenu.css"
 import "../../CSS/Page_Component_Styles/Object_Item_NavMenu.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
-import { faBug, faChevronRight, faCross, faGear, faGlobe, faHouse, faPersonThroughWindow, faPhone, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faBug, faChevronRight, faShieldHalved, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { faFlag as faFlagRegular } from "@fortawesome/free-regular-svg-icons";
 
 import { faLightbulb as faLightbulbRegular } from "@fortawesome/free-regular-svg-icons";
@@ -14,6 +14,8 @@ import Object_Item_Text from "./Object_Item_Text";
 
 import { BaseCarouselChildProps } from "../../BaseProps";
 import { useState } from "react";
+
+import { useAppContext } from "../../App";
 
 
 
@@ -48,7 +50,7 @@ interface Object_Item_NavOptionsMenu_Props extends BaseCarouselChildProps {
 
 export default function Object_Item_NavOptionsMenu(props: Object_Item_NavOptionsMenu_Props) {
 
-
+const context = useAppContext();
 
 
     function RenderHideDebugButton() {
@@ -164,7 +166,7 @@ export default function Object_Item_NavOptionsMenu(props: Object_Item_NavOptions
                             </div>
  */}
 
-                            <div className={`nav-options-menu-optionButton-parent${props.givenGlobal_isMobile}`}
+                          {/*   <div className={`nav-options-menu-optionButton-parent${props.givenGlobal_isMobile}`}
                                 onClick={() => {
                                     props.givenGoToDestination(props.givenScheduleNowDestination),
                                         props.givenSetShowNavOptionsMenu(false);
@@ -172,10 +174,7 @@ export default function Object_Item_NavOptionsMenu(props: Object_Item_NavOptions
                                 <div className={`nav-options-menu-optionButton-child${props.givenGlobal_isMobile}`}>
 
 
-                                    {/*  <FontAwesomeIcon
-                                        icon={faChevronRight}
-                                        className={`nav-options-menu-optionButton-icon${props.givenGlobal_isMobile}`}
-                                    /> */}
+                                 
                                     <img
 
                                         src={`/assets/schedule-now-icon-fh.png`}
@@ -192,7 +191,7 @@ export default function Object_Item_NavOptionsMenu(props: Object_Item_NavOptions
                                     className={`nav-options-menu-optionButton-icon${props.givenGlobal_isMobile}`}
                                 />
 
-                            </div>
+                            </div> */}
 
 
                             <div className={`nav-options-menu-optionButton-parent${props.givenGlobal_isMobile}`}
@@ -285,6 +284,28 @@ export default function Object_Item_NavOptionsMenu(props: Object_Item_NavOptions
                                     className={`nav-options-menu-optionButton-icon${props.givenGlobal_isMobile}`}
                                 />
                             </div> */}
+
+                            <div className={`nav-options-menu-optionButton-parent${props.givenGlobal_isMobile}`}
+                                onClick={() => {
+                                    /* props.givenSetShowOptOutModal(true), */
+                                    context.GoToDestination("page-privacy-policy");
+                                        props.givenSetShowNavOptionsMenu(false);
+                                }}>
+                                <div className={`nav-options-menu-optionButton-child${props.givenGlobal_isMobile}`}>
+
+                                    <img
+                                        src={`/assets/opt-out-icon-myvisit.png`}
+                                        className={`nav-options-menu-optionButton-icon${props.givenGlobal_isMobile}`}
+                                    >
+                                    </img>
+                                    Privacy Policy
+
+                                </div>
+                                <FontAwesomeIcon
+                                    icon={faChevronRight}
+                                    className={`nav-options-menu-optionButton-icon${props.givenGlobal_isMobile}`}
+                                />
+                            </div>
 
                             {RenderHideDebugButton()}
 

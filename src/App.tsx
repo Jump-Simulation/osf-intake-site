@@ -4631,11 +4631,7 @@ function App() {
           ></div>
         )}
         <div id="navBar" className="nav-bar">
-          <Object_Button_NavOptions
-            isMobile={isMobileString}
-            givenShowNavOptionsMenu={showNavOptionsMenu}
-            givenSetShowNavOptionsMenu={setShowNavOptionsMenu}
-          />
+         
           {/*    <Object_Item_NavBarSpacer /> */}
           <Object_Button_ArrowUp
             isMobile={isMobileString}
@@ -4646,7 +4642,12 @@ function App() {
             givenGlobal_PreviousCarouselIndex={previousCarouselIndex}
             givenGlobal_LockNumber={pageLockNumber}
           />
-          {state_currentShouldShowTopRightButton ? (
+           <Object_Button_NavOptions
+            isMobile={isMobileString}
+            givenShowNavOptionsMenu={showNavOptionsMenu}
+            givenSetShowNavOptionsMenu={setShowNavOptionsMenu}
+          />
+       {/*    {state_currentShouldShowTopRightButton ? (
             <Object_Button_ScheduleButton
               isMobile={isMobileString}
               givenDestination={localCurrentTopRightButtonDestination}
@@ -4660,7 +4661,7 @@ function App() {
               isMobile={isMobileString}
               givenSetShowNavMenu={setShowNavMenu}
             />
-          )}
+          )} */}
         </div>
         <Object_Item_NavOptionsMenu
           givenShowNavOptionsMenu={showNavOptionsMenu}

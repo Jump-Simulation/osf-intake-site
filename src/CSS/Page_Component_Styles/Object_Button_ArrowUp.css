@@ -14,7 +14,7 @@
     bottom: 0; */
 
     display: flex;
-    justify-content: space-evenly;
+    justify-content: start;
     align-items: center;
     flex-direction: row;
     /* padding: 1%; */
@@ -30,10 +30,11 @@
     height: 60px;
     width: 60px;
     display: flex;
-    justify-content: center;
+    justify-content: end;
     align-items: center;
     flex-direction: column;
     pointer-events: none;
+    rotate: -90deg;
 
     /*    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15); */
 
